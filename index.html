@@ -502,14 +502,6 @@ body.anim .eco.in .node{opacity:1;transform:none;}
 .rail button:hover .lbl,.rail button:focus-visible .lbl{opacity:1;}
 @media(max-width:1200px){.rail{display:none;}}
 
-/* ---------- next-section chip ---------- */
-.nextlink{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid var(--rule);padding:clamp(16px,2vw,26px) clamp(16px,2vw,28px);text-decoration:none;background:var(--paper);transition:background .2s;}
-.nextlink:hover,.nextlink:focus-visible{background:var(--aqua-2);}
-.nextlink .nn{display:flex;flex-direction:column;gap:5px;}
-.nextlink .nt{font-size:clamp(18px,2vw,26px);line-height:1.05;letter-spacing:-.022em;font-weight:700;}
-.nextlink .na{width:34px;height:34px;flex:none;color:var(--teal-deep);transition:transform .25s cubic-bezier(.2,.7,.3,1);}
-.nextlink:hover .na{transform:translateX(8px);}
-
 /* ---------- quick jump (Cmd+K) ---------- */
 .qj{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-start;justify-content:center;padding:12vh 18px 18px;}
 .qj[hidden]{display:none;}
@@ -1698,16 +1690,6 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   });
   document.body.appendChild(rail);
 
-  /* next-section chips */
-  pairs.forEach(function(p,i){
-    var nxt=pairs[i+1]; if(!nxt||!p.host) return;
-    var w=p.host.querySelector('.wrap'); if(!w) return;
-    var a=document.createElement('a'); a.className='nextlink'; a.href='#'+nxt.id;
-    a.innerHTML='<span class="nn"><span class="lab">Next'+(nxt.num?' &#183; '+nxt.num:'')+'</span><span class="nt">'+nxt.title+'</span></span>'+
-      '<svg class="na" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 17h13M18.5 11.5 24 17l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
-    w.appendChild(a);
-  });
-
   /* back to top */
   var foot=document.querySelector('.foot');
   if(foot){ var bt=document.createElement('a'); bt.href='#'; bt.className='small'; bt.textContent='Back to top \u2191';
@@ -2087,7 +2069,7 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
     });
   });
   /* single-block reveals */
-  ['.sec-head','.figure','.argue','.peopleimg','.eco','.close-grid','.contact-cols','.nextlink'].forEach(function(sel){
+  ['.sec-head','.figure','.argue','.peopleimg','.eco','.close-grid','.contact-cols'].forEach(function(sel){
     [].slice.call(document.querySelectorAll(sel)).forEach(function(el){
       if(!el.classList.contains('rvp')) el.classList.add('rv');
     });
