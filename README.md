@@ -29,6 +29,31 @@ inside a circle.
 Tokens live in `:root` at the top of `index.html`. Light is the default; the
 dark palette is a token swap on `:root[data-deck="dark"]`.
 
+## Chapter 11: what the page does that the PDF cannot
+
+The first ten chapters translate the deck. The eleventh is the reason it is a
+page at all: it computes rather than claims.
+
+- **Launch math** — sliders for run size, retail price and sell-through resolve
+  into real ship dates, an 8-12 week head start and the revenue window inside it.
+  Arithmetic on the buyer's own numbers, not a forecast.
+- **The live catalog** — the 851-SKU Webflow export, aggregated client-side into
+  31 categories with format mix and sample SKUs. The market-category grid in
+  chapter 05 deep-links into it. This is the "700+" claim made inspectable.
+- **Path finder** — four questions resolve Stock vs Stock+ with the reasoning
+  shown, then compose a `mailto:` to Holly carrying the numbers, the category
+  and the answers. Nothing sends until the reader presses send.
+
+Regenerate the embedded catalog after a Webflow re-export:
+
+```bash
+python3 tools/aggregate_catalog.py ../Claude/data/fame-stock-catalog.csv
+```
+
+Paste the JSON over the `var CATALOG=` literal in `index.html`. Only aggregates
+ship: category counts, format mix and five sample names each. No pricing, no
+customer data.
+
 ## Interactions
 
 - Sticky topbar and section rail with live scroll tracking, plus a top progress bar.

@@ -349,6 +349,66 @@ ul.plain li b{color:var(--ink);}
 .disc .rendertag{position:absolute;right:var(--gut);bottom:14px;z-index:3;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
 
 .footnote{margin-top:clamp(16px,1.8vw,24px);padding-top:12px;border-top:1px solid var(--rule-soft);font-size:11px;line-height:1.5;color:var(--muted);max-width:100ch;}
+/* ---------- plan: calculator / explorer / path ---------- */
+.calc{display:grid;grid-template-columns:1fr 1.35fr;border:1px solid var(--rule);}
+@media(max-width:900px){.calc{grid-template-columns:1fr;}}
+.calc>*{min-width:0;}
+.calc-in{padding:clamp(18px,2vw,28px);border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:clamp(16px,1.8vw,24px);}
+@media(max-width:900px){.calc-in{border-right:0;border-bottom:1px solid var(--rule);}}
+.calc-out{padding:clamp(18px,2vw,28px);display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px);background:var(--aqua-3);}
+.ctl{display:flex;flex-direction:column;gap:8px;}
+.ctl .cv{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+.ctl .cv b{font-size:clamp(17px,1.6vw,22px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.ctl input[type=range]{width:100%;accent-color:var(--teal-band);height:22px;margin:0;}
+.costats{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);background:var(--paper);}
+.costats>div{padding:clamp(12px,1.4vw,18px);border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:3px;min-width:0;}
+.costats>div:nth-child(2n){border-right:0;}
+.costats>div:nth-last-child(-n+2){border-bottom:0;}
+.costats .big{font-size:clamp(19px,2vw,30px);font-weight:700;letter-spacing:-.025em;font-variant-numeric:tabular-nums;line-height:1.05;overflow-wrap:anywhere;}
+.tl{border:1px solid var(--rule);background:var(--paper);padding:clamp(14px,1.6vw,20px);display:flex;flex-direction:column;gap:10px;}
+.tlbar{position:relative;height:34px;background:var(--panel);overflow:hidden;}
+.tlbar>span{position:absolute;top:0;bottom:0;}
+.tl-fame{background:var(--teal-band);}
+.tl-win{background:repeating-linear-gradient(-45deg,var(--aqua),var(--aqua) 6px,var(--aqua-2) 6px,var(--aqua-2) 12px);}
+.tl-norm{border-left:2px solid var(--warn);background:var(--warn-soft);}
+.tlx{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.06em;}
+.tlkey{display:flex;flex-wrap:wrap;gap:14px;font-size:11px;color:var(--ink-70);font-weight:600;}
+.tlkey i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;}
+/* catalog explorer */
+.cx{display:grid;grid-template-columns:.9fr 1.35fr;border:1px solid var(--rule);}
+@media(max-width:900px){.cx{grid-template-columns:1fr;}}
+.cx>*{min-width:0;}
+.cx-l{border-right:1px solid var(--rule);display:flex;flex-direction:column;}
+@media(max-width:900px){.cx-l{border-right:0;border-bottom:1px solid var(--rule);}}
+.cx-search{border:0;border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);font:inherit;font-size:14px;padding:13px 16px;outline:none;width:100%;}
+.cx-list{overflow-y:auto;max-height:432px;}
+.cx-it{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule-soft);padding:11px 16px;cursor:pointer;font:inherit;color:var(--ink);font-size:13.5px;font-weight:600;}
+.cx-it:hover{background:var(--aqua-2);}
+.cx-it.on{background:var(--aqua);}
+.cx-it .n{color:var(--teal-deep);font-variant-numeric:tabular-nums;font-weight:700;}
+.cx-d{padding:clamp(16px,1.9vw,26px);display:flex;flex-direction:column;gap:14px;background:var(--aqua-3);}
+.fbar{display:grid;grid-template-columns:88px 1fr 44px;gap:10px;align-items:center;font-size:12px;font-weight:700;}
+.fbar .tr{height:12px;background:var(--panel);position:relative;}
+.fbar .tr i{position:absolute;left:0;top:0;bottom:0;background:var(--teal-band);transition:width .5s cubic-bezier(.22,.85,.3,1);}
+.fbar .ct{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;}
+.cx-samps{display:flex;flex-direction:column;gap:6px;}
+.cx-samps span{font-size:12.5px;color:var(--ink-70);border-left:2px solid var(--teal);padding-left:9px;line-height:1.35;}
+/* path finder */
+.pf{border:1px solid var(--rule);display:grid;grid-template-columns:1.1fr 1fr;}
+@media(max-width:900px){.pf{grid-template-columns:1fr;}}
+.pf>*{min-width:0;}
+.pf-q{padding:clamp(18px,2vw,28px);border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px);}
+@media(max-width:900px){.pf-q{border-right:0;border-bottom:1px solid var(--rule);}}
+.seg{display:flex;border:1px solid var(--rule);}
+.seg button{flex:1;background:none;border:0;border-right:1px solid var(--rule-soft);font:inherit;font-size:12px;font-weight:600;line-height:1.3;padding:10px;cursor:pointer;color:var(--muted);transition:background .15s,color .15s;}
+.seg button:last-child{border-right:0;}
+.seg button[aria-pressed="true"]{background:var(--teal-band);color:#fff;}
+.pf-a{padding:clamp(18px,2vw,28px);background:var(--aqua-3);display:flex;flex-direction:column;gap:12px;}
+.pf-a .rec{font-size:clamp(26px,2.8vw,40px);font-weight:700;letter-spacing:-.03em;line-height:1;}
+.mailbtn{display:inline-flex;align-items:center;gap:10px;background:var(--teal-band);color:#fff;text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:13px 22px;border-radius:100px;align-self:flex-start;transition:background .2s;}
+.mailbtn:hover{background:var(--teal-deep);}
+.cats .cat{cursor:pointer;}
+
 /* ---------- motion & reveal system ---------- */
 body.anim .rv{opacity:0;transform:translateY(18px);transition:opacity .75s cubic-bezier(.22,.85,.3,1),transform .75s cubic-bezier(.22,.85,.3,1);}
 body.anim .rv.in{opacity:1;transform:none;}
@@ -456,6 +516,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   <a href="#supplements"><span class="n">08</span>Supplements</a>
   <a href="#retail"><span class="n">09</span>Retail</a>
   <a href="#team"><span class="n">10</span>The Team</a>
+  <a href="#plan"><span class="n">11</span>Plan</a>
   <a href="#contact">Contact</a>
 </div></nav>
 
@@ -1298,6 +1359,113 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
+<!-- ================= 11 PLAN ================= -->
+<section class="band" id="plan">
+  <div class="wrap band-in">
+    <div class="idx num">11</div>
+    <div>
+      <h2 class="h1">Plan Your Launch</h2>
+      <p class="sub">A deck can only claim. This page computes. Your launch math, the live catalog and the path that fits, worked out here rather than asserted.</p>
+    </div>
+    <svg class="sqc" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.4"/>
+      <rect x="28" y="28" width="44" height="44" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.4"/>
+      <path d="M50 28 V72 M28 50 H72" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="1.4"/>
+      <circle cx="39" cy="39" r="3.5" fill="rgba(255,255,255,.9)"/><circle cx="61" cy="61" r="3.5" fill="rgba(255,255,255,.9)"/>
+    </svg>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap stack">
+    <div class="sec-head">
+      <div><span class="lab">Your launch math</span><h2 class="h2">What does a 4-week platform mean in your numbers?</h2></div>
+      <p class="body">Set your run, your price and your expected sell-through. The calendar below is the same 4-week versus 12&#8211;16-week comparison from section 03, priced in your terms. Arithmetic, not a forecast.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-in">
+        <div class="ctl"><div class="cv"><span class="lab">First production run</span><b id="c-units-v">30,000 units</b></div>
+          <input type="range" id="c-units" min="5000" max="100000" step="5000" value="30000" aria-label="First production run in units"></div>
+        <div class="ctl"><div class="cv"><span class="lab">Retail price per unit</span><b id="c-price-v">$24.99</b></div>
+          <input type="range" id="c-price" min="9.99" max="79.99" step="5" value="24.99" aria-label="Retail price per unit"></div>
+        <div class="ctl"><div class="cv"><span class="lab">Expected weekly sell-through</span><b id="c-sell-v">2,500 units/wk</b></div>
+          <input type="range" id="c-sell" min="250" max="25000" step="250" value="2500" aria-label="Expected weekly sell-through in units"></div>
+        <p class="small" id="c-note">The 4-week enterprise program applies to orders of 30,000+ units. Smaller stock runs ship in days.</p>
+      </div>
+      <div class="calc-out">
+        <div class="costats">
+          <div><span class="lab">On shelf with F.A.M.E.</span><span class="big" id="o-fame">&#8211;</span><span class="small">4 weeks from today</span></div>
+          <div><span class="lab">Industry norm</span><span class="big" id="o-norm">&#8211;</span><span class="small">12&#8211;16 weeks, ASCM data</span></div>
+          <div><span class="lab">Your head start</span><span class="big">8&#8211;12 weeks</span><span class="small">selling before the norm arrives</span></div>
+          <div><span class="lab">Revenue window in the head start</span><span class="big" id="o-window">&#8211;</span><span class="small">your sell-through &#215; your price &#215; 8&#8211;12 wks</span></div>
+        </div>
+        <div class="tl">
+          <div class="tlbar">
+            <span class="tl-fame" style="left:0;width:25%"></span>
+            <span class="tl-win" style="left:25%;width:50%"></span>
+            <span class="tl-norm" style="left:75%;width:25%"></span>
+          </div>
+          <div class="tlx"><span>TODAY</span><span>WK 4</span><span>WK 8</span><span>WK 12</span><span>WK 16</span></div>
+          <div class="tlkey">
+            <span><i style="background:var(--teal-band)"></i>F.A.M.E. builds</span>
+            <span><i style="background:var(--aqua)"></i>You are selling</span>
+            <span><i style="background:var(--warn-soft);border-left:2px solid var(--warn)"></i>Industry norm arrives</span>
+          </div>
+        </div>
+        <p class="small">First-run retail value at your price: <b class="num" id="o-runval">&#8211;</b>. Estimates are yours; the calendar is ours.</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:clamp(10px,1.4vw,18px)">
+      <div><span class="lab">The catalog, live</span><h2 class="h2">Not a slide that says 700+. The export itself.</h2></div>
+      <p class="body">Aggregated client-side from the working product catalog, <span class="num" id="x-total"></span> SKUs as of <span id="x-asof"></span>. Pick a category; a SKU appears in every category it serves.</p>
+    </div>
+
+    <div class="statstrip" id="x-strip"></div>
+
+    <div class="cx">
+      <div class="cx-l">
+        <input class="cx-search" id="x-q" type="text" placeholder="Search categories or products&#8230;" aria-label="Search the catalog">
+        <div class="cx-list" id="x-list" role="listbox" aria-label="Catalog categories"></div>
+      </div>
+      <div class="cx-d">
+        <div><span class="lab" id="x-dk">Category</span><h3 class="h3" id="x-dn">&#8211;</h3></div>
+        <div id="x-bars"></div>
+        <div><span class="lab">Sample SKUs</span><div class="cx-samps" id="x-samps" style="margin-top:8px"></div></div>
+        <p class="small">Format is read from the product name; kits and unlabelled formats are grouped as other.</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:clamp(10px,1.4vw,18px)">
+      <div><span class="lab">Which path fits</span><h2 class="h2">Four answers. One recommendation.</h2></div>
+      <p class="body">The same logic our account team applies on a first call, run here. Take the result to Holly and the first meeting starts three steps ahead.</p>
+    </div>
+
+    <div class="pf">
+      <div class="pf-q" id="pf-q">
+        <div class="ctl"><span class="lab">The formula itself</span>
+          <div class="seg" data-q="ip"><button type="button" aria-pressed="true">A proven stock formula is fine</button><button type="button" aria-pressed="false">I want to own the formula</button></div></div>
+        <div class="ctl"><span class="lab">Customization</span>
+          <div class="seg" data-q="custom"><button type="button" aria-pressed="true">Brand &amp; label only</button><button type="button" aria-pressed="false">Adjust actives, dosage or flavor</button></div></div>
+        <div class="ctl"><span class="lab">Timeline pressure</span>
+          <div class="seg" data-q="speed"><button type="button" aria-pressed="true">Days: this quarter matters</button><button type="button" aria-pressed="false">A few weeks is fine</button></div></div>
+        <div class="ctl"><span class="lab">First run</span>
+          <div class="seg" data-q="volume"><button type="button" aria-pressed="true">Under 30,000 units</button><button type="button" aria-pressed="false">30,000+ units</button></div></div>
+      </div>
+      <div class="pf-a">
+        <span class="lab" id="pf-k">Recommended path</span>
+        <div class="rec" id="pf-rec">STOCK</div>
+        <p class="body" id="pf-why"></p>
+        <ul class="plain" id="pf-list"></ul>
+        <a class="mailbtn" id="pf-mail" href="#">Email this plan to Holly
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8.5 3 12.5 7 8.5 11" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        <p class="small">Opens a draft to holly@famehealthlabs.com with your numbers and answers filled in. Nothing is sent until you press send.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CONTACT ================= -->
 <section class="closehero">
   <img src="img/close-hero.jpg" alt="A person holding a softgel capsule">
@@ -1384,7 +1552,7 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
 /* ---------- deck navigation: scrollspy, dot rail, keyboard, quick jump ---------- */
 (function(){
-  var SUBS={thesis:'Problem & answer',ecosystem:'Five entities, one platform',wins:'Three ways to win',partnership:'Service model & ROI',labs:'Formats & categories',ingredients:'Sourcing & innovation',curi:'Testing & research',supplements:'Stock & Stock+',retail:'Channel proof',team:'People & community',contact:"Let's talk"};
+  var SUBS={thesis:'Problem & answer',ecosystem:'Five entities, one platform',wins:'Three ways to win',partnership:'Service model & ROI',labs:'Formats & categories',ingredients:'Sourcing & innovation',curi:'Testing & research',supplements:'Stock & Stock+',retail:'Channel proof',team:'People & community',plan:'Your math \u00b7 the live catalog \u00b7 your path',contact:"Let's talk"};
   var cells=document.getElementById('toccells');
   var links=[].slice.call(cells.querySelectorAll('a'));
   var pairs=links.map(function(a){
@@ -1562,6 +1730,140 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
     ['pointerdown','keydown'].forEach(function(ev){ ecoBox.addEventListener(ev,stopAuto,true); });
     document.getElementById('ecotabs').addEventListener('pointerdown',stopAuto,true);
   }
+})();
+
+
+/* ---------- plan: launch math, live catalog, path finder ---------- */
+(function(){
+  var CATALOG={"asOf":"August 2026","total":851,"diets":[["Non GMO",796],["Gluten Free",702],["Vegan",586],["No Artificial Flavors",312],["Sugar Free",132]],"cats":[{"n":"Vitamins & Multis","c":170,"f":{"Other":31,"Gummies":88,"Softgels":17,"Capsules":18,"Powders":7,"Liquids":9},"s":["1,000mcg (1MG) Folic Acid","1,000mcg Methyl Folate Gummies (as L-5-methyltetrahydrof","14 In 1 Alpha GPC Cognitive Nootropic Focus Formula","2 In 1 Support Vitamin D3 5,000 IU + K2 MK-7 100 mcg (Me","2 Pack Amazing Sugar Free Superfruits and Supergreens Gu"]},{"n":"Bone & Calcium","c":121,"f":{"Gummies":48,"Softgels":10,"Other":19,"Capsules":23,"Powders":17,"Liquids":4},"s":["1,000mcg Methyl Folate Gummies (as L-5-methyltetrahydrof","2 In 1 Support Vitamin D3 5,000 IU + K2 MK-7 100 mcg (Me","3 In 1 Gummy","3 Source Magnesium Complex Gummy","7 In 1 Herbal Heart Health Gummy"]},{"n":"Immune Support","c":113,"f":{"Gummies":67,"Other":20,"Powders":7,"Capsules":17,"Tablets":1,"Liquids":1},"s":["2 Pack Amazing Sugar Free Superfruits and Supergreens Gu","2 Pack Amazing Superfruits and Supergreens Gummies","3 In 1 Gummy","3 In 1 Gummy","3 In 1 Hair Gummy"]},{"n":"Kids","c":107,"f":{"Powders":1,"Other":13,"Gummies":89,"Liquids":4},"s":["Kid's 4+ Grass Fed Colostrum Powder Supplement","Kids 1,000mcg (1MG) Folic Acid","Kids 1,000mg*** Banaba Leaf Gummy","Kids 1,000mg*** Bitter Melon Gummy","Kids 1,000mg*** Chlorella & Spirulina Gummy"]},{"n":"Joint & Mobility","c":83,"f":{"Other":26,"Capsules":16,"Gummies":26,"Powders":10,"Softgels":2,"Liquids":3},"s":["10 In 1 Total Gut Health / Leaky Gut Support","7 In 1 Berberine HCl + Blend","9 In 1 Sinus & Lung Support","95% Turmeric + Ginger & Black Pepper Gummies","Advanced Gut Support Powder"]},{"n":"Stress & Anxiety","c":81,"f":{"Capsules":17,"Gummies":32,"Other":16,"Powders":11,"Liquids":5},"s":["1,200mg Premium Ashwagandha Veggie Capsules Per Serving ","2 In 1 Mushroom Focus Gummies","2,000mg*** Lemon Balm Gummy","200mg GABA Gummy","3 In 1 Herbal Complex"]},{"n":"Muscle & Sports","c":66,"f":{"Gummies":15,"Other":23,"Capsules":8,"Powders":20},"s":["1,000mg Creatine Monohydrate Per Gummy","1,000mg Creatine Monohydrate Per Gummy","1,000mg Creatine Monohydrate Per Gummy","1,250mg Creatine Monohydrate Per Sugar Free Gummy","1,250mg Creatine Monohydrate Per Sugar Free Gummy"]},{"n":"Weight Management","c":63,"f":{"Gummies":15,"Other":16,"Capsules":11,"Powders":19,"Softgels":1,"Liquids":1},"s":["2 Pack AM & PM Super Diet Gummies","2,000mg*** Green Tea Leaf Gummy (Camellia Sinensis)","2,000mg*** Organic Matcha Green Tea Gummy","7 In 1 Natural Caffeine Free Energy Gummy","8 In 1 Natural Energy Gummy"]},{"n":"Superfoods","c":62,"f":{"Gummies":23,"Other":6,"Powders":23,"Capsules":9,"Liquids":1},"s":["2 In 1 Red Superfood","2 Pack Amazing Sugar Free Superfruits and Supergreens Gu","2 Pack Amazing Superfruits and Supergreens Gummies","2 Pack Balanced Fruits & Veggies Blends","2,000mg*** Chlorella & Spirulina Gummy"]},{"n":"Detox & Cleanse","c":59,"f":{"Gummies":14,"Other":20,"Powders":9,"Capsules":11,"Softgels":3,"Liquids":2},"s":["1,000mg*** Milk Thistle Gummy","10 In 1 Para-Cleanse Gummy","11 In 1 Wormwood  Black Walnut Clove Cleanse","6 In 1 Kidney & Bladder Support","7 In 1 Chlorella Heavy Metal Detox Support Gummy"]},{"n":"Gut & Digestive","c":58,"f":{"Other":17,"Gummies":18,"Capsules":11,"Powders":9,"Softgels":2,"Liquids":1},"s":["10 In 1 Total Gut Health / Leaky Gut Support","2 In 1 Mushroom Gut Health Gummies","2 Pack Gut & Colon Health Regularity Kit","30 Billion CFU Probiotic","4 In 1 ACV Gut Health + Probiotics"]},{"n":"Heart Health","c":57,"f":{"Other":14,"Gummies":16,"Softgels":19,"Powders":4,"Capsules":3,"Liquids":1},"s":["3 In 1 UT Urinary Support","7 In 1 Herbal Heart Health Gummy","Alaskan Salmon Oil 1,000mg Softgels","Alaskan Salmon Oil 500mg Softgels","Algal Oil Softgels"]},{"n":"Collagen","c":49,"f":{"Gummies":16,"Capsules":8,"Powders":9,"Other":15,"Liquids":1},"s":["Amazing Vegan Collagen Booster Gummies","Beard Growth + Men\u2019s Skin & Nails","Beauty Multi Collagen Gummies + Vitamin C, Biotin, Silic","Beauty Multi Collagen Powder + Vitamin C, Biotin, Hyalur","Beauty Superfruits Gummies Complex"]},{"n":"Energy & Focus","c":46,"f":{"Other":6,"Gummies":16,"Capsules":9,"Powders":13,"Liquids":2},"s":["14 In 1 Alpha GPC Cognitive Nootropic Focus Formula","2 In 1 Mushroom Focus Gummies","2,000mg*** Organic Matcha Green Tea Gummy","5 Mushroom Blend Gummy","6 In 1 Nootropic Focus Gummies"]},{"n":"Omega & Fish Oil","c":41,"f":{"Gummies":16,"Other":6,"Softgels":19},"s":["1,000mg*** Sea Buckthorn Gummy","AREDS 2 Inspired Eye Health Vitamins with Bilberry 6000m","Alaskan Salmon Oil 1,000mg Softgels","Alaskan Salmon Oil 500mg Softgels","Algal Oil Softgels"]},{"n":"Brain & Memory","c":39,"f":{"Gummies":17,"Capsules":7,"Other":5,"Powders":7,"Tablets":1,"Liquids":2},"s":["1,000mg*** Lions Mane Gummy","10-Plex Mushroom Vegetable Capsules","14 In 1 Alpha GPC Cognitive Nootropic Focus Formula","2 In 1 Mushroom Focus Gummies","5 In 1 Stress Relief & Mental Clarity Gummy"]},{"n":"Hair Skin & Nails","c":39,"f":{"Gummies":16,"Other":11,"Capsules":5,"Powders":2,"Liquids":4,"Softgels":1},"s":["3 In 1 Hair Gummy","9 In 1 Glowing Skin","Allergy Aid Support for Dogs","Beard Growth + Men\u2019s Skin & Nails","Beauty Multi Collagen Gummies + Vitamin C, Biotin, Silic"]},{"n":"Women","c":39,"f":{"Gummies":16,"Other":15,"Capsules":7,"Softgels":1},"s":["5 In 1 PMS Relief / Hormonal Balance Gummy","8 In 1 Women's Sexual Wellness & Libido / Intimacy Gummy","Amazing UT Defense Vaginal Probiotics for Women","Amazing Vaginal Probiotics for Women","Amazing Yeast Defense Vaginal Probiotics for Women"]},{"n":"Kidney & Urinary","c":36,"f":{"Gummies":15,"Other":14,"Softgels":2,"Liquids":1,"Capsules":4},"s":["2 Pack AM & PM Super Diet Gummies","2,500mg*** Cranberry Gummy","3 In 1 UT Urinary Support","5 In 1 PMS Relief / Hormonal Balance Gummy","6 In 1 Kidney & Bladder Support"]},{"n":"Anti-Aging","c":35,"f":{"Gummies":7,"Other":5,"Softgels":11,"Capsules":9,"Liquids":1,"Powders":2},"s":["1,500mg*** Sugar Free Polygonum Cuspidatum (Resveratrol)","AREDS 2 Inspired Eye Health Vitamins with Bilberry 6000m","Alaskan Salmon Oil 1,000mg Softgels","Alaskan Salmon Oil 500mg Softgels","Antarctic Krill Oil 500 mg Per Softgel"]},{"n":"Hormone & Sexual","c":34,"f":{"Gummies":11,"Other":5,"Tablets":2,"Capsules":16},"s":["1,000mg*** Horny Goat Weed Gummy","1,000mg*** Maca Root Gummy","1,000mg*** Tongkat Ali Gummy (Longjack) (Eurycoma Longif","5 In 1 Alpha Stack","5 In 1 Sugar Free Saffron 88.5mg** Gummy"]},{"n":"Mushroom Blends","c":33,"f":{"Gummies":16,"Capsules":7,"Other":4,"Liquids":6},"s":["1,000mg*** Lions Mane Gummy","10-Plex Mushroom Vegetable Capsules","14 In 1 Alpha GPC Cognitive Nootropic Focus Formula","2 In 1 Mushroom Focus Gummies","2 In 1 Mushroom Gut Health Gummies"]},{"n":"Men","c":27,"f":{"Other":11,"Gummies":8,"Capsules":7,"Tablets":1},"s":["7 In 1 Male Fertility Support & Virility","8 In 1 Testosterone Booster For Men Gummy","9-in-1 Saw Palmetto Prostate Gummy","Beard Growth + Men\u2019s Skin & Nails","Daily Multivitamin A, B, B3, B5, B6, B12, Biotin, C, D, "]},{"n":"Sleep","c":26,"f":{"Gummies":13,"Other":4,"Capsules":4,"Powders":4,"Liquids":1},"s":["1,500mg*** Valerian Root Gummy","10mg Melatonin Gummies","10mg Sugar Free Melatonin Sleep Gummy","5 In 1 Sleep Support Gummies","8 In 1 Melatonin Free Sleep Gummies"]},{"n":"Blood Sugar","c":24,"f":{"Gummies":7,"Capsules":10,"Other":7},"s":["1,000mcg Chromium Gummies (as Picolinate)","1,200mg Ceylon Cinnamon Veggie Capsules Per Serving with","2,000mg*** Banaba Leaf Gummy","2,000mg*** Bitter Melon Gummy","2,000mg*** Gymnema Sylvestre Leaf Gummy"]},{"n":"Thyroid & Adrenal","c":24,"f":{"Other":6,"Gummies":12,"Capsules":5,"Liquids":1},"s":["14 In 1 Alpha GPC Cognitive Nootropic Focus Formula","200mcg Selenium Gummy","9-in-1 Saw Palmetto Prostate Gummy","Adrenal & Thyroid Support Gummies","Adrenal Support Vegan Capsules"]},{"n":"Eye Health","c":19,"f":{"Gummies":6,"Other":3,"Softgels":8,"Capsules":2},"s":["2,400mg*** Bilberry Gummy","9-in-1 Saw Palmetto Prostate Gummy","AREDS 2 Inspired Eye Health Vitamins with Bilberry 6000m","Advanced Sugar Free Eye Care Gummies","Alaskan Salmon Oil 1,000mg Softgels"]},{"n":"Probiotics","c":17,"f":{"Other":7,"Gummies":6,"Liquids":1,"Capsules":3},"s":["30 Billion CFU Probiotic","60 Billion CFU Probiotic","Amazing UT Defense Vaginal Probiotics for Women","Amazing Vaginal Probiotics for Women","Amazing Yeast Defense Vaginal Probiotics for Women"]},{"n":"Pets","c":10,"f":{"Other":7,"Powders":1,"Gummies":2},"s":["Allergy Aid Support for Dogs","Beef Organ Complex For Pets","Calming Aid for Dogs","Calming Aid","Digestive Enzymes for Dogs"]},{"n":"Hydration","c":9,"f":{"Other":1,"Powders":5,"Gummies":3},"s":["8 In 1 Water Away / DeBloat","Advanced Keto Electrolyte Hydration Powder","Advanced Keto Electrolyte Hydration Powder","Advanced Keto Electrolyte Hydration Powder","Advanced Keto Electrolyte Hydration Powder"]},{"n":"General","c":128,"f":{"Gummies":31,"Tablets":3,"Capsules":50,"Liquids":7,"Softgels":16,"Other":19,"Powders":2},"s":["1,000mg*** Bee Pollen Gummy","1,000mg*** Shilajit Gummy 5% Fulvic Acid","1,500mg*** Bacopa Monnieri Gummy","1,500mg*** Beet Root Gummy","1,500mg*** Grape Seed Gummy"]}]};
+  var $=function(id){return document.getElementById(id);};
+  var fmtN=function(n){return n.toLocaleString('en-US');};
+  var fmtC=function(n){return n>=1e6?'$'+(n/1e6).toFixed(n<1e7?1:0)+'M':'$'+fmtN(Math.round(n));};
+  var fmtD=function(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});};
+
+  /* shared state: declared before any module runs so early syncMail calls are safe */
+  var st={units:30000,price:24.99,sell:2500};
+  var ans={ip:0,custom:0,speed:0,volume:0};
+
+  /* --- calculator --- */
+  function calc(){
+    $('c-units-v').textContent=fmtN(st.units)+' units';
+    $('c-price-v').textContent='$'+st.price.toFixed(2);
+    $('c-sell-v').textContent=fmtN(st.sell)+' units/wk';
+    var now=new Date(), wk=6048e5;
+    $('o-fame').textContent=fmtD(new Date(+now+4*wk));
+    $('o-norm').textContent=fmtD(new Date(+now+12*wk))+'–'+fmtD(new Date(+now+16*wk));
+    var lo=st.sell*st.price*8, hi=st.sell*st.price*12;
+    $('o-window').textContent=fmtC(lo)+'–'+fmtC(hi);
+    $('o-runval').textContent=fmtC(st.units*st.price);
+    $('c-note').innerHTML=st.units>=30000
+      ? 'At '+fmtN(st.units)+' units you are inside the <b>4-week enterprise program</b> (industry norm 12–16 weeks, ASCM data).'
+      : 'Runs under 30,000 units use the <b>stock program: days to market</b>. The 4-week figure shown is the enterprise commitment at 30,000+.';
+    syncMail();
+  }
+  [['c-units','units'],['c-price','price'],['c-sell','sell']].forEach(function(pair){
+    var el=$(pair[0]);
+    el.addEventListener('input',function(){st[pair[1]]=parseFloat(el.value);calc();});
+  });
+
+  /* --- catalog explorer --- */
+  var FORDER=['Capsules','Tablets','Powders','Gummies','Liquids','Softgels','Other'];
+  $('x-total').textContent=fmtN(CATALOG.total);
+  $('x-asof').textContent=CATALOG.asOf;
+  var strip=$('x-strip');
+  var stats=[[fmtN(CATALOG.total),'Live SKUs','in the working catalog'],[String(CATALOG.cats.length),'Categories','with 4+ SKUs']].concat(
+    CATALOG.diets.slice(0,4).map(function(d){return [fmtN(d[1]),d[0],'of '+fmtN(CATALOG.total)+' SKUs'];}));
+  strip.innerHTML=stats.map(function(x){return '<div class="st"><div class="big num">'+x[0]+'</div><div class="cap">'+x[1]+'</div><div class="sub">'+x[2]+'</div></div>';}).join('');
+
+  var list=$('x-list'), sel=null;
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+  CATALOG.cats.forEach(function(c,i){
+    var b=document.createElement('button');b.type='button';b.className='cx-it';b.setAttribute('role','option');
+    b.innerHTML='<span>'+esc(c.n)+'</span><span class="n">'+c.c+'</span>';
+    b.addEventListener('click',function(){pick(i);});
+    list.appendChild(b); c.btn=b;
+  });
+  function pick(i){
+    sel=i; var c=CATALOG.cats[i];
+    CATALOG.cats.forEach(function(o,j){o.btn.classList.toggle('on',j===i);o.btn.setAttribute('aria-selected',String(j===i));});
+    $('x-dn').textContent=c.n;
+    $('x-dk').textContent=c.c+' SKUs in the live catalog';
+    var max=Math.max.apply(null,FORDER.map(function(f){return c.f[f]||0;}))||1;
+    $('x-bars').innerHTML=FORDER.filter(function(f){return c.f[f];}).map(function(f){
+      return '<div class="fbar"><span>'+(f==='Other'?'Other / kits':f)+'</span><span class="tr"><i style="width:0%"></i></span><span class="ct">'+c.f[f]+'</span></div>';
+    }).join('');
+    requestAnimationFrame(function(){
+      [].slice.call($('x-bars').querySelectorAll('.fbar')).forEach(function(row,j){
+        var f=FORDER.filter(function(x){return c.f[x];})[j];
+        row.querySelector('i').style.width=Math.round((c.f[f]/max)*100)+'%';
+      });
+    });
+    $('x-samps').innerHTML=c.s.map(function(n){return '<span>'+esc(n)+'</span>';}).join('');
+    syncMail();
+  }
+  $('x-q').addEventListener('input',function(){
+    var q=this.value.toLowerCase();
+    CATALOG.cats.forEach(function(c){
+      var hit=!q||c.n.toLowerCase().indexOf(q)>=0||c.s.join(' ').toLowerCase().indexOf(q)>=0;
+      c.btn.style.display=hit?'':'none';
+    });
+  });
+  pick(0);
+
+  /* labs category grid deep-links into the explorer */
+  var MAP={'Sports Nutrition':'Muscle & Sports','Immunity Support':'Immune Support','Gut Health & Detox':'Gut & Digestive',
+    "Men's & Women's Wellness":'Hormone & Sexual','Mental Health & Nootropics':'Brain & Memory','Cardiovascular Health':'Heart Health',
+    'Skin, Hair & Nails':'Hair Skin & Nails','Bone & Joint Support':'Bone & Calcium','Energy & Endurance':'Energy & Focus',
+    'Weight Management':'Weight Management','Botanicals & Adaptogens':'Superfoods','Prenatal & Postnatal':'Prenatal'};
+  [].slice.call(document.querySelectorAll('.cats .cat')).forEach(function(cell){
+    cell.setAttribute('title','See this category in the live catalog');
+    cell.addEventListener('click',function(){
+      var want=MAP[cell.textContent.trim()]||cell.textContent.trim();
+      var idx=-1;
+      CATALOG.cats.forEach(function(c,i){ if(idx<0&&c.n.toLowerCase().indexOf(want.toLowerCase())>=0) idx=i; });
+      if(idx>=0) pick(idx);
+      document.getElementById('plan').scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  /* --- path finder --- */
+  [].slice.call(document.querySelectorAll('#pf-q .seg')).forEach(function(seg){
+    var k=seg.dataset.q, btns=[].slice.call(seg.querySelectorAll('button'));
+    btns.forEach(function(b,i){ b.addEventListener('click',function(){ ans[k]=i; btns.forEach(function(o,j){o.setAttribute('aria-pressed',String(j===i));}); path(); }); });
+  });
+  function path(){
+    var plus=ans.ip===1||ans.custom===1;
+    $('pf-rec').textContent=plus?'STOCK+':'STOCK';
+    $('pf-why').innerHTML=plus
+      ? 'You want '+(ans.ip===1?'formula ownership':'adjusted actives, dosage or flavor')+', so start from a validated stock base and tune it. <b>Faster than custom, more differentiated than stock</b>, and the finished formula is client-owned IP.'
+      : 'Proven formulas, your brand on the label. <b>No R&amp;D cost or risk</b> and the fastest concept-to-shelf in the industry.';
+    var items=[];
+    items.push(ans.volume===1?'<b>30,000+ units:</b> the 4-week enterprise program with scheduled production and second-shift access.':'<b>Under 30,000 units:</b> low-MOQ stock program, start lean and scale on demand.');
+    items.push(ans.speed===0?'<b>Days matter:</b> '+(plus?'stock-base iteration closes taste and dosage in days, not vendor cycles.':'ready-to-brand SKUs ship on the fastest path we run.'):'<b>Weeks available:</b> room for '+(plus?'a deeper Stock+ iteration loop with Curí validation.':'flavor and label refinement before the run.'));
+    items.push(plus?'<b>Exclusive IP:</b> custom flavors and formulations are client-owned from day one.':'<b>Switch lanes anytime:</b> any stock SKU can graduate to Stock+ without changing partners.');
+    items.push('<b>Every batch:</b> COAs, QA/QC and full traceability, whichever path you take.');
+    $('pf-list').innerHTML=items.map(function(t){return '<li>'+t+'</li>';}).join('');
+    syncMail();
+  }
+
+  /* --- pre-composed email --- */
+  function syncMail(){
+    var m=$('pf-mail'); if(!m) return;
+    var plus=ans.ip===1||ans.custom===1;
+    var c=sel!=null?CATALOG.cats[sel]:null;
+    var body=['Hi Holly,','','I went through the F.A.M.E. platform deck and ran the launch planner. Where I landed:','',
+      'Recommended path: '+(plus?'Stock+':'Stock'),
+      'Category of interest: '+(c?c.n+' ('+c.c+' stock SKUs in your catalog)':'to discuss'),
+      'First run: '+fmtN(st.units)+' units at $'+st.price.toFixed(2)+' retail',
+      'Expected sell-through: '+fmtN(st.sell)+' units/week',
+      'Head start vs a 12-16 week supplier: 8-12 weeks, a '+$('o-window').textContent.replace(/–/g,'-')+' revenue window at my estimates','',
+      'Formula: '+(ans.ip===1?'want to own the IP':'stock formula works'),
+      'Customization: '+(ans.custom===1?'adjust actives / dosage / flavor':'brand and label only'),
+      'Timeline: '+(ans.speed===0?'days - this quarter matters':'a few weeks is fine'),'',
+      'Can we set up a call?'].join('\n');
+    m.href='mailto:holly@famehealthlabs.com?subject='+encodeURIComponent('Launch plan from the F.A.M.E. platform deck ('+(plus?'Stock+':'Stock')+')')+'&body='+encodeURIComponent(body);
+  }
+  path(); calc();
 })();
 
 /* ---------- motion: reveals, glyph draw, parallax ---------- */
