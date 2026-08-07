@@ -436,7 +436,10 @@ body.anim .oring{animation:oringspin 80s linear infinite;}
 .fb-read{border-top:1px solid var(--rule);background:var(--aqua-3);padding:clamp(13px,1.5vw,18px) clamp(16px,1.9vw,26px);display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;font-size:clamp(13px,1vw,14.5px);line-height:1.5;}
 .fb-read b{letter-spacing:-.012em;white-space:nowrap;}
 .fb-read span{color:var(--ink-70);}
-@media(max-width:900px){.featbar-row{grid-template-columns:repeat(3,1fr);}.fb{border-bottom:1px solid var(--rule-soft);}.fb:nth-child(3n){border-right:0;}.fb:nth-last-child(-n+3){border-bottom:0;}}
+.featbar-row.r4{grid-template-columns:repeat(4,1fr);}
+.featbar-row.r4 .fb:nth-child(4n){border-right:0;}
+@media(max-width:700px){.featbar-row.r4{grid-template-columns:repeat(2,1fr);}.featbar-row.r4 .fb{border-bottom:1px solid var(--rule-soft);}.featbar-row.r4 .fb:nth-child(4n){border-right:1px solid var(--rule-soft);}.featbar-row.r4 .fb:nth-child(2n){border-right:0;}.featbar-row.r4 .fb:nth-last-child(-n+2){border-bottom:0;}}
+@media(max-width:900px){.featbar-row:not(.r4){grid-template-columns:repeat(3,1fr);}.fb{border-bottom:1px solid var(--rule-soft);}.fb:nth-child(3n){border-right:0;}.fb:nth-last-child(-n+3){border-bottom:0;}}
 @media(max-width:520px){.featbar-row{grid-template-columns:repeat(2,1fr);}.fb:nth-child(3n){border-right:1px solid var(--rule-soft);}.fb:nth-child(2n){border-right:0;}.fb:nth-last-child(-n+3){border-bottom:1px solid var(--rule-soft);}.fb:nth-last-child(-n+2){border-bottom:0;}}
 
 /* ---------- render tag ---------- */
@@ -1175,31 +1178,31 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
       <p class="body">Curí exists to give supplement brands the scientific confidence to bring high-quality, compliant products to market, through testing, research and partnership.</p>
     </div>
 
-    <div class="two even">
-      <div class="stack-sm">
-        <span class="lab">What we are &amp; what we do</span>
-        <div class="grid g2">
-          <div class="cellbox tint"><div class="h4">Raw Material Testing</div><p class="small">Identity, purity and potency.</p></div>
-          <div class="cellbox"><div class="h4">Finished Product Testing</div><p class="small">Label claims and COA issuance.</p></div>
-          <div class="cellbox"><div class="h4">Contract Research (CRO)</div><p class="small">GLP study design and reporting.</p></div>
-          <div class="cellbox tint"><div class="h4">Product Development &amp; R&amp;D</div><p class="small">Formulation review, reformulation, iterative validation.</p></div>
+    <div>
+      <span class="lab">What we do</span>
+      <div class="featbar" style="margin-top:14px">
+        <div class="featbar-row r4">
+          <button type="button" class="fb" aria-pressed="true" data-t="Raw Material Testing" data-d="Identity, purity and potency verified on incoming materials, before they reach production."><span class="fb-t">Raw Material Testing</span></button>
+          <button type="button" class="fb" aria-pressed="false" data-t="Finished Product Testing" data-d="Label claims verified on the finished lot, with retail-ready COAs issued."><span class="fb-t">Finished Product Testing</span></button>
+          <button type="button" class="fb" aria-pressed="false" data-t="Contract Research (CRO)" data-d="GLP study design, execution and reporting."><span class="fb-t">Contract Research</span></button>
+          <button type="button" class="fb" aria-pressed="false" data-t="Product Development &amp; R&amp;D" data-d="Formulation review, reformulation and iterative validation."><span class="fb-t">Product Development</span></button>
         </div>
-        <div class="argue">
-          <span class="lab">The Curí difference</span>
-          <q>Accuracy protects people. Every test, every certificate, every study is grounded in the conviction that scientific rigor, client partnership and consumer safety are the same commitment.</q>
-        </div>
+        <div class="fb-read" aria-live="polite"><b></b> <span></span></div>
       </div>
+    </div>
 
-      <div class="stack-sm">
-                <div>
-          <span class="lab">Who we serve</span>
-          <div class="grid g2" style="margin-top:12px">
-            <div class="cellbox"><div class="h4">Dietary Supplement Brands</div><p class="small">Testing, COAs and lot release programs.</p></div>
-            <div class="cellbox tint"><div class="h4">Ingredient Suppliers</div><p class="small">Raw material qualification and identity.</p></div>
-            <div class="cellbox tint"><div class="h4">Contract Manufacturers</div><p class="small">Independent QC for brand clients.</p></div>
-            <div class="cellbox"><div class="h4">Life Science &amp; Biotech</div><p class="small">Phytochemical profiling and R&amp;D support.</p></div>
-          </div>
-        </div>
+    <div class="argue">
+      <span class="lab">The Cur&#237; difference</span>
+      <q>Accuracy protects people. Every test, every certificate, every study is grounded in the conviction that scientific rigor, client partnership and consumer safety are the same commitment.</q>
+    </div>
+
+    <div>
+      <span class="lab">Who we serve</span>
+      <div class="grid g4" style="margin-top:14px">
+        <div class="cellbox"><div class="h4">Dietary Supplement Brands</div><p class="small">Testing, COAs and lot release programs.</p></div>
+        <div class="cellbox tint"><div class="h4">Ingredient Suppliers</div><p class="small">Raw material qualification and identity.</p></div>
+        <div class="cellbox tint"><div class="h4">Contract Manufacturers</div><p class="small">Independent QC for brand clients.</p></div>
+        <div class="cellbox"><div class="h4">Life Science &amp; Biotech</div><p class="small">Phytochemical profiling and R&amp;D support.</p></div>
       </div>
     </div>
 
@@ -1866,21 +1869,23 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
 
 
-/* ---------- feature bar ---------- */
+/* ---------- feature bars (any .featbar) ---------- */
 (function(){
-  var bar=document.getElementById('featbar'); if(!bar) return;
-  var btns=[].slice.call(bar.querySelectorAll('.fb'));
-  var rt=document.getElementById('fb-rt'), rd=document.getElementById('fb-rd');
-  function show(b){
-    btns.forEach(function(o){o.setAttribute('aria-pressed',String(o===b));});
-    rt.textContent=b.dataset.t+'.'; rd.textContent=b.dataset.d;
-  }
-  btns.forEach(function(b){
-    b.addEventListener('mouseenter',function(){show(b);});
-    b.addEventListener('focus',function(){show(b);});
-    b.addEventListener('click',function(){show(b);});
+  [].slice.call(document.querySelectorAll('.featbar')).forEach(function(bar){
+    var btns=[].slice.call(bar.querySelectorAll('.fb'));
+    var rt=bar.querySelector('.fb-read b'), rd=bar.querySelector('.fb-read span');
+    if(!btns.length||!rt) return;
+    function show(b){
+      btns.forEach(function(o){o.setAttribute('aria-pressed',String(o===b));});
+      rt.textContent=b.dataset.t+'.'; rd.textContent=b.dataset.d;
+    }
+    btns.forEach(function(b){
+      b.addEventListener('mouseenter',function(){show(b);});
+      b.addEventListener('focus',function(){show(b);});
+      b.addEventListener('click',function(){show(b);});
+    });
+    show(btns[0]);
   });
-  show(btns[0]);
 })();
 
 /* ---------- partnership tabs ---------- */
