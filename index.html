@@ -12,7 +12,7 @@
    Hairline square cells. Circular accents. Editorial type.
    ============================================================ */
 :root{
-  --paper:#FFFFFF; --paper-2:#FAFAF8; --panel:#F1F3F1;
+  --paper:#FFFFFF; --paper-2:#F6F8F7; --panel:#F1F3F1;
   --aqua:#D4F3F1; --aqua-2:#E9FBF9; --aqua-3:#F4FDFC;
   --ink:#111819; --ink-70:#394446; --muted:#697376;
   --teal:#0FA6B6; --teal-deep:#0B7E88; --teal-band:#0C8A95; --band-ink:#FFFFFF;
@@ -98,20 +98,25 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .heroimg .cap h2{color:#fff;font-size:clamp(24px,3.6vw,52px);line-height:1.02;letter-spacing:-.03em;font-weight:700;margin:.35em 0 0;max-width:24ch;text-wrap:balance;}
 
 /* ---------- cert strip ---------- */
-.certs{display:grid;grid-template-columns:repeat(10,1fr);border-bottom:1px solid var(--rule);background:var(--paper);}
-.certs .c{border-right:1px solid var(--rule-soft);padding:16px 10px;display:flex;align-items:center;justify-content:center;min-width:0;}
+.certsec{border-bottom:1px solid var(--rule);background:var(--paper);padding:clamp(26px,3vw,46px) 0;}
+.certhead{display:flex;align-items:center;gap:.9em;margin-bottom:clamp(16px,1.8vw,26px);}
+.certhead .bar{height:1px;flex:1;background:var(--rule-soft);}
+.certs{display:grid;grid-template-columns:repeat(10,1fr);border:1px solid var(--rule);background:var(--paper);}
+.certs .c{border-right:1px solid var(--rule-soft);padding:clamp(16px,1.8vw,24px) 12px;display:flex;align-items:center;justify-content:center;min-width:0;}
 .certs .c:last-child{border-right:0;}
-.certs img{max-width:100%;max-height:52px;width:auto;height:auto;display:block;}
+.certs img{max-width:100%;max-height:46px;width:auto;height:auto;display:block;filter:grayscale(1);opacity:.66;transition:filter .25s,opacity .25s;}
+.certs .c:hover img{filter:grayscale(0);opacity:1;}
 :root[data-deck="dark"] .certs .c{background:#fff;}
 @media(max-width:1000px){.certs{grid-template-columns:repeat(5,1fr);}.certs .c{border-bottom:1px solid var(--rule-soft);}.certs .c:nth-child(5n){border-right:0;}.certs .c:nth-last-child(-n+5){border-bottom:0;}}
 @media(max-width:560px){.certs{grid-template-columns:repeat(3,1fr);}.certs .c:nth-child(5n){border-right:1px solid var(--rule-soft);}.certs .c:nth-child(3n){border-right:0;}}
 
 /* ---------- section frame ---------- */
-.sec{border-bottom:1px solid var(--rule);padding:clamp(40px,5.4vw,84px) 0;}
-.sec-head{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(20px,3.4vw,64px);align-items:end;margin-bottom:clamp(26px,3.2vw,48px);}
+.sec{border-bottom:1px solid var(--rule);padding:clamp(56px,6.5vw,110px) 0;background:var(--paper);}
+.sec.alt{background:var(--paper-2);}
+.sec-head{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(20px,3.4vw,64px);align-items:end;margin-bottom:clamp(8px,1vw,14px);}
 @media(max-width:900px){.sec-head{grid-template-columns:1fr;align-items:start;gap:16px;}}
 .sec-head .h2{margin-bottom:.16em;}
-.stack{display:flex;flex-direction:column;gap:clamp(22px,2.6vw,42px);}
+.stack{display:flex;flex-direction:column;gap:clamp(30px,3.4vw,58px);}
 .stack-sm{display:flex;flex-direction:column;gap:12px;}
 .two{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(20px,2.6vw,44px);align-items:start;}
 .two.even{grid-template-columns:1fr 1fr;}
@@ -659,7 +664,10 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
-<div class="certs">
+<section class="certsec">
+  <div class="wrap">
+    <div class="certhead"><span class="lab">The certification stack</span><span class="bar"></span><span class="small">FDA-registered facility &#183; independently audited</span></div>
+    <div class="certs">
   <div class="c"><img src="img/cert-fda.png" alt="FDA Registered Facility"></div>
   <div class="c"><img src="img/cert-sqf.png" alt="SQF certified"></div>
   <div class="c"><img src="img/cert-gmp.png" alt="Good Manufacturing Practice"></div>
@@ -670,7 +678,9 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   <div class="c"><img src="img/cert-healthcanada.png" alt="Health Canada"></div>
   <div class="c"><img src="img/cert-halal.png" alt="Halal certified"></div>
   <div class="c"><img src="img/cert-kosher.png" alt="Kosher certified"></div>
-</div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= 01 THESIS ================= -->
 <section class="band" id="thesis" style="--bimg:url('img/hand-capsules.jpg');--bpos:center 45%">
@@ -825,7 +835,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
-<section class="sec">
+<section class="sec alt">
   <div class="wrap stack">
     <div class="sec-head">
       <div>
@@ -1016,7 +1026,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
-<section class="sec">
+<section class="sec alt">
   <div class="wrap stack">
     <div class="sec-head">
       <div><span class="lab">Formats produced</span><h2 class="h2">Multi-format production at speed and scale.</h2></div>
@@ -1155,7 +1165,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
-<section class="sec">
+<section class="sec alt">
   <div class="wrap stack">
     <div class="sec-head">
       <div>
@@ -1331,7 +1341,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
-<section class="sec">
+<section class="sec alt">
   <div class="wrap stack">
     <div class="retail">
       <div class="rt"><img src="img/rt-walmart.png" alt="Walmart"></div>
@@ -1430,7 +1440,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
-<section class="sec">
+<section class="sec alt">
   <div class="wrap stack">
     <div class="two">
       <div class="stack-sm">
