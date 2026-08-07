@@ -118,13 +118,17 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .two>*,.stack>*,.stack-sm>*{min-width:0;}
 
 /* ---------- section band divider (squared circle) ---------- */
-.band{background:var(--teal-band);color:var(--band-ink);border-bottom:1px solid var(--rule);padding:clamp(28px,4.2vw,58px) 0;}
-.band-in{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(18px,3vw,50px);align-items:center;}
-.band .idx{font-size:clamp(30px,4.2vw,64px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;opacity:.6;align-self:start;}
-.band .h1{font-size:clamp(30px,5vw,68px);color:var(--band-ink);}
-.band .sub{margin-top:clamp(10px,1.4vw,18px);font-size:clamp(14px,1.3vw,18px);line-height:1.36;max-width:58ch;font-style:italic;opacity:.95;}
-.band .sqc{width:clamp(84px,11vw,140px);aspect-ratio:1;flex:none;}
-@media(max-width:760px){.band-in{grid-template-columns:auto 1fr;}.band .sqc{grid-row:1;grid-column:2;justify-self:end;width:64px;}}
+.band{position:relative;background:var(--teal-band);color:var(--band-ink);border-bottom:1px solid var(--rule);padding:clamp(44px,6vw,86px) 0;overflow:hidden;}
+.band::before{content:"";position:absolute;inset:0;background-image:var(--bimg);background-size:cover;background-position:var(--bpos,center 35%);}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,24,27,.9) 0%,rgba(4,24,27,.66) 46%,rgba(4,24,27,.3) 100%);}
+.band-in{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(18px,3vw,50px);align-items:center;}
+.band .idx{font-size:clamp(30px,4.2vw,64px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:#8FE6EF;align-self:start;}
+.band .h1{font-size:clamp(32px,5.4vw,74px);color:#fff;}
+.band .sub{margin-top:clamp(10px,1.4vw,18px);font-size:clamp(14px,1.3vw,18px);line-height:1.36;max-width:58ch;font-style:italic;color:rgba(255,255,255,.93);}
+.band .kick{display:block;color:#8FE6EF;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+.band .sqc{width:clamp(84px,11vw,140px);aspect-ratio:1;flex:none;opacity:.9;}
+@media(max-width:760px){.band-in{grid-template-columns:auto 1fr;}.band .sqc{grid-row:1;grid-column:2;justify-self:end;width:64px;}
+  .band::after{background:linear-gradient(180deg,rgba(4,24,27,.62) 0%,rgba(4,24,27,.86) 100%);}}
 
 /* ---------- cell grids ---------- */
 .grid{display:grid;border:1px solid var(--rule);}
@@ -472,10 +476,10 @@ body.anim:not(.loaded) .cover .ln{transform:translateY(114%);}
 body.anim:not(.loaded) .cover-top,body.anim:not(.loaded) .cover .eyebrow,body.anim:not(.loaded) .cover .deckline,body.anim:not(.loaded) .cover-meta{opacity:0;transform:translateY(14px);}
 
 /* ---------- band entrance ---------- */
-body.anim .band .idx{opacity:0;transform:translateX(-14px);transition:opacity .6s ease,transform .6s ease;}
+body.anim .band .idx{opacity:0;transform:translateX(-14px);color:#8FE6EF;transition:opacity .6s ease,transform .6s ease;}
 body.anim .band .h1{opacity:0;transform:translateY(16px);transition:opacity .65s ease .08s,transform .65s cubic-bezier(.22,.85,.3,1) .08s;}
 body.anim .band .sub{opacity:0;transform:translateY(10px);transition:opacity .6s ease .18s,transform .6s ease .18s;}
-body.anim .band.in .idx{opacity:.6;transform:none;}
+body.anim .band.in .idx{opacity:1;transform:none;}
 body.anim .band.in .h1,body.anim .band.in .sub{opacity:1;transform:none;}
 
 /* ---------- hero caption reveal ---------- */
@@ -531,7 +535,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
   .barfill{transform:scaleX(1);} .ringdash{stroke-dashoffset:var(--off);} .statstrip.reveal .st{opacity:1;transform:none;}}
-@media print{.topbar,.toc,.prog{position:static;}.sec{break-inside:avoid;}.rail,.qj,.fig-hint,.fig-tog{display:none!important;}.dfig{break-inside:avoid;}.fig-body{grid-template-columns:1.6fr 1fr!important;}body.anim .rv,body.anim .rvp .rv-c,body.anim .band .h1,body.anim .band .sub,body.anim .heroimg .cap .k,body.anim .heroimg .cap h2,body.anim .eco .node{opacity:1!important;transform:none!important;}body.anim .band .idx{opacity:.6!important;transform:none!important;}body.anim:not(.loaded) .cover .ln{transform:none!important;}}
+@media print{.topbar,.toc,.prog{position:static;}.sec{break-inside:avoid;}.rail,.qj,.fig-hint,.fig-tog{display:none!important;}.dfig{break-inside:avoid;}.fig-body{grid-template-columns:1.6fr 1fr!important;}body.anim .rv,body.anim .rvp .rv-c,body.anim .band .h1,body.anim .band .sub,body.anim .heroimg .cap .k,body.anim .heroimg .cap h2,body.anim .eco .node{opacity:1!important;transform:none!important;}body.anim .band .idx{opacity:1!important;transform:none!important;}body.anim:not(.loaded) .cover .ln{transform:none!important;}}
 </style>
 </head>
 <body>
@@ -612,7 +616,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </div>
 
 <!-- ================= 01 THESIS ================= -->
-<section class="band" id="thesis">
+<section class="band" id="thesis" style="--bimg:url('img/hand-capsules.jpg');--bpos:center 45%">
   <div class="wrap band-in">
     <div class="idx num">01</div>
     <div>
@@ -709,7 +713,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
           <span class="fk" data-k>The handoff</span>
           <div class="ft" data-t></div>
           <p class="fd" data-d></p>
-          <p class="fm">The deck's five friction points are not five separate problems. They are one problem, counted four times.</p>
+          <p class="fm">All five friction points trace back to these four boundaries. Remove the boundaries and the frictions go with them.</p>
         </aside>
       </div>
       <p class="fig-note">Gaps are company boundaries, not fixed durations. The 12 to 16 week industry norm is ASCM data; F.A.M.E. delivers 30,000+ units in four weeks.</p>
@@ -767,7 +771,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 02 ECOSYSTEM ================= -->
-<section class="band" id="ecosystem">
+<section class="band" id="ecosystem" style="--bimg:url('img/facility-aerial.jpg');--bpos:center 55%">
   <div class="wrap band-in">
     <div class="idx num">02</div>
     <div>
@@ -880,7 +884,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 03 HOW YOU WIN ================= -->
-<section class="band" id="wins">
+<section class="band" id="wins" style="--bimg:url('img/fac-tablets.jpg');--bpos:center 50%">
   <div class="wrap band-in">
     <div class="idx num">03</div>
     <div>
@@ -983,7 +987,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 04 PARTNERSHIP ================= -->
-<section class="band" id="partnership">
+<section class="band" id="partnership" style="--bimg:url('img/sup-line.jpg');--bpos:center 30%">
   <div class="wrap band-in">
     <div class="idx num">04</div>
     <div>
@@ -1058,7 +1062,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 05 HEALTH LABS ================= -->
-<section class="band" id="labs">
+<section class="band" id="labs" style="--bimg:url('img/fac-blend.jpg');--bpos:center 40%">
   <div class="wrap band-in">
     <div class="idx num">05</div>
     <div>
@@ -1121,7 +1125,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 06 INGREDIENTS ================= -->
-<section class="band" id="ingredients">
+<section class="band" id="ingredients" style="--bimg:url('img/ing-turmeric.jpg');--bpos:center 50%">
   <div class="wrap band-in">
     <div class="idx num">06</div>
     <div>
@@ -1217,7 +1221,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 07 CURI ================= -->
-<section class="band" id="curi">
+<section class="band" id="curi" style="--bimg:url('img/curi-tubes.jpg');--bpos:center 42%">
   <div class="wrap band-in">
     <div class="idx num">07</div>
     <div>
@@ -1273,7 +1277,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 
     <figure class="dfig rv" id="fig-curi" style="margin:0">
       <div class="fig-head">
-        <div><span class="lab">Figure 05</span><h3 class="h3">Why Curí is not just another lab</h3></div>
+        <div><span class="lab">Figure 05</span><h3 class="h3">Accredited testing and contract research, in one place</h3></div>
         <p class="body">Accredited testing labs and contract research organizations are usually separate vendors with separate queues. Curí is both, specialized in supplements, inside the same company that makes the product.</p>
         <span class="fig-hint">Select a region</span>
       </div>
@@ -1325,17 +1329,8 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   </div>
 </section>
 
-<section class="heroimg" style="height:clamp(220px,30vw,400px)">
-  <img src="img/hero-cover.jpg" alt="A person holding two capsules to the light">
-  <div class="ov"></div>
-  <div class="cap">
-    <span class="k">F.A.M.E. Supplements</span>
-    <h2>700+ formulas already validated. Days to market, not quarters.</h2>
-  </div>
-</section>
-
 <!-- ================= 08 SUPPLEMENTS ================= -->
-<section class="band" id="supplements">
+<section class="band" id="supplements" style="--bimg:url('img/pack-family.jpg');--bpos:center 60%">
   <div class="wrap band-in">
     <div class="idx num">08</div>
     <div>
@@ -1404,7 +1399,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 09 RETAIL ================= -->
-<section class="band" id="retail">
+<section class="band" id="retail" style="--bimg:url('img/sup-bottles.jpg');--bpos:center 55%">
   <div class="wrap band-in">
     <div class="idx num">09</div>
     <div>
@@ -1444,7 +1439,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 10 TEAM ================= -->
-<section class="band" id="team">
+<section class="band" id="team" style="--bimg:url('img/team-bw.jpg');--bpos:center 30%">
   <div class="wrap band-in">
     <div class="idx num">10</div>
     <div>
@@ -1488,12 +1483,12 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 </section>
 
 <!-- ================= 11 PLAN ================= -->
-<section class="band" id="plan">
+<section class="band" id="plan" style="--bimg:url('img/capsules-scatter.jpg');--bpos:center 50%">
   <div class="wrap band-in">
     <div class="idx num">11</div>
     <div>
       <h2 class="h1">Plan Your Launch</h2>
-      <p class="sub">A deck can only claim. This page computes. Your launch math, the live catalog and the path that fits, worked out here rather than asserted.</p>
+      <p class="sub">Your launch timeline, the live stock catalog and the right program for your brand, all worked out on this page.</p>
     </div>
     <svg class="sqc" viewBox="0 0 100 100" aria-hidden="true">
       <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.4"/>
@@ -1507,7 +1502,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 <section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">Your launch math</span><h2 class="h2">What does a 4-week platform mean in your numbers?</h2></div>
+      <div><span class="lab">Your launch math</span><h2 class="h2">Run your launch numbers.</h2></div>
       <p class="body">Set your run, your price and your expected sell-through. The calendar below is the same 4-week versus 12&#8211;16-week comparison from section 03, priced in your terms. Arithmetic, not a forecast.</p>
     </div>
 
@@ -1541,13 +1536,13 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
             <span><i style="background:var(--warn-soft);border-left:2px solid var(--warn)"></i>Industry norm arrives</span>
           </div>
         </div>
-        <p class="small">First-run retail value at your price: <b class="num" id="o-runval">&#8211;</b>. Estimates are yours; the calendar is ours.</p>
+        <p class="small">First-run retail value at your price: <b class="num" id="o-runval">&#8211;</b>. Sell-through and price are your estimates; the dates follow the 4-week program.</p>
       </div>
     </div>
 
     <div class="sec-head" style="margin-top:clamp(10px,1.4vw,18px)">
-      <div><span class="lab">The catalog, live</span><h2 class="h2">Not a slide that says 700+. The export itself.</h2></div>
-      <p class="body">Aggregated client-side from the working product catalog, <span class="num" id="x-total"></span> SKUs as of <span id="x-asof"></span>. Pick a category; a SKU appears in every category it serves.</p>
+      <div><span class="lab">Stock catalog</span><h2 class="h2">Browse the live stock catalog.</h2></div>
+      <p class="body">This is the working product catalog, not a summary: <span class="num" id="x-total"></span> SKUs as of <span id="x-asof"></span>, aggregated on this page. Pick a category; a SKU appears in every category it serves.</p>
     </div>
 
     <div class="statstrip" id="x-strip"></div>
@@ -1566,7 +1561,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
     </div>
 
     <div class="sec-head" style="margin-top:clamp(10px,1.4vw,18px)">
-      <div><span class="lab">Which path fits</span><h2 class="h2">Four answers. One recommendation.</h2></div>
+      <div><span class="lab">Stock or Stock+</span><h2 class="h2">Find the right path for your brand.</h2></div>
       <p class="body">The same logic our account team applies on a first call, run here. Take the result to Holly and the first meeting starts three steps ahead.</p>
     </div>
 
