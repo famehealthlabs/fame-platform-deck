@@ -156,23 +156,29 @@ ul.plain li b{color:var(--ink);}
 :root[data-deck="dark"] .med{background:var(--paper-2);border-color:var(--rule-soft);}
 :root[data-deck="dark"] .med img{filter:brightness(1.35);}
 
-/* ---------- problem / answer split ---------- */
+/* ---------- problem / answer split: one grid, paired rows ---------- */
 .split{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);}
-@media(max-width:820px){.split{grid-template-columns:1fr;}}
-.split>div{min-width:0;}
-.sp-head{padding:clamp(16px,1.9vw,26px);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:10px;}
-.sp-head.prob{background:var(--paper);} .sp-head.ans{background:var(--aqua);}
+.split>*{min-width:0;}
+.sp-head{padding:clamp(16px,1.9vw,26px);display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--rule);}
 .sp-head h3{margin:0;}
-.sp-list{display:flex;flex-direction:column;}
+.sp-head.ans{background:var(--aqua);}
+.sp-head.ans,.sp-item.ai{border-left:1px solid var(--rule);}
 .sp-item{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:clamp(12px,1.35vw,17px) clamp(16px,1.9vw,26px);border-bottom:1px solid var(--rule-soft);transition:background .18s;}
-.sp-item:last-child{border-bottom:0;}
-.sp-list.prob .sp-item:hover{background:var(--warn-soft);}
-.sp-list.ans .sp-item:hover{background:var(--aqua-2);}
+.split>:nth-last-child(-n+2){border-bottom:0;}
 .sp-item .gl{width:32px;height:32px;flex:none;}
 .sp-item .t{font-weight:700;font-size:14px;letter-spacing:-.012em;}
 .sp-item .s{font-size:12.25px;color:var(--muted);line-height:1.4;margin-top:2px;}
-.split .col-left{border-right:1px solid var(--rule);}
-@media(max-width:820px){.split .col-left{border-right:0;border-bottom:1px solid var(--rule);}}
+.sp-item.pi:hover{background:var(--warn-soft);}
+.sp-item.ai:hover{background:var(--aqua-2);}
+@media(max-width:820px){
+  .split{grid-template-columns:1fr;}
+  .sp-head.ans,.sp-item.ai{border-left:0;}
+  .sp-head.ans{border-top:1px solid var(--rule);}
+  .split>:nth-child(1){order:1;}.split>:nth-child(3){order:2;}.split>:nth-child(5){order:3;}
+  .split>:nth-child(7){order:4;}.split>:nth-child(9){order:5;}.split>:nth-child(11){order:6;}
+  .split>:nth-child(2){order:7;}.split>:nth-child(4){order:8;}.split>:nth-child(6){order:9;}
+  .split>:nth-child(8){order:10;}.split>:nth-child(10){order:11;}.split>:nth-child(12){order:12;}
+}
 
 /* ---------- figures ---------- */
 .figure{border:1px solid var(--rule);padding:clamp(16px,2vw,30px);display:flex;flex-direction:column;gap:14px;background:var(--paper);min-width:0;}
@@ -688,34 +694,26 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
     </div>
 
     <div class="split">
-      <div class="col-left">
-        <div class="sp-head prob">
-          <span class="lab" style="color:var(--warn)">The Problem</span>
-          <h3 class="h3">Five points of friction</h3>
-          <p class="small">A fragmented chain where no one owns the outcome.</p>
-        </div>
-        <div class="sp-list prob">
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M11 11 L21 21 M21 11 L11 21" stroke="var(--warn)" stroke-width="1.6" fill="none"/></svg><div><div class="t">Fragmented supply chain</div><div class="s">Ingredients, blending, manufacturing and testing sit in four different companies.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M16 8 L16 16 L21 20" stroke="var(--warn)" stroke-width="1.6" fill="none"/></svg><div><div class="t">Long lead times</div><div class="s">12 to 16 weeks is the industry norm, and every handoff adds float.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M8 16 Q16 9 24 16 Q16 23 8 16Z" fill="none" stroke="var(--warn)" stroke-width="1.4"/><path d="M9 23 L23 9" stroke="var(--warn)" stroke-width="1.6"/></svg><div><div class="t">No visibility or control</div><div class="s">Status arrives by email, if it arrives. You chase answers instead of decisions.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><circle cx="11" cy="14" r="3" fill="none" stroke="var(--warn)" stroke-width="1.4"/><circle cx="21" cy="14" r="3" fill="none" stroke="var(--warn)" stroke-width="1.4"/><circle cx="16" cy="22" r="3" fill="none" stroke="var(--warn)" stroke-width="1.4"/></svg><div><div class="t">No single point of accountability</div><div class="s">When a lot fails, every vendor points at the one before it.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M16 9 L23 22 L9 22 Z" fill="none" stroke="var(--warn)" stroke-width="1.4"/><path d="M16 14 L16 18" stroke="var(--warn)" stroke-width="1.6"/></svg><div><div class="t">Brands carry all the risk</div><div class="s">Recalls, stockouts and missed retail windows land on the brand, not the vendor.</div></div></div>
-        </div>
+      <div class="sp-head prob">
+        <span class="lab" style="color:var(--warn)">The Problem</span>
+        <h3 class="h3">Five points of friction</h3>
+        <p class="small">A fragmented chain where no one owns the outcome.</p>
       </div>
-      <div>
-        <div class="sp-head ans">
-          <span class="lab">Our Answer</span>
-          <h3 class="h3">One integrated platform</h3>
-          <p class="small">Integrated entities under one roof. Data powered speed, control and continuous innovation.</p>
-        </div>
-        <div class="sp-list ans">
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M10 16.5 L14.5 21 L22 12" stroke="var(--teal-deep)" stroke-width="1.8" fill="none"/></svg><div><div class="t">Speed to market</div><div class="s">30,000+ units delivered in four weeks, against a 12 to 16 week norm.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M7 16 Q16 9 25 16 Q16 23 7 16Z" fill="none" stroke="var(--teal-deep)" stroke-width="1.4"/><circle cx="16" cy="16" r="3" fill="var(--teal-deep)"/></svg><div><div class="t">Real-time visibility</div><div class="s">Always on portal with customizable triggers, from raw lot to shipped pallet.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M16 8 L23 11 V17 C23 20.5 20 23 16 24.5 C12 23 9 20.5 9 17 V11 Z" fill="none" stroke="var(--teal-deep)" stroke-width="1.4"/></svg><div><div class="t">Quality &amp; compliance</div><div class="s">A certification stack that opens regulated markets, verified independently of suppliers.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M9 21 L14 15 L18 19 L24 11" stroke="var(--teal-deep)" stroke-width="1.6" fill="none"/></svg><div><div class="t">Scalable growth</div><div class="s">First run to enterprise volume without switching or adding partners.</div></div></div>
-          <div class="sp-item"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M16 9 V23 M12.5 12.5 H19 a3 3 0 0 1 0 6 H13 a3 3 0 0 0 0 6 h6.5" stroke="var(--teal-deep)" stroke-width="1.4" fill="none"/></svg><div><div class="t">Stronger margins</div><div class="s">No intermediary markups. Integrated sourcing holds cost and pricing steady.</div></div></div>
-        </div>
+      <div class="sp-head ans">
+        <span class="lab">Our Answer</span>
+        <h3 class="h3">One integrated platform</h3>
+        <p class="small">Integrated entities under one roof. Data powered speed, control and continuous innovation.</p>
       </div>
+      <div class="sp-item pi"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M11 11 L21 21 M21 11 L11 21" stroke="var(--warn)" stroke-width="1.6" fill="none"/></svg><div><div class="t">Fragmented supply chain</div><div class="s">Ingredients, blending, manufacturing and testing sit in four different companies.</div></div></div>
+      <div class="sp-item ai"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M10 16.5 L14.5 21 L22 12" stroke="var(--teal-deep)" stroke-width="1.8" fill="none"/></svg><div><div class="t">Speed to market</div><div class="s">30,000+ units delivered in four weeks, against a 12 to 16 week norm.</div></div></div>
+      <div class="sp-item pi"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M16 8 L16 16 L21 20" stroke="var(--warn)" stroke-width="1.6" fill="none"/></svg><div><div class="t">Long lead times</div><div class="s">12 to 16 weeks is the industry norm, and every handoff adds float.</div></div></div>
+      <div class="sp-item ai"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M7 16 Q16 9 25 16 Q16 23 7 16Z" fill="none" stroke="var(--teal-deep)" stroke-width="1.4"/><circle cx="16" cy="16" r="3" fill="var(--teal-deep)"/></svg><div><div class="t">Real-time visibility</div><div class="s">Always on portal with customizable triggers, from raw lot to shipped pallet.</div></div></div>
+      <div class="sp-item pi"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M8 16 Q16 9 24 16 Q16 23 8 16Z" fill="none" stroke="var(--warn)" stroke-width="1.4"/><path d="M9 23 L23 9" stroke="var(--warn)" stroke-width="1.6"/></svg><div><div class="t">No visibility or control</div><div class="s">Status arrives by email, if it arrives. You chase answers instead of decisions.</div></div></div>
+      <div class="sp-item ai"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M16 8 L23 11 V17 C23 20.5 20 23 16 24.5 C12 23 9 20.5 9 17 V11 Z" fill="none" stroke="var(--teal-deep)" stroke-width="1.4"/></svg><div><div class="t">Quality &amp; compliance</div><div class="s">A certification stack that opens regulated markets, verified independently of suppliers.</div></div></div>
+      <div class="sp-item pi"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><circle cx="11" cy="14" r="3" fill="none" stroke="var(--warn)" stroke-width="1.4"/><circle cx="21" cy="14" r="3" fill="none" stroke="var(--warn)" stroke-width="1.4"/><circle cx="16" cy="22" r="3" fill="none" stroke="var(--warn)" stroke-width="1.4"/></svg><div><div class="t">No single point of accountability</div><div class="s">When a lot fails, every vendor points at the one before it.</div></div></div>
+      <div class="sp-item ai"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M9 21 L14 15 L18 19 L24 11" stroke="var(--teal-deep)" stroke-width="1.6" fill="none"/></svg><div><div class="t">Scalable growth</div><div class="s">First run to enterprise volume without switching or adding partners.</div></div></div>
+      <div class="sp-item pi"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--warn)" stroke-width="1.2"/><path d="M16 9 L23 22 L9 22 Z" fill="none" stroke="var(--warn)" stroke-width="1.4"/><path d="M16 14 L16 18" stroke="var(--warn)" stroke-width="1.6"/></svg><div><div class="t">Brands carry all the risk</div><div class="s">Recalls, stockouts and missed retail windows land on the brand, not the vendor.</div></div></div>
+      <div class="sp-item ai"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="var(--teal-deep)" stroke-width="1.2"/><path d="M16 9 V23 M12.5 12.5 H19 a3 3 0 0 1 0 6 H13 a3 3 0 0 0 0 6 h6.5" stroke="var(--teal-deep)" stroke-width="1.4" fill="none"/></svg><div><div class="t">Stronger margins</div><div class="s">No intermediary markups. Integrated sourcing holds cost and pricing steady.</div></div></div>
     </div>
 
     <div class="argue rv">
@@ -2110,7 +2108,7 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   /* staggered container reveals */
   var P=[['.certs','.c'],['.sec .grid','.cellbox'],['.cats','.cat'],['.retail','.rt'],
          ['.imgcards','.icard'],['.strip','.sc'],['.pillars','.pillar'],['.tiers','.tier'],
-         ['.flowgrid','.fstep'],['.sp-list','.sp-item']];
+         ['.flowgrid','.fstep'],['.split','.sp-item']];
   P.forEach(function(pair){
     [].slice.call(document.querySelectorAll(pair[0])).forEach(function(box){
       box.classList.add('rvp');
