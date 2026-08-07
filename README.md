@@ -38,6 +38,11 @@ dark palette is a token swap on `:root[data-deck="dark"]`.
 - Figures animate in on scroll (lead-time bars, reach rings, stat strip).
   All motion is disabled under `prefers-reduced-motion`.
 
+## Live
+
+Production: **https://fame-platform-deck.vercel.app** (Vercel project `fame-platform-deck`, team Vite30).
+`git push` to `main` deploys. The page is served with `X-Robots-Tag: noindex, nofollow, noarchive`.
+
 ## Running it locally
 
 ```bash
