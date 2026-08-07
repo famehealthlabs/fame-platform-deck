@@ -349,9 +349,83 @@ ul.plain li b{color:var(--ink);}
 .disc .rendertag{position:absolute;right:var(--gut);bottom:14px;z-index:3;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
 
 .footnote{margin-top:clamp(16px,1.8vw,24px);padding-top:12px;border-top:1px solid var(--rule-soft);font-size:11px;line-height:1.5;color:var(--muted);max-width:100ch;}
+/* ---------- motion & reveal system ---------- */
+body.anim .rv{opacity:0;transform:translateY(18px);transition:opacity .75s cubic-bezier(.22,.85,.3,1),transform .75s cubic-bezier(.22,.85,.3,1);}
+body.anim .rv.in{opacity:1;transform:none;}
+body.anim .rvp .rv-c{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.85,.3,1);}
+body.anim .rvp.in .rv-c{opacity:1;transform:none;}
+
+/* ---------- cover intro ---------- */
+.cover .lnw{display:block;overflow:hidden;}
+.cover .ln{display:block;transition:transform .85s cubic-bezier(.19,.8,.22,1);}
+.cover .lnw:nth-child(2) .ln{transition-delay:.1s;}
+.cover .lnw:nth-child(3) .ln{transition-delay:.2s;}
+body.anim:not(.loaded) .cover .ln{transform:translateY(114%);}
+.cover-top,.cover .eyebrow,.cover .deckline,.cover-meta{transition:opacity .8s ease,transform .8s ease;}
+.cover .eyebrow{transition-delay:.05s;} .cover .deckline{transition-delay:.34s;} .cover-meta{transition-delay:.44s;}
+body.anim:not(.loaded) .cover-top,body.anim:not(.loaded) .cover .eyebrow,body.anim:not(.loaded) .cover .deckline,body.anim:not(.loaded) .cover-meta{opacity:0;transform:translateY(14px);}
+
+/* ---------- band entrance ---------- */
+body.anim .band .idx{opacity:0;transform:translateX(-14px);transition:opacity .6s ease,transform .6s ease;}
+body.anim .band .h1{opacity:0;transform:translateY(16px);transition:opacity .65s ease .08s,transform .65s cubic-bezier(.22,.85,.3,1) .08s;}
+body.anim .band .sub{opacity:0;transform:translateY(10px);transition:opacity .6s ease .18s,transform .6s ease .18s;}
+body.anim .band.in .idx{opacity:.6;transform:none;}
+body.anim .band.in .h1,body.anim .band.in .sub{opacity:1;transform:none;}
+
+/* ---------- hero caption reveal ---------- */
+body.anim .heroimg .cap .k,body.anim .heroimg .cap h2{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
+body.anim .heroimg.in .cap .k,body.anim .heroimg.in .cap h2{opacity:1;transform:none;}
+body.anim .heroimg.in .cap h2{transition-delay:.1s;}
+
+/* ---------- orbit pop ---------- */
+.node{transform-box:fill-box;transform-origin:center;}
+body.anim .eco .node{opacity:0;transform:scale(.85);transition:opacity .5s ease,transform .5s cubic-bezier(.22,.85,.3,1);}
+body.anim .eco.in .node{opacity:1;transform:none;}
+
+/* ---------- dot rail ---------- */
+.rail{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:44;display:flex;flex-direction:column;gap:8px;}
+.rail button{width:22px;height:22px;background:none;border:0;padding:0;margin:0;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;}
+.rail button::after{content:"";width:7px;height:7px;border-radius:50%;border:1px solid var(--muted);transition:transform .2s,background .2s,border-color .2s;}
+.rail button:hover::after{border-color:var(--teal-deep);background:var(--aqua);}
+.rail button.on::after{background:var(--teal-band);border-color:var(--teal-band);transform:scale(1.35);}
+.rail .lbl{position:absolute;right:28px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--rule);padding:4px 9px;opacity:0;pointer-events:none;transition:opacity .15s;}
+.rail button:hover .lbl,.rail button:focus-visible .lbl{opacity:1;}
+@media(max-width:1200px){.rail{display:none;}}
+
+/* ---------- next-section chip ---------- */
+.nextlink{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid var(--rule);padding:clamp(16px,2vw,26px) clamp(16px,2vw,28px);text-decoration:none;background:var(--paper);transition:background .2s;}
+.nextlink:hover,.nextlink:focus-visible{background:var(--aqua-2);}
+.nextlink .nn{display:flex;flex-direction:column;gap:5px;}
+.nextlink .nt{font-size:clamp(18px,2vw,26px);line-height:1.05;letter-spacing:-.022em;font-weight:700;}
+.nextlink .na{width:34px;height:34px;flex:none;color:var(--teal-deep);transition:transform .25s cubic-bezier(.2,.7,.3,1);}
+.nextlink:hover .na{transform:translateX(8px);}
+
+/* ---------- quick jump (Cmd+K) ---------- */
+.qj{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-start;justify-content:center;padding:12vh 18px 18px;}
+.qj[hidden]{display:none;}
+.qj-scrim{position:absolute;inset:0;background:rgba(6,20,22,.52);backdrop-filter:blur(3px);}
+.qj-panel{position:relative;width:min(540px,94vw);background:var(--paper);border:1px solid var(--rule);box-shadow:0 24px 70px rgba(6,20,22,.35);display:flex;flex-direction:column;max-height:70vh;}
+.qj-in{border:0;border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);font:inherit;font-size:15px;padding:15px 18px;outline:none;}
+.qj-list{overflow-y:auto;}
+.qj-it{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule-soft);padding:12px 18px;cursor:pointer;font:inherit;color:var(--ink);}
+.qj-it:last-child{border-bottom:0;}
+.qj-it[hidden]{display:none;}
+.qj-it .qn{font-size:12px;font-weight:700;color:var(--teal-deep);font-variant-numeric:tabular-nums;}
+.qj-it b{display:block;font-size:14.5px;letter-spacing:-.012em;}
+.qj-it i{display:block;font-style:normal;font-size:11.5px;color:var(--muted);margin-top:2px;}
+.qj-it .qa{opacity:0;color:var(--teal-deep);transition:opacity .12s;}
+.qj-it:hover,.qj-it.on{background:var(--aqua-2);}
+.qj-it.on .qa,.qj-it:hover .qa{opacity:1;}
+.qj-foot{border-top:1px solid var(--rule);padding:9px 18px;font-size:10.5px;color:var(--muted);letter-spacing:.05em;display:flex;gap:16px;}
+.kbd{font-size:9.5px;border:1px solid var(--rule-soft);border-radius:4px;padding:1px 5px;color:var(--muted);}
+@media(max-width:700px){.tb-kbd{display:none;}}
+
+/* ---------- theme cross-fade ---------- */
+html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,border-color .4s ease,fill .4s ease,stroke .4s ease,opacity .4s ease !important;}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
   .barfill{transform:scaleX(1);} .ringdash{stroke-dashoffset:var(--off);} .statstrip.reveal .st{opacity:1;transform:none;}}
-@media print{.topbar,.toc,.prog{position:static;}.sec{break-inside:avoid;}}
+@media print{.topbar,.toc,.prog{position:static;}.sec{break-inside:avoid;}.rail,.qj{display:none!important;}body.anim .rv,body.anim .rvp .rv-c,body.anim .band .h1,body.anim .band .sub,body.anim .heroimg .cap .k,body.anim .heroimg .cap h2,body.anim .eco .node{opacity:1!important;transform:none!important;}body.anim .band .idx{opacity:.6!important;transform:none!important;}body.anim:not(.loaded) .cover .ln{transform:none!important;}}
 </style>
 </head>
 <body>
@@ -363,6 +437,7 @@ ul.plain li b{color:var(--ink);}
     <div class="tb-mid"><b>The Nutraceutical Supply Chain. Rebuilt.</b><span class="dot"></span>Platform &amp; Capability Overview<span class="dot"></span>Prepared for Market Performance Group</div>
     <div class="tb-right">
       <span class="mut">August 2026</span>
+      <button class="themebtn" id="jumpbtn" type="button">Jump <span class="kbd tb-kbd">&#8984;K</span></button>
       <button class="themebtn" type="button" onclick="toggleTheme()">
         <span class="t-light">&#9789; Dark</span><span class="t-dark">&#9788; Light</span>
       </button>
@@ -394,7 +469,7 @@ ul.plain li b{color:var(--ink);}
     <div class="eyebrow"><span class="lab">Created for Market Performance Group</span><span class="bar"></span><span class="lab lab-ink">Private &amp; Confidential</span></div>
     <div class="cover-grid">
       <div>
-        <h1 class="h1">The Nutraceutical<br>Supply Chain.<br>Rebuilt.</h1>
+        <h1 class="h1"><span class="lnw"><span class="ln">The Nutraceutical</span></span><span class="lnw"><span class="ln">Supply Chain.</span></span><span class="lnw"><span class="ln">Rebuilt.</span></span></h1>
         <p class="deckline mut">Five operating companies, one platform. <span class="hl" style="color:var(--ink)">Building America's fastest innovation and manufacturing platform</span>, from raw ingredient to retail shelf.</p>
       </div>
       <div class="cover-meta">
@@ -430,7 +505,7 @@ ul.plain li b{color:var(--ink);}
 </div>
 
 <!-- ================= 01 THESIS ================= -->
-<section class="band">
+<section class="band" id="thesis">
   <div class="wrap band-in">
     <div class="idx num">01</div>
     <div>
@@ -445,7 +520,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="thesis">
+<section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
       <div>
@@ -558,7 +633,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 02 ECOSYSTEM ================= -->
-<section class="band">
+<section class="band" id="ecosystem">
   <div class="wrap band-in">
     <div class="idx num">02</div>
     <div>
@@ -576,7 +651,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="ecosystem">
+<section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
       <div>
@@ -671,7 +746,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 03 HOW YOU WIN ================= -->
-<section class="band">
+<section class="band" id="wins">
   <div class="wrap band-in">
     <div class="idx num">03</div>
     <div>
@@ -686,7 +761,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="wins">
+<section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
       <div>
@@ -762,7 +837,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 04 PARTNERSHIP ================= -->
-<section class="band">
+<section class="band" id="partnership">
   <div class="wrap band-in">
     <div class="idx num">04</div>
     <div>
@@ -778,7 +853,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="partnership">
+<section class="sec">
   <div class="wrap stack">
     <div class="pillars">
       <div class="pillar tint">
@@ -837,7 +912,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 05 HEALTH LABS ================= -->
-<section class="band">
+<section class="band" id="labs">
   <div class="wrap band-in">
     <div class="idx num">05</div>
     <div>
@@ -854,7 +929,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="labs">
+<section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
       <div><span class="lab">Formats produced</span><h2 class="h2">Multi-format production at speed and scale.</h2></div>
@@ -900,7 +975,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 06 INGREDIENTS ================= -->
-<section class="band">
+<section class="band" id="ingredients">
   <div class="wrap band-in">
     <div class="idx num">06</div>
     <div>
@@ -916,7 +991,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="ingredients">
+<section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
       <div><span class="lab">Why controlling ingredients changes everything</span><h2 class="h2">10,000+ raw actives on campus. Formulation starts in under 24 hours.</h2></div>
@@ -973,7 +1048,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 07 CURI ================= -->
-<section class="band">
+<section class="band" id="curi">
   <div class="wrap band-in">
     <div class="idx num">07</div>
     <div>
@@ -989,7 +1064,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="curi">
+<section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
       <div>
@@ -1071,7 +1146,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 08 SUPPLEMENTS ================= -->
-<section class="band">
+<section class="band" id="supplements">
   <div class="wrap band-in">
     <div class="idx num">08</div>
     <div>
@@ -1086,7 +1161,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="supplements">
+<section class="sec">
   <div class="wrap stack">
     <div class="sec-head">
       <div><span class="lab">Two paths to shelf</span><h2 class="h2">Start from proven, or make it yours.</h2></div>
@@ -1140,7 +1215,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 09 RETAIL ================= -->
-<section class="band">
+<section class="band" id="retail">
   <div class="wrap band-in">
     <div class="idx num">09</div>
     <div>
@@ -1156,7 +1231,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="retail">
+<section class="sec">
   <div class="wrap stack">
     <div class="retail">
       <div class="rt"><img src="img/rt-walmart.png" alt="Walmart"></div>
@@ -1180,7 +1255,7 @@ ul.plain li b{color:var(--ink);}
 </section>
 
 <!-- ================= 10 TEAM ================= -->
-<section class="band">
+<section class="band" id="team">
   <div class="wrap band-in">
     <div class="idx num">10</div>
     <div>
@@ -1196,7 +1271,7 @@ ul.plain li b{color:var(--ink);}
   </div>
 </section>
 
-<section class="sec" id="team">
+<section class="sec">
   <div class="wrap stack">
     <div class="two">
       <div class="stack-sm">
@@ -1290,9 +1365,12 @@ ul.plain li b{color:var(--ink);}
 /* ---------- theme ---------- */
 function toggleTheme(){
   var r=document.documentElement;
+  r.classList.add('tswap');
   var next = r.getAttribute('data-deck')==='dark' ? 'light' : 'dark';
   r.setAttribute('data-deck',next);
   try{localStorage.setItem('fameDeck',next);}catch(e){}
+  clearTimeout(window.__tsw);
+  window.__tsw=setTimeout(function(){r.classList.remove('tswap');},450);
 }
 (function(){ try{var s=localStorage.getItem('fameDeck'); if(s) document.documentElement.setAttribute('data-deck',s);}catch(e){} })();
 
@@ -1304,22 +1382,66 @@ function onScroll(){
 }
 window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
-/* ---------- scrollspy ---------- */
+/* ---------- deck navigation: scrollspy, dot rail, keyboard, quick jump ---------- */
 (function(){
-  var links=[].slice.call(document.querySelectorAll('#toccells a'));
+  var SUBS={thesis:'Problem & answer',ecosystem:'Five entities, one platform',wins:'Three ways to win',partnership:'Service model & ROI',labs:'Formats & categories',ingredients:'Sourcing & innovation',curi:'Testing & research',supplements:'Stock & Stock+',retail:'Channel proof',team:'People & community',contact:"Let's talk"};
+  var cells=document.getElementById('toccells');
+  var links=[].slice.call(cells.querySelectorAll('a'));
   var pairs=links.map(function(a){
-    return {a:a, el:document.querySelector(a.getAttribute('href'))};
-  }).filter(function(p){return p.el;});
+    var el=document.querySelector(a.getAttribute('href')); if(!el) return null;
+    var n=a.querySelector('.n'); var num=n?n.textContent:'';
+    return {a:a, el:el, id:el.id, num:num, title:a.textContent.replace(num,'').trim()};
+  }).filter(Boolean);
+  pairs.forEach(function(p){ p.host = p.el.classList.contains('band') ? p.el.nextElementSibling : p.el; });
+
+  function go(i){ if(i<0||i>=pairs.length) return; pairs[i].el.scrollIntoView({behavior:'smooth',block:'start'}); }
+
+  /* dot rail */
+  var rail=document.createElement('nav'); rail.className='rail'; rail.setAttribute('aria-label','Sections');
+  pairs.forEach(function(p,i){
+    var b=document.createElement('button'); b.type='button';
+    b.innerHTML='<span class="lbl">'+(p.num?p.num+' &#183; ':'')+p.title+'</span>';
+    b.setAttribute('aria-label',p.title);
+    b.addEventListener('click',function(){go(i);});
+    rail.appendChild(b); p.dot=b;
+  });
+  document.body.appendChild(rail);
+
+  /* next-section chips */
+  pairs.forEach(function(p,i){
+    var nxt=pairs[i+1]; if(!nxt||!p.host) return;
+    var w=p.host.querySelector('.wrap'); if(!w) return;
+    var a=document.createElement('a'); a.className='nextlink'; a.href='#'+nxt.id;
+    a.innerHTML='<span class="nn"><span class="lab">Next'+(nxt.num?' &#183; '+nxt.num:'')+'</span><span class="nt">'+nxt.title+'</span></span>'+
+      '<svg class="na" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 17h13M18.5 11.5 24 17l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+    w.appendChild(a);
+  });
+
+  /* back to top */
+  var foot=document.querySelector('.foot');
+  if(foot){ var bt=document.createElement('a'); bt.href='#'; bt.className='small'; bt.textContent='Back to top \u2191';
+    bt.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}); foot.appendChild(bt); }
+
+  /* scrollspy */
   var cur=-2, last=0;
   function update(){
     last=Date.now();
     var best=-1;
     for(var i=0;i<pairs.length;i++){
-      if(pairs[i].el.getBoundingClientRect().top<=120) best=i; else break;
+      if(pairs[i].el.getBoundingClientRect().top<=126) best=i; else break;
     }
     if(best===cur) return;
     cur=best;
-    for(var j=0;j<pairs.length;j++) pairs[j].a.classList.toggle('on', j===best);
+    pairs.forEach(function(p,i){
+      var on=i===best;
+      p.a.classList.toggle('on',on);
+      p.dot.classList.toggle('on',on);
+    });
+    if(best>=0){
+      var a=pairs[best].a;
+      var target=a.offsetLeft-(cells.clientWidth-a.offsetWidth)/2;
+      if(cells.scrollTo) cells.scrollTo({left:target,behavior:'smooth'}); else cells.scrollLeft=target;
+    }
   }
   function onS(){ if(Date.now()-last>60) update(); }
   window.addEventListener('scroll',onS,{passive:true});
@@ -1327,6 +1449,46 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   window.addEventListener('resize',update);
   window.addEventListener('load',update);
   update();
+
+  /* quick jump palette */
+  var qj=document.createElement('div'); qj.className='qj'; qj.id='qj'; qj.hidden=true;
+  qj.innerHTML='<div class="qj-scrim"></div><div class="qj-panel" role="dialog" aria-modal="true" aria-label="Jump to section">'+
+    '<input class="qj-in" type="text" placeholder="Jump to section&#8230;" aria-label="Filter sections">'+
+    '<div class="qj-list"></div>'+
+    '<div class="qj-foot"><span><span class="kbd">&#8593;&#8595;</span> navigate</span><span><span class="kbd">&#8629;</span> go</span><span><span class="kbd">esc</span> close</span></div></div>';
+  document.body.appendChild(qj);
+  var list=qj.querySelector('.qj-list'), input=qj.querySelector('.qj-in');
+  pairs.forEach(function(p,i){
+    var b=document.createElement('button'); b.type='button'; b.className='qj-it'; b.dataset.i=i;
+    b.innerHTML='<span class="qn num">'+(p.num||'&#8212;')+'</span><span><b>'+p.title+'</b><i>'+(SUBS[p.id]||'')+'</i></span>'+
+      '<svg class="qa" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M8 3.5 11.5 7 8 10.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>';
+    b.addEventListener('click',function(){close();go(i);});
+    list.appendChild(b);
+  });
+  var qi=0;
+  function vis(){ return [].slice.call(list.querySelectorAll('.qj-it')).filter(function(b){return !b.hidden;}); }
+  function mark(){ var v=vis(); v.forEach(function(b,j){b.classList.toggle('on',j===qi);}); if(v[qi]) v[qi].scrollIntoView({block:'nearest'}); }
+  function open(){ qj.hidden=false; input.value=''; filter(''); qi=Math.max(0,cur); mark(); input.focus(); }
+  function close(){ qj.hidden=true; }
+  function filter(q){ q=q.toLowerCase(); [].slice.call(list.querySelectorAll('.qj-it')).forEach(function(b){ b.hidden=!!q&&b.textContent.toLowerCase().indexOf(q)<0; }); qi=0; mark(); }
+  input.addEventListener('input',function(){filter(input.value);});
+  qj.querySelector('.qj-scrim').addEventListener('click',close);
+  var jb=document.getElementById('jumpbtn'); if(jb) jb.addEventListener('click',open);
+
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&!e.altKey&&(e.key==='k'||e.key==='K')){ e.preventDefault(); qj.hidden?open():close(); return; }
+    if(!qj.hidden){
+      if(e.key==='Escape'){ close(); }
+      else if(e.key==='ArrowDown'){ e.preventDefault(); qi=Math.min(vis().length-1,qi+1); mark(); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); qi=Math.max(0,qi-1); mark(); }
+      else if(e.key==='Enter'){ e.preventDefault(); var v=vis()[qi]; if(v){ close(); go(+v.dataset.i); } }
+      return;
+    }
+    if(e.metaKey||e.ctrlKey||e.altKey) return;
+    var t=e.target; if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable)) return;
+    if(e.key==='ArrowRight'){ e.preventDefault(); go(Math.min(pairs.length-1, cur<0?0:cur+1)); }
+    else if(e.key==='ArrowLeft'){ e.preventDefault(); if(cur<=0){window.scrollTo({top:0,behavior:'smooth'});} else go(cur-1); }
+  });
 })();
 
 /* ---------- reveal figures + count up ---------- */
@@ -1385,6 +1547,94 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
     });
   });
   select('famex');
+
+  /* auto-cycle the orbit until the user takes over */
+  var order=['famex','labs','ing','curi','sup'], ai=0, timer=null;
+  var ecoBox=document.querySelector('.eco');
+  function stopAuto(){ if(timer){ clearInterval(timer); timer=null; } }
+  function startAuto(){
+    if(timer||window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    timer=setInterval(function(){ ai=(ai+1)%order.length; select(order[ai]); },3200);
+  }
+  if(ecoBox){
+    var eio=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?startAuto():stopAuto(); }); },{threshold:.35});
+    eio.observe(ecoBox);
+    ['pointerdown','keydown'].forEach(function(ev){ ecoBox.addEventListener(ev,stopAuto,true); });
+    document.getElementById('ecotabs').addEventListener('pointerdown',stopAuto,true);
+  }
+})();
+
+/* ---------- motion: reveals, glyph draw, parallax ---------- */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  document.body.classList.add('anim');
+  function armIntro(){ document.body.classList.add('loaded'); }
+  requestAnimationFrame(function(){ requestAnimationFrame(armIntro); });
+  setTimeout(armIntro,300); /* rAF throttles in hidden tabs; never leave the cover blank */
+
+  /* staggered container reveals */
+  var P=[['.certs','.c'],['.sec .grid','.cellbox'],['.cats','.cat'],['.retail','.rt'],
+         ['.imgcards','.icard'],['.strip','.sc'],['.pillars','.pillar'],['.tiers','.tier'],
+         ['.flowgrid','.fstep'],['.sp-list','.sp-item']];
+  P.forEach(function(pair){
+    [].slice.call(document.querySelectorAll(pair[0])).forEach(function(box){
+      box.classList.add('rvp');
+      [].slice.call(box.querySelectorAll(pair[1])).forEach(function(c,i){
+        c.classList.add('rv-c');
+        c.style.transitionDelay=(i*.05)+'s,'+(i*.05)+'s';
+      });
+    });
+  });
+  /* single-block reveals */
+  ['.sec-head','.figure','.argue','.peopleimg','.eco','.close-grid','.contact-cols','.nextlink'].forEach(function(sel){
+    [].slice.call(document.querySelectorAll(sel)).forEach(function(el){
+      if(!el.classList.contains('rvp')) el.classList.add('rv');
+    });
+  });
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  [].slice.call(document.querySelectorAll('.rv,.rvp,.heroimg')).forEach(function(el){ io.observe(el); });
+
+  /* bands: entrance + glyph stroke draw */
+  var bio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var b=e.target; b.classList.add('in'); bio.unobserve(b);
+      var svg=b.querySelector('.sqc'); if(!svg) return;
+      [].slice.call(svg.querySelectorAll('circle,rect,path')).forEach(function(sh,i){
+        if(sh.getAttribute('stroke')){
+          sh.setAttribute('pathLength','1');
+          sh.style.strokeDasharray='1'; sh.style.strokeDashoffset='1';
+          sh.getBoundingClientRect();
+          sh.style.transition='stroke-dashoffset .9s ease '+(0.15+i*.12)+'s';
+          sh.style.strokeDashoffset='0';
+        } else {
+          sh.style.opacity='0';
+          sh.getBoundingClientRect();
+          sh.style.transition='opacity .5s ease '+(0.5+i*.1)+'s';
+          sh.style.opacity='1';
+        }
+      });
+    });
+  },{threshold:.4});
+  [].slice.call(document.querySelectorAll('.band')).forEach(function(b){ bio.observe(b); });
+
+  /* hero parallax */
+  var pxs=[].slice.call(document.querySelectorAll('.heroimg img,.closehero img'));
+  var tick=false;
+  function par(){
+    tick=false;
+    pxs.forEach(function(img){
+      var r=img.parentElement.getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight) return;
+      var y=Math.max(-34,Math.min(34,r.top*-0.055));
+      img.style.transform='translate3d(0,'+y+'px,0) scale(1.1)';
+    });
+  }
+  window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(par); } },{passive:true});
+  par();
 })();
 </script>
 </body>
