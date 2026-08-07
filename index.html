@@ -411,6 +411,22 @@ body.anim .oring{animation:oringspin 80s linear infinite;}
 .drawline{stroke-dasharray:var(--L);stroke-dashoffset:var(--L);}
 .in .drawline{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s cubic-bezier(.22,.85,.3,1);}
 
+/* ---------- feature bar ---------- */
+.featbar{border:1px solid var(--rule);}
+.featbar-row{display:grid;grid-template-columns:repeat(6,1fr);}
+.fb{display:flex;flex-direction:column;align-items:center;gap:10px;padding:clamp(14px,1.6vw,22px) 10px;background:none;border:0;border-right:1px solid var(--rule-soft);font:inherit;color:var(--ink);cursor:pointer;min-width:0;transition:background .15s;}
+.fb:last-child{border-right:0;}
+.fb:hover{background:var(--aqua-2);}
+.fb[aria-pressed="true"]{background:var(--aqua);}
+.fb .ic{width:38px;height:38px;}
+.fb .ic img,.fb .ic svg{width:100%;height:100%;object-fit:contain;display:block;}
+.fb-t{font-size:12px;font-weight:700;letter-spacing:-.01em;line-height:1.2;text-align:center;}
+.fb-read{border-top:1px solid var(--rule);background:var(--aqua-3);padding:clamp(13px,1.5vw,18px) clamp(16px,1.9vw,26px);display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;font-size:clamp(13px,1vw,14.5px);line-height:1.5;}
+.fb-read b{letter-spacing:-.012em;white-space:nowrap;}
+.fb-read span{color:var(--ink-70);}
+@media(max-width:900px){.featbar-row{grid-template-columns:repeat(3,1fr);}.fb{border-bottom:1px solid var(--rule-soft);}.fb:nth-child(3n){border-right:0;}.fb:nth-last-child(-n+3){border-bottom:0;}}
+@media(max-width:520px){.featbar-row{grid-template-columns:repeat(2,1fr);}.fb:nth-child(3n){border-right:1px solid var(--rule-soft);}.fb:nth-child(2n){border-right:0;}.fb:nth-last-child(-n+3){border-bottom:1px solid var(--rule-soft);}.fb:nth-last-child(-n+2){border-bottom:0;}}
+
 /* ---------- render tag ---------- */
 .icard .fig{position:relative;}
 .rtag{position:absolute;top:10px;right:10px;z-index:2;background:rgba(6,20,22,.78);color:#8FE6EF;font-size:9.5px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;padding:5px 11px;}
@@ -1397,14 +1413,26 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
       </div>
     </div>
 
-    <div class="grid g6">
-      <div class="cellbox iconcell hoverable"><div class="ic"><img src="img/ic-trend.png" alt=""></div><div class="h4">Real-Time Trend Tracking</div><p class="small">Formulas informed by live global demand data, never behind the market.</p></div>
-      <div class="cellbox iconcell hoverable"><div class="ic"><img src="img/ic-flavor.png" alt=""></div><div class="h4">Regional Flavor Intelligence</div><p class="small">1,000+ flavors in active development. The right taste for the right market.</p></div>
-      <div class="cellbox iconcell hoverable"><div class="ic"><img src="img/ic-lab.png" alt=""></div><div class="h4">Lab-Direct. No Intermediaries</div><p class="small">Full traceability, no markups, 24/7 client portal access.</p></div>
-      <div class="cellbox iconcell hoverable"><div class="ic"><img src="img/ic-coa.png" alt=""></div><div class="h4">COAs on Every Batch</div><p class="small">Full documentation, batch traceability and QA/QC on every production run.</p></div>
-      <div class="cellbox iconcell hoverable"><div class="ic"><img src="img/ic-newsku.png" alt=""></div><div class="h4">New SKUs Weekly</div><p class="small">Portfolio updated continuously, always ahead of consumer demand.</p></div>
-      <div class="cellbox iconcell hoverable"><div class="ic"><svg viewBox="0 0 44 44" aria-hidden="true" fill="none" stroke="var(--teal)" stroke-width="2.2"><rect x="4" y="16" width="17" height="15"/><rect x="21" y="16" width="17" height="15"/><path d="M4 16 L12.5 9 L29.5 9 L21 16"/><path d="M21 16 L29.5 9 L38 9"/></svg></div><div class="h4">Bulk &amp; Wholesale Programs</div><p class="small">Volume-based pricing, priority scheduling and dedicated account terms.</p></div>
-    </div>
+    <div class="featbar" id="featbar">
+      <div class="featbar-row" role="tablist" aria-label="Platform features">
+        <button type="button" class="fb" aria-pressed="true" data-t="Real-Time Trend Tracking" data-d="Formulas informed by live global demand data, never behind the market. The portfolio follows what consumers are buying, not what a catalog printed last year.">
+          <span class="ic"><img src="img/ic-trend.png" alt=""></span><span class="fb-t">Trend Tracking</span></button>
+        <button type="button" class="fb" aria-pressed="false" data-t="Regional Flavor Intelligence" data-d="1,000+ flavors in active development, tuned by region. The right taste for the right market, informed by preference data.">
+          <span class="ic"><img src="img/ic-flavor.png" alt=""></span><span class="fb-t">Flavor Intelligence</span></button>
+        <button type="button" class="fb" aria-pressed="false" data-t="Lab-Direct. No Intermediaries" data-d="Full traceability, no markups, 24/7 client portal access. You buy from the lab that makes it.">
+          <span class="ic"><img src="img/ic-lab.png" alt=""></span><span class="fb-t">Lab-Direct</span></button>
+        <button type="button" class="fb" aria-pressed="false" data-t="COAs on Every Batch" data-d="Full documentation, batch traceability and QA/QC on every production run. Proof ships with the product.">
+          <span class="ic"><img src="img/ic-coa.png" alt=""></span><span class="fb-t">COAs Every Batch</span></button>
+        <button type="button" class="fb" aria-pressed="false" data-t="New SKUs Weekly" data-d="The stock portfolio updates continuously, staying ahead of consumer demand instead of chasing it.">
+          <span class="ic"><img src="img/ic-newsku.png" alt=""></span><span class="fb-t">New SKUs Weekly</span></button>
+        <button type="button" class="fb" aria-pressed="false" data-t="Bulk &amp; Wholesale Programs" data-d="Volume-based pricing, priority scheduling and dedicated account terms for larger programs.">
+          <span class="ic"><svg viewBox="0 0 44 44" aria-hidden="true" fill="none" stroke="var(--teal)" stroke-width="2.2"><rect x="4" y="16" width="17" height="15"/><rect x="21" y="16" width="17" height="15"/><path d="M4 16 L12.5 9 L29.5 9 L21 16"/><path d="M21 16 L29.5 9 L38 9"/></svg></span><span class="fb-t">Bulk &amp; Wholesale</span></button>
+      </div>
+      <div class="fb-read" aria-live="polite">
+        <b id="fb-rt"></b>
+        <span id="fb-rd"></span>
+      </div>
+    </div></div>
 
     <div class="imgcards" style="margin-top:0">
       <div class="icard"><div class="fig"><img src="img/pack-family.jpg" alt="A family of unbranded pouches, jars and stick packs ready for brand identity"></div><div class="cap"><span class="lab">Your brand here</span><div class="h4">Pouches, jars, tubs and stick packs</div><p class="small">Format and pack architecture ready for your identity, on validated formulas.</p></div></div>
@@ -1885,6 +1913,23 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 })();
 
 
+
+/* ---------- feature bar ---------- */
+(function(){
+  var bar=document.getElementById('featbar'); if(!bar) return;
+  var btns=[].slice.call(bar.querySelectorAll('.fb'));
+  var rt=document.getElementById('fb-rt'), rd=document.getElementById('fb-rd');
+  function show(b){
+    btns.forEach(function(o){o.setAttribute('aria-pressed',String(o===b));});
+    rt.textContent=b.dataset.t+'.'; rd.textContent=b.dataset.d;
+  }
+  btns.forEach(function(b){
+    b.addEventListener('mouseenter',function(){show(b);});
+    b.addEventListener('focus',function(){show(b);});
+    b.addEventListener('click',function(){show(b);});
+  });
+  show(btns[0]);
+})();
 
 /* ---------- partnership tabs ---------- */
 (function(){
