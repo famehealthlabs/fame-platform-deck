@@ -128,7 +128,8 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .two>*,.stack>*,.stack-sm>*{min-width:0;}
 
 /* ---------- section band divider (squared circle) ---------- */
-.band{position:relative;background:var(--teal-band);color:var(--band-ink);border-bottom:1px solid var(--rule);padding:clamp(44px,6vw,86px) 0;overflow:hidden;}
+.band{position:relative;background:var(--teal-band);color:var(--band-ink);border-bottom:1px solid var(--rule);padding:clamp(44px,6vw,86px) 0;overflow:hidden;min-height:clamp(340px,40vw,520px);display:flex;align-items:center;}
+.band>.wrap{width:100%;}
 .band::before{content:"";position:absolute;inset:0;background-image:var(--bimg);background-size:cover;background-position:var(--bpos,center 35%);}
 .band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,24,27,.9) 0%,rgba(4,24,27,.66) 46%,rgba(4,24,27,.3) 100%);}
 .band-in{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(18px,3vw,50px);align-items:center;}
