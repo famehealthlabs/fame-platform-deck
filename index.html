@@ -600,6 +600,19 @@ body.anim .eco.in .node{opacity:1;transform:none;}
 .kbd{font-size:9.5px;border:1px solid var(--rule-soft);border-radius:4px;padding:1px 5px;color:var(--muted);}
 @media(max-width:700px){.tb-kbd{display:none;}}
 
+/* ---------- skim / detail density ---------- */
+body.skim .sp-item .s,
+body.skim .tier .kv span,
+body.skim .grid .cellbox .small,
+body.skim .statstrip .sub,
+body.skim .icard .cap .small{display:none;}
+@media print{
+  body.skim .sp-item .s,body.skim .tier .kv span,body.skim .grid .cellbox .small,
+  body.skim .statstrip .sub,body.skim .icard .cap .small{display:block!important;}
+}
+.d-more{display:none;} .d-less{display:inline;}
+body.skim .d-more{display:inline;} body.skim .d-less{display:none;}
+
 /* ---------- theme cross-fade ---------- */
 html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,border-color .4s ease,fill .4s ease,stroke .4s ease,opacity .4s ease !important;}
 
@@ -617,6 +630,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
     <div class="tb-mid"><b>The Nutraceutical Supply Chain. Rebuilt.</b><span class="dot"></span>Platform &amp; Capability Overview<span class="dot"></span>Prepared for Market Performance Group</div>
     <div class="tb-right">
       <span class="mut">August 2026</span>
+      <button class="themebtn" id="densebtn" type="button" aria-pressed="true"><span class="d-more">+ Detail</span><span class="d-less">&#8722; Less text</span></button>
       <button class="themebtn" id="jumpbtn" type="button">Jump <span class="kbd tb-kbd">&#8984;K</span></button>
       <button class="themebtn" type="button" onclick="toggleTheme()">
         <span class="t-light">&#9789; Dark</span><span class="t-dark">&#9788; Light</span>
@@ -1655,6 +1669,22 @@ function toggleTheme(){
   window.__tsw=setTimeout(function(){r.classList.remove('tswap');},450);
 }
 (function(){ try{var s=localStorage.getItem('fameDeck'); if(s) document.documentElement.setAttribute('data-deck',s);}catch(e){} })();
+
+/* ---------- skim / detail ---------- */
+(function(){
+  var pref;
+  try{ pref=localStorage.getItem('fameDense'); }catch(e){}
+  if(pref!=='detail') document.body.classList.add('skim');
+  var b=document.getElementById('densebtn');
+  if(b){
+    b.setAttribute('aria-pressed', String(document.body.classList.contains('skim')));
+    b.addEventListener('click',function(){
+      var skim=document.body.classList.toggle('skim');
+      b.setAttribute('aria-pressed',String(skim));
+      try{ localStorage.setItem('fameDense', skim?'skim':'detail'); }catch(e){}
+    });
+  }
+})();
 
 /* ---------- scroll progress ---------- */
 var prog=document.getElementById('prog');
