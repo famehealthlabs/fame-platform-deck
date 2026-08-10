@@ -601,15 +601,24 @@ body.anim .eco.in .node{opacity:1;transform:none;}
 @media(max-width:700px){.tb-kbd{display:none;}}
 
 /* ---------- skim / detail density ---------- */
-body.skim .sp-item .s,
-body.skim .tier .kv span,
-body.skim .grid .cellbox .small,
-body.skim .statstrip .sub,
-body.skim .icard .cap .small{display:none;}
+body.skim .split:not(.dopen) .sp-item .s,
+body.skim .tiers:not(.dopen) .kv span,
+body.skim .grid:not(.dopen) .cellbox .small,
+body.skim .statstrip:not(.dopen) .sub,
+body.skim .imgcards:not(.dopen) .cap .small{display:none;}
 @media print{
-  body.skim .sp-item .s,body.skim .tier .kv span,body.skim .grid .cellbox .small,
-  body.skim .statstrip .sub,body.skim .icard .cap .small{display:block!important;}
+  body.skim .split .sp-item .s,body.skim .tiers .kv span,body.skim .grid .cellbox .small,
+  body.skim .statstrip .sub,body.skim .imgcards .cap .small{display:block!important;}
 }
+.morewrap{position:relative;height:0;margin:0;}
+.stack>.morewrap{margin-top:calc(-1*clamp(30px,3.4vw,58px));}
+.morebtn{display:none;position:absolute;right:14px;top:-15px;background:var(--paper);border:1px solid var(--rule);color:var(--teal-deep);font:inherit;font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;padding:6px 14px;cursor:pointer;align-items:center;transition:background .15s,color .15s;}
+body.skim .morebtn{display:inline-flex;}
+.morebtn:hover{background:var(--teal-band);color:#fff;border-color:var(--teal-band);}
+.morebtn .ml{display:none;}
+.morebtn.on .mm{display:none;}
+.morebtn.on .ml{display:inline;}
+@media print{.morewrap{display:none!important;}}
 .d-more{display:none;} .d-less{display:inline;}
 body.skim .d-more{display:inline;} body.skim .d-less{display:none;}
 
@@ -2208,6 +2217,29 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   }
   window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(par); } },{passive:true});
   par();
+})();
+
+/* ---------- per-block detail buttons ---------- */
+(function(){
+  var MAP=[['.split','.sp-item .s'],['.tiers','.kv span'],['.grid','.cellbox .small'],
+           ['.statstrip','.sub'],['.imgcards','.cap .small']];
+  MAP.forEach(function(pair){
+    [].slice.call(document.querySelectorAll(pair[0])).forEach(function(box){
+      if(!box.querySelector(pair[1])) return;
+      if(box.parentElement.classList.contains('two')) return;
+      var wrap=document.createElement('div'); wrap.className='morewrap';
+      var b=document.createElement('button'); b.type='button'; b.className='morebtn';
+      b.setAttribute('aria-expanded','false');
+      b.innerHTML='<span class="mm">+ Details</span><span class="ml">&#8722; Hide details</span>';
+      b.addEventListener('click',function(){
+        var open=box.classList.toggle('dopen');
+        b.classList.toggle('on',open);
+        b.setAttribute('aria-expanded',String(open));
+      });
+      wrap.appendChild(b);
+      box.insertAdjacentElement('afterend',wrap);
+    });
+  });
 })();
 </script>
 </body>
