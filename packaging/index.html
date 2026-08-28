@@ -156,6 +156,22 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .mailbtn:hover{background:var(--teal-deep);}
 .foot{border-top:1px solid var(--rule);padding:22px 0 40px;display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-between;}
 
+/* label routes: a choice, drawn as a choice */
+.routes{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;border:1px solid var(--rule);background:var(--paper);}
+.route{padding:clamp(20px,2.4vw,36px);display:flex;flex-direction:column;gap:10px;min-width:0;}
+.route .h3{margin:2px 0 0;}
+.route-or{display:flex;align-items:center;justify-content:center;padding:0 clamp(8px,1.4vw,20px);position:relative;}
+.route-or::before,.route-or::after{content:"";position:absolute;left:50%;width:1px;background:var(--rule-soft);}
+.route-or::before{top:0;bottom:calc(50% + 22px);} .route-or::after{top:calc(50% + 22px);bottom:0;}
+.route-or span{width:44px;height:44px;border:1px solid var(--rule-soft);border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--muted);background:var(--paper);position:relative;z-index:2;}
+@media(max-width:820px){
+  .routes{grid-template-columns:1fr;}
+  .route-or{padding:clamp(10px,3vw,18px) 0;}
+  .route-or::before{left:50%;top:0;bottom:calc(50% + 22px);}
+  .route-or::after{left:50%;top:calc(50% + 22px);bottom:0;}
+}
+
 /* concepts gallery: full-bleed, borderless, deliberately unlike the card grids */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(26px,3vw,44px);}
 .gallery figure{margin:0;position:relative;overflow:hidden;}
@@ -558,18 +574,32 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
       <div class="icard"><div class="fig"><img src="../img/sd-lbl-blank.jpg" alt="A blank unlabeled white supplement bottle"></div>
         <div class="cap"><span class="lab">Step 1</span><div class="h4">Select the container</div><p class="small">Choose from the stock bottles, jars and formats above.</p></div></div>
       <div class="icard"><div class="fig"><img src="../img/sd-lbl-labeled.jpg" alt="The same bottle wearing a finished wraparound label"></div>
-        <div class="cap"><span class="lab">Step 2</span><div class="h4">Design the label</div><p class="small">Send print-ready artwork and we run it, or have our team build it with you from panel layout to finish.</p></div></div>
+        <div class="cap"><span class="lab">Step 2</span><div class="h4">Design the label</div><p class="small">Bring finished artwork, or start from nothing. Both routes are below.</p></div></div>
       <div class="icard"><div class="fig"><img src="../img/sd-lbl-retail.jpg" alt="The labeled bottle beside its carton and printed insert"></div>
         <div class="cap"><span class="lab">Step 3</span><div class="h4">Printed, applied, launched</div><p class="small">Printed on site, applied and inspected as it fills, then boxed with your inserts.</p></div></div>
     </div>
 
-    <div class="grid g3">
-      <div class="cellbox"><span class="lab">You bring the design</span><div class="h4">We run it, and we flag risks</div><p class="small">Send print-ready artwork. We flag anything that will not hold up on press or will not pass label review.</p></div>
-      <div class="cellbox tint"><span class="lab">Printing</span><div class="h4">Techniques &amp; finishes on site</div><p class="small">A range of printing techniques and finishes, printed here, so a label revision does not add a shipping leg to your timeline.</p></div>
-      <div class="cellbox"><span class="lab">Application</span><div class="h4">Automated &amp; consistent</div><p class="small">Automated labeling machines place every label accurately, then inspect it, run after run.</p></div>
-      <div class="cellbox"><span class="lab">Compliance</span><div class="h4">Reviewed before it prints</div><p class="small">Panels checked against supplement labeling requirements before the run, not after it, with recommended changes before market.</p></div>
-      <div class="cellbox tint"><span class="lab">Branding</span><div class="h4">Built around your identity</div><p class="small">Visual and copy systems centered on your logo and product name, building recognition within regulatory guidelines.</p></div>
-      <div class="cellbox"><span class="lab">In-house design</span><div class="h4">Start from nothing</div><p class="small">Our team designs the label with you, from panel layout to finish, with a design network for eye-catching compliant work at competitive rates.</p></div>
+    <div class="routes">
+      <div class="route">
+        <span class="lab">Route one</span>
+        <h3 class="h3">You bring the artwork</h3>
+        <p class="body">Send print-ready files and we run them. We flag anything that will not hold up on press or will not pass label review before it costs you a print run.</p>
+      </div>
+      <div class="route-or"><span>or</span></div>
+      <div class="route">
+        <span class="lab">Route two</span>
+        <h3 class="h3">We design it with you</h3>
+        <p class="body">Our team builds the label from panel layout to finish, around your logo and product name, with a design network for compliant work at competitive rates.</p>
+      </div>
+    </div>
+
+    <div>
+      <span class="lab">True either way</span>
+      <div class="grid g3" style="margin-top:14px">
+        <div class="cellbox"><div class="h4">Printed on site</div><p class="small">A range of techniques and finishes, printed here, so a revision does not add a shipping leg to your timeline.</p></div>
+        <div class="cellbox tint"><div class="h4">Applied and inspected</div><p class="small">Automated labeling machines place every label accurately, then inspect it, run after run.</p></div>
+        <div class="cellbox"><div class="h4">Checked before it prints</div><p class="small">Panels reviewed against supplement labeling requirements before the run, with recommended changes before market.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -580,11 +610,6 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     <div class="sec-head">
       <div><span class="lab">07 &#183; Next step</span><h2 class="h2">Tell us the product. We will tell you what it ships in.</h2></div>
       <p class="body">Send the format, the dose count and the shelf you are aiming for, and we will come back with the packaging that fits it and what it costs to run. We respond within 24 to 48 hours.</p>
-    </div>
-
-    <div class="argue">
-      <span class="lab">Spec your packaging</span>
-      <q>Tell us the format, the fill and the shelf you are aiming for, and we will spec the packaging with you &#8212; stocked where possible, sourced where it matters.</q>
     </div>
 
     <a class="mailbtn" href="mailto:holly@famehealthlabs.com?subject=Packaging%20specs%20request&body=Hi%20Holly%2C%0A%0AI%20went%20through%20the%20packaging%20catalog.%20We%27re%20interested%20in%3A%0A%0AFormat%3A%20%0ASize%2Fdimensions%3A%20%0AMaterial%20and%20color%3A%20%0ADose%20count%3A%20%0ATarget%20shelf%20date%3A%20%0AEstimated%20volume%3A%20%0A%0ACan%20we%20talk%20through%20the%20options%3F">Request packaging specs
