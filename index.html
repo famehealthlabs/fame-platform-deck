@@ -109,13 +109,13 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .certsec{border-bottom:1px solid var(--rule);background:var(--paper);padding:clamp(26px,3vw,46px) 0;}
 .certhead{display:flex;align-items:center;gap:.9em;margin-bottom:clamp(16px,1.8vw,26px);}
 .certhead .bar{height:1px;flex:1;background:var(--rule-soft);}
-.certs{display:grid;grid-template-columns:repeat(10,1fr);border:1px solid var(--rule);background:var(--paper);}
+.certs{display:grid;grid-template-columns:repeat(9,1fr);border:1px solid var(--rule);background:var(--paper);}
 .certs .c{border-right:1px solid var(--rule-soft);padding:clamp(16px,1.8vw,24px) 12px;display:flex;align-items:center;justify-content:center;min-width:0;}
 .certs .c:last-child{border-right:0;}
 .certs img{max-width:100%;max-height:46px;width:auto;height:auto;display:block;}
 :root[data-deck="dark"] .certs .c{background:#fff;}
-@media(max-width:1000px){.certs{grid-template-columns:repeat(5,1fr);}.certs .c{border-bottom:1px solid var(--rule-soft);}.certs .c:nth-child(5n){border-right:0;}.certs .c:nth-last-child(-n+5){border-bottom:0;}}
-@media(max-width:560px){.certs{grid-template-columns:repeat(3,1fr);}.certs .c:nth-child(5n){border-right:1px solid var(--rule-soft);}.certs .c:nth-child(3n){border-right:0;}}
+@media(max-width:1000px){.certs{grid-template-columns:repeat(3,1fr);}.certs .c{border-bottom:1px solid var(--rule-soft);}.certs .c:nth-child(3n){border-right:0;}.certs .c:nth-last-child(-n+3){border-bottom:0;}}
+
 
 /* ---------- section frame ---------- */
 .sec{border-bottom:1px solid var(--rule);padding:clamp(56px,6.5vw,110px) 0;background:var(--paper);}
@@ -631,6 +631,18 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
   .barfill{transform:scaleX(1);} .ringdash{stroke-dashoffset:var(--off);} .statstrip.reveal .st{opacity:1;transform:none;}}
 
+/* ---------- values strip ---------- */
+.valuesec{border-bottom:1px solid var(--rule);background:var(--paper-2);padding:clamp(26px,3vw,46px) 0;}
+.values{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);background:var(--paper);}
+.values .v{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:clamp(18px,2vw,28px);
+  border-right:1px solid var(--rule-soft);min-width:0;}
+.values .v:last-child{border-right:0;}
+.values svg{width:38px;height:38px;flex:none;fill:none;stroke:var(--teal-deep);stroke-width:1.5;stroke-linecap:round;}
+.values .h4{margin-bottom:5px;}
+@media(max-width:820px){.values{grid-template-columns:1fr;}
+  .values .v{border-right:0;border-bottom:1px solid var(--rule-soft);}
+  .values .v:last-child{border-bottom:0;}}
+
 /* ---------- cross-page CTA panel ---------- */
 .ctapanel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:clamp(18px,3vw,48px);
   background:#0C2225;border:1px solid #0C2225;color:#fff;text-decoration:none;
@@ -746,10 +758,29 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   <div class="c"><img src="img/cert-nsf.png" alt="NSF certified"></div>
   <div class="c"><img src="img/cert-mosa.png" alt="MOSA Certified Organic"></div>
   <div class="c"><img src="img/cert-iso.png" alt="ISO 17025"></div>
-  <div class="c"><img src="img/cert-usa.png" alt="Made in USA with global ingredients"></div>
   <div class="c"><img src="img/cert-healthcanada.png" alt="Health Canada"></div>
   <div class="c"><img src="img/cert-halal.png" alt="Halal certified"></div>
   <div class="c"><img src="img/cert-kosher.png" alt="Kosher certified"></div>
+    </div>
+  </div>
+</section>
+
+<section class="valuesec">
+  <div class="wrap">
+    <div class="certhead"><span class="lab">What we stand behind</span><span class="bar"></span><span class="small">Ownership, origin and the system underneath</span></div>
+    <div class="values">
+      <div class="v">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="9" width="32" height="22" rx="1.5"/><path d="M4 16h32M4 24h32"/><path d="M20 9v22"/></svg>
+        <div><div class="h4">Made in USA</div><p class="small">Cedartown, Georgia, with globally sourced ingredients.</p></div>
+      </div>
+      <div class="v">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="7"/><path d="M20 21v11M15 27h10"/></svg>
+        <div><div class="h4">100% women owned</div><p class="small">Approximately 75% of managers are women.</p></div>
+      </div>
+      <div class="v">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="5"/><circle cx="20" cy="20" r="14"/><path d="M20 6v9M20 25v9M6 20h9M25 20h9"/></svg>
+        <div><div class="h4">Powered by FAME-X</div><p class="small">One system of record across every entity, visible to you in real time.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1563,7 +1594,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
       <div class="st"><div class="big num">800+</div><div class="cap">Stock Formulations</div><div class="sub">Continuously expanding</div></div>
       <div class="st"><div class="big num">10,000+</div><div class="cap">Ingredients In Stock</div><div class="sub">On campus</div></div>
       <div class="st"><div class="big num">4 Weeks</div><div class="cap">Enterprise Launch</div><div class="sub">30,000+ units</div></div>
-      <div class="st"><div class="big num">100%</div><div class="cap">Female Owned</div><div class="sub">~75% female managers</div></div>
+      <div class="st"><div class="big num">100+</div><div class="cap">Brand Partners</div><div class="sub">Selling F.A.M.E. formulas worldwide</div></div>
     </div>
   </div>
 </section>
