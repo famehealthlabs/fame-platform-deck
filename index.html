@@ -820,7 +820,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
               <rect x="748" y="34" width="150" height="62"/>
             </g>
             <g class="fx-t" text-anchor="middle">
-              <text x="75" y="70">Source</text><text x="262" y="70">Blend</text><text x="449" y="70">Make</text>
+              <text x="75" y="70">Source</text><text x="262" y="70">Blend</text><text x="449" y="70">Manufacture</text>
               <text x="636" y="70">Test</text><text x="823" y="70">Ship</text>
             </g>
             <g id="gaps"></g>
@@ -830,7 +830,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
               <path d="M179.6 230V292"/><path d="M359.2 230V292"/><path d="M538.8 230V292"/><path d="M718.4 230V292"/>
             </g>
             <g class="fx-t" text-anchor="middle">
-              <text x="89.8" y="266">Source</text><text x="269.4" y="266">Blend</text><text x="449" y="266">Make</text>
+              <text x="89.8" y="266">Source</text><text x="269.4" y="266">Blend</text><text x="449" y="266">Manufacture</text>
               <text x="628.6" y="266">Test</text><text x="808.2" y="266">Ship</text>
             </g>
             <text x="449" y="320" text-anchor="middle" class="fx-s" style="fill:var(--teal-deep)">Zero handoffs &#183; one owner &#183; one system of record</text>
@@ -840,10 +840,10 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
           <span class="fk" data-k>The handoff</span>
           <div class="ft" data-t></div>
           <p class="fd" data-d></p>
-          <p class="fm">All five friction points trace back to these four boundaries. Remove the boundaries and the frictions go with them.</p>
+          <p class="fm">Each delay above happens between two companies, not inside one.</p>
         </aside>
       </div>
-      <p class="fig-note">Gaps are company boundaries, not fixed durations. The 12 to 16 week industry norm is ASCM data; F.A.M.E. delivers 30,000+ units in four weeks.</p>
+      <p class="fig-note">The gaps mark where one company hands over to another, not fixed lengths of time. The 12 to 16 week industry norm is ASCM data; F.A.M.E. delivers 30,000+ units in four weeks.</p>
     </figure>
 
     <figure class="dfig rv" id="fig-lead" style="margin:0">
@@ -1208,7 +1208,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
               <circle class="rg" cx="228" cy="312" r="146" fill="var(--teal)" fill-opacity=".2" stroke="var(--teal-deep)" stroke-width="1.5"/>
               <text x="195" y="398" text-anchor="middle" class="lb">Formulation speed</text>
             </g>
-            <g class="hit" data-k="Quality control" data-t="Verified independently of the supplier" data-d="Every incoming lot is tested for microbials and assay before production, with additional testing to each brand's spec. Quality is verified against our own result, not against a supplier's paperwork." data-m="Heavy metals, microbials and potency, tested in house." tabindex="0" role="button" aria-pressed="false">
+            <g class="hit" data-k="Quality control" data-t="Verified independently of the supplier" data-d="Every incoming lot is tested for contamination and for how much active ingredient it actually contains, before it goes into production. Quality is checked against our own result, not a supplier's paperwork." data-m="Heavy metals, microbials and potency, tested in house." tabindex="0" role="button" aria-pressed="false">
               <circle class="rg" cx="412" cy="312" r="146" fill="var(--teal)" fill-opacity=".2" stroke="var(--teal-deep)" stroke-width="1.5"/>
               <text x="445" y="398" text-anchor="middle" class="lb">Quality control</text>
             </g>
@@ -2004,10 +2004,10 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 (function(){
   /* build the four handoff gaps in figure 01 */
   var GAPS=[
-    {x:150,t:'Source to Blend',d:'The blender re-reads the ingredient spec and interprets it. Any difference between what was bought and what was intended surfaces later, in a lot that has already been made.'},
-    {x:337,t:'Blend to Make',d:'Your blend joins a queue set by the manufacturer’s calendar, not your retail date. This is where most of the twelve weeks quietly accumulates.'},
-    {x:524,t:'Make to Test',d:'Finished lots ship to a third-party lab and wait in its queue. Nobody in the chain is measuring the total elapsed time, because nobody owns it.'},
-    {x:711,t:'Test to Ship',d:'A failed assay restarts the chain from whichever vendor is blamed. With five companies there is no single party who can simply fix it and move.'}
+    {x:150,t:'The recipe gets re-read',d:'The company blending your formula is not the company that bought the ingredients. Anything lost between the two shows up later, in a batch that has already been made.'},
+    {x:337,t:'Waiting for the factory queue',d:'Your blend waits for a production slot set by the manufacturer\u2019s calendar, not your retail date. Most of the twelve weeks is spent here, waiting.'},
+    {x:524,t:'Samples travel to an outside lab',d:'Finished product is boxed, shipped to a third-party lab, and waits its turn. Nobody counts those days, because nobody owns them.'},
+    {x:711,t:'One failed test starts it again',d:'If a result comes back wrong, the work goes back to whichever supplier gets blamed. With five companies involved, no one can simply fix it and carry on.'}
   ];
   var g=document.getElementById('gaps');
   if(g){
