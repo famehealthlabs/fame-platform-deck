@@ -156,12 +156,25 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .mailbtn:hover{background:var(--teal-deep);}
 .foot{border-top:1px solid var(--rule);padding:22px 0 40px;display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-between;}
 
-/* format tabs */
-.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(18px,2vw,28px);}
-.ftab{background:var(--paper);border:1px solid var(--rule-soft);color:var(--muted);font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.04em;padding:10px 20px;border-radius:100px;cursor:pointer;transition:background .16s,color .16s,border-color .16s;}
-.ftab:hover{border-color:var(--teal-deep);color:var(--teal-deep);}
-.ftab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+/* format spec box */
+.specbox{border:1px solid var(--rule);background:var(--aqua-3);}
+.specinner{padding:clamp(18px,2.2vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,34px);align-items:start;}
+@media(max-width:820px){.specinner{grid-template-columns:1fr;}}
+.specinner>*{min-width:0;}
+.specinner>.spec-k:first-child,.specinner>p.body,.specinner>.specnote{grid-column:1/-1;}
+
+/* format picker: the tabs are the photographs */
+.ftabs{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--rule);margin-bottom:clamp(18px,2vw,28px);background:var(--paper);}
+.ftab{background:none;border:0;border-right:1px solid var(--rule-soft);padding:0;cursor:pointer;font:inherit;text-align:left;display:flex;flex-direction:column;min-width:0;transition:background .16s;}
+.ftab:last-child{border-right:0;}
+.ftab img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:saturate(.9);transition:transform .4s cubic-bezier(.2,.7,.3,1),opacity .2s;opacity:.72;}
+.ftab:hover img{transform:scale(1.04);opacity:1;}
+.ftab span{padding:11px 12px;font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--muted);border-top:1px solid var(--rule-soft);transition:color .16s,background .16s;}
+.ftab[aria-selected="true"] img{opacity:1;}
+.ftab[aria-selected="true"] span{background:var(--ink);color:var(--paper);}
 .fpanel[hidden]{display:none;}
+@media(max-width:900px){.ftabs{grid-template-columns:repeat(3,1fr);}.ftab{border-bottom:1px solid var(--rule-soft);}.ftab:nth-child(3n){border-right:0;}}
+@media(max-width:520px){.ftabs{grid-template-columns:repeat(2,1fr);}.ftab:nth-child(3n){border-right:1px solid var(--rule-soft);}.ftab:nth-child(2n){border-right:0;}}
 
 /* three steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px);}
@@ -259,18 +272,17 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 
     <div>
       <div class="ftabs" role="tablist" aria-label="Packaging formats" id="ftabs">
-        <button class="ftab" role="tab" aria-selected="true" data-f="bottles">Bottles</button>
-        <button class="ftab" role="tab" aria-selected="false" data-f="liquids">Liquids</button>
-        <button class="ftab" role="tab" aria-selected="false" data-f="jars">Jars</button>
-        <button class="ftab" role="tab" aria-selected="false" data-f="sticks">Stick packs</button>
-        <button class="ftab" role="tab" aria-selected="false" data-f="sachets">Sachets</button>
-        <button class="ftab" role="tab" aria-selected="false" data-f="pouches">Pouches</button>
+        <button class="ftab" role="tab" aria-selected="true" data-f="bottles"><img src="../img/sd-bottles-color.jpg" alt="Supplement bottles in the stock colour range"><span>Bottles</span></button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="liquids"><img src="../img/sd-liquids.jpg" alt="Amber glass dropper bottles and a white bullet bottle"><span>Liquids</span></button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="jars"><img src="../img/sd-jars.jpg" alt="Supplement powder jars in ascending sizes"><span>Jars</span></button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="sticks"><img src="../img/sd-sticks.jpg" alt="Powder stick packs in a diagonal row"><span>Stick packs</span></button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="sachets"><img src="../img/sd-sachets.jpg" alt="Square sachet packets in an offset grid"><span>Sachets</span></button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="pouches"><img src="../img/sd-pouches.jpg" alt="Stand-up pouches with capsules"><span>Pouches</span></button>
       </div>
 
       <div class="fpanel" id="f-bottles">
-        <div class="cat">
-          <div class="cat-fig"><img src="../img/sd-bottles-color.jpg" alt="Supplement bottles in the stock colour range"></div>
-          <div class="cat-spec">
+        <div class="specbox">
+          <div class="specinner">
             <span class="spec-k">Bottles &#183; capsules, tablets and gummies</span>
             <div><span class="spec-k" style="color:var(--muted)">Materials</span><p class="body" style="margin:6px 0 0">HDPE and PET as standard. Glass for capsules.</p></div>
             <div><span class="spec-k" style="color:var(--muted)">Stock colors</span>
@@ -314,9 +326,8 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
       </div>
 
       <div class="fpanel" id="f-liquids" hidden>
-        <div class="cat">
-          <div class="cat-fig"><img src="../img/sd-liquids.jpg" alt="Amber glass dropper bottles beside a white HDPE bullet bottle"></div>
-          <div class="cat-spec">
+        <div class="specbox">
+          <div class="specinner">
             <span class="spec-k">Liquids &#183; a separate program, glass first</span>
             <p class="body" style="margin:0">Small-volume liquids run in pure glass droppers; larger volumes run in HDPE bullets. PET is deliberately not used for dropper applications.</p>
             <div><span class="spec-k" style="color:var(--muted)">Glass droppers</span>
@@ -343,9 +354,8 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
       </div>
 
       <div class="fpanel" id="f-jars" hidden>
-        <div class="cat">
-          <div class="cat-fig"><img src="../img/sd-jars.jpg" alt="Supplement powder jars in ascending sizes with powder"></div>
-          <div class="cat-spec">
+        <div class="specbox">
+          <div class="specinner">
             <span class="spec-k">Jars &#183; 6 oz to 2 gallons</span>
             <p class="body" style="margin:0">White and black jars run standard in HDPE; light amber and clear in PET. Small capsule jars can be sourced in glass; large powder jars stay plastic because glass at that size is too heavy and costly to ship.</p>
             <div><span class="spec-k" style="color:var(--muted)">Colors</span>
@@ -369,9 +379,8 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
       </div>
 
       <div class="fpanel" id="f-sticks" hidden>
-        <div class="cat">
-          <div class="cat-fig"><img src="../img/sd-sticks.jpg" alt="Powder stick packs in a diagonal row with one torn open"></div>
-          <div class="cat-spec">
+        <div class="specbox">
+          <div class="specinner">
             <span class="spec-k">Stick packs &#183; primarily for powders</span>
             <p class="body" style="margin:0">Width is fixed at 1.5&#8221; by the standard D-line forming machine; length is fully adjustable.</p>
             <div><span class="spec-k" style="color:var(--muted)">In stock</span><div class="chips" style="margin-top:8px"><span class="chip hot">1.5&#8221; &#215; 5&#8221;</span></div></div>
@@ -385,9 +394,8 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
       </div>
 
       <div class="fpanel" id="f-sachets" hidden>
-        <div class="cat">
-          <div class="cat-fig"><img src="../img/sd-sachets.jpg" alt="Square sachet packets in an offset grid"></div>
-          <div class="cat-spec">
+        <div class="specbox">
+          <div class="specinner">
             <span class="spec-k">Sachets &#183; flat packets</span>
             <p class="body" style="margin:0">Square by default; length adjusts up to 8.5&#8221;, and width customizes from 1.5&#8221; to 4&#8221; on the same tooling program as stick packs.</p>
             <div><span class="spec-k" style="color:var(--muted)">Standard</span><div class="chips" style="margin-top:8px"><span class="chip hot">4&#8221; &#215; 4&#8221;</span></div></div>
@@ -403,9 +411,8 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
       </div>
 
       <div class="fpanel" id="f-pouches" hidden>
-        <div class="cat">
-          <div class="cat-fig"><img src="../img/sd-pouches.jpg" alt="Stand-up pouches with capsules spilling from the smaller one"></div>
-          <div class="cat-spec">
+        <div class="specbox">
+          <div class="specinner">
             <span class="spec-k">Pouches &#183; powders, capsules and tablets</span>
             <p class="body" style="margin:0">Stand-up pouches with resealable zippers, sized to the product rather than to a fixed standard.</p>
             <div><span class="spec-k" style="color:var(--muted)">Common custom examples</span>
