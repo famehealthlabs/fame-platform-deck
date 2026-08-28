@@ -173,13 +173,14 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 
 <nav class="toc" aria-label="Categories"><div class="cells" id="toccells">
   <a href="#bottles"><span style="color:var(--teal-deep);margin-right:.5em">01</span>Bottles</a>
-  <a href="#jars"><span style="color:var(--teal-deep);margin-right:.5em">02</span>Jars</a>
-  <a href="#sticks"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Stick Packs</a>
-  <a href="#sachets"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Sachets</a>
-  <a href="#pouches"><span style="color:var(--teal-deep);margin-right:.5em">05</span>Pouches</a>
-  <a href="#specialty"><span style="color:var(--teal-deep);margin-right:.5em">06</span>Specialty</a>
-  <a href="#labels"><span style="color:var(--teal-deep);margin-right:.5em">07</span>Labels</a>
-  <a href="#services"><span style="color:var(--teal-deep);margin-right:.5em">08</span>Services</a>
+  <a href="#liquids"><span style="color:var(--teal-deep);margin-right:.5em">02</span>Liquids</a>
+  <a href="#jars"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Jars</a>
+  <a href="#sticks"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Stick Packs</a>
+  <a href="#sachets"><span style="color:var(--teal-deep);margin-right:.5em">05</span>Sachets</a>
+  <a href="#pouches"><span style="color:var(--teal-deep);margin-right:.5em">06</span>Pouches</a>
+  <a href="#specialty"><span style="color:var(--teal-deep);margin-right:.5em">07</span>Specialty</a>
+  <a href="#labels"><span style="color:var(--teal-deep);margin-right:.5em">08</span>Labels</a>
+  <a href="#services"><span style="color:var(--teal-deep);margin-right:.5em">09</span>Services</a>
 </div></nav>
 
 <section class="coverhero">
@@ -210,21 +211,37 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 <section class="sec" id="bottles">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">01 &#183; Bottles</span><h2 class="h2">HDPE, PET and glass, 75cc to 2 gallons.</h2></div>
-      <p class="body">Standard stock runs 150cc to 1 gallon; capability extends from 75cc to 2 gallons. Capsule, tablet and gummy bottles are one program; liquid bottles are their own. Toggle between them.</p>
+      <div><span class="lab">01 &#183; Bottles</span><h2 class="h2">Capsules, tablets and gummies.<br>75cc to 2 gallons.</h2></div>
+      <p class="body">Solid-dosage bottles in HDPE and PET, plus glass for capsules. Standard stock runs 150cc to 1 gallon; capability extends from 75cc to 2 gallons. Liquids are their own program, in section 02.</p>
     </div>
 
     <div class="cat">
-      <div class="cat-fig"><img id="bt-img" src="../img/pm-bottles.jpg" alt="Unbranded white HDPE supplement bottles in ascending sizes"></div>
+      <div class="cat-fig"><img src="../img/pm-bottles.jpg" alt="Unbranded white HDPE supplement bottles in ascending sizes"></div>
       <div class="cat-spec">
-        <div class="seg" role="group" aria-label="Bottle material" id="bt-seg">
-          <button type="button" aria-pressed="true" data-m="solids">Capsules &#183; Tablets &#183; Gummies</button>
-          <button type="button" aria-pressed="false" data-m="liquids">Liquids</button>
+        <div><span class="spec-k">Colors</span>
+          <div class="swatches" style="margin-top:8px">
+            <span class="sw"><i style="background:#fff"></i>White<span class="badge stock">Stock</span></span>
+            <span class="sw"><i style="background:#161616"></i>Black<span class="badge stock">Stock</span></span>
+            <span class="sw"><i style="background:#4a2410"></i>Dark amber<span class="badge stock">Stock</span></span>
+            <span class="sw"><i style="background:transparent"></i>Transparent<span class="badge stock">Stock</span></span>
+            <span class="sw"><i style="background:#1e4fa8"></i>Cobalt blue<span class="badge stock">Stock</span></span>
+            <span class="sw src"><i style="background:#b8d9a8"></i>Light green<span class="badge source">Sourceable</span></span>
+            <span class="sw src"><i style="background:#e07b2a"></i>Orange<span class="badge source">Sourceable</span></span>
+            <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Frosted PET / HDPE<span class="badge source">Sourceable</span></span>
+          </div>
         </div>
-        <div><span class="spec-k">Colors</span><div class="swatches" id="bt-colors" style="margin-top:8px"></div></div>
-        <div><span class="spec-k" id="bt-sizes-k">Sizes</span><div class="chips" id="bt-sizes" style="margin-top:8px"></div></div>
-        <div><span class="spec-k" id="bt-row2-k">More</span><div class="chips" id="bt-liquids" style="margin-top:8px"></div></div>
-        <p class="specnote" id="bt-note"></p>
+        <div><span class="spec-k">Plastic sizes &#183; HDPE &amp; PET</span>
+          <div class="chips" style="margin-top:8px">
+            <span class="chip hot">150cc &#8211; 1 gal standard</span><span class="chip">75cc &#8211; 2 gal capability</span>
+            <span class="chip hot">6 oz</span><span class="chip hot">16 oz</span><span class="chip hot">32 oz</span><span class="chip hot">44 oz</span>
+          </div>
+        </div>
+        <div><span class="spec-k">Glass capsule bottles</span>
+          <div class="chips" style="margin-top:8px">
+            <span class="chip hot">150cc</span><span class="chip hot">200cc</span><span class="chip hot">300cc</span><span class="chip hot">400cc</span>
+          </div>
+        </div>
+        <p class="specnote">For capsules, tablets and gummies. Caps ship with induction seals; pour-on and flip-top closures available. Glass capsule bottles come in amber, blue, transparent; frosted sourceable.</p>
       </div>
     </div>
 
@@ -244,18 +261,59 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div class="grid g3">
-      <div class="cellbox"><span class="lab">Styles</span><div class="h4">Boston round &#183; bullet</div><p class="small">Standard liquid-bottle profiles, including the specialized 2 oz bullet.</p></div>
+      <div class="cellbox"><span class="lab">Glass</span><div class="h4">Capsule bottles, 150&#8211;400cc</div><p class="small">Amber, blue and transparent; frosted sourceable.</p></div>
       <div class="cellbox tint"><span class="lab">Closures</span><div class="h4">Cap + induction seal standard</div><p class="small">Sealed, leakproof and tamper-evident. Pour-on lids and flip-tops sourceable to match custom requirements.</p></div>
       <div class="cellbox"><span class="lab">Lids</span><div class="h4">Ribbed or smooth-top, white or black</div><p class="small">Lid sizes vary with bottle size.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 02 JARS ============ -->
-<section class="sec alt" id="jars">
+<!-- ============ 02 LIQUIDS ============ -->
+<section class="sec alt" id="liquids">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">02 &#183; Jars</span><h2 class="h2">6 oz to 2 gallons, plastic where it matters.</h2></div>
+      <div><span class="lab">02 &#183; Liquids</span><h2 class="h2">A separate program, glass first.</h2></div>
+      <p class="body">Small-volume liquids run in pure glass droppers; larger volumes run in HDPE bullets. PET is deliberately not used for dropper applications.</p>
+    </div>
+
+    <div class="cat">
+      <div class="cat-fig"><img src="../img/pm-liquids2.jpg" alt="White HDPE bullet bottles in ascending sizes beside an amber glass dropper bottle"></div>
+      <div class="cat-spec">
+        <div><span class="spec-k">Glass droppers</span>
+          <div class="chips" style="margin-top:8px">
+            <span class="chip hot">1/2 oz</span><span class="chip hot">1 oz &#183; 76mm pipette</span><span class="chip hot">2 oz &#183; 91mm pipette</span><span class="chip hot">4 oz</span>
+          </div>
+        </div>
+        <div><span class="spec-k">Glass colors</span>
+          <div class="swatches" style="margin-top:8px">
+            <span class="sw"><i style="background:#4a2410"></i>Amber<span class="badge stock">Stock</span></span>
+            <span class="sw"><i style="background:#1e4fa8"></i>Cobalt blue<span class="badge stock">Stock</span></span>
+            <span class="sw"><i style="background:transparent"></i>Transparent<span class="badge stock">Stock</span></span>
+            <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Frosted<span class="badge source">Sourceable</span></span>
+          </div>
+        </div>
+        <div><span class="spec-k">HDPE bullets</span>
+          <div class="chips" style="margin-top:8px">
+            <span class="chip">1 oz &#8211; 32 oz range</span><span class="chip hot">2 oz bullet &#183; 20mm neck</span><span class="chip hot">16 oz regular</span><span class="chip hot">32 oz bullet &#183; 28mm neck</span>
+          </div>
+        </div>
+        <p class="specnote">Boston round and bullet styles. Caps ship with induction seals: sealed, leakproof and tamper-evident.</p>
+      </div>
+    </div>
+
+    <div class="grid g3">
+      <div class="cellbox"><span class="lab">Styles</span><div class="h4">Boston round &#183; bullet</div><p class="small">Including the specialized 2 oz bullet.</p></div>
+      <div class="cellbox tint"><span class="lab">Closures</span><div class="h4">Cap + induction seal</div><p class="small">Sealed, leakproof and tamper-evident by default.</p></div>
+      <div class="cellbox"><span class="lab">Specialty</span><div class="h4">Pour-on lids &#183; flip-tops</div><p class="small">Sourceable to match custom requirements.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 JARS ============ -->
+<section class="sec" id="jars">
+  <div class="wrap stack">
+    <div class="sec-head">
+      <div><span class="lab">03 &#183; Jars</span><h2 class="h2">6 oz to 2 gallons, plastic where it matters.</h2></div>
       <p class="body">White and black jars run standard in HDPE, light amber and clear in PET. Small capsule jars can be sourced in glass; large powder jars stay plastic because glass at that size is too heavy and costly to ship.</p>
     </div>
 
@@ -285,10 +343,10 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 </section>
 
 <!-- ============ 03 STICK PACKS ============ -->
-<section class="sec" id="sticks">
+<section class="sec alt" id="sticks">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">03 &#183; Stick Packs</span><h2 class="h2">1.5&#8221; wide. Any length you need.</h2></div>
+      <div><span class="lab">04 &#183; Stick Packs</span><h2 class="h2">1.5&#8221; wide. Any length you need.</h2></div>
       <p class="body">The forming line fixes the standard width at 1.5&#8221;; length is fully adjustable. Custom widths up to 4&#8221; open up with dedicated tooling.</p>
     </div>
 
@@ -311,10 +369,10 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 </section>
 
 <!-- ============ 04 SACHETS ============ -->
-<section class="sec alt" id="sachets">
+<section class="sec" id="sachets">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">04 &#183; Sachets</span><h2 class="h2">The 4&#8221; &#215; 4&#8221; flat packet, stretched to fit.</h2></div>
+      <div><span class="lab">05 &#183; Sachets</span><h2 class="h2">The 4&#8221; &#215; 4&#8221; flat packet, stretched to fit.</h2></div>
       <p class="body">Square by default; length adjusts up to 8.5&#8221; and width customizes from 1.5&#8221; to 4&#8221; with the same tooling program as stick packs.</p>
     </div>
 
@@ -337,10 +395,10 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 </section>
 
 <!-- ============ 05 POUCHES ============ -->
-<section class="sec" id="pouches">
+<section class="sec alt" id="pouches">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">05 &#183; Pouches</span><h2 class="h2">Sized to your product, not to a mold.</h2></div>
+      <div><span class="lab">06 &#183; Pouches</span><h2 class="h2">Sized to your product, not to a mold.</h2></div>
       <p class="body">Stand-up pouches for powders, capsules and tablets. Dimensions follow the customer&#8217;s preference rather than a fixed standard.</p>
     </div>
 
@@ -364,10 +422,10 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 </section>
 
 <!-- ============ 06 SPECIALTY ============ -->
-<section class="sec alt" id="specialty">
+<section class="sec" id="specialty">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">06 &#183; The Custom Vision</span><h2 class="h2">What your brand can look like here.</h2></div>
+      <div><span class="lab">07 &#183; The Custom Vision</span><h2 class="h2">What your brand can look like here.</h2></div>
       <p class="body">Concept renders from the F.A.M.E. studio. The emblem is a placeholder: every piece below is a format we run, waiting for your identity.</p>
     </div>
 
@@ -415,10 +473,10 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 </section>
 
 <!-- ============ 07 LABELS ============ -->
-<section class="sec" id="labels">
+<section class="sec alt" id="labels">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">07 &#183; Labels &amp; Printing</span><h2 class="h2">The container is half the job. We do the label too.</h2></div>
+      <div><span class="lab">08 &#183; Labels &amp; Printing</span><h2 class="h2">The container is half the job. We do the label too.</h2></div>
       <p class="body">Every format on this page can leave the building printed, labeled and compliant. Bring a finished design or start from ours.</p>
     </div>
 
@@ -441,7 +499,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 <section class="sec" id="services">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">08 &#183; Services</span><h2 class="h2">Kitting, sourcing and tooling, in house.</h2></div>
+      <div><span class="lab">09 &#183; Services</span><h2 class="h2">Kitting, sourcing and tooling, in house.</h2></div>
       <p class="body">The parts of packaging that usually mean finding a second vendor.</p>
     </div>
 
@@ -476,51 +534,6 @@ function toggleTheme(){
   try{localStorage.setItem('fameDeck',next);}catch(e){}
 }
 (function(){ try{var s=localStorage.getItem('fameDeck'); if(s) document.documentElement.setAttribute('data-deck',s);}catch(e){} })();
-
-/* bottles material toggle */
-(function(){
-  var DATA={
-    solids:{
-      img:'../img/pm-bottles.jpg', alt:'Unbranded white HDPE supplement bottles in ascending sizes',
-      colors:[['#ffffff','White','stock'],['#161616','Black','stock'],['#4a2410','Dark amber','stock'],['transparent','Transparent','stock'],['#1e4fa8','Cobalt blue','stock'],['#b8d9a8','Light green','source'],['#e07b2a','Orange','source'],['frost','Frosted PET / HDPE','source']],
-      sizesK:'Plastic sizes &#183; HDPE &amp; PET',
-      sizes:[['150cc &#8211; 1 gal standard',1],['75cc &#8211; 2 gal capability',0],['6 oz',1],['16 oz',1],['32 oz',1],['44 oz',1]],
-      row2K:'Glass capsule bottles',
-      row2:[['150cc',1],['200cc',1],['300cc',1],['400cc',1]],
-      note:'For capsules, tablets and gummies. Caps ship with induction seals; pour-on and flip-top closures available. Glass capsule bottles come in amber, blue, transparent; frosted sourceable.'
-    },
-    liquids:{
-      img:'../img/pm-liquids.jpg', alt:'Amber glass dropper bottles beside white HDPE bullet bottles',
-      colors:[['#4a2410','Amber glass','stock'],['#1e4fa8','Cobalt blue glass','stock'],['transparent','Transparent glass','stock'],['frost','Frosted glass','source'],['#ffffff','White HDPE','stock']],
-      sizesK:'Glass &#183; with pipette lids',
-      sizes:[['1/2 oz',1],['1 oz &#183; 76mm pipette',1],['2 oz &#183; 91mm pipette',1],['4 oz',1]],
-      row2K:'HDPE',
-      row2:[['1 oz &#8211; 32 oz range',0],['2 oz bullet &#183; 20mm neck',1],['16 oz regular',1],['32 oz bullet &#183; 28mm neck',1]],
-      note:'Small-volume liquids run in pure glass droppers, 1/2 oz to 4 oz; PET is deliberately not used for dropper applications. Larger liquids run in HDPE, 1 oz to 32 oz, in Boston round and bullet styles including the 2 oz bullet.'
-    }
-  };
-  var seg=document.getElementById('bt-seg'); if(!seg) return;
-  var btns=[].slice.call(seg.querySelectorAll('button'));
-  function chip(t,hot){ return '<span class="chip'+(hot?' hot':'')+'">'+t+'</span>'; }
-  function sw(c){
-    var col=c[0], name=c[1], kind=c[2];
-    var style = col==='transparent' ? 'background:transparent' : (col==='frost' ? 'background:linear-gradient(135deg,#f4f7f6,#cfe4df)' : 'background:'+col);
-    return '<span class="sw'+(kind==='source'?' src':'')+'"><i style="'+style+'"></i>'+name+'<span class="badge '+kind+'">'+(kind==='stock'?'Stock':'Sourceable')+'</span></span>';
-  }
-  function show(key){
-    var d=DATA[key];
-    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.m===key));});
-    var img=document.getElementById('bt-img'); img.src=d.img; img.alt=d.alt;
-    document.getElementById('bt-colors').innerHTML=d.colors.map(sw).join('');
-    document.getElementById('bt-sizes-k').innerHTML=d.sizesK;
-    document.getElementById('bt-sizes').innerHTML=d.sizes.map(function(s){return chip(s[0],s[1]);}).join('');
-    document.getElementById('bt-row2-k').innerHTML=d.row2K;
-    document.getElementById('bt-liquids').innerHTML=d.row2.map(function(s){return chip(s[0],s[1]);}).join('');
-    document.getElementById('bt-note').innerHTML=d.note;
-  }
-  btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.m);});});
-  show('solids');
-})();
 
 /* rail scrollspy */
 (function(){
