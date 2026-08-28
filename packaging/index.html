@@ -196,6 +196,26 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.gallery{grid-template-columns:1fr;}}
 
+/* compare-all table */
+.cmpwrap{border:1px solid var(--rule);background:var(--paper);overflow-x:auto;}
+table.cmp{border-collapse:collapse;width:100%;min-width:760px;}
+table.cmp th,table.cmp td{border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);
+  padding:13px 16px;text-align:left;vertical-align:top;font-size:13px;line-height:1.4;}
+table.cmp th:last-child,table.cmp td:last-child{border-right:0;}
+table.cmp tr:last-child td{border-bottom:0;}
+table.cmp thead th{background:var(--aqua);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:700;color:var(--ink);border-bottom:1px solid var(--rule);white-space:nowrap;}
+table.cmp tbody th{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+  color:var(--teal-deep);white-space:nowrap;background:var(--aqua-3);width:1%;}
+table.cmp td{font-variant-numeric:tabular-nums;color:var(--ink-70);}
+table.cmp td b{color:var(--ink);font-weight:700;}
+.cmptoggle{display:flex;gap:0;border:1px solid var(--rule);align-self:flex-start;margin-bottom:clamp(16px,2vw,26px);}
+.cmptoggle button{background:none;border:0;border-right:1px solid var(--rule-soft);font:inherit;font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--muted);padding:11px 20px;cursor:pointer;transition:background .15s,color .15s;}
+.cmptoggle button:last-child{border-right:0;}
+.cmptoggle button[aria-pressed="true"]{background:var(--teal-band);color:#fff;}
+#cmpview[hidden],#pickview[hidden]{display:none;}
+
 /* format spec box */
 .specbox{border:1px solid var(--rule);background:var(--aqua-3);}
 .specinner{padding:clamp(18px,2.2vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,34px);align-items:start;}
@@ -337,6 +357,44 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div>
+      <div class="cmptoggle" role="group" aria-label="View">
+        <button type="button" aria-pressed="true" data-v="pick">One at a time</button>
+        <button type="button" aria-pressed="false" data-v="cmp">Compare all six</button>
+      </div>
+
+      <div id="cmpview" hidden>
+        <div class="cmpwrap">
+          <table class="cmp">
+            <thead><tr><th></th><th>Bottles</th><th>Liquids</th><th>Jars</th><th>Stick packs</th><th>Sachets</th><th>Pouches</th></tr></thead>
+            <tbody>
+              <tr><th>Holds</th>
+                <td>Capsules, tablets, gummies</td><td>Liquids, tinctures</td><td>Powders, capsules</td>
+                <td>Powders</td><td>Powders, single servings</td><td>Powders, capsules, tablets</td></tr>
+              <tr><th>Materials</th>
+                <td>HDPE, PET, glass</td><td>Glass, HDPE</td><td>HDPE, PET, glass*</td>
+                <td>Flexible film</td><td>Flexible film</td><td>Flexible film</td></tr>
+              <tr><th>Stock size</th>
+                <td><b>75cc &#8211; 2 gal</b></td><td><b>1/2 oz &#8211; 32 oz</b></td><td><b>6 oz &#8211; 2 gal</b></td>
+                <td><b>1.5&#8221; &#215; 5&#8221;</b></td><td><b>4&#8221; &#215; 4&#8221;</b></td><td>Customer-specified</td></tr>
+              <tr><th>Regular runs</th>
+                <td>150&#8211;400cc, 6/16/32/44 oz</td><td>16 oz, 32 oz; 2 oz bullet</td><td>8/16/25/32/44/55/60 oz</td>
+                <td>1.5&#8221; &#215; 3&#8221;, 4&#8221;, 6&#8221;</td><td>4&#8221; &#215; 3&#8221;, 6&#8221;, 7&#8221;, 8&#8221;</td><td>2.75&#8221;&#215;4.25&#8221;, 4&#8221;&#215;6&#8221;</td></tr>
+              <tr><th>Custom range</th>
+                <td>Custom molds, any shape</td><td>Custom molds, any shape</td><td>Custom molds, any shape</td>
+                <td>Widths 1.5&#8221;&#8211;4&#8221; with tooling</td><td>Widths 1.5&#8221;&#8211;4&#8221;, lengths to 8.5&#8221;</td><td>Sized to the product</td></tr>
+              <tr><th>Closure</th>
+                <td>Cap + induction seal</td><td>Cap + induction seal, pipette, pour-on, flip-top</td><td>Screw lid</td>
+                <td>Heat sealed</td><td>Heat sealed</td><td>Resealable zipper</td></tr>
+              <tr><th>Colors</th>
+                <td>5 stock, 3 sourceable</td><td>3 stock glass, frosted sourceable</td><td>4 stock</td>
+                <td>Printed to artwork</td><td>Printed to artwork</td><td>Printed to artwork</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote">*Small capsule jars can be sourced in glass; large powder jars stay plastic. Full detail for each format is in the one-at-a-time view.</p>
+      </div>
+
+      <div id="pickview">
       <div class="ftabs" role="tablist" aria-label="Packaging formats" id="ftabs">
         <button class="ftab" role="tab" aria-selected="true" data-f="bottles"><img src="../img/sd-bottles-color.jpg?v=3" alt="Supplement bottles in the stock colour range"><span>Bottles</span></button>
         <button class="ftab" role="tab" aria-selected="false" data-f="liquids"><img src="../img/sd-liquids.jpg?v=3" alt="Amber glass dropper bottles and a white bullet bottle"><span>Liquids</span></button>
@@ -417,6 +475,9 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
             <p class="specnote">Styles: Boston round and bullet, including the specialized 2 oz bullet. Closures: cap with induction seal as standard, sealed, leakproof and tamper-evident. Pour-on lids and flip-tops sourceable.</p>
           </div>
         </div>
+        <div style="margin-top:clamp(16px,2vw,26px)"><span class="lab">The liquid run</span>
+          <div class="scale" style="margin-top:12px"><div class="sbar"><i style="height:30px"></i><b>1/2 oz</b><span>stock</span></div><div class="sbar"><i style="height:40px"></i><b>1 oz</b><span>stock</span></div><div class="sbar"><i style="height:52px"></i><b>2 oz</b><span>stock</span></div><div class="sbar"><i style="height:66px"></i><b>4 oz</b><span>stock</span></div><div class="sbar"><i style="height:98px"></i><b>16 oz</b><span>stock</span></div><div class="sbar"><i style="height:134px"></i><b>32 oz</b><span>stock</span></div></div>
+        </div>
       </div>
 
       <div class="fpanel" id="f-jars" hidden>
@@ -442,6 +503,9 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
             <p class="specnote">The full 6 oz to 2 gallon range runs from stock. HDPE is the standard material for white and black; PET is available across the range.</p>
           </div>
         </div>
+        <div style="margin-top:clamp(16px,2vw,26px)"><span class="lab">The jar run</span>
+          <div class="scale" style="margin-top:12px"><div class="sbar"><i style="height:30px"></i><b>6 oz</b><span>stock</span></div><div class="sbar"><i style="height:38px"></i><b>8 oz</b><span>stock</span></div><div class="sbar"><i style="height:52px"></i><b>16 oz</b><span>stock</span></div><div class="sbar"><i style="height:64px"></i><b>25 oz</b><span>stock</span></div><div class="sbar"><i style="height:78px"></i><b>32 oz</b><span>stock</span></div><div class="sbar"><i style="height:92px"></i><b>44 oz</b><span>stock</span></div><div class="sbar"><i style="height:106px"></i><b>55 oz</b><span>stock</span></div><div class="sbar"><i style="height:116px"></i><b>60 oz</b><span>stock</span></div><div class="sbar"><i style="height:130px"></i><b>1 gal</b><span>stock</span></div><div class="sbar"><i style="height:146px"></i><b>2 gal</b><span>stock</span></div></div>
+        </div>
       </div>
 
       <div class="fpanel" id="f-sticks" hidden>
@@ -456,6 +520,9 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
             <div><span class="spec-k" style="color:var(--muted)">With custom tooling</span><div class="chips" style="margin-top:8px"><span class="chip">widths 1.5&#8221; to 4&#8221;</span></div></div>
             <p class="specnote">Custom forming widths need dedicated tooling. See section 04 for how that works.</p>
           </div>
+        </div>
+        <div style="margin-top:clamp(16px,2vw,26px)"><span class="lab">Stick length, width fixed at 1.5&#8221;</span>
+          <div class="scale" style="margin-top:12px"><div class="sbar"><i style="height:46px"></i><b>3&#8221;</b><span>custom</span></div><div class="sbar"><i style="height:62px"></i><b>4&#8221;</b><span>custom</span></div><div class="sbar"><i style="height:78px"></i><b>5&#8221;</b><span>stock</span></div><div class="sbar"><i style="height:94px"></i><b>6&#8221;</b><span>custom</span></div></div>
         </div>
       </div>
 
@@ -473,6 +540,9 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
             <div><span class="spec-k" style="color:var(--muted)">With custom tooling</span><div class="chips" style="margin-top:8px"><span class="chip">widths 1.5&#8221; to 4&#8221;</span></div></div>
             <p class="specnote">Flat-sealed packets for powders and single servings.</p>
           </div>
+        </div>
+        <div style="margin-top:clamp(16px,2vw,26px)"><span class="lab">Sachet length, from the 4&#8221; square</span>
+          <div class="scale" style="margin-top:12px"><div class="sbar"><i style="height:46px"></i><b>3&#8221;</b><span>custom</span></div><div class="sbar"><i style="height:62px"></i><b>4&#8221;</b><span>stock</span></div><div class="sbar"><i style="height:94px"></i><b>6&#8221;</b><span>custom</span></div><div class="sbar"><i style="height:110px"></i><b>7&#8221;</b><span>custom</span></div><div class="sbar"><i style="height:126px"></i><b>8&#8221;</b><span>custom</span></div><div class="sbar"><i style="height:134px"></i><b>8.5&#8221;</b><span>max</span></div></div>
         </div>
       </div>
 
@@ -492,6 +562,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
             <p class="specnote">Pairs with the refill model in section 03.</p>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -650,6 +721,18 @@ function toggleTheme(){
   try{localStorage.setItem('fameDeck',next);}catch(e){}
 }
 (function(){ try{var s=localStorage.getItem('fameDeck'); if(s) document.documentElement.setAttribute('data-deck',s);}catch(e){} })();
+
+/* compare-all toggle */
+(function(){
+  var t=document.querySelector('.cmptoggle'); if(!t) return;
+  var btns=[].slice.call(t.querySelectorAll('button'));
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    var cmp=b.dataset.v==='cmp';
+    btns.forEach(function(o){o.setAttribute('aria-pressed',String(o===b));});
+    document.getElementById('cmpview').hidden=!cmp;
+    document.getElementById('pickview').hidden=cmp;
+  });});
+})();
 
 /* format tabs */
 (function(){
