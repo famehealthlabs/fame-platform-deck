@@ -152,9 +152,22 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .argue q{font-size:clamp(15px,1.5vw,21px);line-height:1.32;letter-spacing:-.016em;quotes:"\201C" "\201D";font-style:italic;}
 
 /* CTA */
-.mailbtn{display:inline-flex;align-items:center;gap:10px;background:var(--teal-band);color:#fff;text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:13px 22px;border-radius:100px;align-self:flex-start;transition:background .2s;}
-.mailbtn:hover{background:var(--teal-deep);}
 .foot{border-top:1px solid var(--rule);padding:22px 0 40px;display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-between;}
+
+/* cross-page CTA panel, shared with the deck */
+.ctapanel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:clamp(18px,3vw,48px);
+  background:#0C2225;border:1px solid #0C2225;color:#fff;text-decoration:none;
+  padding:clamp(22px,2.8vw,40px) clamp(22px,3vw,44px);transition:background .22s,transform .22s;}
+.ctapanel:hover{background:#11312F;transform:translateY(-2px);}
+.ctapanel .ct-k,.ctapanel .ct-h,.ctapanel .ct-s{display:block;}
+.ctapanel .ct-k{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8FE6EF;}
+.ctapanel .ct-h{font-size:clamp(21px,2.5vw,34px);line-height:1.06;letter-spacing:-.028em;font-weight:700;margin:.34em 0 .3em;text-wrap:balance;}
+.ctapanel .ct-s{font-size:clamp(13.5px,1.02vw,15.5px);line-height:1.5;color:rgba(234,243,242,.82);max-width:62ch;}
+.ctapanel .ct-go{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;
+  background:var(--teal);color:#04333a;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  padding:14px 22px;border-radius:100px;transition:gap .22s;}
+.ctapanel:hover .ct-go{gap:16px;}
+@media(max-width:760px){.ctapanel{grid-template-columns:1fr;}.ctapanel .ct-go{justify-self:start;}}
 
 /* label routes: a choice, drawn as a choice */
 .routes{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;border:1px solid var(--rule);background:var(--paper);}
@@ -604,20 +617,28 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   </div>
 </section>
 
-<!-- 06 NEXT STEP -->
+<!-- 07 BACK TO THE DECK -->
 <section class="sec" id="next">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">07 &#183; Next step</span><h2 class="h2">Tell us the product. We will tell you what it ships in.</h2></div>
-      <p class="body">Send the format, the dose count and the shelf you are aiming for, and we will come back with the packaging that fits it and what it costs to run. We respond within 24 to 48 hours.</p>
+      <div><span class="lab">07 &#183; Next step</span><h2 class="h2">Packaging is one chapter. The deck has the rest.</h2></div>
+      <p class="body">Take a format and a size back to the platform deck and the launch planner turns it into a timeline, a run size and a number to discuss.</p>
     </div>
 
-    <a class="mailbtn" href="mailto:holly@famehealthlabs.com?subject=Packaging%20specs%20request&body=Hi%20Holly%2C%0A%0AI%20went%20through%20the%20packaging%20catalog.%20We%27re%20interested%20in%3A%0A%0AFormat%3A%20%0ASize%2Fdimensions%3A%20%0AMaterial%20and%20color%3A%20%0ADose%20count%3A%20%0ATarget%20shelf%20date%3A%20%0AEstimated%20volume%3A%20%0A%0ACan%20we%20talk%20through%20the%20options%3F">Request packaging specs
-      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8.5 3 12.5 7 8.5 11" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    <a class="ctapanel" href="/#plan">
+      <span>
+        <span class="ct-k">Chapter 11 &#183; Plan your launch</span>
+        <span class="ct-h">Put your numbers against a four-week calendar.</span>
+        <span class="ct-s">Set your run size, price and sell-through, browse the live stock catalog, and get the path that fits, with a plan you can send to Holly.</span>
+      </span>
+      <span class="ct-go">Continue the deck
+        <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true"><path d="M1 7.5h11M9 4l3.5 3.5L9 11" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      </span>
+    </a>
 
     <div class="foot">
       <span class="small">F.A.M.E. Health &#183; Packaging &amp; Fulfilment &#183; specifications current as of August 2026 and subject to change</span>
-      <a class="small" href="../">Back to the platform deck &#8594;</a>
+      <a class="small" href="../">&#8592; Back to the platform deck</a>
     </div>
   </div>
 </section>
