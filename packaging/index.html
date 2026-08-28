@@ -156,14 +156,37 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .mailbtn:hover{background:var(--teal-deep);}
 .foot{border-top:1px solid var(--rule);padding:22px 0 40px;display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-between;}
 
-@media print{.topbar,.toc{position:static;}}
+/* format tabs */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(18px,2vw,28px);}
+.ftab{background:var(--paper);border:1px solid var(--rule-soft);color:var(--muted);font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.04em;padding:10px 20px;border-radius:100px;cursor:pointer;transition:background .16s,color .16s,border-color .16s;}
+.ftab:hover{border-color:var(--teal-deep);color:var(--teal-deep);}
+.ftab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.fpanel[hidden]{display:none;}
+
+/* three steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px);}
+@media(max-width:820px){.steps{grid-template-columns:1fr;}}
+.step{border:1px solid var(--rule-soft);background:var(--paper);padding:clamp(18px,2vw,28px);display:flex;flex-direction:column;gap:9px;}
+.step .sn{font-size:11px;font-weight:700;color:var(--teal-deep);font-variant-numeric:tabular-nums;letter-spacing:.1em;}
+
+/* dark custom band */
+.dark{background:#0C2225;color:#EAF3F2;border-bottom:1px solid var(--rule);padding:clamp(56px,6.5vw,110px) 0;}
+.dark .lab{color:#8FE6EF;} .dark .h2{color:#fff;}
+.dark .body,.dark .small{color:rgba(234,243,242,.8);}
+.dark .icard{background:transparent;border-color:rgba(234,243,242,.18);}
+.dark .imgcards{border-color:rgba(234,243,242,.22);}
+.dark .icard .fig{border-color:rgba(234,243,242,.18);background:transparent;}
+.dark .icard .cap .h4{color:#fff;}
+.dark .footnote{color:rgba(234,243,242,.65);border-color:rgba(234,243,242,.18);}
+
+@media print{.topbar,.toc{position:static;}.fpanel[hidden]{display:block!important;}}
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="tbar">
-    <a class="tb-brand" href="../">​<img src="../img/mark.png" alt="">F.A.M.E. Health</a>
-    <div class="tb-mid"><b>Packaging Catalog</b><span class="dot"></span>Every format we run, with sizes and sourcing<span class="dot"></span>Prepared for Market Performance Group</div>
+    <a class="tb-brand" href="../"><img src="../img/mark.png" alt="">F.A.M.E. Health</a>
+    <div class="tb-mid"><b>Packaging &amp; Fulfilment</b><span class="dot"></span>Every format we run, with sizes and sourcing<span class="dot"></span>Prepared for Market Performance Group</div>
     <div class="tb-right">
       <a class="themebtn" href="../">&#8592;<span class="bk-t"> Back to the deck</span></a>
       <button class="themebtn" type="button" onclick="toggleTheme()"><span class="t-light">&#9789; Dark</span><span class="t-dark">&#9788; Light</span></button>
@@ -171,26 +194,23 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   </div>
 </header>
 
-<nav class="toc" aria-label="Categories"><div class="cells" id="toccells">
-  <a href="#bottles"><span style="color:var(--teal-deep);margin-right:.5em">01</span>Bottles</a>
-  <a href="#liquids"><span style="color:var(--teal-deep);margin-right:.5em">02</span>Liquids</a>
-  <a href="#jars"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Jars</a>
-  <a href="#sticks"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Stick Packs</a>
-  <a href="#sachets"><span style="color:var(--teal-deep);margin-right:.5em">05</span>Sachets</a>
-  <a href="#pouches"><span style="color:var(--teal-deep);margin-right:.5em">06</span>Pouches</a>
-  <a href="#specialty"><span style="color:var(--teal-deep);margin-right:.5em">07</span>Specialty</a>
-  <a href="#labels"><span style="color:var(--teal-deep);margin-right:.5em">08</span>Labels</a>
-  <a href="#services"><span style="color:var(--teal-deep);margin-right:.5em">09</span>Services</a>
+<nav class="toc" aria-label="Contents"><div class="cells" id="toccells">
+  <a href="#steps"><span style="color:var(--teal-deep);margin-right:.5em">01</span>How It Works</a>
+  <a href="#formats"><span style="color:var(--teal-deep);margin-right:.5em">02</span>Formats</a>
+  <a href="#custom"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Go Custom</a>
+  <a href="#services"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Assembly &amp; Tooling</a>
+  <a href="#labels"><span style="color:var(--teal-deep);margin-right:.5em">05</span>Labels</a>
+  <a href="#next"><span style="color:var(--teal-deep);margin-right:.5em">06</span>Next Step</a>
 </div></nav>
 
 <section class="coverhero">
-  <img src="../img/sd-hero.jpg" alt="An editorial still life of unbranded supplement packaging">
+  <img src="../img/sd-hero.jpg" alt="Unbranded supplement packaging arranged in a studio">
   <div class="ch-ov"></div>
   <div class="ch-cap">
     <div class="wrap">
-      <span class="lab" style="color:#8FE6EF">F.A.M.E. Health Labs &#183; Packaging</span>
-      <h1 class="h1" style="color:#fff;margin-top:.15em">The Packaging<br>Catalog.</h1>
-      <p style="color:rgba(255,255,255,.92);max-width:46ch;margin-top:1em;font-size:clamp(15px,1.6vw,20px);line-height:1.45">Every bottle, jar, stick pack, sachet and pouch we run &#8212; the sizes we stock, the sizes we can build, and what custom tooling unlocks.</p>
+      <span class="lab" style="color:#8FE6EF">Packaging &amp; Fulfilment</span>
+      <h1 class="h1" style="color:#fff;margin-top:.15em">Your product ships<br>retail-ready.</h1>
+      <p style="color:rgba(255,255,255,.92);max-width:52ch;margin-top:1em;font-size:clamp(15px,1.6vw,20px);line-height:1.45">Bottles, jars, stick packs and pouches &#8212; filled, capped, labeled and kitted on the same campus that made the formula. Below are the sizes and materials we actually run, not a catalog of what is theoretically possible.</p>
     </div>
   </div>
 </section>
@@ -199,7 +219,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   <div class="wrap cover-grid">
     <div style="display:none"></div>
     <div class="cover-meta">
-      <div class="mrow"><div class="lab">Formats</div><div class="body">Bottles &#183; jars &#183; stick packs &#183; sachets &#183; pouches &#183; travel packs &#183; refills</div></div>
+      <div class="mrow"><div class="lab">Formats</div><div class="body">Bottles &#183; jars &#183; liquids &#183; stick packs &#183; sachets &#183; pouches &#183; travel packs &#183; refills</div></div>
       <div class="mrow"><div class="lab">Materials</div><div class="body">HDPE &#183; PET &#183; glass, stocked and custom-sourced</div></div>
       <div class="mrow"><div class="lab">Range</div><div class="body">75cc to 2 gallons &#183; custom form widths 1.5&#8221; to 4&#8221;</div></div>
       <div class="mrow"><div class="lab">Legend</div><div class="body"><span class="badge stock">Stock</span> kept on hand &#183; <span class="badge source">Sourceable</span> custom-sourced for you</div></div>
@@ -207,236 +227,224 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   </div>
 </section>
 
-<!-- ============ 01 BOTTLES ============ -->
-<section class="sec" id="bottles">
+<!-- 01 THREE STEPS -->
+<section class="sec" id="steps">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">01 &#183; Bottles</span><h2 class="h2">Capsules, tablets and gummies.<br>75cc to 2 gallons.</h2></div>
-      <p class="body">Solid-dosage bottles in HDPE and PET, plus glass for capsules. Standard stock runs 150cc to 1 gallon; capability extends from 75cc to 2 gallons. Liquids are their own program, in section 02.</p>
+      <div><span class="lab">01 &#183; Three steps</span><h2 class="h2">From bulk product to a box on a pallet.</h2></div>
+      <p class="body">Every step happens on our Cedartown campus. Nothing is handed to a third party and shipped back.</p>
     </div>
+    <div class="steps">
+      <div class="step"><span class="sn">01</span><h3 class="h4">Bottling</h3><p class="small">Choose a stock bottle, jar or flexible pack, or build your own. We fill, cap and induction-seal in house.</p></div>
+      <div class="step"><span class="sn">02</span><h3 class="h4">Labeling</h3><p class="small">Bring finished artwork or have our design team build it. Printed, applied and checked against supplement label requirements before it runs.</p></div>
+      <div class="step"><span class="sn">03</span><h3 class="h4">Launch</h3><p class="small">Kitted, boxed and fulfilled from the same campus, so finished goods ship from where they were made.</p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/sd-bottles.jpg" alt="Unbranded supplement bottles of varied sizes with capsules"></div>
-      <div class="cat-spec">
-        <div><span class="spec-k">Colors</span>
-          <div class="swatches" style="margin-top:8px">
-            <span class="sw"><i style="background:#fff"></i>White<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:#161616"></i>Black<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:#4a2410"></i>Dark amber<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:transparent"></i>Transparent<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:#1e4fa8"></i>Cobalt blue<span class="badge stock">Stock</span></span>
-            <span class="sw src"><i style="background:#b8d9a8"></i>Light green<span class="badge source">Sourceable</span></span>
-            <span class="sw src"><i style="background:#e07b2a"></i>Orange<span class="badge source">Sourceable</span></span>
-            <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Frosted PET / HDPE<span class="badge source">Sourceable</span></span>
-          </div>
-        </div>
-        <div><span class="spec-k">Plastic sizes &#183; HDPE &amp; PET</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip hot">150cc &#8211; 1 gal standard</span><span class="chip">75cc &#8211; 2 gal capability</span>
-            <span class="chip hot">6 oz</span><span class="chip hot">16 oz</span><span class="chip hot">32 oz</span><span class="chip hot">44 oz</span>
-          </div>
-        </div>
-        <div><span class="spec-k">Glass capsule bottles</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip hot">150cc</span><span class="chip hot">200cc</span><span class="chip hot">300cc</span><span class="chip hot">400cc</span>
-          </div>
-        </div>
-        <p class="specnote">For capsules, tablets and gummies. Caps ship with induction seals; pour-on and flip-top closures available. Glass capsule bottles come in amber, blue, transparent; frosted sourceable.</p>
-      </div>
+<!-- 02 FORMATS -->
+<section class="sec alt" id="formats">
+  <div class="wrap stack">
+    <div class="sec-head">
+      <div><span class="lab">02 &#183; Formats</span><h2 class="h2">Pick a format. See what it actually runs.</h2></div>
+      <p class="body">Six stock formats with the real sizes, materials and closures. Anything outside this list is sourced for you rather than refused. <span class="badge stock">Stock</span> is kept on hand; <span class="badge source">Sourceable</span> is custom-sourced for you.</p>
     </div>
 
     <div>
-      <span class="lab">The standard plastic run</span>
-      <div class="scale" style="margin-top:14px" aria-label="Bottle size scale">
-        <div class="sbar"><i style="height:26px"></i><b>75cc</b><span>capable</span></div>
-        <div class="sbar"><i style="height:34px"></i><b>150cc</b><span>stock</span></div>
-        <div class="sbar"><i style="height:44px"></i><b>2 oz</b><span>bullet</span></div>
-        <div class="sbar"><i style="height:58px"></i><b>6 oz</b><span>regular</span></div>
-        <div class="sbar"><i style="height:74px"></i><b>16 oz</b><span>regular</span></div>
-        <div class="sbar"><i style="height:92px"></i><b>32 oz</b><span>regular</span></div>
-        <div class="sbar"><i style="height:108px"></i><b>44 oz</b><span>regular</span></div>
-        <div class="sbar"><i style="height:126px"></i><b>1 gal</b><span>stock</span></div>
-        <div class="sbar"><i style="height:142px"></i><b>2 gal</b><span>capable</span></div>
+      <div class="ftabs" role="tablist" aria-label="Packaging formats" id="ftabs">
+        <button class="ftab" role="tab" aria-selected="true" data-f="bottles">Bottles</button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="liquids">Liquids</button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="jars">Jars</button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="sticks">Stick packs</button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="sachets">Sachets</button>
+        <button class="ftab" role="tab" aria-selected="false" data-f="pouches">Pouches</button>
       </div>
-    </div>
 
-    <div class="grid g3">
-      <div class="cellbox"><span class="lab">Glass</span><div class="h4">Capsule bottles, 150&#8211;400cc</div><p class="small">Amber, blue and transparent; frosted sourceable.</p></div>
-      <div class="cellbox tint"><span class="lab">Closures</span><div class="h4">Cap + induction seal standard</div><p class="small">Sealed, leakproof and tamper-evident. Pour-on lids and flip-tops sourceable to match custom requirements.</p></div>
-      <div class="cellbox"><span class="lab">Lids</span><div class="h4">Ribbed or smooth-top, white or black</div><p class="small">Lid sizes vary with bottle size.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 02 LIQUIDS ============ -->
-<section class="sec alt" id="liquids">
-  <div class="wrap stack">
-    <div class="sec-head">
-      <div><span class="lab">02 &#183; Liquids</span><h2 class="h2">A separate program, glass first.</h2></div>
-      <p class="body">Small-volume liquids run in pure glass droppers; larger volumes run in HDPE bullets. PET is deliberately not used for dropper applications.</p>
-    </div>
-
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/sd-liquids.jpg" alt="Amber glass dropper bottles beside a white bullet bottle"></div>
-      <div class="cat-spec">
-        <div><span class="spec-k">Glass droppers</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip hot">1/2 oz</span><span class="chip hot">1 oz &#183; 76mm pipette</span><span class="chip hot">2 oz &#183; 91mm pipette</span><span class="chip hot">4 oz</span>
+      <div class="fpanel" id="f-bottles">
+        <div class="cat">
+          <div class="cat-fig"><img src="../img/sd-bottles-color.jpg" alt="Supplement bottles in the stock colour range"></div>
+          <div class="cat-spec">
+            <span class="spec-k">Bottles &#183; capsules, tablets and gummies</span>
+            <div><span class="spec-k" style="color:var(--muted)">Materials</span><p class="body" style="margin:6px 0 0">HDPE and PET as standard. Glass for capsules.</p></div>
+            <div><span class="spec-k" style="color:var(--muted)">Stock colors</span>
+              <div class="swatches" style="margin-top:8px">
+                <span class="sw"><i style="background:#fff"></i>White<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:#161616"></i>Black<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:#4a2410"></i>Dark amber<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:transparent"></i>Transparent<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:#1e4fa8"></i>Cobalt blue<span class="badge stock">Stock</span></span>
+                <span class="sw src"><i style="background:#b8d9a8"></i>Light green<span class="badge source">Sourceable</span></span>
+                <span class="sw src"><i style="background:#e07b2a"></i>Orange<span class="badge source">Sourceable</span></span>
+                <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Frosted PET / HDPE<span class="badge source">Sourceable</span></span>
+              </div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">Sizes</span>
+              <div class="chips" style="margin-top:8px">
+                <span class="chip hot">150cc &#8211; 1 gal standard</span><span class="chip">75cc &#8211; 2 gal capability</span>
+                <span class="chip hot">150cc</span><span class="chip hot">175cc</span><span class="chip hot">200cc</span><span class="chip hot">250cc</span><span class="chip hot">300cc</span><span class="chip hot">400cc</span>
+                <span class="chip hot">6 oz</span><span class="chip hot">16 oz</span><span class="chip hot">32 oz</span><span class="chip hot">44 oz</span>
+              </div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">Glass capsule bottles</span>
+              <div class="chips" style="margin-top:8px"><span class="chip hot">150cc</span><span class="chip hot">200cc</span><span class="chip hot">300cc</span><span class="chip hot">400cc</span></div>
+              <p class="small" style="margin-top:8px">Amber, blue and transparent; frosted sourceable.</p>
+            </div>
+            <p class="specnote">Closures: cap with induction seal as standard, sealed, leakproof and tamper-evident. Pour-on lids and flip-tops where the product suits them. Lids ribbed or smooth-top, white or black; lid sizes vary with bottle size.</p>
           </div>
         </div>
-        <div><span class="spec-k">Glass colors</span>
-          <div class="swatches" style="margin-top:8px">
-            <span class="sw"><i style="background:#4a2410"></i>Amber<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:#1e4fa8"></i>Cobalt blue<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:transparent"></i>Transparent<span class="badge stock">Stock</span></span>
-            <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Frosted<span class="badge source">Sourceable</span></span>
-          </div>
+        <div class="scale" style="margin-top:clamp(18px,2vw,28px)" aria-label="Bottle size scale">
+          <div class="sbar"><i style="height:26px"></i><b>75cc</b><span>capable</span></div>
+          <div class="sbar"><i style="height:34px"></i><b>150cc</b><span>stock</span></div>
+          <div class="sbar"><i style="height:42px"></i><b>250cc</b><span>regular</span></div>
+          <div class="sbar"><i style="height:52px"></i><b>400cc</b><span>regular</span></div>
+          <div class="sbar"><i style="height:62px"></i><b>6 oz</b><span>regular</span></div>
+          <div class="sbar"><i style="height:78px"></i><b>16 oz</b><span>regular</span></div>
+          <div class="sbar"><i style="height:96px"></i><b>32 oz</b><span>regular</span></div>
+          <div class="sbar"><i style="height:112px"></i><b>44 oz</b><span>regular</span></div>
+          <div class="sbar"><i style="height:128px"></i><b>1 gal</b><span>stock</span></div>
+          <div class="sbar"><i style="height:144px"></i><b>2 gal</b><span>capable</span></div>
         </div>
-        <div><span class="spec-k">HDPE bullets</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip">1 oz &#8211; 32 oz range</span><span class="chip hot">2 oz bullet &#183; 20mm neck</span><span class="chip hot">16 oz regular</span><span class="chip hot">32 oz bullet &#183; 28mm neck</span>
-          </div>
-        </div>
-        <p class="specnote">Boston round and bullet styles. Caps ship with induction seals: sealed, leakproof and tamper-evident.</p>
       </div>
-    </div>
 
-    <div class="grid g3">
-      <div class="cellbox"><span class="lab">Styles</span><div class="h4">Boston round &#183; bullet</div><p class="small">Including the specialized 2 oz bullet.</p></div>
-      <div class="cellbox tint"><span class="lab">Closures</span><div class="h4">Cap + induction seal</div><p class="small">Sealed, leakproof and tamper-evident by default.</p></div>
-      <div class="cellbox"><span class="lab">Specialty</span><div class="h4">Pour-on lids &#183; flip-tops</div><p class="small">Sourceable to match custom requirements.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 03 JARS ============ -->
-<section class="sec" id="jars">
-  <div class="wrap stack">
-    <div class="sec-head">
-      <div><span class="lab">03 &#183; Jars</span><h2 class="h2">6 oz to 2 gallons, plastic where it matters.</h2></div>
-      <p class="body">White and black jars run standard in HDPE, light amber and clear in PET. Small capsule jars can be sourced in glass; large powder jars stay plastic because glass at that size is too heavy and costly to ship.</p>
-    </div>
-
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/sd-jars.jpg" alt="Unbranded white supplement powder jars in ascending sizes"></div>
-      <div class="cat-spec">
-        <div><span class="spec-k">Colors</span>
-          <div class="swatches" style="margin-top:8px">
-            <span class="sw"><i style="background:#fff"></i>White<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:#161616"></i>Black<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:#d9a552"></i>Light amber &#183; PET<span class="badge stock">Stock</span></span>
-            <span class="sw"><i style="background:transparent"></i>Clear &#183; PET<span class="badge stock">Stock</span></span>
-            <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Glass, small capsule jars<span class="badge source">Sourceable</span></span>
+      <div class="fpanel" id="f-liquids" hidden>
+        <div class="cat">
+          <div class="cat-fig"><img src="../img/sd-liquids.jpg" alt="Amber glass dropper bottles beside a white HDPE bullet bottle"></div>
+          <div class="cat-spec">
+            <span class="spec-k">Liquids &#183; a separate program, glass first</span>
+            <p class="body" style="margin:0">Small-volume liquids run in pure glass droppers; larger volumes run in HDPE bullets. PET is deliberately not used for dropper applications.</p>
+            <div><span class="spec-k" style="color:var(--muted)">Glass droppers</span>
+              <div class="chips" style="margin-top:8px">
+                <span class="chip hot">1/2 oz</span><span class="chip hot">1 oz &#183; 76mm pipette</span><span class="chip hot">2 oz &#183; 91mm pipette</span><span class="chip hot">4 oz</span>
+              </div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">Glass colors</span>
+              <div class="swatches" style="margin-top:8px">
+                <span class="sw"><i style="background:#4a2410"></i>Amber<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:#1e4fa8"></i>Cobalt blue<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:transparent"></i>Transparent<span class="badge stock">Stock</span></span>
+                <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Frosted<span class="badge source">Sourceable</span></span>
+              </div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">HDPE bullets</span>
+              <div class="chips" style="margin-top:8px">
+                <span class="chip">1 oz &#8211; 32 oz range</span><span class="chip hot">2 oz bullet &#183; 20mm neck</span><span class="chip hot">16 oz regular</span><span class="chip hot">32 oz bullet &#183; 28mm neck</span>
+              </div>
+            </div>
+            <p class="specnote">Styles: Boston round and bullet, including the specialized 2 oz bullet. Closures: cap with induction seal as standard, sealed, leakproof and tamper-evident. Pour-on lids and flip-tops sourceable.</p>
           </div>
         </div>
-        <div><span class="spec-k">Sizes</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip">6 oz</span><span class="chip hot">8 oz</span><span class="chip hot">16 oz</span><span class="chip hot">25 oz</span>
-            <span class="chip hot">32 oz</span><span class="chip hot">44 oz</span><span class="chip hot">55 oz</span><span class="chip hot">60 oz</span>
-            <span class="chip">1 gal</span><span class="chip">2 gal</span>
-          </div>
-        </div>
-        <p class="specnote">Outlined sizes are the regular runs. HDPE is the standard material for white and black; PET is available across the range.</p>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 03 STICK PACKS ============ -->
-<section class="sec alt" id="sticks">
-  <div class="wrap stack">
-    <div class="sec-head">
-      <div><span class="lab">04 &#183; Stick Packs</span><h2 class="h2">1.5&#8221; wide. Any length you need.</h2></div>
-      <p class="body">The forming line fixes the standard width at 1.5&#8221;; length is fully adjustable. Custom widths up to 4&#8221; open up with dedicated tooling.</p>
-    </div>
-
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/sd-sticks.jpg" alt="Unbranded white powder stick packs, fanned"></div>
-      <div class="cat-spec">
-        <div><span class="spec-k">In stock</span><div class="chips" style="margin-top:8px"><span class="chip hot">1.5&#8221; &#215; 5&#8221;</span></div></div>
-        <div><span class="spec-k">Adjustable lengths, same tooling</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip">1.5&#8221; &#215; 3&#8221;</span><span class="chip">1.5&#8221; &#215; 4&#8221;</span><span class="chip">1.5&#8221; &#215; 6&#8221;</span>
+      <div class="fpanel" id="f-jars" hidden>
+        <div class="cat">
+          <div class="cat-fig"><img src="../img/sd-jars.jpg" alt="Supplement powder jars in ascending sizes with powder"></div>
+          <div class="cat-spec">
+            <span class="spec-k">Jars &#183; 6 oz to 2 gallons</span>
+            <p class="body" style="margin:0">White and black jars run standard in HDPE; light amber and clear in PET. Small capsule jars can be sourced in glass; large powder jars stay plastic because glass at that size is too heavy and costly to ship.</p>
+            <div><span class="spec-k" style="color:var(--muted)">Colors</span>
+              <div class="swatches" style="margin-top:8px">
+                <span class="sw"><i style="background:#fff"></i>White<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:#161616"></i>Black<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:#d9a552"></i>Light amber &#183; PET<span class="badge stock">Stock</span></span>
+                <span class="sw"><i style="background:transparent"></i>Clear &#183; PET<span class="badge stock">Stock</span></span>
+                <span class="sw src"><i style="background:linear-gradient(135deg,#f4f7f6,#cfe4df)"></i>Glass, small capsule jars<span class="badge source">Sourceable</span></span>
+              </div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">Sizes</span>
+              <div class="chips" style="margin-top:8px">
+                <span class="chip">6 oz</span><span class="chip hot">8 oz</span><span class="chip hot">16 oz</span><span class="chip hot">25 oz</span><span class="chip hot">32 oz</span>
+                <span class="chip hot">44 oz</span><span class="chip hot">55 oz</span><span class="chip hot">60 oz</span><span class="chip">1 gal</span><span class="chip">2 gal</span>
+              </div>
+            </div>
+            <p class="specnote">Outlined sizes are the regular runs; capability spans 6 oz to 2 gallons. HDPE is the standard material for white and black; PET is available across the range.</p>
           </div>
         </div>
-        <div><span class="spec-k">With custom tooling</span>
-          <div class="chips" style="margin-top:8px"><span class="chip">widths 1.5&#8221; to 4&#8221;</span></div>
-        </div>
-        <p class="specnote">Primarily for powders. Custom forming widths are unlocked with dedicated tooling, typically paired with high-volume runs.</p>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 04 SACHETS ============ -->
-<section class="sec" id="sachets">
-  <div class="wrap stack">
-    <div class="sec-head">
-      <div><span class="lab">05 &#183; Sachets</span><h2 class="h2">The 4&#8221; &#215; 4&#8221; flat packet, stretched to fit.</h2></div>
-      <p class="body">Square by default; length adjusts up to 8.5&#8221; and width customizes from 1.5&#8221; to 4&#8221; with the same tooling program as stick packs.</p>
-    </div>
-
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/sd-sachets.jpg" alt="Unbranded white square sachet packets"></div>
-      <div class="cat-spec">
-        <div><span class="spec-k">Standard</span><div class="chips" style="margin-top:8px"><span class="chip hot">4&#8221; &#215; 4&#8221;</span></div></div>
-        <div><span class="spec-k">Adjustable lengths</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip">4&#8221; &#215; 3&#8221;</span><span class="chip">4&#8221; &#215; 6&#8221;</span><span class="chip">4&#8221; &#215; 7&#8221;</span><span class="chip">4&#8221; &#215; 8&#8221;</span><span class="chip">up to 8.5&#8221; long</span>
+      <div class="fpanel" id="f-sticks" hidden>
+        <div class="cat">
+          <div class="cat-fig"><img src="../img/sd-sticks.jpg" alt="Powder stick packs in a diagonal row with one torn open"></div>
+          <div class="cat-spec">
+            <span class="spec-k">Stick packs &#183; primarily for powders</span>
+            <p class="body" style="margin:0">Width is fixed at 1.5&#8221; by the standard D-line forming machine; length is fully adjustable.</p>
+            <div><span class="spec-k" style="color:var(--muted)">In stock</span><div class="chips" style="margin-top:8px"><span class="chip hot">1.5&#8221; &#215; 5&#8221;</span></div></div>
+            <div><span class="spec-k" style="color:var(--muted)">Adjustable lengths, same tooling</span>
+              <div class="chips" style="margin-top:8px"><span class="chip">1.5&#8221; &#215; 3&#8221;</span><span class="chip">1.5&#8221; &#215; 4&#8221;</span><span class="chip">1.5&#8221; &#215; 6&#8221;</span></div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">With custom tooling</span><div class="chips" style="margin-top:8px"><span class="chip">widths 1.5&#8221; to 4&#8221;</span></div></div>
+            <p class="specnote">Custom forming widths need dedicated tooling, a one-time cost that only pays back at volume. We will tell you when your run is too small to justify it.</p>
           </div>
         </div>
-        <div><span class="spec-k">With custom tooling</span>
-          <div class="chips" style="margin-top:8px"><span class="chip">widths 1.5&#8221; to 4&#8221;</span></div>
-        </div>
-        <p class="specnote">Flat-sealed packets for powders and single servings.</p>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 05 POUCHES ============ -->
-<section class="sec alt" id="pouches">
-  <div class="wrap stack">
-    <div class="sec-head">
-      <div><span class="lab">06 &#183; Pouches</span><h2 class="h2">Sized to your product, not to a mold.</h2></div>
-      <p class="body">Stand-up pouches for powders, capsules and tablets. Dimensions follow the customer&#8217;s preference rather than a fixed standard.</p>
-    </div>
-
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/sd-pouches.jpg" alt="Unbranded white stand-up pouches with resealable zippers"></div>
-      <div class="cat-spec">
-        <div><span class="spec-k">Common custom examples</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip">2.75&#8221; &#215; 4.25&#8221;</span><span class="chip">4&#8221; &#215; 6&#8221;</span>
+      <div class="fpanel" id="f-sachets" hidden>
+        <div class="cat">
+          <div class="cat-fig"><img src="../img/sd-sachets.jpg" alt="Square sachet packets in an offset grid"></div>
+          <div class="cat-spec">
+            <span class="spec-k">Sachets &#183; flat packets</span>
+            <p class="body" style="margin:0">Square by default; length adjusts up to 8.5&#8221;, and width customizes from 1.5&#8221; to 4&#8221; on the same tooling program as stick packs.</p>
+            <div><span class="spec-k" style="color:var(--muted)">Standard</span><div class="chips" style="margin-top:8px"><span class="chip hot">4&#8221; &#215; 4&#8221;</span></div></div>
+            <div><span class="spec-k" style="color:var(--muted)">Adjustable lengths</span>
+              <div class="chips" style="margin-top:8px">
+                <span class="chip">4&#8221; &#215; 3&#8221;</span><span class="chip">4&#8221; &#215; 6&#8221;</span><span class="chip">4&#8221; &#215; 7&#8221;</span><span class="chip">4&#8221; &#215; 8&#8221;</span><span class="chip">up to 8.5&#8221; long</span>
+              </div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">With custom tooling</span><div class="chips" style="margin-top:8px"><span class="chip">widths 1.5&#8221; to 4&#8221;</span></div></div>
+            <p class="specnote">Flat-sealed packets for powders and single servings.</p>
           </div>
         </div>
-        <div><span class="spec-k">Typical uses</span>
-          <div class="chips" style="margin-top:8px">
-            <span class="chip">Sample sizes</span><span class="chip">30-count capsules</span><span class="chip">60-count capsules</span><span class="chip">Refills</span>
+      </div>
+
+      <div class="fpanel" id="f-pouches" hidden>
+        <div class="cat">
+          <div class="cat-fig"><img src="../img/sd-pouches.jpg" alt="Stand-up pouches with capsules spilling from the smaller one"></div>
+          <div class="cat-spec">
+            <span class="spec-k">Pouches &#183; powders, capsules and tablets</span>
+            <p class="body" style="margin:0">Stand-up pouches with resealable zippers, sized to the product rather than to a fixed standard.</p>
+            <div><span class="spec-k" style="color:var(--muted)">Common custom examples</span>
+              <div class="chips" style="margin-top:8px"><span class="chip">2.75&#8221; &#215; 4.25&#8221;</span><span class="chip">4&#8221; &#215; 6&#8221;</span></div>
+            </div>
+            <div><span class="spec-k" style="color:var(--muted)">Typical uses</span>
+              <div class="chips" style="margin-top:8px">
+                <span class="chip">Sample sizes</span><span class="chip">30-count capsules</span><span class="chip">60-count capsules</span><span class="chip">Refills</span>
+              </div>
+            </div>
+            <p class="specnote">Pairs with the refill model in section 03.</p>
           </div>
         </div>
-        <p class="specnote">For powders, capsules and tablets. Pairs with the refill model below.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 06 SPECIALTY ============ -->
-<section class="sec" id="specialty">
+<!-- 03 GO CUSTOM -->
+<section class="dark" id="custom">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">07 &#183; The Custom Vision</span><h2 class="h2">What your brand can look like here.</h2></div>
-      <p class="body">Concept renders from the F.A.M.E. studio. The emblem is a placeholder: every piece below is a format we run, waiting for your identity.</p>
+      <div><span class="lab">03 &#183; Go custom</span><h2 class="h2">Stock gets you launched.<br>Custom gets you remembered.</h2></div>
+      <p class="body">A mold nobody else has. A finish people want to hold. A refill they come back for. This is where packaging stops being a container and starts being the brand.</p>
     </div>
 
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/cv-refill.jpg" alt="A refill pouch pouring capsules into a premium frosted teal jar"></div>
-      <div class="cat-spec">
-        <span class="spec-k">Eco-friendly refills</span>
-        <h3 class="h3" style="margin-top:4px">Buy the beautiful jar once. Refill it forever.</h3>
-        <p class="body">The brand sells a high-end primary bottle or jar a customer keeps on the counter. Every following order arrives as a lightweight refill pouch of powder or capsules that goes straight into it. Less waste to landfill, lower repeat shipping weight, and a piece of your brand living in the customer&#8217;s home.</p>
-        <p class="specnote">Pairs a decorative primary (frosted glass, specialty colors) with the pouch program from section 05.</p>
-      </div>
+    <div class="imgcards">
+      <div class="icard"><div class="fig"><img src="../img/cu-molds.jpg" alt="Two sculptural supplement bottles in lilac and sage"></div>
+        <div class="cap"><span class="lab">Custom molds</span><div class="h4">Any shape, size or material</div><p class="small">Your own bottle shape, cut from new tooling. A one-time cost every run afterwards uses, and a silhouette a competitor cannot copy off the shelf.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/cu-finishes.jpg" alt="Frosted, green and amber glass jars showing finish options"></div>
+        <div class="cap"><span class="lab">Unique finishes</span><div class="h4">Matte, gloss, metallic, textured</div><p class="small">Frosted, soft-touch matte, tinted glass, plus custom caps, pumps, droppers and decorative elements. Finish is what a customer feels before reading a single word on the label.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/cu-refill.jpg" alt="A blush pink jar beside a flat refill pouch"></div>
+        <div class="cap"><span class="lab">Refill systems</span><div class="h4">Buy the beautiful jar once. Refill it forever.</div><p class="small">Sell the jar once, then sell the refill again and again. Less packaging on every repeat order, a cheaper reorder for the customer, and your brand living on their counter.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/cu-travel.jpg" alt="Two cylindrical travel packs"></div>
+        <div class="cap"><span class="lab">Travel packs</span><div class="h4">3&#8211;4 days in a pocket</div><p class="small">A compact cylinder holding three to four days, so the routine travels instead of being left at home with the full bottle.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/cu-inserts.jpg" alt="Printed insert cards stacked beside a sachet"></div>
+        <div class="cap"><span class="lab">Printed inserts</span><div class="h4">The pack-in that does the talking</div><p class="small">Dosing guidance, the brand story, a reorder prompt, folded in with the product rather than left to the label to carry alone.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/cu-accessories.jpg" alt="Measuring scoops and a pipette"></div>
+        <div class="cap"><span class="lab">Accessories</span><div class="h4">Scoops, spoons and pipettes</div><p class="small">Matched to the dose and sourced with the pack, so the customer is never guessing how much.</p></div></div>
+    </div>
+
+    <p class="footnote">Custom molds and forming tooling are a one-time investment that pays back at volume. We will tell you when your run is too small to justify it.</p>
+
+    <div class="sec-head" style="margin-top:clamp(20px,2.6vw,40px)">
+      <div><span class="lab">Concepts from the studio</span><h2 class="h2" style="font-size:clamp(22px,2.6vw,34px)">What your brand can look like here.</h2></div>
+      <p class="body">Every piece below is a format we run, shown without an identity. The emblem is a placeholder, waiting for yours.</p>
     </div>
 
     <div class="imgcards">
@@ -450,73 +458,47 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
         <div class="cap"><span class="lab">Gift boxes</span><div class="h4">Unboxing as the first impression</div><p class="small">Rigid magnetic boxes with molded interiors, built for launches and subscriptions.</p></div></div>
       <div class="icard"><div class="fig"><img src="../img/cv-gummytins.jpg" alt="Gradient metal tins with gummies"></div>
         <div class="cap"><span class="lab">Gummy tins</span><div class="h4">Confection-grade presentation</div><p class="small">Gummies are made in house; tins and gradients make them feel like it.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-bottlefam.jpg" alt="A family of frosted bottles in muted colors, flat lay"></div>
+      <div class="icard"><div class="fig"><img src="../img/cv-bottlefam.jpg" alt="A family of frosted bottles in muted colors"></div>
         <div class="cap"><span class="lab">Bottle families</span><div class="h4">A palette across the whole line</div><p class="small">Frosted custom-sourced colors that make five SKUs read as one brand.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-pouches.jpg" alt="A person hugging three matte pouches"></div>
+      <div class="icard"><div class="fig"><img src="../img/cv-pouches.jpg" alt="A person holding three matte pouches"></div>
         <div class="cap"><span class="lab">Pouch lines</span><div class="h4">Soft-touch, big-format, held close</div><p class="small">Matte stand-up pouches sized to the product, from samples to 60-count refills.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/pk-travel.jpg" alt="A compact cylindrical travel supplement pack with capsules"></div>
-        <div class="cap"><span class="lab">Travel packs</span><div class="h4">3&#8211;4 days in a pocket</div><p class="small">A compact cylinder holding a few days&#8217; supply, so the bulk pack stays home.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/cv-kitbox.jpg" alt="An open kit box with jars and a travel vial"></div>
+        <div class="cap"><span class="lab">Kit boxes</span><div class="h4">Multi-component, one shipper</div><p class="small">Rigid boxes with card trays holding jars, vials and inserts together.</p></div></div>
       <div class="icard"><div class="fig"><img src="../img/cv-shipbox.jpg" alt="Jars tumbling into an open kraft shipping box"></div>
         <div class="cap"><span class="lab">Ready to ship</span><div class="h4">Kitted, packed and out the door</div><p class="small">Filled, boxed and fulfilled from the same campus that made the product.</p></div></div>
     </div>
 
-    <div class="cat">
-      <div class="cat-fig"><img src="../img/cv-cartons.jpg" alt="Folding cartons standing beside the bottles, jars and stick packs they hold, with a printed insert card"></div>
-      <div class="cat-spec">
-        <span class="spec-k">Secondary packaging &amp; pack-ins</span>
-        <h3 class="h3" style="margin-top:4px">The box outside the bottle.</h3>
+    <div class="cat" style="border-color:rgba(234,243,242,.22)">
+      <div class="cat-fig" style="border-color:rgba(234,243,242,.22)"><img src="../img/cv-cartons.jpg" alt="Folding cartons standing beside the bottles, jars and stick packs they hold"></div>
+      <div class="cat-spec" style="background:rgba(255,255,255,.04)">
+        <span class="spec-k" style="color:#8FE6EF">Secondary packaging &amp; pack-ins</span>
+        <h3 class="h3" style="margin-top:4px;color:#fff">The box outside the bottle.</h3>
         <p class="body">Folding cartons for bottles, jars, sticks and sachets; rigid kit boxes for sets; and printed pack-ins &#8212; brand stories, instruction sheets, inserts &#8212; placed inside the final pack as part of kitting.</p>
-        <p class="specnote">Kits assemble in house: 5 to 30 stick packs or travel cylinders in a custom box, inserts included.</p>
+        <p class="specnote" style="color:rgba(234,243,242,.65);border-color:rgba(234,243,242,.18)">Kits assemble in house: 5 to 30 stick packs or travel cylinders in a custom box, inserts included.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 07 LABELS ============ -->
-<section class="sec alt" id="labels">
-  <div class="wrap stack">
-    <div class="sec-head">
-      <div><span class="lab">08 &#183; Labels &amp; Printing</span><h2 class="h2">The container is half the job. We do the label too.</h2></div>
-      <p class="body">Every format on this page can leave the building printed, labeled and compliant. Bring a finished design or start from ours.</p>
-    </div>
-
-    <div class="imgcards">
-      <div class="icard"><div class="fig"><img src="../img/sd-lbl-blank.jpg" alt="A blank unlabeled white supplement bottle"></div>
-        <div class="cap"><span class="lab">Step 1</span><div class="h4">Select the container</div><p class="small">Choose from the stock bottles, jars and formats in this catalog.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/sd-lbl-labeled.jpg" alt="The same bottle wearing a finished wraparound label"></div>
-        <div class="cap"><span class="lab">Step 2</span><div class="h4">Design the label</div><p class="small">Our in-house design team and design network build it, or we work from your artwork.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/sd-lbl-retail.jpg" alt="The labeled bottle beside its matching carton and printed insert"></div>
-        <div class="cap"><span class="lab">Step 3</span><div class="h4">Printed, applied, launched</div><p class="small">Labeled on automated lines, boxed with your inserts, shipped retail-ready.</p></div></div>
-    </div>
-
-    <div class="grid g4">
-      <div class="cellbox"><span class="lab">Printing</span><div class="h4">Techniques &amp; finishes</div><p class="small">A range of printing techniques and finishes, in-house design or your own artwork.</p></div>
-      <div class="cellbox tint"><span class="lab">Application</span><div class="h4">Automated &amp; consistent</div><p class="small">Automated labeling machines place every label accurately, run after run.</p></div>
-      <div class="cellbox"><span class="lab">Branding</span><div class="h4">Built around your identity</div><p class="small">Visual and copy systems centered on your logo and product name.</p></div>
-      <div class="cellbox tint"><span class="lab">Compliance</span><div class="h4">Reviewed before it prints</div><p class="small">Labels checked against industry standards, with recommended changes before market.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 08 SERVICES ============ -->
+<!-- 04 SERVICES -->
 <section class="sec" id="services">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">09 &#183; Services</span><h2 class="h2">Kitting, sourcing and tooling, in house.</h2></div>
+      <div><span class="lab">04 &#183; What we do with it</span><h2 class="h2">Assembly, sourcing and tooling.</h2></div>
       <p class="body">The parts of packaging that usually mean finding a second vendor.</p>
     </div>
 
     <div class="grid g3">
-      <div class="cellbox tint"><span class="lab">Custom kitting</span><div class="h4">5 to 30 packs per kit</div><p class="small">Multi-component kits assembled in house: 5 to 30 stick packs or travel cylinders in a custom box, with your printed inserts.</p></div>
-      <div class="cellbox"><span class="lab">Component sourcing</span><div class="h4">We find it, you brand it</div><p class="small">Specialty components sourced for you: frosted glass, unique colors like green frosted plastic, custom bottle styles.</p></div>
-      <div class="cellbox tint"><span class="lab">Custom tooling</span><div class="h4">Widths 1.5&#8221;&#8211;4&#8221;, built for you</div><p class="small">Dedicated forming widths for stick packs and sachets, typically paired with high-volume programs.</p></div>
+      <div class="cellbox tint"><span class="lab">Custom kitting</span><div class="h4">5 to 30 packs per kit</div><p class="small">Multi-component kits assembled in house: anywhere from 5 to 30 individual packs or travel cylinders boxed together with your printed inserts.</p></div>
+      <div class="cellbox"><span class="lab">Sourcing</span><div class="h4">We find it, you brand it</div><p class="small">Specialist components sourced for you rather than supplied by you: a particular bottle style, frosted glass, an unusual color. You should not have to run a procurement project to launch a SKU.</p></div>
+      <div class="cellbox tint"><span class="lab">Custom tooling</span><div class="h4">Widths 1.5&#8221;&#8211;4&#8221;, built for you</div><p class="small">Forming widths between 1.5&#8221; and 4&#8221; for stick packs and sachets. A one-time cost that only pays back at volume, and we will tell you when your run is too small to justify it.</p></div>
       <div class="cellbox"><span class="lab">Custom molds</span><div class="h4">Any shape, size or material</div><p class="small">Bottles built to your form, not just chosen from a shelf.</p></div>
       <div class="cellbox tint"><span class="lab">Unique finishes</span><div class="h4">Matte, gloss, metallic, textured</div><p class="small">Plus custom caps, pumps, droppers and decorative elements.</p></div>
       <div class="cellbox"><span class="lab">Eco-conscious</span><div class="h4">Recycled &amp; recyclable first</div><p class="small">Recycled and recyclable materials prioritized across the line.</p></div>
     </div>
 
     <div class="cat">
-      <div class="cat-fig"><img src="../img/sd-finishes.jpg" alt="Five containers showing matte, gloss, soft-touch, metallic and frosted finishes, with dropper and pump caps"></div>
+      <div class="cat-fig"><img src="../img/sd-finishes.jpg" alt="Containers showing matte, gloss, soft-touch, metallic and frosted finishes"></div>
       <div class="cat-spec">
         <span class="spec-k">Molds &amp; finishes</span>
         <h3 class="h3" style="margin-top:4px">Any shape. Any finish.</h3>
@@ -524,21 +506,59 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
         <p class="specnote">Shown: matte, high gloss, soft-touch, brushed metallic and frosted, with dropper and pump closures.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 05 LABELS -->
+<section class="sec alt" id="labels">
+  <div class="wrap stack">
+    <div class="sec-head">
+      <div><span class="lab">05 &#183; Labels</span><h2 class="h2">Your label, start to finish.</h2></div>
+      <p class="body">Bring finished artwork or start from nothing. Either way the label is printed, applied and checked here.</p>
+    </div>
+
+    <div class="imgcards">
+      <div class="icard"><div class="fig"><img src="../img/sd-lbl-blank.jpg" alt="A blank unlabeled white supplement bottle"></div>
+        <div class="cap"><span class="lab">Step 1</span><div class="h4">Select the container</div><p class="small">Choose from the stock bottles, jars and formats above.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/sd-lbl-labeled.jpg" alt="The same bottle wearing a finished wraparound label"></div>
+        <div class="cap"><span class="lab">Step 2</span><div class="h4">Design the label</div><p class="small">Send print-ready artwork and we run it, or our in-house team and design network build it with you, from panel layout to finish.</p></div></div>
+      <div class="icard"><div class="fig"><img src="../img/sd-lbl-retail.jpg" alt="The labeled bottle beside its carton and printed insert"></div>
+        <div class="cap"><span class="lab">Step 3</span><div class="h4">Printed, applied, launched</div><p class="small">Printed on site, applied and inspected on the same line that fills the product, then boxed with your inserts.</p></div></div>
+    </div>
+
+    <div class="grid g4">
+      <div class="cellbox"><span class="lab">You bring the design</span><div class="h4">We run it, and we flag risks</div><p class="small">Send print-ready artwork. We flag anything that will not hold up on press or will not pass label review.</p></div>
+      <div class="cellbox tint"><span class="lab">Printing</span><div class="h4">Techniques &amp; finishes on site</div><p class="small">A range of printing techniques and finishes, printed here, so a label revision does not add a shipping leg to your timeline.</p></div>
+      <div class="cellbox"><span class="lab">Application</span><div class="h4">Automated &amp; consistent</div><p class="small">Automated labeling machines place every label accurately, applied and inspected on the same line that fills the product.</p></div>
+      <div class="cellbox tint"><span class="lab">Compliance</span><div class="h4">Reviewed before it prints</div><p class="small">Panels checked against supplement labeling requirements before the run, not after it, with recommended changes before market.</p></div>
+      <div class="cellbox"><span class="lab">Branding</span><div class="h4">Built around your identity</div><p class="small">Visual and copy systems centered on your logo and product name, building recognition within regulatory guidelines.</p></div>
+      <div class="cellbox tint"><span class="lab">In-house design</span><div class="h4">Start from nothing</div><p class="small">Our team designs the label with you, from panel layout to finish, with a design network for eye-catching compliant work at competitive rates.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 NEXT STEP -->
+<section class="sec" id="next">
+  <div class="wrap stack">
+    <div class="sec-head">
+      <div><span class="lab">06 &#183; Next step</span><h2 class="h2">Tell us the product. We will tell you what it ships in.</h2></div>
+      <p class="body">Send the format, the dose count and the shelf you are aiming for, and we will come back with the packaging that fits it and what it costs to run. We respond within 24 to 48 hours.</p>
+    </div>
 
     <div class="argue">
       <span class="lab">Spec your packaging</span>
       <q>Tell us the format, the fill and the shelf you are aiming for, and we will spec the packaging with you &#8212; stocked where possible, sourced where it matters.</q>
     </div>
-    <a class="mailbtn" href="mailto:holly@famehealthlabs.com?subject=Packaging%20spec%20from%20the%20F.A.M.E.%20catalog&body=Hi%20Holly%2C%0A%0AI%20went%20through%20the%20packaging%20catalog.%20We%27re%20interested%20in%3A%0A%0AFormat%3A%20%0ASize%2Fdimensions%3A%20%0AMaterial%20and%20color%3A%20%0AEstimated%20volume%3A%20%0A%0ACan%20we%20talk%20through%20the%20options%3F">Start a packaging conversation
+
+    <a class="mailbtn" href="mailto:holly@famehealthlabs.com?subject=Packaging%20specs%20request&body=Hi%20Holly%2C%0A%0AI%20went%20through%20the%20packaging%20catalog.%20We%27re%20interested%20in%3A%0A%0AFormat%3A%20%0ASize%2Fdimensions%3A%20%0AMaterial%20and%20color%3A%20%0ADose%20count%3A%20%0ATarget%20shelf%20date%3A%20%0AEstimated%20volume%3A%20%0A%0ACan%20we%20talk%20through%20the%20options%3F">Request packaging specs
       <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8.5 3 12.5 7 8.5 11" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
 
     <div class="foot">
-      <span class="small">F.A.M.E. Health &#183; Packaging Catalog &#183; specifications current as of August 2026 and subject to change</span>
+      <span class="small">F.A.M.E. Health &#183; Packaging &amp; Fulfilment &#183; specifications current as of August 2026 and subject to change</span>
       <a class="small" href="../">Back to the platform deck &#8594;</a>
     </div>
   </div>
 </section>
-
 <script>
 function toggleTheme(){
   var r=document.documentElement;
@@ -547,6 +567,17 @@ function toggleTheme(){
   try{localStorage.setItem('fameDeck',next);}catch(e){}
 }
 (function(){ try{var s=localStorage.getItem('fameDeck'); if(s) document.documentElement.setAttribute('data-deck',s);}catch(e){} })();
+
+/* format tabs */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('#ftabs .ftab'));
+  var keys=tabs.map(function(b){return b.dataset.f;});
+  function show(k){
+    tabs.forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.f===k));});
+    keys.forEach(function(o){ document.getElementById('f-'+o).hidden = o!==k; });
+  }
+  tabs.forEach(function(b){ b.addEventListener('click',function(){show(b.dataset.f);}); });
+})();
 
 /* rail scrollspy */
 (function(){
