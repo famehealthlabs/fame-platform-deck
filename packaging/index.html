@@ -195,19 +195,19 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   <div class="wrap stack">
     <div class="sec-head">
       <div><span class="lab">01 &#183; Bottles</span><h2 class="h2">HDPE, PET and glass, 75cc to 2 gallons.</h2></div>
-      <p class="body">Standard stock runs 150cc to 1 gallon; capability extends from 75cc to 2 gallons. Toggle the material to see what changes.</p>
+      <p class="body">Standard stock runs 150cc to 1 gallon; capability extends from 75cc to 2 gallons. Capsule, tablet and gummy bottles are one program; liquid bottles are their own. Toggle between them.</p>
     </div>
 
     <div class="cat">
       <div class="cat-fig"><img id="bt-img" src="../img/pk-bottles.jpg" alt="Unbranded white HDPE supplement bottles in ascending sizes"></div>
       <div class="cat-spec">
         <div class="seg" role="group" aria-label="Bottle material" id="bt-seg">
-          <button type="button" aria-pressed="true" data-m="plastic">HDPE / PET</button>
-          <button type="button" aria-pressed="false" data-m="glass">Glass</button>
+          <button type="button" aria-pressed="true" data-m="solids">Capsules &#183; Tablets &#183; Gummies</button>
+          <button type="button" aria-pressed="false" data-m="liquids">Liquids</button>
         </div>
         <div><span class="spec-k">Colors</span><div class="swatches" id="bt-colors" style="margin-top:8px"></div></div>
         <div><span class="spec-k" id="bt-sizes-k">Sizes</span><div class="chips" id="bt-sizes" style="margin-top:8px"></div></div>
-        <div><span class="spec-k">Liquids</span><div class="chips" id="bt-liquids" style="margin-top:8px"></div></div>
+        <div><span class="spec-k" id="bt-row2-k">More</span><div class="chips" id="bt-liquids" style="margin-top:8px"></div></div>
         <p class="specnote" id="bt-note"></p>
       </div>
     </div>
@@ -406,21 +406,23 @@ function toggleTheme(){
 /* bottles material toggle */
 (function(){
   var DATA={
-    plastic:{
+    solids:{
       img:'../img/pk-bottles.jpg', alt:'Unbranded white HDPE supplement bottles in ascending sizes',
       colors:[['#ffffff','White','stock'],['#161616','Black','stock'],['#4a2410','Dark amber','stock'],['transparent','Transparent','stock'],['#1e4fa8','Cobalt blue','stock'],['#b8d9a8','Light green','source'],['#e07b2a','Orange','source'],['frost','Frosted PET / HDPE','source']],
-      sizesK:'Sizes &#183; capsules &amp; solids',
+      sizesK:'Plastic sizes &#183; HDPE &amp; PET',
       sizes:[['150cc &#8211; 1 gal standard',1],['75cc &#8211; 2 gal capability',0],['2 oz bullet',1],['6 oz',1],['16 oz',1],['32 oz',1],['44 oz',1]],
-      liquids:[['1 oz &#8211; 32 oz',0],['16 oz regular',1],['32 oz regular',1]],
-      note:'HDPE and PET. Boston round and bullet styles; caps ship with induction seals, pour-on and flip-top closures available.'
+      row2K:'Glass capsule bottles',
+      row2:[['150cc',1],['200cc',1],['300cc',1],['400cc',1]],
+      note:'For capsules, tablets and gummies. Boston round and bullet styles; caps ship with induction seals, pour-on and flip-top closures available. Glass colors: amber, blue, transparent; frosted sourceable.'
     },
-    glass:{
+    liquids:{
       img:'../img/pk-liquids.jpg', alt:'Amber glass tincture bottles with dropper pipette caps',
-      colors:[['#4a2410','Amber','stock'],['#1e4fa8','Blue','stock'],['transparent','Transparent','stock'],['frost','Frosted','source']],
-      sizesK:'Sizes &#183; capsules',
-      sizes:[['150cc',1],['200cc',1],['300cc',1],['400cc',1]],
-      liquids:[['1/2 oz',1],['1 oz',1],['2 oz',1],['4 oz',1]],
-      note:'Glass runs for capsules and liquids. Liquid bottles pair with pipette lids: 76mm on 1 oz, 91mm on 2 oz. Frosted glass is less common but fully sourceable.'
+      colors:[['#4a2410','Amber glass','stock'],['#1e4fa8','Blue glass','stock'],['transparent','Transparent glass','stock'],['frost','Frosted glass','source'],['#ffffff','White HDPE','stock']],
+      sizesK:'Glass &#183; with pipette lids',
+      sizes:[['1/2 oz',1],['1 oz &#183; 76mm pipette',1],['2 oz &#183; 91mm pipette',1],['4 oz',1]],
+      row2K:'HDPE',
+      row2:[['1 oz &#8211; 32 oz range',0],['16 oz regular',1],['32 oz regular',1]],
+      note:'Liquid bottles run in glass and HDPE. Glass typically 1/2 oz to 4 oz with compatible pipette lids; HDPE from 1 oz up to 32 oz, with 16 oz and 32 oz manufactured regularly.'
     }
   };
   var seg=document.getElementById('bt-seg'); if(!seg) return;
@@ -438,12 +440,12 @@ function toggleTheme(){
     document.getElementById('bt-colors').innerHTML=d.colors.map(sw).join('');
     document.getElementById('bt-sizes-k').innerHTML=d.sizesK;
     document.getElementById('bt-sizes').innerHTML=d.sizes.map(function(s){return chip(s[0],s[1]);}).join('');
-    document.getElementById('bt-liquids').innerHTML=d.liquids.map(function(s){return chip(s[0],s[1]);}).join('');
-    document.getElementById('bt-note').textContent=d.note.replace(/&#8211;/g,'–');
+    document.getElementById('bt-row2-k').innerHTML=d.row2K;
+    document.getElementById('bt-liquids').innerHTML=d.row2.map(function(s){return chip(s[0],s[1]);}).join('');
     document.getElementById('bt-note').innerHTML=d.note;
   }
   btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.m);});});
-  show('plastic');
+  show('solids');
 })();
 
 /* rail scrollspy */
