@@ -199,6 +199,21 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .dark .spec-k{color:#8FE6EF;}
 .dark .specnote{color:rgba(234,243,242,.65);border-color:rgba(234,243,242,.18);}
 
+
+/* ---------- mobile ergonomics: 44px tap targets, legible labels ---------- */
+@media(max-width:400px){
+  .tb-brand{padding:0 10px;gap:7px;font-size:12px;}
+  .tb-brand img{width:20px;height:20px;}
+  .tb-right{padding:0 10px 0 8px;gap:5px;}
+  .themebtn{padding:0 9px;letter-spacing:.03em;}
+}
+@media(max-width:820px){
+  .themebtn{min-height:44px;padding:0 12px;}
+  .toc a{padding-top:14px;padding-bottom:14px;}
+  .lab,.spec-k{font-size:11px;}
+  .foot a.small{display:inline-block;padding:12px 0;}
+  .ftab span{padding:14px 12px;}
+}
 @media print{.topbar,.toc{position:static;}.fpanel[hidden]{display:block!important;}}
 </style>
 </head>
@@ -503,9 +518,9 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div class="grid g3">
-      <div class="cellbox tint"><span class="lab">Custom kitting</span><div class="h4">5 to 30 packs per kit</div><p class="small">Multi-component kits assembled in house: anywhere from 5 to 30 individual packs or travel cylinders boxed together with your printed inserts.</p></div>
-      <div class="cellbox"><span class="lab">Sourcing</span><div class="h4">We find it, you brand it</div><p class="small">Specialist components sourced for you rather than supplied by you: a particular bottle style, frosted glass, an unusual color. You should not have to run a procurement project to launch a SKU.</p></div>
-      <div class="cellbox tint"><span class="lab">Custom tooling</span><div class="h4">Widths 1.5&#8221;&#8211;4&#8221;, built for you</div><p class="small">Forming widths between 1.5&#8221; and 4&#8221; for stick packs and sachets. A one-time cost that only pays back at volume, and we will tell you when your run is too small to justify it.</p></div>
+      <div class="cellbox"><span class="lab">Custom kitting</span><div class="h4">5 to 30 packs per kit</div><p class="small">Multi-component kits assembled in house: anywhere from 5 to 30 individual packs or travel cylinders boxed together with your printed inserts.</p></div>
+      <div class="cellbox tint"><span class="lab">Sourcing</span><div class="h4">We find it, you brand it</div><p class="small">Specialist components sourced for you rather than supplied by you: a particular bottle style, frosted glass, an unusual color. You should not have to run a procurement project to launch a SKU.</p></div>
+      <div class="cellbox"><span class="lab">Custom tooling</span><div class="h4">Widths 1.5&#8221;&#8211;4&#8221;, built for you</div><p class="small">Forming widths between 1.5&#8221; and 4&#8221; for stick packs and sachets. A one-time cost that only pays back at volume, and we will tell you when your run is too small to justify it.</p></div>
       <div class="cellbox"><span class="lab">Custom molds</span><div class="h4">Any shape, size or material</div><p class="small">Bottles built to your form, not just chosen from a shelf.</p></div>
       <div class="cellbox tint"><span class="lab">Unique finishes</span><div class="h4">Matte, gloss, metallic, textured</div><p class="small">Plus custom caps, pumps, droppers and decorative elements.</p></div>
       <div class="cellbox"><span class="lab">Eco-conscious</span><div class="h4">Recycled &amp; recyclable first</div><p class="small">Recycled and recyclable materials prioritized across the line.</p></div>
@@ -540,13 +555,13 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
         <div class="cap"><span class="lab">Step 3</span><div class="h4">Printed, applied, launched</div><p class="small">Printed on site, applied and inspected on the same line that fills the product, then boxed with your inserts.</p></div></div>
     </div>
 
-    <div class="grid g4">
+    <div class="grid g3">
       <div class="cellbox"><span class="lab">You bring the design</span><div class="h4">We run it, and we flag risks</div><p class="small">Send print-ready artwork. We flag anything that will not hold up on press or will not pass label review.</p></div>
       <div class="cellbox tint"><span class="lab">Printing</span><div class="h4">Techniques &amp; finishes on site</div><p class="small">A range of printing techniques and finishes, printed here, so a label revision does not add a shipping leg to your timeline.</p></div>
       <div class="cellbox"><span class="lab">Application</span><div class="h4">Automated &amp; consistent</div><p class="small">Automated labeling machines place every label accurately, applied and inspected on the same line that fills the product.</p></div>
-      <div class="cellbox tint"><span class="lab">Compliance</span><div class="h4">Reviewed before it prints</div><p class="small">Panels checked against supplement labeling requirements before the run, not after it, with recommended changes before market.</p></div>
-      <div class="cellbox"><span class="lab">Branding</span><div class="h4">Built around your identity</div><p class="small">Visual and copy systems centered on your logo and product name, building recognition within regulatory guidelines.</p></div>
-      <div class="cellbox tint"><span class="lab">In-house design</span><div class="h4">Start from nothing</div><p class="small">Our team designs the label with you, from panel layout to finish, with a design network for eye-catching compliant work at competitive rates.</p></div>
+      <div class="cellbox"><span class="lab">Compliance</span><div class="h4">Reviewed before it prints</div><p class="small">Panels checked against supplement labeling requirements before the run, not after it, with recommended changes before market.</p></div>
+      <div class="cellbox tint"><span class="lab">Branding</span><div class="h4">Built around your identity</div><p class="small">Visual and copy systems centered on your logo and product name, building recognition within regulatory guidelines.</p></div>
+      <div class="cellbox"><span class="lab">In-house design</span><div class="h4">Start from nothing</div><p class="small">Our team designs the label with you, from panel layout to finish, with a design network for eye-catching compliant work at competitive rates.</p></div>
     </div>
   </div>
 </section>
