@@ -67,6 +67,13 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .toc a:hover,.toc a:focus-visible{background:var(--teal-band);color:#fff;}
 .toc a.on{color:var(--ink);background:var(--aqua-2);}
 
+/* cover hero */
+.coverhero{position:relative;border-bottom:1px solid var(--rule);height:clamp(380px,52vw,640px);overflow:hidden;background:var(--panel);}
+.coverhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;}
+.ch-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,22,.12) 0%,rgba(6,20,22,.24) 55%,rgba(6,20,22,.72) 100%);}
+.ch-cap{position:absolute;left:0;right:0;bottom:clamp(26px,3.6vw,54px);}
+@media(max-width:900px){.cover-grid{grid-template-columns:1fr!important;}}
+
 /* cover */
 .cover{border-bottom:1px solid var(--rule);padding:clamp(44px,5.6vw,86px) 0;}
 .cover-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,4vw,72px);align-items:end;}
@@ -87,7 +94,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .cat{border:1px solid var(--rule);display:grid;grid-template-columns:1.15fr 1fr;background:var(--paper);}
 @media(max-width:960px){.cat{grid-template-columns:1fr;}}
 .cat>*{min-width:0;}
-.cat-fig{border-right:1px solid var(--rule);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:300px;}
+.cat-fig{border-right:1px solid var(--rule);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:clamp(320px,34vw,460px);}
 @media(max-width:960px){.cat-fig{border-right:0;border-bottom:1px solid var(--rule);}}
 .cat-fig img{width:100%;height:100%;object-fit:cover;display:block;}
 .cat-spec{padding:clamp(18px,2.2vw,32px);display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px);background:var(--aqua-3);}
@@ -175,13 +182,21 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   <a href="#services"><span style="color:var(--teal-deep);margin-right:.5em">08</span>Services</a>
 </div></nav>
 
-<section class="cover">
-  <div class="wrap cover-grid">
-    <div>
-      <span class="lab">F.A.M.E. Health Labs &#183; Packaging</span>
-      <h1 class="h1" style="margin-top:.2em">The Packaging<br>Catalog.</h1>
-      <p class="body" style="max-width:44ch;margin-top:1em;font-size:clamp(15px,1.6vw,20px)">Every bottle, jar, stick pack, sachet and pouch we run &#8212; with the sizes we stock, the sizes we can build, and what custom tooling unlocks.</p>
+<section class="coverhero">
+  <img src="../img/pm-hero.jpg" alt="An editorial still life of unbranded supplement packaging on travertine stone">
+  <div class="ch-ov"></div>
+  <div class="ch-cap">
+    <div class="wrap">
+      <span class="lab" style="color:#8FE6EF">F.A.M.E. Health Labs &#183; Packaging</span>
+      <h1 class="h1" style="color:#fff;margin-top:.15em">The Packaging<br>Catalog.</h1>
+      <p style="color:rgba(255,255,255,.92);max-width:46ch;margin-top:1em;font-size:clamp(15px,1.6vw,20px);line-height:1.45">Every bottle, jar, stick pack, sachet and pouch we run &#8212; the sizes we stock, the sizes we can build, and what custom tooling unlocks.</p>
     </div>
+  </div>
+</section>
+
+<section class="cover" style="padding:clamp(26px,3vw,44px) 0">
+  <div class="wrap cover-grid">
+    <div style="display:none"></div>
     <div class="cover-meta">
       <div class="mrow"><div class="lab">Formats</div><div class="body">Bottles &#183; jars &#183; stick packs &#183; sachets &#183; pouches &#183; travel packs &#183; refills</div></div>
       <div class="mrow"><div class="lab">Materials</div><div class="body">HDPE &#183; PET &#183; glass, stocked and custom-sourced</div></div>
@@ -200,7 +215,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div class="cat">
-      <div class="cat-fig"><img id="bt-img" src="../img/pk-bottles.jpg?v=2" alt="Unbranded white HDPE supplement bottles in ascending sizes"></div>
+      <div class="cat-fig"><img id="bt-img" src="../img/pm-bottles.jpg" alt="Unbranded white HDPE supplement bottles in ascending sizes"></div>
       <div class="cat-spec">
         <div class="seg" role="group" aria-label="Bottle material" id="bt-seg">
           <button type="button" aria-pressed="true" data-m="solids">Capsules &#183; Tablets &#183; Gummies</button>
@@ -245,7 +260,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div class="cat">
-      <div class="cat-fig"><img src="../img/pk-jars.jpg" alt="Unbranded white supplement powder jars in ascending sizes"></div>
+      <div class="cat-fig"><img src="../img/pm-jars.jpg" alt="Unbranded white supplement powder jars in ascending sizes"></div>
       <div class="cat-spec">
         <div><span class="spec-k">Colors</span>
           <div class="swatches" style="margin-top:8px">
@@ -278,7 +293,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div class="cat">
-      <div class="cat-fig"><img src="../img/pk-sticks.jpg" alt="Unbranded white powder stick packs, fanned"></div>
+      <div class="cat-fig"><img src="../img/pm-sticks.jpg" alt="Unbranded white powder stick packs, fanned"></div>
       <div class="cat-spec">
         <div><span class="spec-k">In stock</span><div class="chips" style="margin-top:8px"><span class="chip hot">1.5&#8221; &#215; 5&#8221;</span></div></div>
         <div><span class="spec-k">Adjustable lengths, same tooling</span>
@@ -304,7 +319,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div class="cat">
-      <div class="cat-fig"><img src="../img/pk-sachets.jpg" alt="Unbranded white square sachet packets"></div>
+      <div class="cat-fig"><img src="../img/pm-sachets.jpg" alt="Unbranded white square sachet packets"></div>
       <div class="cat-spec">
         <div><span class="spec-k">Standard</span><div class="chips" style="margin-top:8px"><span class="chip hot">4&#8221; &#215; 4&#8221;</span></div></div>
         <div><span class="spec-k">Adjustable lengths</span>
@@ -330,7 +345,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
     <div class="cat">
-      <div class="cat-fig"><img src="../img/pk-pouches.jpg" alt="Unbranded white stand-up pouches with resealable zippers"></div>
+      <div class="cat-fig"><img src="../img/pm-pouches.jpg" alt="Unbranded white stand-up pouches with resealable zippers"></div>
       <div class="cat-spec">
         <div><span class="spec-k">Common custom examples</span>
           <div class="chips" style="margin-top:8px">
@@ -466,7 +481,7 @@ function toggleTheme(){
 (function(){
   var DATA={
     solids:{
-      img:'../img/pk-bottles.jpg?v=2', alt:'Unbranded white HDPE supplement bottles in ascending sizes',
+      img:'../img/pm-bottles.jpg', alt:'Unbranded white HDPE supplement bottles in ascending sizes',
       colors:[['#ffffff','White','stock'],['#161616','Black','stock'],['#4a2410','Dark amber','stock'],['transparent','Transparent','stock'],['#1e4fa8','Cobalt blue','stock'],['#b8d9a8','Light green','source'],['#e07b2a','Orange','source'],['frost','Frosted PET / HDPE','source']],
       sizesK:'Plastic sizes &#183; HDPE &amp; PET',
       sizes:[['150cc &#8211; 1 gal standard',1],['75cc &#8211; 2 gal capability',0],['6 oz',1],['16 oz',1],['32 oz',1],['44 oz',1]],
@@ -475,7 +490,7 @@ function toggleTheme(){
       note:'For capsules, tablets and gummies. Caps ship with induction seals; pour-on and flip-top closures available. Glass capsule bottles come in amber, blue, transparent; frosted sourceable.'
     },
     liquids:{
-      img:'../img/pk-liquids-family.jpg', alt:'Amber glass dropper bottles beside white HDPE bullet bottles',
+      img:'../img/pm-liquids.jpg', alt:'Amber glass dropper bottles beside white HDPE bullet bottles',
       colors:[['#4a2410','Amber glass','stock'],['#1e4fa8','Cobalt blue glass','stock'],['transparent','Transparent glass','stock'],['frost','Frosted glass','source'],['#ffffff','White HDPE','stock']],
       sizesK:'Glass &#183; with pipette lids',
       sizes:[['1/2 oz',1],['1 oz &#183; 76mm pipette',1],['2 oz &#183; 91mm pipette',1],['4 oz',1]],
