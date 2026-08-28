@@ -188,13 +188,19 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 /* concepts gallery: full-bleed, borderless, deliberately unlike the card grids */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(26px,3vw,44px);}
 .gallery figure{margin:0;position:relative;overflow:hidden;}
-.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1);}
+.gallery img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1);}
 .gallery figure:hover img{transform:scale(1.04);}
 .gallery figcaption{padding:clamp(14px,1.6vw,20px) clamp(16px,1.8vw,24px) clamp(20px,2.4vw,34px);
   font-size:13px;line-height:1.5;color:var(--muted);}
 .gallery figcaption b{display:block;color:var(--ink);font-size:clamp(15px,1.35vw,18px);letter-spacing:-.012em;margin-bottom:5px;}
 @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.gallery{grid-template-columns:1fr;}}
+
+/* legend strip */
+.legendbar{border-bottom:1px solid var(--rule);background:var(--paper);padding:14px 0;}
+.legendbar .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:9px;font-size:12.5px;color:var(--muted);}
+.legendbar .lgsep{width:1px;height:16px;background:var(--rule-soft);margin:0 8px;}
+@media(max-width:560px){.legendbar .lgsep{display:none;}.legendbar .wrap{gap:7px;}}
 
 /* compare-all table */
 .cmpwrap{border:1px solid var(--rule);background:var(--paper);overflow-x:auto;}
@@ -320,15 +326,11 @@ table.cmp td b{color:var(--ink);font-weight:700;}
   </div>
 </section>
 
-<section class="cover" style="padding:clamp(26px,3vw,44px) 0">
-  <div class="wrap cover-grid">
-    <div style="display:none"></div>
-    <div class="cover-meta">
-      <div class="mrow"><div class="lab">Formats</div><div class="body">Bottles &#183; jars &#183; liquids &#183; stick packs &#183; sachets &#183; pouches &#183; travel packs &#183; refills</div></div>
-      <div class="mrow"><div class="lab">Materials</div><div class="body">HDPE &#183; PET &#183; glass, stocked and custom-sourced</div></div>
-      <div class="mrow"><div class="lab">Range</div><div class="body">Bottles 75cc to 2 gallons, all stock &#183; custom form widths 1.5&#8221; to 4&#8221;</div></div>
-      <div class="mrow"><div class="lab">Legend</div><div class="body"><span class="badge stock">Stock</span> kept on hand &#183; <span class="badge source">Sourceable</span> custom-sourced for you</div></div>
-    </div>
+<section class="legendbar">
+  <div class="wrap">
+    <span class="badge stock">Stock</span> <span>kept on hand</span>
+    <span class="lgsep"></span>
+    <span class="badge source">Sourceable</span> <span>custom-sourced for you, not refused</span>
   </div>
 </section>
 
