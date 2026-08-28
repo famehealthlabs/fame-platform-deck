@@ -156,6 +156,17 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .mailbtn:hover{background:var(--teal-deep);}
 .foot{border-top:1px solid var(--rule);padding:22px 0 40px;display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-between;}
 
+/* concepts gallery: full-bleed, borderless, deliberately unlike the card grids */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(26px,3vw,44px);}
+.gallery figure{margin:0;position:relative;overflow:hidden;}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1);}
+.gallery figure:hover img{transform:scale(1.04);}
+.gallery figcaption{padding:clamp(14px,1.6vw,20px) clamp(16px,1.8vw,24px) clamp(20px,2.4vw,34px);
+  font-size:13px;line-height:1.5;color:var(--muted);}
+.gallery figcaption b{display:block;color:var(--ink);font-size:clamp(15px,1.35vw,18px);letter-spacing:-.012em;margin-bottom:5px;}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.gallery{grid-template-columns:1fr;}}
+
 /* format spec box */
 .specbox{border:1px solid var(--rule);background:var(--aqua-3);}
 .specinner{padding:clamp(18px,2.2vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,34px);align-items:start;}
@@ -243,9 +254,10 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   <a href="#steps"><span style="color:var(--teal-deep);margin-right:.5em">01</span>How It Works</a>
   <a href="#formats"><span style="color:var(--teal-deep);margin-right:.5em">02</span>Formats</a>
   <a href="#custom"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Go Custom</a>
-  <a href="#services"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Assembly &amp; Tooling</a>
-  <a href="#labels"><span style="color:var(--teal-deep);margin-right:.5em">05</span>Labels</a>
-  <a href="#next"><span style="color:var(--teal-deep);margin-right:.5em">06</span>Next Step</a>
+  <a href="#concepts"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Concepts</a>
+  <a href="#services"><span style="color:var(--teal-deep);margin-right:.5em">05</span>Assembly &amp; Tooling</a>
+  <a href="#labels"><span style="color:var(--teal-deep);margin-right:.5em">06</span>Labels</a>
+  <a href="#next"><span style="color:var(--teal-deep);margin-right:.5em">07</span>Next Step</a>
 </div></nav>
 
 <section class="coverhero">
@@ -480,32 +492,6 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
     </div>
 
 
-    <div class="sec-head" style="margin-top:clamp(20px,2.6vw,40px)">
-      <div><span class="lab">Concepts from the studio</span><h2 class="h2" style="font-size:clamp(22px,2.6vw,34px)">What your brand can look like here.</h2></div>
-      <p class="body">Every piece below is a format we run, shown without an identity. The emblem is a placeholder, waiting for yours.</p>
-    </div>
-
-    <div class="imgcards">
-      <div class="icard"><div class="fig"><img src="../img/cv-cylinders.jpg?v=2" alt="Paper cylinder canisters with stick packs fanning from the open top"></div>
-        <div class="cap"><span class="lab">Stick cylinders</span><div class="h4">A tube of ritual on the counter</div><p class="small">Paper cylinders that present your stick packs like a daily ritual, not a commodity box.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-starterkit.jpg?v=2" alt="An open kit box with a graded row of stick packs"></div>
-        <div class="cap"><span class="lab">Starter kits</span><div class="h4">The whole routine in one open box</div><p class="small">A slotted kit that turns a first order into a guided week of servings.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-jarsystem.jpg?v=2" alt="Frosted capsule jars beside matching folding cartons"></div>
-        <div class="cap"><span class="lab">Jar + carton systems</span><div class="h4">Primary and secondary, designed as one</div><p class="small">The jar and the carton it ships in, speaking the same language on the shelf.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-giftbox.jpg?v=2" alt="Rigid magnetic gift boxes, one open with a bottle nested inside"></div>
-        <div class="cap"><span class="lab">Custom unboxing</span><div class="h4">The moment they open it</div><p class="small">Rigid magnetic boxes, molded interiors and the reveal sequence designed with the product, not bought off a shelf around it.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-gummytins.jpg?v=2" alt="Gradient metal tins with gummies"></div>
-        <div class="cap"><span class="lab">Gummy tins</span><div class="h4">Confection-grade presentation</div><p class="small">Gummies are made in house; tins and gradients make them feel like it.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-bottlefam.jpg?v=2" alt="A family of frosted bottles in muted colors, overhead"></div>
-        <div class="cap"><span class="lab">Bottle families</span><div class="h4">A palette across the whole line</div><p class="small">Frosted custom-sourced colors that make five SKUs read as one brand.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-pouches.jpg?v=2" alt="Three matte stand-up pouches in graded sizes"></div>
-        <div class="cap"><span class="lab">Pouch lines</span><div class="h4">Soft-touch, big-format, held close</div><p class="small">Matte stand-up pouches sized to the product, from samples to 60-count refills.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-kitbox.jpg?v=2" alt="An open kit box with jars, a travel vial and an insert card"></div>
-        <div class="cap"><span class="lab">Kit boxes</span><div class="h4">Multi-component, one shipper</div><p class="small">Rigid boxes with card trays holding jars, vials and inserts together.</p></div></div>
-      <div class="icard"><div class="fig"><img src="../img/cv-shipbox.jpg?v=2" alt="An open kraft shipping box packed with finished jars"></div>
-        <div class="cap"><span class="lab">Ready to ship</span><div class="h4">Kitted, packed and out the door</div><p class="small">Boxed, kitted and fulfilled ready for the shelf or the marketplace.</p></div></div>
-    </div>
-
     <div class="cat">
       <div class="cat-fig"><img src="../img/cv-cartons.jpg?v=2" alt="Folding cartons standing beside the bottles, jars and stick packs they hold"></div>
       <div class="cat-spec">
@@ -518,19 +504,43 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
   </div>
 </section>
 
-<!-- 04 SERVICES -->
+<!-- 04 CONCEPTS -->
+<section class="sec" id="concepts">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="lab">04 &#183; Concepts</span><h2 class="h2">Six things a brand has done with these formats.</h2></div>
+      <p class="body">Studio concepts, shown without an identity. Each one is built from the stock formats above.</p>
+    </div>
+  </div>
+  <div class="gallery">
+    <figure><img src="../img/cv-cylinders.jpg?v=2" alt="Paper cylinder canisters with stick packs fanning from the open top">
+      <figcaption><b>Stick cylinders</b> A tube of ritual on the counter, instead of a commodity carton.</figcaption></figure>
+    <figure><img src="../img/cv-starterkit.jpg?v=2" alt="An open kit box with a graded row of stick packs">
+      <figcaption><b>Starter kits</b> A first order that arrives as a guided week of servings.</figcaption></figure>
+    <figure><img src="../img/cv-jarsystem.jpg?v=2" alt="Frosted capsule jars beside matching folding cartons">
+      <figcaption><b>Jar and carton systems</b> Primary and secondary designed as one object.</figcaption></figure>
+    <figure><img src="../img/cv-giftbox.jpg?v=2" alt="Rigid magnetic boxes, one open with a bottle nested inside">
+      <figcaption><b>Custom unboxing</b> The reveal designed with the product, not bought around it.</figcaption></figure>
+    <figure><img src="../img/cv-gummytins.jpg?v=2" alt="Gradient metal tins with gummies">
+      <figcaption><b>Gummy tins</b> Confection-grade presentation for gummies made in house.</figcaption></figure>
+    <figure><img src="../img/cv-bottlefam.jpg?v=2" alt="A family of frosted bottles in muted colors">
+      <figcaption><b>Bottle families</b> Custom-sourced colors that make five SKUs read as one brand.</figcaption></figure>
+  </div>
+</section>
+
+<!-- 05 SERVICES -->
 <section class="sec" id="services">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">04 &#183; What we do with it</span><h2 class="h2">Assembly, sourcing and tooling.</h2></div>
+      <div><span class="lab">05 &#183; What we do with it</span><h2 class="h2">Assembly, sourcing and tooling.</h2></div>
       <p class="body">The parts of packaging that usually mean finding a second vendor.</p>
     </div>
 
-    <div class="grid g3">
+    <div class="grid g4">
       <div class="cellbox"><span class="lab">Custom kitting</span><div class="h4">5 to 30 packs per kit</div><p class="small">Multi-component kits: packs or travel cylinders boxed together with your printed inserts.</p></div>
       <div class="cellbox tint"><span class="lab">Sourcing</span><div class="h4">We find it, you brand it</div><p class="small">Specialist components sourced for you rather than supplied by you: a particular bottle style, frosted glass, an unusual color. You should not have to run a procurement project to launch a SKU.</p></div>
       <div class="cellbox"><span class="lab">Custom tooling</span><div class="h4">Widths 1.5&#8221;&#8211;4&#8221;, built for you</div><p class="small">Forming widths between 1.5&#8221; and 4&#8221; for stick packs and sachets. A one-time cost that only pays back at volume, and we will tell you when your run is too small to justify it.</p></div>
-      <div class="cellbox"><span class="lab">Eco-conscious</span><div class="h4">Recycled &amp; recyclable first</div><p class="small">Recycled and recyclable materials prioritized across the line.</p></div>
+      <div class="cellbox tint"><span class="lab">Eco-conscious</span><div class="h4">Recycled &amp; recyclable first</div><p class="small">Recycled and recyclable materials prioritized across the line.</p></div>
     </div>
 
   </div>
@@ -540,7 +550,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 <section class="sec alt" id="labels">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">05 &#183; Labels</span><h2 class="h2">Your label, start to finish.</h2></div>
+      <div><span class="lab">06 &#183; Labels</span><h2 class="h2">Your label, start to finish.</h2></div>
       <p class="body">Bring finished artwork or start from nothing. Either way the label is printed, applied and checked here.</p>
     </div>
 
@@ -568,7 +578,7 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 <section class="sec" id="next">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">06 &#183; Next step</span><h2 class="h2">Tell us the product. We will tell you what it ships in.</h2></div>
+      <div><span class="lab">07 &#183; Next step</span><h2 class="h2">Tell us the product. We will tell you what it ships in.</h2></div>
       <p class="body">Send the format, the dose count and the shelf you are aiming for, and we will come back with the packaging that fits it and what it costs to run. We respond within 24 to 48 hours.</p>
     </div>
 
