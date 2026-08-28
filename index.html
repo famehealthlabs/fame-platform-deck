@@ -628,6 +628,21 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
   .barfill{transform:scaleX(1);} .ringdash{stroke-dashoffset:var(--off);} .statstrip.reveal .st{opacity:1;transform:none;}}
 
+/* ---------- cross-page CTA panel ---------- */
+.ctapanel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:clamp(18px,3vw,48px);
+  background:#0C2225;border:1px solid #0C2225;color:#fff;text-decoration:none;
+  padding:clamp(22px,2.8vw,40px) clamp(22px,3vw,44px);transition:background .22s,transform .22s;}
+.ctapanel:hover{background:#11312F;transform:translateY(-2px);}
+.ctapanel .ct-k,.ctapanel .ct-h,.ctapanel .ct-s{display:block;}
+.ctapanel .ct-k{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#8FE6EF;}
+.ctapanel .ct-h{font-size:clamp(21px,2.5vw,34px);line-height:1.06;letter-spacing:-.028em;font-weight:700;margin:.34em 0 .3em;text-wrap:balance;}
+.ctapanel .ct-s{font-size:clamp(13.5px,1.02vw,15.5px);line-height:1.5;color:rgba(234,243,242,.82);max-width:62ch;}
+.ctapanel .ct-go{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;
+  background:var(--teal);color:#04333a;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  padding:14px 22px;border-radius:100px;transition:gap .22s;}
+.ctapanel:hover .ct-go{gap:16px;}
+@media(max-width:760px){.ctapanel{grid-template-columns:1fr;}.ctapanel .ct-go{justify-self:start;}}
+
 /* ---------- mobile ergonomics: 44px tap targets, legible labels ---------- */
 @media(max-width:400px){
   .tb-brand{padding:0 10px;gap:7px;font-size:12px;}
@@ -1119,9 +1134,15 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
       <p class="footnote">Twelve of 65+ categories shown. *Softgels produced via qualified external partners. Kitting, fulfillment and global distribution handled in house.</p>
     </div>
 
-    <a href="/packaging/" style="text-decoration:none" class="argue rv">
-      <span class="lab">New &#183; interactive catalog</span>
-      <q>The Packaging Catalog: every bottle, jar, stick pack, sachet and pouch we run &#8212; sizes, colors, closures and custom tooling, on its own page. &#8594;</q>
+    <a href="/packaging/" class="ctapanel rv">
+      <span>
+        <span class="ct-k">Interactive catalog</span>
+        <span class="ct-h">See every pack we can put your product in.</span>
+        <span class="ct-s">Bottles, jars, liquids, stick packs, sachets and pouches with the real sizes, colors and closures, plus custom molds, finishes and refills.</span>
+      </span>
+      <span class="ct-go">Open the packaging catalog
+        <svg width="15" height="15" viewBox="0 0 15 15" aria-hidden="true"><path d="M1 7.5h11M9 4l3.5 3.5L9 11" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      </span>
     </a>
 
     <div>
