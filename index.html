@@ -399,6 +399,7 @@ body.anim .oring{animation:oringspin 80s linear infinite;}
 .fig-plot{padding:clamp(16px,2.2vw,34px);border-right:1px solid var(--rule);display:flex;align-items:center;}
 @media(max-width:960px){.fig-plot{border-right:0;border-bottom:1px solid var(--rule);}}
 .fig-plot svg{width:100%;height:auto;display:block;overflow:visible;}
+@media(max-width:640px){.fig-plot{overflow-x:auto;-webkit-overflow-scrolling:touch;}.fig-plot svg{min-width:700px;}}
 .fig-read{padding:clamp(18px,2vw,30px);background:var(--aqua-3);display:flex;flex-direction:column;gap:12px;}
 .fig-read .fk{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--teal-deep);}
 .fig-read .ft{font-size:clamp(20px,2.1vw,30px);line-height:1.05;letter-spacing:-.028em;font-weight:700;text-wrap:balance;}
@@ -657,6 +658,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   padding:14px 22px;border-radius:100px;transition:gap .22s;}
 .ctapanel:hover .ct-go{gap:16px;}
 @media(max-width:760px){.ctapanel{grid-template-columns:1fr;}.ctapanel .ct-go{justify-self:start;}}
+@media(max-width:400px){.ctapanel .ct-go{white-space:normal;}}
 
 /* ---------- mobile ergonomics: 44px tap targets, legible labels ---------- */
 @media(max-width:400px){
@@ -671,7 +673,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   .foot a.small{display:inline-block;padding:12px 0;}
   .morebtn{min-height:44px;padding:0 16px;}
   .eco-tabs button,.seg button,.fb,.fig-tog button,.qj-it{min-height:44px;}
-  .contact-cols a{display:inline-block;padding:5px 0;}
+  .contact-cols a{display:inline-block;padding:10px 0;margin:-6px 0;}
 }
 @media(max-width:640px){
   /* three topbar controls will not fit; the sticky rail is the mobile nav */
