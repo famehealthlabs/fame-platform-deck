@@ -729,7 +729,13 @@ function toggleTheme(){
     tabs.forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.f===k));});
     keys.forEach(function(o){ document.getElementById('f-'+o).hidden = o!==k; });
   }
-  tabs.forEach(function(b){ b.addEventListener('click',function(){show(b.dataset.f);}); });
+  tabs.forEach(function(b){ b.addEventListener('click',function(){
+    show(b.dataset.f);
+    if(window.matchMedia('(max-width:900px)').matches){
+      var panel=document.getElementById('f-'+b.dataset.f);
+      if(panel) window.scrollTo({top:panel.getBoundingClientRect().top+window.pageYOffset-70,behavior:'smooth'});
+    }
+  }); });
 })();
 
 /* rail scrollspy */
