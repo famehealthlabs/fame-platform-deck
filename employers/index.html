@@ -559,8 +559,8 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 .tl .tn.next::before{border-style:dashed;}
 .tl .y{font-size:clamp(24px,2.6vw,36px);letter-spacing:-.025em;font-variant-numeric:tabular-nums;margin-top:clamp(18px,2.2vw,30px);}
 .tl .tn b{font-size:clamp(15px,1.3vw,18px);}
-@media(max-width:820px){.tl{grid-template-columns:1fr 1fr!important;}.tl::before{display:none;}.tl .tn{border-bottom:1px solid var(--rule-soft);}.tl .tn:nth-child(2n){border-right:0;}.tl .tn:nth-last-child(-n+2){border-bottom:0;}}
-@media(max-width:460px){.tl{grid-template-columns:1fr!important;}.tl .tn{border-right:0;}.tl .tn:last-child{border-bottom:0;}}
+@media(max-width:820px){.tl{grid-template-columns:1fr 1fr;}.tl::before{display:none;}.tl .tn{border-bottom:1px solid var(--rule-soft);}.tl .tn:nth-child(2n){border-right:0;}.tl .tn:nth-last-child(-n+2){border-bottom:0;}}
+@media(max-width:460px){.tl{grid-template-columns:1fr;}.tl .tn{border-right:0;}.tl .tn:last-child{border-bottom:0;}}
 /* two-step */
 .two-step{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--rule);background:var(--paper);}
 .two-step .ts{padding:clamp(26px,3.2vw,52px);display:flex;flex-direction:column;gap:12px;min-width:0;}
@@ -921,9 +921,30 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
           <span class="lab">Precedents</span>
           <p class="stmt" style="margin-top:.5em;font-size:clamp(26px,3vw,44px)">Enterprises enter supplements two ways: build a label, or buy one. <em class="acc">Building it from your employees out is the third.</em></p>
         </div>
-        <p class="small" style="max-width:38ch">Public companies and public results; none are F.A.M.E. clients. Built or bought, every one of them sold to strangers first. The own-brand, employees-first quadrant is open.</p>
+        <p class="small" style="max-width:38ch">Public companies and public results; none are F.A.M.E. clients. No well-known company has yet built a line for its employees first and taken it to market. That is the opening.</p>
       </div>
-      <div class="sdr fscroll" style="padding:clamp(14px,2vw,30px)">
+      <div class="sdr">
+        <div class="precwrap" style="border:0">
+        <table class="prec">
+          <thead><tr><th>Enterprise</th><th>Route</th><th>The move</th><th>Where it stands</th></tr></thead>
+          <tbody>
+            <tr><td class="b">Costco</td><td>Built a label</td><td>Kirkland Signature vitamins among the first Kirkland products, 1995</td><td>The label sells about $86 billion a year across categories</td></tr>
+            <tr><td class="b">Amazon</td><td>Built a label</td><td>Amazon Elements supplements, launched to Prime members, 2017</td><td>Dozens of vitamins and supplements under the house brand</td></tr>
+            <tr><td class="b">Walmart</td><td>Built a label</td><td>Spring Valley and Equate vitamins under house brands</td><td>In every store, beside the national brands</td></tr>
+            <tr><td class="b">Unilever</td><td>Bought in</td><td>Olly, 2019; Liquid I.V. and SmartyPants, 2020; Onnit, 2021</td><td>A functional-nutrition portfolio built in three years</td></tr>
+            <tr><td class="b">Church &amp; Dwight</td><td>Bought in</td><td>vitafusion and L&#8217;il Critters gummies, $650 million, 2012</td><td>The number one adult and kids&#8217; gummy brands</td></tr>
+            <tr><td class="b">Procter &amp; Gamble</td><td>Bought in</td><td>New Chapter, 2012 &#8212; its first step into supplements</td><td>Still a P&amp;G subsidiary</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <div class="matrix rv">
+      <div class="ml">
+        <div><span class="lab">The white space</span><p class="stmt" style="margin-top:.5em;font-size:clamp(24px,2.8vw,40px)">Every enterprise so far sold to strangers first.</p></div>
+        <p class="small" style="max-width:38ch">Built or bought, the first customer was a shopper. Building your own line for your own employees first is the quadrant nobody well known has taken.</p>
+      </div>
+      <div class="mr fscroll">
         <svg viewBox="0 0 720 470" role="img" aria-label="Positioning matrix: how enterprises entered supplements, with the employees-first, own-brand quadrant open">
           <line x1="90" y1="40" x2="90" y2="430" stroke="var(--rule)"/><line x1="90" y1="430" x2="700" y2="430" stroke="var(--rule)"/>
           <line x1="395" y1="40" x2="395" y2="430" stroke="var(--rule-soft)"/><line x1="90" y1="235" x2="700" y2="235" stroke="var(--rule-soft)"/>
@@ -940,13 +961,6 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
           <text class="qi" x="415" y="292">Costco &#183; Kirkland Signature</text><text class="qi" x="415" y="312">Amazon &#183; Amazon Elements</text><text class="qi" x="415" y="332">Walmart &#183; Spring Valley, Equate</text>
         </svg>
       </div>
-    </div>
-    <div class="tl rv" style="grid-template-columns:repeat(5,1fr)">
-      <div class="tn"><div class="y">1995</div><b>Costco builds a label</b><p class="small">Kirkland Signature vitamins among the first Kirkland products. The label now sells about $86 billion a year across categories.</p></div>
-      <div class="tn"><div class="y">2012</div><b>CPG buys in</b><p class="small">Church &amp; Dwight buys vitafusion and L&#8217;il Critters for $650 million. Procter &amp; Gamble buys New Chapter, its first step into supplements.</p></div>
-      <div class="tn"><div class="y">2017</div><b>Amazon builds a label</b><p class="small">Amazon Elements supplements launch to Prime members; dozens of products now sit under the house brand. Walmart&#8217;s Spring Valley and Equate hold the same shelf in every store.</p></div>
-      <div class="tn now"><div class="y">2019&#8211;21</div><b>Unilever buys a portfolio</b><p class="small">Olly, then Liquid I.V. and SmartyPants, then Onnit &#8212; a functional-nutrition portfolio assembled in three years.</p></div>
-      <div class="tn next"><div class="y">Now</div><b>The opening</b><p class="small">No well-known company has built a line for its employees first and taken it to market. Your name, your employees, one campus.</p></div>
     </div>
   </div>
 </section>
