@@ -801,6 +801,24 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
 .vx .chipT{font-size:12px;fill:var(--teal-deep);letter-spacing:.06em;}
 .vx .lt{font-size:16px;font-weight:700;fill:#0B2B2F;}
 @media(max-width:900px){.vx{grid-template-columns:1fr;}.vx .va{border-top:1px solid var(--rule-soft);}}
+
+/* comparison: one campus vs a vendor chain */
+.cmp2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border:1px solid var(--rule);background:var(--paper);}
+.cmp2 .cl{padding:clamp(24px,3vw,48px);border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;gap:20px;}
+.cmp2 .cr{min-width:0;display:flex;flex-direction:column;}
+.cmp2 .marks{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(14px,2vw,30px);padding:clamp(14px,1.8vw,24px) clamp(16px,2vw,28px);border-bottom:1px solid var(--rule);}
+.cmp2 .marks img{height:clamp(26px,2.6vw,38px);width:auto;}
+table.vs{width:100%;max-width:100%;min-width:0;border-collapse:collapse;table-layout:fixed;}
+table.vs th,table.vs td{padding:clamp(14px,1.8vw,26px) clamp(14px,1.6vw,24px);border-bottom:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft);vertical-align:top;text-align:left;}
+table.vs th:last-child,table.vs td:last-child{border-right:0;}
+table.vs tr:last-child td{border-bottom:0;}
+table.vs thead th{font-size:13px;font-weight:700;}
+table.vs thead th.them{color:var(--muted);font-weight:500;}
+table.vs td.k{font-size:13.5px;color:var(--muted);width:32%;}
+table.vs td.us{font-size:clamp(24px,2.8vw,40px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
+table.vs td.them{font-size:clamp(24px,2.8vw,40px);line-height:1;letter-spacing:-.03em;color:var(--muted);opacity:.6;font-variant-numeric:tabular-nums;}
+table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6px;letter-spacing:0;line-height:1.4;}
+@media(max-width:900px){.cmp2{grid-template-columns:1fr;}.cmp2 .cl{border-right:0;border-bottom:1px solid var(--rule);}}
 </style>
 </head>
 <body>
@@ -1190,6 +1208,29 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
   </div>
 </section>
 
+<section class="sec" id="versus" style="padding-top:0">
+  <div class="wrap stack">
+    <div class="cmp2 rv">
+      <div class="cl">
+        <div><span class="lab">One campus, in numbers</span><p class="stmt" style="margin-top:.5em;font-size:clamp(26px,3vw,44px)">One campus outperforms a vendor chain because it <em class="acc">makes and tests</em>, not just makes.</p></div>
+        <p class="small" style="max-width:38ch">The same product, two ways of getting it made. The right-hand column is what a broker coordinating four vendors forwards to you.</p>
+      </div>
+      <div class="cr">
+        <div class="marks"><img src="../img/cert-fda.png" alt="FDA-registered facility"><img src="../img/cert-gmp.png" alt="cGMP"><img src="../img/cert-nsf.png" alt="NSF"><img src="../img/cert-iso.png" alt="ISO/IEC 17025"><img src="../img/cert-sqf.png" alt="SQF"><img src="../img/cert-usa.png" alt="Made in USA"></div>
+        <table class="vs">
+          <thead><tr><th></th><th>One campus</th><th class="them">A vendor chain</th></tr></thead>
+          <tbody>
+            <tr><td class="k">Repeat run of 30,000+ units</td><td class="us">4 wks<small>Production clock, formula already approved</small></td><td class="them">12&#8211;16 wks<small>Industry norm, ASCM data</small></td></tr>
+            <tr><td class="k">A quality answer before a shipment moves</td><td class="us">2 days<small>ISO/IEC 17025 lab on the same campus</small></td><td class="them">2 wks<small>A queue at a third-party lab</small></td></tr>
+            <tr><td class="k">Companies accountable for your product</td><td class="us">1<small>Formulation, manufacturing, testing, sourcing</small></td><td class="them">4<small>Plus the broker between them</small></td></tr>
+            <tr><td class="k">Enterprise enquiry answered</td><td class="us">4 hrs<small>Business hours</small></td><td class="them">&#8212;<small>Whenever the slowest vendor replies</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="shelves" style="padding-top:0">
   <div class="wrap stack">
     <div class="shelves rv">
@@ -1268,16 +1309,7 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
       <div><span class="lab">09 &#183; How it starts</span><h2 class="h2">Four steps to <em class="acc">a product in hand</em>.</h2></div>
       <p class="body">No platform to migrate, no enrollment window to wait for. A line for your own employees can start next quarter.</p>
     </div>
-    <div class="dc rv">
-      <svg viewBox="0 0 1000 120" role="img" aria-label="Diverge to scope options, converge on a formulation, test in a pilot, then diverge again into rollout or market">
-        <polygon class="df" points="20,60 130,15 240,60 130,105"/><text class="dt" x="130" y="64" text-anchor="middle">Options</text>
-        <polygon class="dl" points="270,60 380,15 490,60 380,105"/><text class="dt" x="380" y="64" text-anchor="middle">One brief</text>
-        <rect class="dl" x="520" y="30" width="220" height="60"/><text class="dt" x="630" y="64" text-anchor="middle">One pilot</text>
-        <polygon class="df" points="770,60 880,15 990,60 880,105"/><text class="dt" x="880" y="64" text-anchor="middle">Two ways</text>
-        <line class="dl" x1="240" y1="60" x2="270" y2="60"/><line class="dl" x1="490" y1="60" x2="520" y2="60"/><line class="dl" x1="740" y1="60" x2="770" y2="60"/>
-      </svg>
-    </div>
-    <div class="steps4 rv" style="border-top:0">
+    <div class="steps4 rv">
       <div class="s4"><span class="sn">01</span><b>Scoping call</b><p class="small">Category, population, volume, timeline.</p></div>
       <div class="s4"><span class="sn">02</span><b>Formulation</b><p class="small">Our scientific team, your brief.</p></div>
       <div class="s4"><span class="sn">03</span><b>Pilot run</b><p class="small">From 1,000 units custom, or 500 stock.</p></div>
