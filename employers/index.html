@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>F.A.M.E. Health — Your Name on the Supplements</title>
 <meta property="og:title" content="F.A.M.E. Health — Your Name on the Supplements">
-<meta property="og:description" content="Put your name on the supplements your people already buy. F.A.M.E. formulates, makes and tests it on one campus — start with your own people, then take it to market.">
+<meta property="og:description" content="Put your name on the supplements your employees already buy. F.A.M.E. formulates, makes and tests it on one campus — start with your own employees, then take it to market.">
 <meta property="og:image" content="https://fame-platform-deck.vercel.app/img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -671,13 +671,24 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 .closing .cf{max-width:min(720px,80vw);margin:0 auto;aspect-ratio:3/2;overflow:hidden;}
 .closing .cf img{width:100%;height:100%;object-fit:cover;display:block;}
 .tile .tt i,.split .sp .st i,.fmt .ft i,table.phase i,.ncells .nc i{font-style:normal;}
+
+/* precedents table */
+table.prec{width:100%;max-width:100%;min-width:0;border-collapse:collapse;table-layout:fixed;}
+table.prec th,table.prec td{padding:clamp(12px,1.5vw,20px) clamp(12px,1.5vw,20px);border-bottom:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft);vertical-align:top;text-align:left;font-size:clamp(13.5px,1.05vw,15px);line-height:1.5;}
+table.prec th:last-child,table.prec td:last-child{border-right:0;}
+table.prec tr:last-child td{border-bottom:0;}
+table.prec thead th{font-size:12.5px;letter-spacing:.06em;color:var(--teal-deep);font-weight:600;text-transform:uppercase;}
+table.prec td.b{font-weight:600;color:var(--ink);}
+table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-space:nowrap;width:9%;}
+.precwrap{border:1px solid var(--rule);overflow-x:auto;background:var(--paper);}
+@media(max-width:820px){table.prec{min-width:640px;}}
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="tbar">
     <a class="tb-brand" href="../"><img src="../img/mark.png" alt="">F.A.M.E. Health</a>
-    <div class="tb-mid"><b>Enterprise</b><span class="dot"></span>Your name on the supplements your people already buy</div>
+    <div class="tb-mid"><b>Enterprise</b><span class="dot"></span>Your name on the supplements your employees already buy</div>
     <div class="tb-right">
       <button class="themebtn" type="button" onclick="toggleTheme()"><span class="t-light">&#9789; Dark</span><span class="t-dark">&#9788; Light</span></button>
     </div>
@@ -708,9 +719,9 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   <div class="wrap scw">
     <div>
       <span class="lab">F.A.M.E. Health Labs &#183; Cedartown, Georgia</span>
-      <h1 class="h1">Put your name on the supplements <em class="acc">your people already buy</em>.</h1>
+      <h1 class="h1">Put your name on the supplements <em class="acc">your employees already buy</em>.</h1>
     </div>
-    <p>F.A.M.E. formulates, makes and tests it on one campus in Cedartown, Georgia. Start with your own people, then take it to market.</p>
+    <p>F.A.M.E. formulates, makes and tests it on one campus in Cedartown, Georgia. Start with your own employees, then take it to market.</p>
   </div>
 </section>
 
@@ -718,7 +729,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   <div class="wrap">
     <div class="stcell rv">
       <span class="lab">The idea</span>
-      <p class="stmt" style="max-width:30ch;font-size:clamp(24px,2.8vw,40px)">Companies with an audience are entering supplements. The lowest-risk way in is to build the line for <em class="acc">your own people first</em>, then take it to market from the same campus.</p>
+      <p class="stmt" style="max-width:30ch;font-size:clamp(24px,2.8vw,40px)">Companies with an audience are entering supplements. The lowest-risk way in is to build the line for <em class="acc">your own employees first</em>, then take it to market from the same campus.</p>
     </div>
   </div>
 </section>
@@ -789,6 +800,34 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   </div>
 </section>
 
+<!-- PRECEDENTS -->
+<section class="sec" id="precedents">
+  <div class="wrap stack">
+    <div class="sd rv">
+      <div class="sdl">
+        <div>
+          <span class="lab">Precedents</span>
+          <p class="stmt" style="margin-top:.5em;font-size:clamp(26px,3vw,44px)">Brands with an audience have done the second half many times. <em class="acc">Nobody well known has done the first.</em></p>
+        </div>
+        <p class="small" style="max-width:38ch">Public companies and public results. None of these are F.A.M.E. clients. A line built for employees first, then taken to market, has no famous precedent yet &#8212; which is the opening.</p>
+      </div>
+      <div class="sdr">
+        <table class="prec">
+          <thead><tr><th>Brand</th><th>Started with</th><th>The move</th><th>What happened</th></tr></thead>
+          <tbody>
+            <tr><td class="b">Kirkland Signature</td><td>Costco&#8217;s members</td><td>Own-label vitamins were among the first Kirkland products, 1995</td><td>The label now sells about $86 billion a year across categories</td></tr>
+            <tr><td class="b">Onnit</td><td>A podcast audience</td><td>Alpha Brain and a supplement range built around one show</td><td>$100M+ revenue; acquired by Unilever, 2021</td></tr>
+            <tr><td class="b">Ladder</td><td>Two athletes&#8217; followings</td><td>Sports nutrition founded by LeBron James and Arnold Schwarzenegger, 2018</td><td>Acquired by Openfit, 2020; into 690 Vitamin Shoppe stores, 2022</td></tr>
+            <tr><td class="b">Vital Proteins</td><td>A collagen community</td><td>Jennifer Aniston as chief creative officer, 2020</td><td>Acquired by Nestl&#233; Health Science, 2020&#8211;21</td></tr>
+            <tr><td class="b">Alo</td><td>An apparel customer base</td><td>Gel shots, then a capsule stacking system, 2023&#8211;24</td><td>Supplements in Sephora alongside the apparel</td></tr>
+            <tr><td class="b">Lemme</td><td>A celebrity following</td><td>Gummy supplements launched 2022</td><td>Number one beauty ingestible at Target; 2,000+ Walmart stores by 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 03 YOUR BUDGET -->
 <section class="sec" id="funding" data-p="03">
   <div class="wrap stack">
@@ -834,11 +873,11 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 <section class="sec" id="entry" data-p="05">
   <div class="wrap stack">
     <div class="sec-head rv">
-      <div><span class="lab">05 &#183; Start with your people</span><h2 class="h2">Build it for <em class="acc">your own people</em> first.</h2></div>
+      <div><span class="lab">05 &#183; Start with your employees</span><h2 class="h2">Build it for <em class="acc">your own employees</em> first.</h2></div>
       <p class="body">Most brands enter supplements by selling to strangers. There is an easier first move. Your workforce is a real audience with a real need, and there is no retail listing to win, no paid acquisition and no public launch to defend if the first formulation misses.</p>
     </div>
     <div class="two-step rv">
-      <div class="ts"><span class="k">Step one</span><b>Run it internally for a quarter.</b><p class="small">You come out with a validated product, real consumption data and a brand your people already recognize.</p></div>
+      <div class="ts"><span class="k">Step one</span><b>Run it internally for a quarter.</b><p class="small">You come out with a validated product, real consumption data and a brand your employees already recognize.</p></div>
       <div class="ts"><span class="k" style="color:var(--muted)">Step two, if it earns it</span><b>Then it becomes a product.</b><p class="small">Wider rollout, or take it to market. Same lines, same partner, no re-qualifying.</p></div>
     </div>
   </div>
@@ -867,7 +906,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   <div class="wrap bwrap">
     <div class="bgrid">
       <div><span class="lab">The first audience</span><h2 class="h2">The only audience that tells you the truth.</h2></div>
-      <p>Your people will say what they think of the flavor, the format and whether the pack is still on the counter in week six.</p>
+      <p>Your employees will say what they think of the flavor, the format and whether the pack is still on the counter in week six.</p>
     </div>
   </div>
 </section>
@@ -959,7 +998,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   <div class="wrap stack">
     <div class="sec-head rv">
       <div><span class="lab">09 &#183; How it starts</span><h2 class="h2">Four steps to <em class="acc">a product in hand</em>.</h2></div>
-      <p class="body">No platform to migrate, no enrollment window to wait for. A line for your own people can start next quarter.</p>
+      <p class="body">No platform to migrate, no enrollment window to wait for. A line for your own employees can start next quarter.</p>
     </div>
     <div class="steps4 rv">
       <div class="s4"><span class="sn">01</span><b>Scoping call</b><p class="small">Category, population, volume, timeline.</p></div>
@@ -979,7 +1018,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <div class="vc">
         <span class="lab">The arc</span>
         <p><b>Quarter one</b> is a pilot for one team &#8212; real consumption data, real feedback on flavor and format.</p>
-        <p><b>Year one</b>, most companies that do this <i>stop calling it a benefit</i>. It becomes a product with a name their people already recognize.</p>
+        <p><b>Year one</b>, most companies that do this <i>stop calling it a benefit</i>. It becomes a product with a name their employees already recognize.</p>
         <p><b>After that</b>, the same line can go to retail &#8212; the campus that made the pilot makes the launch.</p>
       </div>
     </div>
@@ -1018,6 +1057,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <li>Council for Responsible Nutrition, 2026 Consumer Survey on Dietary Supplements (20th annual, conducted by Ipsos), via Nutritional Outlook, July 2026 &#8212; <a href="https://www.nutritionaloutlook.com/view/latest-consumer-survey-crn-shows-highest-overall-supplement-usage-date" target="_blank" rel="noopener">nutritionaloutlook.com</a></li>
       <li>Grand View Research, U.S. Dietary Supplements Market Size, Share &amp; Trends Analysis Report, 2026&#8211;2033 &#8212; <a href="https://www.grandviewresearch.com/industry-analysis/us-dietary-supplements-market-report" target="_blank" rel="noopener">grandviewresearch.com</a></li>
       <li>Compt, 2026 Annual Lifestyle Benefits Benchmark Report &#8212; <a href="https://compt.io/blog/the-employers-guide-to-employee-wellness-benefits/" target="_blank" rel="noopener">compt.io</a>; Compt, Wellness Stipend Examples 2026 &#8212; <a href="https://compt.io/blog/example-ways-to-use-wellness-stipends/" target="_blank" rel="noopener">compt.io</a>; Wellable, Best Corporate Wellness Programs, June 2026 &#8212; <a href="https://www.wellable.co/blog/best-corporate-wellness-programs/" target="_blank" rel="noopener">wellable.co</a></li>
+      <li>Precedents (public reporting): Fast Company on Kirkland Signature &#8212; <a href="https://www.fastcompany.com/91324380/costco-kirkland-bigger-than-nike-and-about-to-get-even-bigger" target="_blank" rel="noopener">fastcompany.com</a>; Unilever to acquire Onnit, Business Wire, April 2021 &#8212; <a href="https://www.businesswire.com/news/home/20210426005606/en/Unilever-to-Acquire-Onnit" target="_blank" rel="noopener">businesswire.com</a>; CNBC on Ladder and Openfit, December 2020 &#8212; <a href="https://www.cnbc.com/2020/12/02/lebron-james-arnold-schwarzeneggers-sell-nutrition-company-to-openfit.html" target="_blank" rel="noopener">cnbc.com</a>; WWD on Vital Proteins and Jennifer Aniston &#8212; <a href="https://wwd.com/fashion-news/fashion-scoops/jennifer-aniston-vital-proteins-chief-creative-officer-campaign-1234657650/" target="_blank" rel="noopener">wwd.com</a>; WWD on Alo entering supplements &#8212; <a href="https://wwd.com/business-news/business-features/exclusive-alo-breaks-into-the-supplements-1235778058/" target="_blank" rel="noopener">wwd.com</a>; WWD and The Hollywood Reporter on Lemme &#8212; <a href="https://wwd.com/beauty-industry-news/wellness/lemme-fat-burning-gummy-launch-target-1238370146/" target="_blank" rel="noopener">wwd.com</a></li>
       <li>Dietary Supplements Access Act: Nutritional Outlook &#8212; <a href="https://www.nutritionaloutlook.com/view/congress-introduces-bill--supplements-under-hsa-fsa-spending-rules" target="_blank" rel="noopener">nutritionaloutlook.com</a>; NutraIngredients-USA, May 2026 &#8212; <a href="https://www.nutraingredients.com/Article/2026/05/20/dietary-supplements-access-act-introduced-in-senate/" target="_blank" rel="noopener">nutraingredients.com</a>; Office of Rep. Darin LaHood, May 2026 &#8212; <a href="https://lahood.house.gov/2026/5/lahood-gottheimer-tenney-boyle-reintroduce-legislation-to-cover-dietary-supplements-under-flex-health-spending-accounts" target="_blank" rel="noopener">lahood.house.gov</a></li>
     </ol>
   </div>
