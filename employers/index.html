@@ -474,7 +474,7 @@ body{font-family:"Instrument Sans","Helvetica Neue",Helvetica,"Segoe UI",Arial,s
 .stcover .h1{font-size:clamp(38px,5.4vw,80px);max-width:19ch;}
 .stcover p{font-size:clamp(16px,1.45vw,21px);}
 .sec{padding:clamp(56px,7vw,110px) 0;}
-.sec-head{border-bottom:1px solid var(--rule);padding-bottom:clamp(22px,2.6vw,36px);align-items:end;}
+.sec-head{border-bottom:1px solid var(--rule);padding-bottom:clamp(26px,3vw,44px);align-items:end;gap:clamp(24px,4vw,64px);}
 .sec[data-p]{position:relative;}
 .sec[data-p]::after{content:attr(data-p);position:absolute;right:var(--gut,24px);bottom:clamp(14px,1.8vw,26px);font-size:12px;color:var(--muted);letter-spacing:.06em;}
 table.cmp td.us,table.cmp td.them{font-size:clamp(18px,2vw,27px);}
@@ -848,6 +848,17 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 @media(max-width:900px){.wall .wg{grid-template-columns:repeat(3,1fr);}.wall .wg div:nth-child(6n){border-right:1px solid var(--rule-soft);}.wall .wg div:nth-child(3n){border-right:0;}.wall .wg div:nth-last-child(-n+6){border-bottom:1px solid var(--rule-soft);}.wall .wg div:nth-last-child(-n+3){border-bottom:0;}}
 @media(max-width:820px){.wall .wh{grid-template-columns:1fr;}.wall .wh > div:first-child{border-right:0;border-bottom:1px solid var(--rule-soft);}}
 @media(max-width:480px){.wall .wg{grid-template-columns:repeat(2,1fr);}.wall .wg div:nth-child(3n){border-right:1px solid var(--rule-soft);}.wall .wg div:nth-child(2n){border-right:0;}.wall .wg div:nth-last-child(-n+3){border-bottom:1px solid var(--rule-soft);}.wall .wg div:nth-last-child(-n+2){border-bottom:0;}}
+
+/* vision page as a full-bleed statement: headline top-left, arc column bottom-right */
+.stpage.vis .sg{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);}
+.stpage.vis .vh{grid-column:1;grid-row:1;align-self:start;}
+.stpage.vis .vh .lab{color:#8FE6EF;display:block;margin-bottom:.9em;text-shadow:0 1px 2px rgba(0,0,0,.6);}
+.stpage.vis .vh .h2{max-width:12ch;}
+.stpage.vis .vc{grid-column:2;grid-row:2;justify-self:end;max-width:40ch;}
+.stpage.vis .vc .lab{color:#8FE6EF;display:block;margin-bottom:.9em;text-shadow:0 1px 2px rgba(0,0,0,.6);}
+.stpage.vis .vc p{grid-column:auto;grid-row:auto;justify-self:auto;color:rgba(255,255,255,.94);font-size:clamp(14.5px,1.2vw,18px);line-height:1.5;margin:0 0 .9em;max-width:none;text-shadow:0 1px 2px rgba(0,0,0,.55);}
+.stpage.vis .vc b{color:#fff;}
+@media(max-width:820px){.stpage.vis .sg{grid-template-columns:1fr;}.stpage.vis .vc{grid-column:1;grid-row:3;justify-self:start;}}
 </style>
 </head>
 <body>
@@ -906,7 +917,7 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 </section>
 
 <!-- WHICH COMPANY ARE YOU -->
-<section class="sec" id="doors" style="padding-top:0">
+<section class="sec" id="doors">
   <div class="wrap stack">
     <div class="sec-head rv">
       <div><span class="lab">Which company are you?</span><h2 class="h2">The first product depends on <em class="acc">who your employees are</em>.</h2></div>
@@ -1383,18 +1394,16 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
   </div>
 </section>
 
-<!-- VISION PAGE -->
-<section class="vision" id="vision">
-  <div class="wrap">
-    <div class="vg">
-      <div class="vs"><span class="lab" style="color:#8FE6EF;display:block;margin-bottom:.9em">Where this goes</span><h2 class="h2">A line that starts inside can end <em class="acc" style="color:#8FE6EF">on the shelf</em>.</h2></div>
-      <div class="vp"><img src="../img/ep-dusk.jpg?v=5" alt="" loading="lazy"></div>
-      <div class="vc">
-        <span class="lab">The arc</span>
-        <p><b>Quarter one</b> is a pilot for one team &#8212; real consumption data, real feedback on flavor and format.</p>
-        <p><b>Year one</b>, it <i>stops being a benefit</i> and becomes a product &#8212; one with a name your employees already recognize.</p>
-        <p><b>After that</b>, two endings. The same line goes to retail, or it simply runs in every office, refilled monthly. The campus that made the pilot makes either.</p>
-      </div>
+<!-- VISION PAGE: full bleed -->
+<section class="stpage vis" id="vision" aria-label="Where this goes">
+  <img src="../img/ep-vision2.jpg?v=1" alt="" loading="lazy" style="object-position:center 40%">
+  <div class="wrap sg">
+    <div class="vh"><span class="lab">Where this goes</span><h2 class="h2">A line that starts inside can end on the shelf.</h2></div>
+    <div class="vc">
+      <span class="lab">The arc</span>
+      <p><b>Quarter one</b> is a pilot for one team &#8212; real consumption data, real feedback on flavor and format.</p>
+      <p><b>Year one</b>, it stops being a benefit and becomes a product &#8212; one with a name your employees already recognize.</p>
+      <p><b>After that</b>, two endings. The same line goes to retail, or it simply runs in every office, refilled monthly. The campus that made the pilot makes either.</p>
     </div>
   </div>
 </section>
