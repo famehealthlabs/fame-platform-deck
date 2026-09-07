@@ -610,20 +610,19 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 @media(max-width:700px){.contactrow{grid-template-columns:1fr;}.contactrow div{border-right:0;border-bottom:1px solid var(--rule-soft);}.contactrow div:last-child{border-bottom:0;}}
 
 /* ===== image-led pages (their pp.16, 21, 27, 33, dividers) ===== */
-/* divider: solid field, one word, ruled cells, no arcs */
+/* divider: solid field, one ruled row, no empty cells */
 .divider{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
-.divider .dg{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;min-height:clamp(260px,34vw,460px);}
-.divider .dg > div{border-right:1px solid rgba(0,0,0,.28);border-bottom:1px solid rgba(0,0,0,.28);}
-.divider .dg > div:nth-child(3n){border-right:0;}
-.divider .dg > div:nth-last-child(-n+3){border-bottom:0;}
-.divider .dw{padding:clamp(28px,3.6vw,56px) clamp(22px,2.8vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:16px;}
-.divider .dw{min-width:0;}
-.divider .dw .w{font-size:clamp(34px,7vw,110px);line-height:.95;letter-spacing:-.035em;font-weight:400;overflow-wrap:anywhere;}
-.divider .dw .d{font-size:clamp(14px,1.2vw,17px);max-width:40ch;line-height:1.5;}
+.divider .dg{display:grid;grid-template-columns:1.1fr .9fr;}
+.divider .dg > div{border-right:1px solid rgba(0,0,0,.28);}
+.divider .dg > div:last-child{border-right:0;}
+.divider .dw{padding:clamp(28px,4vw,64px) clamp(20px,2.6vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-width:0;}
+.divider .dw .w{font-size:clamp(36px,6vw,92px);line-height:.95;letter-spacing:-.035em;font-weight:400;overflow-wrap:anywhere;}
+.divider .dw .d{font-size:clamp(15px,1.25vw,18px);max-width:38ch;line-height:1.5;}
+.divider .dr{padding:clamp(28px,4vw,64px) clamp(20px,2.6vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-width:0;}
 .divider.lt{background:var(--cyan-lt);color:#0B2B2F;} .divider.lt .dg > div{border-color:rgba(11,43,47,.28);}
 .divider.dk{background:var(--deep);color:#EAF3F2;} .divider.dk .dg > div{border-color:rgba(234,243,242,.22);}
 .divider .pn{align-self:flex-end;font-size:12px;letter-spacing:.06em;opacity:.7;}
-@media(max-width:700px){.divider .dg{grid-template-columns:1fr 1fr;}.divider .dg > div:nth-child(3n){border-right:1px solid rgba(0,0,0,.28);}.divider .dg > div:nth-child(2n){border-right:0!important;}.divider .dg > div:nth-last-child(-n+3){border-bottom:1px solid rgba(0,0,0,.28);}.divider .dg > div:nth-last-child(-n+2){border-bottom:0!important;}}
+@media(max-width:700px){.divider .dg{grid-template-columns:1fr;}.divider .dg > div{border-right:0;border-bottom:1px solid rgba(0,0,0,.28);}.divider .dg > div:last-child{border-bottom:0;}.divider .dr{padding-top:18px;}}
 /* two-portrait split with name + italic descriptor on the image */
 .split{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);}
 .split .sp{position:relative;min-height:clamp(320px,38vw,560px);overflow:hidden;border-right:1px solid var(--rule);background:#101315;}
@@ -718,9 +717,8 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 <section class="divider lt" aria-label="The opportunity">
   <div class="wrap">
     <div class="dg">
-      <div class="dw"><div class="w">The opportunity</div><div class="d">The category, the market, and the budget your organization is already spending on it.</div></div>
-      <div></div><div></div>
-      <div></div><div></div><div class="dw" style="justify-content:flex-end"><span class="pn">Part one</span></div>
+      <div class="dw"><div class="w">The opportunity</div></div>
+      <div class="dr"><div class="d">The category, the market, and the budget your organization is already spending on it.</div><span class="pn">Part one</span></div>
     </div>
   </div>
 </section>
@@ -848,7 +846,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <div class="splitlab"><span class="lab">Path one &#183; Wider internal rollout</span><span class="lab">Path two &#183; Take it to market</span></div>
       <div class="split">
         <div class="sp"><img src="../img/ep-team.jpg" alt="" loading="lazy"><div class="st"><b>Every office, every region</b><i>(the same kits, monthly, to every employee &#8212; one contract, one accountable partner)</i></div></div>
-        <div class="sp"><img src="../img/cv-cartons.jpg?v=2" alt="" loading="lazy" style="object-position:center 55%"><div class="st"><b>Retail-ready, under your name</b><i>(no change of manufacturer, no re-qualifying a facility, no reformulating)</i></div></div>
+        <div class="sp"><img src="../img/ep-market.jpg" alt="" loading="lazy"><div class="st"><b>Retail-ready, under your name</b><i>(no change of manufacturer, no re-qualifying a facility, no reformulating)</i></div></div>
       </div>
     </div>
   </div>
@@ -868,9 +866,8 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 <section class="divider dk" aria-label="The platform">
   <div class="wrap">
     <div class="dg">
-      <div class="dw"><div class="w">The platform</div><div class="d">What we make, where we make it, and whose name goes on it.</div></div>
-      <div></div><div></div>
-      <div></div><div></div><div class="dw" style="justify-content:flex-end"><span class="pn">Part two</span></div>
+      <div class="dw"><div class="w">The platform</div></div>
+      <div class="dr"><div class="d">What we make, where we make it, and whose name goes on it.</div><span class="pn">Part two</span></div>
     </div>
   </div>
 </section>
@@ -887,16 +884,6 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <div class="fmt"><div class="fi"><img src="../img/ep-fmt-packs.jpg" alt="" loading="lazy"></div><div class="ft"><b>Daily packs</b><i>AM and PM single-serve formats built around a defined population rather than a catalog SKU with a logo applied.</i></div></div>
       <div class="fmt"><div class="fi"><img src="../img/ep-fmt-caps.jpg" alt="" loading="lazy"></div><div class="ft"><b>Capsules, gummies, powders</b><i>Across 800+ proven formulations to build from.</i></div></div>
       <div class="fmt"><div class="fi"><img src="../img/ep-fmt-drinks.jpg" alt="" loading="lazy"></div><div class="ft"><b>Functional drinks</b><i>Liquids and ready-to-mix, on the same campus, under the same quality system.</i></div></div>
-    </div>
-    <div class="collage rv">
-      <figure class="a"><img src="../img/sd-sticks.jpg?v=3" alt="" loading="lazy"></figure>
-      <figure><img src="../img/capsules-scatter.jpg" alt="" loading="lazy"></figure>
-      <figure class="b"><img src="../img/sd-liquids.jpg?v=3" alt="" loading="lazy"></figure>
-      <figure><img src="../img/hand-capsules.jpg" alt="" loading="lazy"></figure>
-      <figure><img src="../img/cu-refill.jpg" alt="" loading="lazy"></figure>
-      <figure><img src="../img/sd-jars.jpg?v=3" alt="" loading="lazy"></figure>
-      <figure><img src="../img/cv-jarsystem.jpg?v=2" alt="" loading="lazy"></figure>
-      <figure><img src="../img/sd-sachets.jpg?v=3" alt="" loading="lazy"></figure>
     </div>
     <div class="statstrip s4 rv">
       <div class="st"><div class="big num" style="font-weight:400">800+</div><div class="cap">Proven Formulations</div><div class="sub">To build from</div></div>
@@ -952,9 +939,8 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 <section class="divider lt" aria-label="Getting started">
   <div class="wrap">
     <div class="dg">
-      <div class="dw"><div class="w">Getting started</div><div class="d">Four steps, one scoping call, a product in hand.</div></div>
-      <div></div><div></div>
-      <div></div><div></div><div class="dw" style="justify-content:flex-end"><span class="pn">Part three</span></div>
+      <div class="dw"><div class="w">Getting started</div></div>
+      <div class="dr"><div class="d">Four steps, one scoping call, a product in hand.</div><span class="pn">Part three</span></div>
     </div>
   </div>
 </section>
@@ -980,7 +966,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   <div class="wrap">
     <div class="vg">
       <div class="vs"><span class="lab" style="color:#8FE6EF;display:block;margin-bottom:.9em">Where this goes</span><h2 class="h2">A line that starts inside can end <em class="acc" style="color:#8FE6EF">on the shelf</em>.</h2></div>
-      <div class="vp"><img src="../img/ep-vision.jpg" alt="" loading="lazy"></div>
+      <div class="vp"><img src="../img/ep-dusk.jpg" alt="" loading="lazy"></div>
       <div class="vc">
         <span class="lab">The arc</span>
         <p><b>Quarter one</b> is a pilot for one team &#8212; real consumption data, real feedback on flavor and format.</p>
@@ -1014,9 +1000,7 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   </div>
 </section>
 
-<section class="closing" aria-hidden="true">
-  <div class="cf"><img src="../img/ep-capsules.jpg" alt="" loading="lazy"></div>
-</section>
+
 
 <section class="sources">
   <div class="wrap">
