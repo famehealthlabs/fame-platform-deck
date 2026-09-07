@@ -822,7 +822,8 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 
 /* full-bleed statement page, their p.3: headline top-left, body bottom-right */
 .stpage{position:relative;overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:#101315;min-height:clamp(460px,62vw,760px);display:flex;}
-.stpage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.stpage img{position:absolute;top:0;bottom:0;left:12%;width:100%;height:100%;object-fit:cover;object-position:left center;}
+@media(max-width:820px){.stpage img{left:0;}}
 .stpage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,13,15,.42) 0%,rgba(12,13,15,.16) 45%,rgba(12,13,15,.55) 100%);}
 .stpage .sg{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-rows:1fr auto;padding-top:clamp(40px,6vw,96px);padding-bottom:clamp(40px,6vw,96px);}
 .stpage .h2{grid-column:1;grid-row:1;color:#fff;font-size:clamp(34px,4.8vw,70px);line-height:1.02;max-width:12ch;text-shadow:0 1px 3px rgba(0,0,0,.5),0 2px 28px rgba(0,0,0,.4);margin:0;}
@@ -1396,7 +1397,7 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 <section class="stpage" aria-label="Closing statement">
   <img src="../img/ep-feedback.jpg?v=1" alt="" loading="lazy" style="object-position:center 30%">
   <div class="wrap sg">
-    <h2 class="h2">The product is yours. The platform is ready.</h2>
+    <h2 class="h2" style="max-width:10ch">The product is yours. The platform is ready.</h2>
     <p>Three in four adults already buy supplements, and your wellness budget is already paying for them. Build the line for your employees first, on one campus, then take it to market from the same lines &#8212; or run it in every office and stop there. Either way, the name on it is yours.</p>
   </div>
 </section>
