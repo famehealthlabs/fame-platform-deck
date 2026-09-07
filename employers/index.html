@@ -683,6 +683,49 @@ table.prec td.b{font-weight:600;color:var(--ink);}
 table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-space:nowrap;width:9%;}
 .precwrap{border:1px solid var(--rule);overflow-x:auto;background:var(--paper);}
 @media(max-width:820px){table.prec{min-width:640px;}}
+
+/* ===== door selector: buttons select, one readout explains ===== */
+.doors{border:1px solid var(--rule);background:var(--paper);}
+.doors .dbtns{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--rule);}
+.doors .dbtns button{flex:1 1 auto;min-width:0;padding:clamp(14px,1.6vw,20px) clamp(14px,1.6vw,22px);background:transparent;border:0;border-right:1px solid var(--rule-soft);font:inherit;font-size:clamp(13px,1.05vw,15px);font-weight:600;color:var(--muted);cursor:pointer;text-align:left;min-height:44px;transition:background .15s,color .15s;}
+.doors .dbtns button:last-child{border-right:0;}
+.doors .dbtns button[aria-pressed=true]{background:var(--deep);color:#fff;}
+.doors .dbtns button:hover{background:var(--aqua-2);color:var(--ink);}
+.doors .dbtns button[aria-pressed=true]:hover{background:var(--deep);color:#fff;}
+.doors .dout{display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));}
+.doors .dout > div{padding:clamp(20px,2.4vw,34px) clamp(18px,2vw,28px);border-right:1px solid var(--rule-soft);min-width:0;display:flex;flex-direction:column;gap:8px;}
+.doors .dout > div:last-child{border-right:0;}
+.doors .dout .dlead{font-size:clamp(20px,2.1vw,30px);line-height:1.1;letter-spacing:-.02em;font-weight:400;}
+.doors .dout b{font-size:clamp(15px,1.3vw,18px);letter-spacing:-.012em;}
+.doors .dout p{margin:0;}
+@media(max-width:900px){.doors .dout{grid-template-columns:1fr 1fr;}.doors .dout > div{border-bottom:1px solid var(--rule-soft);}.doors .dout > div:nth-child(2n){border-right:0;}.doors .dout > div:nth-last-child(-n+2){border-bottom:0;}}
+@media(max-width:560px){.doors .dout{grid-template-columns:1fr;}.doors .dout > div{border-right:0!important;border-bottom:1px solid var(--rule-soft);}.doors .dout > div:last-child{border-bottom:0;}.doors .dbtns button{flex:1 1 50%;border-bottom:1px solid var(--rule-soft);}}
+/* retailer proof row */
+.shelves{border:1px solid var(--rule);background:var(--paper);padding:clamp(18px,2.2vw,30px) clamp(18px,2.2vw,32px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,2.8vw,44px);}
+.shelves img{height:clamp(22px,2.2vw,32px);width:auto;opacity:.9;}
+.shelves .sh-t{flex-basis:100%;font-size:13px;color:var(--muted);}
+/* 12-week timeline */
+.gantt{border:1px solid var(--rule);background:var(--paper);overflow-x:auto;}
+.gantt .g{display:grid;grid-template-columns:minmax(150px,1.2fr) repeat(12,minmax(34px,1fr));min-width:620px;}
+.gantt .g > div{padding:clamp(10px,1.2vw,16px) clamp(8px,1vw,14px);border-bottom:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft);font-size:clamp(12.5px,1vw,14.5px);min-width:0;}
+.gantt .g > div:nth-child(13n){border-right:0;}
+.gantt .g .hd{font-size:11.5px;letter-spacing:.06em;color:var(--teal-deep);font-weight:600;text-transform:uppercase;}
+.gantt .g .rl{font-weight:600;}
+.gantt .g .rl span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:3px;}
+.gantt .g .bar{position:relative;padding:0;}
+.gantt .g .bar i{position:absolute;left:0;right:0;top:35%;bottom:35%;background:var(--cyan);}
+.gantt .g .bar.lt i{background:var(--cyan-lt);}
+.gantt .g .bar.end i{background:var(--deep);}
+.gantt .g > div.last{border-bottom:0;}
+.gantt .gnote{padding:10px clamp(16px,1.8vw,26px);font-size:12.5px;color:var(--muted);border-top:1px solid var(--rule-soft);}
+/* program operations */
+.ops{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--rule);background:var(--paper);}
+.ops > div{padding:clamp(20px,2.4vw,34px) clamp(16px,1.8vw,26px);border-right:1px solid var(--rule-soft);min-width:0;display:flex;flex-direction:column;gap:8px;}
+.ops > div:last-child{border-right:0;}
+.ops b{font-size:clamp(15px,1.3vw,18px);letter-spacing:-.012em;}
+.ops p{margin:0;}
+@media(max-width:1000px){.ops{grid-template-columns:repeat(3,1fr);}.ops > div{border-bottom:1px solid var(--rule-soft);}.ops > div:nth-child(3n){border-right:0;}.ops > div:nth-last-child(-n+2){border-bottom:0;}}
+@media(max-width:560px){.ops{grid-template-columns:1fr;}.ops > div{border-right:0!important;border-bottom:1px solid var(--rule-soft)!important;}.ops > div:last-child{border-bottom:0!important;}}
 </style>
 </head>
 <body>
@@ -731,6 +774,31 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
     <div class="stcell rv">
       <span class="lab">The idea</span>
       <p class="stmt" style="max-width:30ch;font-size:clamp(24px,2.8vw,40px)">Companies with an audience are entering supplements. The lowest-risk way in is to build the line for <em class="acc">your own employees first</em>, then take it to market from the same campus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHICH COMPANY ARE YOU -->
+<section class="sec" id="doors" style="padding-top:0">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">Which company are you?</span><h2 class="h2">The first product depends on <em class="acc">who your employees are</em>.</h2></div>
+      <p class="body">Pick the closest fit. The line changes; the campus and the method do not.</p>
+    </div>
+    <div class="doors rv" id="doorsel">
+      <div class="dbtns" role="tablist" aria-label="Company type">
+        <button type="button" role="tab" aria-pressed="true" data-d="0">Performance brand</button>
+        <button type="button" role="tab" aria-pressed="false" data-d="1">Retailer</button>
+        <button type="button" role="tab" aria-pressed="false" data-d="2">Large office workforce</button>
+        <button type="button" role="tab" aria-pressed="false" data-d="3">Consumer brand</button>
+        <button type="button" role="tab" aria-pressed="false" data-d="4">Healthcare &amp; insurers</button>
+      </div>
+      <div class="dout" id="doorout" aria-live="polite">
+        <div><span class="lab">Start with</span><div class="dlead" id="d-lead"></div></div>
+        <div><span class="lab">First formats</span><b id="d-fmt"></b><p class="small" id="d-fmtp"></p></div>
+        <div><span class="lab">First audience</span><b id="d-aud"></b><p class="small" id="d-audp"></p></div>
+        <div><span class="lab">The proof they ask for</span><b id="d-pf"></b><p class="small" id="d-pfp"></p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -981,6 +1049,15 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
   </div>
 </section>
 
+<section class="sec" id="shelves" style="padding-top:0">
+  <div class="wrap stack">
+    <div class="shelves rv">
+      <span class="sh-t">Lines made on this campus sit on the shelves of national mass, drug, grocery and specialty retailers. Channels, not clients &#8212; client names stay private.</span>
+      <img src="../img/rt-walmart.png" alt="Walmart"><img src="../img/rt-target.png" alt="Target"><img src="../img/rt-costco.png" alt="Costco"><img src="../img/rt-amazon.png" alt="Amazon"><img src="../img/rt-wholefoods.png" alt="Whole Foods"><img src="../img/rt-cvs.png" alt="CVS"><img src="../img/rt-walgreens.png" alt="Walgreens"><img src="../img/rt-gnc.png" alt="GNC"><img src="../img/rt-iherb.png" alt="iHerb"><img src="../img/rt-publix.png" alt="Publix"><img src="../img/rt-heb.png" alt="H-E-B"><img src="../img/rt-hyvee.png" alt="Hy-Vee">
+    </div>
+  </div>
+</section>
+
 <section class="sec alt" id="floor">
   <div class="wrap stack">
     <div class="sec-head rv">
@@ -1012,6 +1089,28 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
   </div>
 </section>
 
+<!-- HOW IT RUNS -->
+<section class="sec" id="runs">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">How it runs</span><h2 class="h2">Opt in, delivered, refilled, <em class="acc">reported in aggregate</em>.</h2></div>
+      <p class="body">The mechanics HR and legal read first, stated plainly.</p>
+    </div>
+    <div class="ops rv">
+      <div><span class="lab">Enrollment</span><b>Opt in, always.</b><p class="small">Employees choose to join and choose what they take. Nothing is assigned.</p></div>
+      <div><span class="lab">Delivery</span><b>To the counter or the door.</b><p class="small">Kitted on the campus that made it and shipped to the office, or to each employee&#8217;s home &#8212; every region you operate in.</p></div>
+      <div><span class="lab">Refills</span><b>Monthly, under your name.</b><p class="small">Keeper packs first, refills after. The break-room bowl stays full without anyone ordering.</p></div>
+      <div><span class="lab">What you see</span><b>Participation and spend, in aggregate.</b><p class="small">Never an individual&#8217;s selections. A colleague&#8217;s choice is not information the employer holds.</p></div>
+      <div><span class="lab">If something is wrong</span><b>A lot number, traced in two days.</b><p class="small">One platform runs the campus: the lot resolves to its ingredients, its test results and where it shipped &#8212; inside the building, not in a queue.</p></div>
+    </div>
+    <div class="ncells rv" style="grid-template-columns:repeat(3,1fr)">
+      <div class="nc"><span class="lab">Every region</span><b>Global fulfillment from one campus.</b><i>Made in the USA, shipped worldwide, with Health Canada in the certification stack for a North American program.</i></div>
+      <div class="nc"><span class="lab">Packaging &amp; ESG review</span><b>Bottles, sticks, sachets and pouches, with recycled and refill options.</b><i>The full catalog of formats, materials and finishes is on <a href="/packaging/" style="color:var(--teal-deep)">the packaging page</a>.</i></div>
+      <div class="nc"><span class="lab">Response</span><b>Enterprise enquiries answered within four business hours.</b><i>Standard enquiries within 24 to 48 hours.</i></div>
+    </div>
+  </div>
+</section>
+
 <section class="divider lt" aria-label="Getting started">
   <div class="wrap">
     <div class="dg">
@@ -1034,6 +1133,19 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
       <div class="s4"><span class="sn">03</span><b>Pilot run</b><p class="small">From 1,000 units custom, or 500 stock.</p></div>
       <div class="s4"><span class="sn">04</span><b>Scale or extend</b><p class="small">Wider internal rollout, or take it to market.</p></div>
     </div>
+    <div class="sec-head rv" style="border-bottom:0;padding-bottom:0">
+      <div><span class="lab">The first twelve weeks</span><h2 class="h2" style="font-size:clamp(24px,2.8vw,40px)">Which route lands <em class="acc">inside a quarter</em>.</h2></div>
+      <p class="body">Real lead times, not a launch promise. Hydration sticks ship inside a month; a stock formula run lands six to eight weeks after the formula is approved; a custom formula takes eight to twelve.</p>
+    </div>
+    <div class="gantt rv">
+      <div class="g">
+        <div class="hd">Route</div><div class="hd">W1</div><div class="hd">W2</div><div class="hd">W3</div><div class="hd">W4</div><div class="hd">W5</div><div class="hd">W6</div><div class="hd">W7</div><div class="hd">W8</div><div class="hd">W9</div><div class="hd">W10</div><div class="hd">W11</div><div class="hd">W12</div>
+        <div class="rl">Hydration sticks<span>stock, under 30 days</span></div><div class="bar lt"><i></i></div><div class="bar"><i></i></div><div class="bar"><i></i></div><div class="bar end"><i></i></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div class="rl">Stock formula run<span>six to eight weeks after approval</span></div><div class="bar lt"><i></i></div><div class="bar lt"><i></i></div><div class="bar"><i></i></div><div class="bar"><i></i></div><div class="bar"><i></i></div><div class="bar"><i></i></div><div class="bar"><i></i></div><div class="bar end"><i></i></div><div class="bar end"><i></i></div><div class="bar end"><i></i></div><div></div><div></div>
+        <div class="rl last">Custom formula<span>eight to twelve weeks total</span></div><div class="bar lt last"><i></i></div><div class="bar lt last"><i></i></div><div class="bar last"><i></i></div><div class="bar last"><i></i></div><div class="bar last"><i></i></div><div class="bar last"><i></i></div><div class="bar last"><i></i></div><div class="bar end last"><i></i></div><div class="bar end last"><i></i></div><div class="bar end last"><i></i></div><div class="bar end last"><i></i></div><div class="bar end last"><i></i></div>
+      </div>
+      <div class="gnote">Light: scoping and formula approval. Cyan: sourcing, formulation and production. Deep: first units in hand. Custom timelines include ingredient sourcing, formulation, testing and trademark clearance before production begins.</div>
+    </div>
   </div>
 </section>
 
@@ -1047,7 +1159,7 @@ table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-s
         <span class="lab">The arc</span>
         <p><b>Quarter one</b> is a pilot for one team &#8212; real consumption data, real feedback on flavor and format.</p>
         <p><b>Year one</b>, it <i>stops being a benefit</i> and becomes a product &#8212; one with a name your employees already recognize.</p>
-        <p><b>After that</b>, the same line can go to retail &#8212; the campus that made the pilot makes the launch.</p>
+        <p><b>After that</b>, two endings. The same line goes to retail, or it simply runs in every office, refilled monthly. The campus that made the pilot makes either.</p>
       </div>
     </div>
   </div>
@@ -1105,6 +1217,21 @@ function toggleTheme(){
   var io=new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){ io.observe(e); });
   setTimeout(function(){ els.forEach(function(e){ if(e.getBoundingClientRect().top<window.innerHeight) e.classList.add('in'); }); },900);
+})();
+(function(){
+  var D=[
+    {lead:'Sports nutrition, under your name.',fmt:'Hydration sticks and recovery capsules',fmtp:'The formats athletes and desk workers both keep up with.',aud:'Your employees, then your customers',audp:'A quarter inside the company before the first customer sees it.',pf:'NSF Certified for Sport',pfp:'Every lot screened for substances banned by major athletic organizations.'},
+    {lead:'An own-label range, fast.',fmt:'Everyday multivitamins and hydration',fmtp:'Built from 800+ stock formulas, so the range is on shelf in one season, not one year.',aud:'Store teams first, then members',audp:'The pilot runs in your own break rooms before it reaches an aisle.',pf:'Shelf precedent',pfp:'Costco, Amazon and Walmart built their labels the same way. Paper on every batch.'},
+    {lead:'Focus, hydration and sleep for desk-bound teams.',fmt:'Daily packs and hydration sticks',fmtp:'AM and PM single-serve formats kept at the break-room counter.',aud:'One office, then every office',audp:'Pilot with a single floor; roll out by region.',pf:'Privacy and provenance',pfp:'Aggregate reporting only, and a certificate of analysis on every lot.'},
+    {lead:'Beauty from within, and functional drinks.',fmt:'Collagen, hair-skin-nails gummies, ready-to-mix drinks',fmtp:'The categories your customers already buy beside your products.',aud:'Employees first, then the brand&#8217;s own channels',audp:'Real consumption data before the line meets your customer.',pf:'Retail readiness',pfp:'Lines made here are already on the shelves of national retailers.'},
+    {lead:'Daily foundation and immune support.',fmt:'Multivitamins, vitamin D, immune blends',fmtp:'Structure-and-function products only, on a validated stock base from 500 units.',aud:'Employees, then members',audp:'A benefit that becomes a member product with the same paper behind it.',pf:'Testing and claims discipline',pfp:'ISO/IEC 17025 lab on campus; DSHEA-compliant copy on every label.'}
+  ];
+  var sel=document.getElementById('doorsel'); if(sel){
+    var btns=[].slice.call(sel.querySelectorAll('.dbtns button'));
+    function show(i){var d=D[i];document.getElementById('d-lead').innerHTML=d.lead;document.getElementById('d-fmt').innerHTML=d.fmt;document.getElementById('d-fmtp').innerHTML=d.fmtp;document.getElementById('d-aud').innerHTML=d.aud;document.getElementById('d-audp').innerHTML=d.audp;document.getElementById('d-pf').innerHTML=d.pf;document.getElementById('d-pfp').innerHTML=d.pfp;btns.forEach(function(b,j){b.setAttribute('aria-pressed',String(j===i));});}
+    btns.forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.d);});});
+    show(0);
+  }
 })();
 (function(){
   var cells=document.getElementById('toccells'); if(!cells) return;
