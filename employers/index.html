@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>F.A.M.E. Health — Supplements as an Employee Benefit</title>
-<meta property="og:title" content="F.A.M.E. Health — Supplements as an Employee Benefit">
-<meta property="og:description" content="The case for adding a supplement benefit to your package — curated from 800+ ready formulas, branded for your organization, delivered to your people.">
+<title>F.A.M.E. Health — Your Own Supplement Line</title>
+<meta property="og:title" content="F.A.M.E. Health — Your Own Supplement Line">
+<meta property="og:description" content="Formulation, manufacturing and testing for companies building their own supplement line — starting with their own people, on one campus in Cedartown, Georgia.">
 <meta property="og:image" content="https://fame-platform-deck.vercel.app/img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <link rel="icon" href="../img/mark.png">
 <style>
 :root{
@@ -503,13 +503,118 @@ table.phase td.dur{font-size:clamp(16px,1.6vw,21px);}
 .epband p{font-size:clamp(16px,1.35vw,20px);max-width:46ch;}
 .epband .bwrap{padding:clamp(80px,11vw,170px) 0;}
 .epmeta{font-size:12.5px;}
+
+/* ===== enterprise pitch: brand palette + slide components ===== */
+:root{--cyan:#1DBDCB;--cyan-lt:#A7D9DC;--grey:#7C7C7C;--deep:#0B3F45;}
+em.acc{font-family:"EB Garamond","ITC Garamond Std",Georgia,serif;font-style:italic;font-weight:400;font-size:1.06em;color:var(--teal-deep);}
+.stcover .h1 em.acc{color:#8FE6EF;}
+/* big stat treatment */
+.stat{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);border:1px solid var(--rule);background:var(--paper);}
+.stat .sl{padding:clamp(28px,3.4vw,56px);border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;gap:20px;}
+.stat .huge{font-size:clamp(96px,14vw,220px);line-height:.9;letter-spacing:-.05em;font-weight:400;color:var(--teal-deep);font-variant-numeric:tabular-nums;}
+.stat .sr{min-width:0;}
+table.kv{width:100%;max-width:100%;min-width:0;border-collapse:collapse;table-layout:fixed;}
+table.kv td{padding:clamp(14px,1.6vw,22px) clamp(14px,1.6vw,22px);border-bottom:1px solid var(--rule-soft);vertical-align:top;font-size:clamp(14px,1.1vw,16px);line-height:1.45;}
+table.kv tr:last-child td{border-bottom:0;}
+table.kv td.n{width:34%;font-size:clamp(22px,2.4vw,34px);line-height:1;letter-spacing:-.025em;font-variant-numeric:tabular-nums;border-right:1px solid var(--rule-soft);}
+table.kv td.src{color:var(--muted);font-size:12.5px;}
+@media(max-width:900px){.stat{grid-template-columns:1fr;}.stat .sl{border-right:0;border-bottom:1px solid var(--rule);}}
+/* growth curve */
+.curve{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border:1px solid var(--rule);background:var(--paper);}
+.curve .cl{padding:clamp(26px,3.2vw,52px);border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;gap:20px;}
+.curve .cr{padding:clamp(18px,2.4vw,36px);min-width:0;}
+.curve svg{width:100%;height:auto;display:block;}
+.curve .ax{font-size:13px;fill:var(--muted);}
+.curve .cv{font-size:15px;fill:var(--ink);font-weight:600;}
+.curve .cs{font-size:12px;fill:var(--muted);}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule-soft);}
+.figs div{padding:14px 0 0;font-size:13px;color:var(--muted);line-height:1.4;}
+.figs b{display:block;font-size:clamp(20px,2vw,28px);letter-spacing:-.02em;color:var(--ink);font-weight:400;margin-bottom:4px;}
+@media(max-width:900px){.curve{grid-template-columns:1fr;}.curve .cl{border-right:0;border-bottom:1px solid var(--rule);}}
+@media(max-width:520px){.figs{grid-template-columns:1fr;}.figs div{border-bottom:1px solid var(--rule-soft);padding-bottom:12px;}}
+/* budget flow */
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;border:1px solid var(--rule);background:var(--paper);}
+.flow .fn{padding:clamp(22px,2.6vw,40px) clamp(18px,2vw,30px);display:flex;flex-direction:column;gap:10px;min-width:0;}
+.flow .fn b{font-size:clamp(17px,1.6vw,22px);letter-spacing:-.014em;}
+.flow .fn:nth-child(3){background:var(--aqua-2);}
+.flow .fn:nth-child(5){background:var(--deep);color:#EAF3F2;}
+.flow .fn:nth-child(5) .small{color:rgba(234,243,242,.8);}
+.flow .fa{display:flex;align-items:center;padding:0 clamp(8px,1vw,14px);color:var(--teal-deep);font-size:26px;border-left:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft);}
+@media(max-width:820px){.flow{grid-template-columns:1fr;}.flow .fa{border:0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);justify-content:center;padding:6px 0;transform:rotate(90deg);width:40px;margin:0 auto;}}
+.bars{border:1px solid var(--rule);background:var(--paper);}
+.bars .br{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,2fr) auto;gap:clamp(12px,1.6vw,22px);align-items:center;padding:clamp(12px,1.4vw,18px) clamp(16px,1.8vw,26px);border-bottom:1px solid var(--rule-soft);font-size:clamp(14px,1.1vw,16px);}
+.bars .br:last-child{border-bottom:0;}
+.bars .tr{height:14px;background:var(--aqua-2);position:relative;}
+.bars .tr i{position:absolute;left:0;top:0;bottom:0;background:var(--cyan);}
+.bars .br.mut .tr i{background:var(--grey);opacity:.55;}
+.bars .pc{font-variant-numeric:tabular-nums;font-size:clamp(18px,1.7vw,24px);letter-spacing:-.02em;min-width:4ch;text-align:right;}
+.bars .src{padding:10px clamp(16px,1.8vw,26px);font-size:12.5px;color:var(--muted);border-top:1px solid var(--rule-soft);}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);background:var(--paper);position:relative;}
+.tl::before{content:"";position:absolute;left:0;right:0;top:clamp(34px,4vw,52px);height:1px;background:var(--rule);}
+.tl .tn{padding:clamp(22px,2.6vw,40px) clamp(16px,1.8vw,26px) clamp(24px,2.6vw,40px);border-right:1px solid var(--rule-soft);position:relative;display:flex;flex-direction:column;gap:8px;min-width:0;}
+.tl .tn:last-child{border-right:0;}
+.tl .tn::before{content:"";position:absolute;left:clamp(16px,1.8vw,26px);top:clamp(28px,3.55vw,46px);width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--cyan);}
+.tl .tn.now::before{background:var(--cyan);}
+.tl .tn.next::before{border-style:dashed;}
+.tl .y{font-size:clamp(24px,2.6vw,36px);letter-spacing:-.025em;font-variant-numeric:tabular-nums;margin-top:clamp(18px,2.2vw,30px);}
+.tl .tn b{font-size:clamp(15px,1.3vw,18px);}
+@media(max-width:820px){.tl{grid-template-columns:1fr 1fr;}.tl::before{display:none;}.tl .tn{border-bottom:1px solid var(--rule-soft);}.tl .tn:nth-child(2n){border-right:0;}.tl .tn:nth-last-child(-n+2){border-bottom:0;}}
+@media(max-width:460px){.tl{grid-template-columns:1fr;}.tl .tn{border-right:0;}.tl .tn:last-child{border-bottom:0;}}
+/* two-step */
+.two-step{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--rule);background:var(--paper);}
+.two-step .ts{padding:clamp(26px,3.2vw,52px);display:flex;flex-direction:column;gap:12px;min-width:0;}
+.two-step .ts:first-child{border-right:1px solid var(--rule);background:var(--aqua-2);}
+.two-step .ts .k{font-size:12.5px;letter-spacing:.06em;color:var(--teal-deep);text-transform:uppercase;font-weight:600;}
+.two-step .ts b{font-size:clamp(22px,2.4vw,34px);letter-spacing:-.02em;font-weight:400;}
+.two-step .ts:last-child b{color:var(--muted);}
+@media(max-width:820px){.two-step{grid-template-columns:1fr;}.two-step .ts:first-child{border-right:0;border-bottom:1px solid var(--rule);}}
+/* format cards on light cyan */
+.fmts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.fmt{background:var(--paper);display:flex;flex-direction:column;min-width:0;}
+.fmt .fi{background:var(--cyan-lt);aspect-ratio:4/3;overflow:hidden;position:relative;}
+.fmt .fi img{width:100%;height:100%;object-fit:cover;display:block;mix-blend-mode:multiply;opacity:.92;}
+.fmt .ft{padding:clamp(16px,1.8vw,26px);display:flex;flex-direction:column;gap:8px;}
+.fmt .ft b{font-size:clamp(17px,1.5vw,21px);letter-spacing:-.014em;}
+.fmt .ft i{font-size:clamp(13.5px,1.05vw,15px);color:var(--muted);line-height:1.5;}
+@media(max-width:900px){.fmts{grid-template-columns:1fr 1fr;}}
+@media(max-width:460px){.fmts{grid-template-columns:1fr;}}
+/* four-quadrant capability */
+.quad{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);background:var(--paper);}
+.quad .qd{padding:clamp(24px,3vw,46px) clamp(20px,2.4vw,36px);border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:10px;min-width:0;}
+.quad .qd:nth-child(2n){border-right:0;} .quad .qd:nth-last-child(-n+2){border-bottom:0;}
+.quad .qd b{font-size:clamp(19px,1.9vw,26px);letter-spacing:-.018em;font-weight:400;}
+.quad .qd .n{font-size:clamp(28px,3vw,44px);letter-spacing:-.03em;color:var(--teal-deep);font-variant-numeric:tabular-nums;line-height:1;}
+@media(max-width:700px){.quad{grid-template-columns:1fr;}.quad .qd{border-right:0!important;}.quad .qd:last-child{border-bottom:0!important;}}
+/* deep teal field */
+.field{background:var(--deep);color:#EAF3F2;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(70px,9vw,140px) 0;}
+.field .lab{color:#8FE6EF;} .field .h2{color:#fff;max-width:20ch;} .field .body{color:rgba(234,243,242,.85);max-width:56ch;}
+.field em.acc{color:#8FE6EF;}
+/* four steps */
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);background:var(--paper);position:relative;}
+.steps4::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--cyan);}
+.steps4 .s4{padding:clamp(24px,2.8vw,42px) clamp(18px,2vw,30px);border-right:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:10px;min-width:0;}
+.steps4 .s4:last-child{border-right:0;}
+.steps4 .sn{font-size:clamp(30px,3.4vw,48px);line-height:1;color:var(--cyan);font-variant-numeric:tabular-nums;letter-spacing:-.03em;}
+.steps4 .s4 b{font-size:clamp(18px,1.7vw,23px);letter-spacing:-.016em;font-weight:400;}
+@media(max-width:820px){.steps4{grid-template-columns:1fr 1fr;}.steps4 .s4{border-bottom:1px solid var(--rule-soft);}.steps4 .s4:nth-child(2n){border-right:0;}.steps4 .s4:nth-last-child(-n+2){border-bottom:0;}}
+@media(max-width:460px){.steps4{grid-template-columns:1fr;}.steps4 .s4{border-right:0;}.steps4 .s4:last-child{border-bottom:0;}}
+/* sources */
+.sources{border-top:1px solid var(--rule);padding:clamp(28px,3.4vw,52px) 0;font-size:12.5px;color:var(--muted);line-height:1.6;}
+.sources ol{margin:8px 0 0;padding-left:1.4em;} .sources a{color:var(--teal-deep);text-decoration:none;border-bottom:1px solid var(--rule);display:inline-block;padding:11px 0;margin:-9px 0;} .sources li{margin-bottom:6px;overflow-wrap:anywhere;}
+.close{padding:clamp(70px,9vw,140px) 0;border-top:1px solid var(--rule);}
+.contactrow{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);background:var(--paper);}
+.contactrow div{padding:clamp(18px,2vw,28px);border-right:1px solid var(--rule-soft);font-size:clamp(14px,1.1vw,16px);line-height:1.5;min-width:0;overflow-wrap:anywhere;}
+.contactrow div:last-child{border-right:0;}
+.contactrow a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);display:inline-block;padding:12px 0;margin:-9px 0;}
+@media(max-width:700px){.contactrow{grid-template-columns:1fr;}.contactrow div{border-right:0;border-bottom:1px solid var(--rule-soft);}.contactrow div:last-child{border-bottom:0;}}
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="tbar">
     <a class="tb-brand" href="../"><img src="../img/mark.png" alt="">F.A.M.E. Health</a>
-    <div class="tb-mid"><b>Workforce Wellness</b><span class="dot"></span>A supplement benefit for your people</div>
+    <div class="tb-mid"><b>Enterprise</b><span class="dot"></span>Your own supplement line, made on one campus</div>
     <div class="tb-right">
       <button class="themebtn" type="button" onclick="toggleTheme()"><span class="t-light">&#9789; Dark</span><span class="t-dark">&#9788; Light</span></button>
     </div>
@@ -517,239 +622,264 @@ table.phase td.dur{font-size:clamp(16px,1.6vw,21px);}
 </header>
 
 <nav class="toc" aria-label="Contents"><div class="cells" id="toccells">
-  <a href="#case"><span style="color:var(--teal-deep);margin-right:.5em">01</span>Why This Benefit</a>
-  <a href="#program"><span style="color:var(--teal-deep);margin-right:.5em">02</span>The Program</a>
-  <a href="#range"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Need States</a>
-  <a href="#pillars"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Three Pillars</a>
-  <a href="#trust"><span style="color:var(--teal-deep);margin-right:.5em">05</span>For Your Counsel</a>
-  <a href="#partner"><span style="color:var(--teal-deep);margin-right:.5em">06</span>The Partner</a>
-  <a href="#start"><span style="color:var(--teal-deep);margin-right:.5em">07</span>How It Starts</a>
+  <a href="#category"><span style="color:var(--teal-deep);margin-right:.5em">01</span>The Category</a>
+  <a href="#market"><span style="color:var(--teal-deep);margin-right:.5em">02</span>The Market</a>
+  <a href="#funding"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Your Budget</a>
+  <a href="#policy"><span style="color:var(--teal-deep);margin-right:.5em">04</span>Policy</a>
+  <a href="#entry"><span style="color:var(--teal-deep);margin-right:.5em">05</span>Start Internal</a>
+  <a href="#make"><span style="color:var(--teal-deep);margin-right:.5em">06</span>What We Make</a>
+  <a href="#campus"><span style="color:var(--teal-deep);margin-right:.5em">07</span>The Campus</a>
+  <a href="#discretion"><span style="color:var(--teal-deep);margin-right:.5em">08</span>Your Name</a>
+  <a href="#start"><span style="color:var(--teal-deep);margin-right:.5em">09</span>How It Starts</a>
 </div></nav>
 
 <section class="epcover" style="border-bottom:0">
   <div class="epwrap">
-    <div class="epmeta"><span class="k">F.A.M.E. Health</span><span class="v">Workforce Wellness</span><span class="k">Format</span><span class="v">One-pager for benefits &amp; people teams</span><span class="k">Date</span><span class="v">2026</span></div>
+    <div class="epmeta"><span class="k">F.A.M.E. Health Labs</span><span class="v">Enterprise</span><span class="k">Format</span><span class="v">Pitch for companies building their own supplement line</span><span class="k">Date</span><span class="v">2026</span></div>
   </div>
 </section>
 
-<!-- COVER: statement page -->
+<!-- COVER -->
 <section class="stcover">
   <img src="../img/ep-cover.jpg" alt="A woman takes a supplement with a glass of water at a kitchen counter" style="object-position:62% 40%">
   <div class="wrap scw">
     <div>
-      <span class="lab">For benefits &amp; people teams</span>
-      <h1 class="h1">Supplements as an employee benefit.</h1>
+      <span class="lab">F.A.M.E. Health Labs &#183; Cedartown, Georgia</span>
+      <h1 class="h1">Your own supplement line, <em class="acc">made on one campus</em>.</h1>
     </div>
-    <p>A wellness benefit your people actually use &#8212; chosen for their own goals, carrying your name, delivered to their door.</p>
+    <p>Formulation, manufacturing and testing for companies building their own supplement brand &#8212; starting with their own people.</p>
   </div>
 </section>
 
-<!-- 01 WHY: statement + the table is the chart -->
-<section class="sec" id="case" data-p="01">
+<!-- 01 THE CATEGORY -->
+<section class="sec" id="category" data-p="01">
   <div class="wrap stack">
-    <div class="sd rv">
-      <div class="sdl">
-        <div>
-          <span class="lab">01 &#183; Why this benefit</span>
-          <p class="stmt" style="margin-top:.5em">Most benefits are felt once a year. This one is felt <em class="acc">every day</em>.</p>
-        </div>
-        <div class="statrow">
-          <div class="bignum">3 in 4</div>
-          <p class="small">U.S. adults already take dietary supplements (CRN annual consumer survey). You are not creating a behavior &#8212; you are funding one.</p>
-        </div>
+    <div class="sec-head rv">
+      <div><span class="lab">01 &#183; The category is no longer a niche</span><h2 class="h2">Three in four American adults now take a supplement. <em class="acc">It stopped being a trend.</em></h2></div>
+      <p class="body">Supplement use in the United States has reached its highest recorded level. This is not an emerging behavior you would be introducing to your audience. It is an established one you are currently absent from.</p>
+    </div>
+    <div class="stat rv">
+      <div class="sl">
+        <div class="huge">77%</div>
+        <p class="small">of US adults report taking dietary supplements &#8212; the highest usage recorded in twenty years of tracking.<br><span style="color:var(--muted)">CRN 2026 Consumer Survey, conducted by Ipsos.</span></p>
       </div>
-      <div class="sdr">
-        <table class="cmp">
-          <thead><tr><th></th><th>A supplement benefit</th><th class="them">A typical wellness perk</th></tr></thead>
-          <tbody>
-            <tr><td class="k">When it is felt</td><td class="us">Every day</td><td class="them">Once a year, if used</td></tr>
-            <tr><td class="k">Who chooses</td><td class="us">Each employee, for their own goals</td><td class="them">HR, for everyone</td></tr>
-            <tr><td class="k">Where it lives</td><td class="us">The kitchen counter</td><td class="them">A portal login</td></tr>
-            <tr><td class="k">Whose name is on it</td><td class="us">Yours</td><td class="them">A vendor&#8217;s</td></tr>
-          </tbody>
+      <div class="sr">
+        <table class="kv">
+          <tr><td class="n">81%</td><td>among adults aged 35 to 54 &#8212; the highest of any age group, with 79% among adults 55 and over</td></tr>
+          <tr><td class="n">83%</td><td>among adults with children under 18</td></tr>
+          <tr><td class="n">76%</td><td>took vitamins or minerals in the past year; 40% specialty supplements, 39% herbs and botanicals, 28% sports nutrition</td></tr>
         </table>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 02 THE PROGRAM: photo quadrant -->
-<section class="sec alt" id="program" data-p="02">
+<!-- 02 THE MARKET -->
+<section class="sec alt" id="market" data-p="02">
   <div class="wrap stack">
     <div class="sec-head rv">
-      <div><span class="lab">02 &#183; The program</span><h2 class="h2">Pick a range. Put your name on it. <em class="acc">We handle the rest.</em></h2></div>
-      <p class="body">One partner covers the whole program &#8212; formulas, branding, packing and delivery &#8212; from a single FDA-registered campus in Cedartown, Georgia.</p>
+      <div><span class="lab">02 &#183; And the market is compounding</span><h2 class="h2">A $74 billion US category growing at <em class="acc">8.5% a year</em>.</h2></div>
+      <p class="body">Grand View Research values the US dietary supplements market at $74.06 billion in 2026, projected to reach $131.08 billion by 2033. Over-the-counter products account for roughly three quarters of it, and 77% of sales still move through offline channels. A brand with existing shelf presence, an existing audience or an existing distribution relationship starts several steps ahead of a startup.</p>
     </div>
-    <div class="tiles rv">
-      <div class="tile"><img src="../img/sd-bottles-color.jpg?v=3" alt="" loading="lazy"><div class="tt"><b>A curated range</b><i>(800+ ready formulations across 65+ health categories)</i></div></div>
-      <div class="tile"><img src="../img/cv-cartons.jpg?v=2" alt="" loading="lazy"><div class="tt"><b>Your brand on the pack</b><i>(labels, cartons and kits designed in-house around your identity)</i></div></div>
-      <div class="tile"><img src="../img/ep-hands.jpg" alt="" loading="lazy" style="object-position:center 65%"><div class="tt"><b>Formats people stick with</b><i>(capsules, gummies, powders and stick packs)</i></div></div>
-      <div class="tile"><img src="../img/ep-office.jpg" alt="" loading="lazy" style="object-position:60% 40%"><div class="tt"><b>Delivered monthly</b><i>(kitted where it is made, shipped to every employee&#8217;s door)</i></div></div>
+    <div class="curve rv">
+      <div class="cl">
+        <p class="stmt" style="max-width:14ch;font-size:clamp(26px,3vw,44px)">Where a brand with an audience starts <em class="acc">ahead</em>.</p>
+        <div class="figs">
+          <div><b>75.7%</b>of the market is over-the-counter</div>
+          <div><b>77.1%</b>of sales occur offline</div>
+          <div><b>$131B</b>projected by 2033</div>
+        </div>
+      </div>
+      <div class="cr">
+        <svg viewBox="0 0 900 340" role="img" aria-label="US dietary supplements market, Grand View Research: 74.06 billion dollars in 2026 growing at 8.5 percent a year to 131.08 billion in 2033">
+  <line x1="90" x2="860" y1="225.7" y2="225.7" stroke="var(--rule-soft)" stroke-width="1"/><text class="ax" x="80" y="229.7" text-anchor="end">$40B</text><line x1="90" x2="860" y1="151.4" y2="151.4" stroke="var(--rule-soft)" stroke-width="1"/><text class="ax" x="80" y="155.4" text-anchor="end">$80B</text><line x1="90" x2="860" y1="77.1" y2="77.1" stroke="var(--rule-soft)" stroke-width="1"/><text class="ax" x="80" y="81.1" text-anchor="end">$120B</text>
+  <line x1="90" x2="860" y1="300" y2="300" stroke="var(--rule)" stroke-width="1"/>
+  <path d="M90.0,300 L90.0,162.5 L200.0,150.8 L310.0,138.1 L420.0,124.3 L530.0,109.4 L640.0,93.2 L750.0,75.6 L860.0,56.5 L860.0,300 Z" fill="var(--cyan)" fill-opacity=".22"/>
+  <polyline points="90.0,162.5 200.0,150.8 310.0,138.1 420.0,124.3 530.0,109.4 640.0,93.2 750.0,75.6 860.0,56.5" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="90.0" cy="162.5" r="5" fill="var(--cyan)"/><circle cx="860.0" cy="56.6" r="5" fill="var(--cyan)"/>
+  <text class="cv" x="102.0" y="150.5">$74.06B</text>
+  <text class="cv" x="848.0" y="42.6" text-anchor="end">$131.08B</text>
+  <text class="cs" x="475.0" y="123.6" text-anchor="middle">8.5% a year</text>
+  <text class="ax" x="90.0" y="322" text-anchor="middle">2026</text><text class="ax" x="200.0" y="322" text-anchor="middle">2027</text><text class="ax" x="310.0" y="322" text-anchor="middle">2028</text><text class="ax" x="420.0" y="322" text-anchor="middle">2029</text><text class="ax" x="530.0" y="322" text-anchor="middle">2030</text><text class="ax" x="640.0" y="322" text-anchor="middle">2031</text><text class="ax" x="750.0" y="322" text-anchor="middle">2032</text><text class="ax" x="860.0" y="322" text-anchor="middle">2033</text>
+</svg>
+        <p class="small" style="color:var(--muted);margin-top:10px">Source: Grand View Research, U.S. Dietary Supplements Market Size, Share &amp; Trends, 2026&#8211;2033. Curve compounds the published 8.5% CAGR.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- 03 YOUR BUDGET -->
+<section class="sec" id="funding" data-p="03">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">03 &#183; Your people are already funding this category</span><h2 class="h2">Your wellness budget is already buying supplements. <em class="acc">You just do not know whose.</em></h2></div>
+      <p class="body">Employers have moved wellness spending from the insurance line to flexible spending. 64% of companies have consolidated lifestyle perks into a lifestyle spending account, and 37% run a dedicated wellness stipend. Nutrition and supplements are a standard eligible category inside those programs. The money is already moving &#8212; to whatever brand ranks highest on Amazon. Your organization funds the purchase and gets none of the credit, none of the consistency and none of the data.</p>
+    </div>
+    <div class="flow rv">
+      <div class="fn"><span class="lab">Where it starts</span><b>Your wellness budget</b><p class="small">Lifestyle spending accounts and wellness stipends, with nutrition and supplements as an eligible category.</p></div>
+      <div class="fa">&#8594;</div>
+      <div class="fn"><span class="lab">Where it goes</span><b>Whatever ranks highest on Amazon</b><p class="small">An unbranded third-party product chosen by search ranking, not by you.</p></div>
+      <div class="fa">&#8594;</div>
+      <div class="fn"><span class="lab" style="color:#8FE6EF">What you get back</span><b>No credit. No consistency. No data.</b><p class="small">You paid for it. Someone else&#8217;s name is on it.</p></div>
+    </div>
+    <div class="bars rv">
+      <div class="br"><span>Companies with lifestyle perks consolidated into an LSA</span><span class="tr"><i style="width:64%"></i></span><span class="pc">64%</span></div>
+      <div class="br"><span>Companies offering a dedicated wellness stipend</span><span class="tr"><i style="width:37%"></i></span><span class="pc">37%</span></div>
+      <div class="br"><span>Wellness utilization inside an LSA</span><span class="tr"><i style="width:86%"></i></span><span class="pc">86%</span></div>
+      <div class="br mut"><span>Wellness utilization as a standalone stipend</span><span class="tr"><i style="width:70%"></i></span><span class="pc">70%</span></div>
+      <div class="br mut"><span>Average utilization across wellness programs generally</span><span class="tr"><i style="width:33%"></i></span><span class="pc">30&#8211;35%</span></div>
+      <div class="src">Compt 2026 Lifestyle Benefits Benchmark (a benefits-platform customer benchmark); Wellable, June 2026.</div>
+    </div>
+  </div>
+</section>
 
+<!-- 04 POLICY -->
+<section class="sec alt" id="policy" data-p="04">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">04 &#183; And a policy tailwind is forming</span><h2 class="h2">Pre-tax dollars <em class="acc">may be next</em>.</h2></div>
+      <p class="body">In May 2026, bipartisan legislation was introduced in both the Senate and the House that would classify qualifying dietary supplements as eligible medical expenses under HSAs, FSAs, HRAs and Archer MSAs, with annual limits of $250 for individuals and $500 for joint filers, effective 2027 if enacted. It has been introduced repeatedly since 2023 without passing, so it belongs in planning, not in a forecast. But the direction of travel is clear, and the brands positioned when it lands will be the ones already in market.</p>
+    </div>
+    <div class="tl rv">
+      <div class="tn"><div class="y">2020</div><b>CARES Act</b><p class="small">Expanded HSA and FSA eligibility to over-the-counter medicines. The precedent.</p></div>
+      <div class="tn"><div class="y">2023</div><b>First introduced</b><p class="small">The Dietary Supplements Access Act enters Congress. Introduced repeatedly since, without passing.</p></div>
+      <div class="tn now"><div class="y">2026</div><b>Reintroduced, May</b><p class="small">Bipartisan, in both chambers. $250 individual, $500 joint filer annual limit.</p></div>
+      <div class="tn next"><div class="y">2027</div><b>Effective, if enacted</b><p class="small">Planning, not forecast. The brands already in market are the ones positioned.</p></div>
+    </div>
+  </div>
+</section>
 
-<!-- STATEMENT PAGE: the person -->
+<!-- 05 START INTERNAL -->
+<section class="sec" id="entry" data-p="05">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">05 &#183; The lowest-risk way to enter</span><h2 class="h2">Build it for <em class="acc">your own people</em> first.</h2></div>
+      <p class="body">Most brands enter supplements by selling to strangers. There is an easier first move. Your workforce is a real audience with a real need, and it is the only group that will tell you the truth about flavor, format and whether they actually keep taking it. No retail listing to win. No paid acquisition. No launch to defend publicly if the first formulation misses.</p>
+    </div>
+    <div class="two-step rv">
+      <div class="ts"><span class="k">Step one</span><b>Run it internally for a quarter.</b><p class="small">Learn what moves and what sits. You come out with a validated product, real consumption data and a brand your people already recognize.</p></div>
+      <div class="ts"><span class="k" style="color:var(--muted)">Step two, if it earns it</span><b>Then it becomes a product.</b><p class="small">Most companies that do this stop calling it a benefit within a year. Wider rollout, or take it to market &#8212; on the same lines, with the same partner.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT PAGE -->
 <section class="epband">
   <img src="../img/ep-family.jpg" alt="" loading="lazy" style="object-position:center 38%">
   <div class="wrap bwrap">
     <div class="bgrid">
-      <div><span class="lab">Personal by design</span><h2 class="h2">Each person picks what fits their life.</h2></div>
-      <p>Sleep for the new parent. Energy for the early shift. Joint support for the weekend runner. One benefit, as many versions as you have people &#8212; and the employer never sees who chose what.</p>
+      <div><span class="lab">The first audience</span><h2 class="h2">The only audience that tells you the truth.</h2></div>
+      <p>Your people will say what they think of the flavor, the format and whether the pack is still on the counter in week six. That is the data a launch to strangers never gives you.</p>
     </div>
   </div>
 </section>
 
-<!-- 03 NEED STATES: numbered cells -->
-<section class="sec" id="range" data-p="03">
+<!-- 06 WHAT WE MAKE -->
+<section class="sec alt" id="make" data-p="06">
   <div class="wrap stack">
     <div class="sec-head rv">
-      <div><span class="lab">03 &#183; What employees choose from</span><h2 class="h2">Six need states cover <em class="acc">most of a workforce</em>.</h2></div>
-      <p class="body">Every formula is manufactured to cGMP standards and tested by an ISO/IEC 17025 accredited lab on our own campus, with a certificate of analysis on every batch.</p>
+      <div><span class="lab">06 &#183; What we make</span><h2 class="h2">Whatever <em class="acc">carries your name</em>.</h2></div>
+      <p class="body">Common starting points. Custom formulations from 1,000 units; stock formulations from 500. You can validate before you commit to a warehouse.</p>
     </div>
-    <div class="ncells rv">
-      <div class="nc"><span class="chip">01</span><b>Everyday foundation</b><i>Complete daily multivitamins and minerals &#8212; the default pick, one per person per day.</i></div>
-      <div class="nc"><span class="chip">02</span><b>Sleep &amp; stress</b><i>Magnesium, ashwagandha and melatonin blends that support restful sleep and a calm response to everyday stress.*</i></div>
-      <div class="nc"><span class="chip">03</span><b>Energy &amp; focus</b><i>B-vitamin and nootropic blends that support daily energy and mental clarity.*</i></div>
-      <div class="nc"><span class="chip">04</span><b>Immune support</b><i>Vitamin C, vitamin D, zinc and elderberry formulas that support a healthy immune system.*</i></div>
-      <div class="nc"><span class="chip">05</span><b>Bone &amp; joint</b><i>Calcium, D3, K2 and collagen formulas that support bone strength and joint comfort.*</i></div>
-      <div class="nc"><span class="chip">06</span><b>Family &amp; prenatal</b><i>Prenatal multis and kids&#8217; formats that extend the benefit to the household.</i></div>
+    <div class="fmts rv">
+      <div class="fmt"><div class="fi"><img src="../img/sd-sticks.jpg?v=3" alt="" loading="lazy"></div><div class="ft"><b>Hydration sticks</b><i>Sub-30-day lead time. The lowest-friction format to put in front of people, and the one that requires no explanation.</i></div></div>
+      <div class="fmt"><div class="fi"><img src="../img/sd-sachets.jpg?v=3" alt="" loading="lazy"></div><div class="ft"><b>Daily packs</b><i>AM and PM single-serve formats built around a defined population rather than a catalog SKU with a logo applied.</i></div></div>
+      <div class="fmt"><div class="fi"><img src="../img/sd-bottles-color.jpg?v=3" alt="" loading="lazy"></div><div class="ft"><b>Capsules, gummies, powders</b><i>Across 800+ proven formulations to build from.</i></div></div>
+      <div class="fmt"><div class="fi"><img src="../img/sd-liquids.jpg?v=3" alt="" loading="lazy"></div><div class="ft"><b>Functional drinks</b><i>Liquids and ready-to-mix, on the same campus, under the same quality system.</i></div></div>
     </div>
-    <p class="footnote">*These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure or prevent any disease.</p>
-  </div>
-</section>
-
-<!-- 04 THREE PILLARS: venn -->
-<section class="sec alt" id="pillars" data-p="04">
-  <div class="wrap stack">
-    <div class="venn rv">
-      <div class="vl">
-        <div>
-          <span class="lab">04 &#183; Designed to be felt</span>
-          <p class="stmt" style="margin-top:.5em">We design the benefit around three things, so it gets <em class="acc">used</em>, not just offered.</p>
-        </div>
-        <p class="small" style="max-width:38ch">A wellness perk fails quietly when nobody notices it. Where all three pillars overlap is where a benefit becomes a habit.</p>
-      </div>
-      <div class="vr">
-        <svg viewBox="0 0 640 520" role="img" aria-label="Three overlapping circles: Personal, Visible and Verified, meeting at a benefit that gets used">
-          <defs>
-            <clipPath id="cpA"><circle cx="250" cy="200" r="150"/></clipPath>
-            <clipPath id="cpB"><circle cx="390" cy="200" r="150"/></clipPath>
-            <clipPath id="cpC"><circle cx="320" cy="322" r="150"/></clipPath>
-          </defs>
-          <circle class="lens" cx="390" cy="200" r="150" clip-path="url(#cpA)"/>
-          <circle class="lens" cx="320" cy="322" r="150" clip-path="url(#cpB)"/>
-          <circle class="lens" cx="250" cy="200" r="150" clip-path="url(#cpC)"/>
-          <circle class="c" cx="250" cy="200" r="150"/><circle class="c" cx="390" cy="200" r="150"/><circle class="c" cx="320" cy="322" r="150"/>
-          <rect class="chipR" x="146" y="116" width="34" height="20" rx="10"/><text class="chipT" x="163" y="130" text-anchor="middle">01</text>
-          <text class="vt" x="163" y="164" text-anchor="middle">Personal</text>
-          <text class="vi" x="163" y="184" text-anchor="middle">(chosen per person,</text><text class="vi" x="163" y="200" text-anchor="middle">for their own goals)</text>
-          <rect class="chipR" x="460" y="116" width="34" height="20" rx="10"/><text class="chipT" x="477" y="130" text-anchor="middle">02</text>
-          <text class="vt" x="477" y="164" text-anchor="middle">Visible</text>
-          <text class="vi" x="477" y="184" text-anchor="middle">(your name, at home,</text><text class="vi" x="477" y="200" text-anchor="middle">every month)</text>
-          <rect class="chipR" x="303" y="392" width="34" height="20" rx="10"/><text class="chipT" x="320" y="406" text-anchor="middle">03</text>
-          <text class="vt" x="320" y="440" text-anchor="middle">Verified</text>
-          <text class="vi" x="320" y="460" text-anchor="middle">(tested on campus, a certificate</text><text class="vi" x="320" y="476" text-anchor="middle">of analysis on every batch)</text>
-        </svg>
-        <div class="notes">
-          <div><b>01 &#183; Personal</b>Six need states; each employee picks. No one-size perk.</div>
-          <div><b>02 &#183; Visible</b>Kits and refills carry your brand, not a vendor&#8217;s logo.</div>
-          <div><b>03 &#183; Verified</b>cGMP manufacture, ISO/IEC 17025 testing, paper on every batch.</div>
-        </div>
-      </div>
+    <div class="statstrip s4 rv">
+      <div class="st"><div class="big num" style="font-weight:400">800+</div><div class="cap">Proven Formulations</div><div class="sub">To build from</div></div>
+      <div class="st"><div class="big num" style="font-weight:400">1,000</div><div class="cap">Units, Custom</div><div class="sub">Custom formulations start here</div></div>
+      <div class="st"><div class="big num" style="font-weight:400">500</div><div class="cap">Units, Stock</div><div class="sub">Stock formulations start here</div></div>
+      <div class="st"><div class="big" style="font-weight:400">&lt;30</div><div class="cap">Days, Hydration Sticks</div><div class="sub">Lead time</div></div>
     </div>
   </div>
 </section>
 
-<!-- 05 FOR YOUR COUNSEL -->
-<section class="sec" id="trust" data-p="05">
+<!-- 07 THE CAMPUS -->
+<section class="sec" id="campus" data-p="07">
   <div class="wrap stack">
     <div class="sec-head rv">
-      <div><span class="lab">05 &#183; For your counsel</span><h2 class="h2">The questions legal will ask, <em class="acc">answered before the first call</em>.</h2></div>
-      <p class="body">A supplement benefit gets reviewed by lawyers before it gets loved by employees. The program is designed for that review.</p>
+      <div><span class="lab">07 &#183; Why the campus matters</span><h2 class="h2">One roof. <em class="acc">One point of accountability.</em></h2></div>
+      <p class="body">Vertically integrated on a single 170+ acre site in Cedartown, Georgia. Formulation, manufacturing, testing and ingredient sourcing in one place, rather than a broker coordinating four vendors and forwarding you their delays.</p>
     </div>
-    <div class="qa rv">
-      <div class="qcell"><h3 class="q">Is this safe to offer?</h3><p class="small">Everything is a dietary supplement under DSHEA &#8212; structure/function products, never treatments. Manufactured in an FDA-registered cGMP facility, and every batch is tested by an ISO/IEC 17025 accredited lab with a certificate of analysis before release. Participation is opt-in, always.</p></div>
-      <div class="qcell"><h3 class="q">What about medications and pregnancy?</h3><p class="small">Labels carry the standard advisories, including consulting a healthcare professional &#8212; and nothing in the program is positioned as treatment or a substitute for care. Employees choose products the way they do at retail today, with better-verified quality behind them.</p></div>
-      <div class="qcell"><h3 class="q">Who sees what employees choose?</h3><p class="small">Employees select and receive their products directly with F.A.M.E. The employer sees participation and spend in aggregate &#8212; never an individual&#8217;s selections. A colleague&#8217;s prenatal pick is not information their employer should ever hold, so the program is built so it can&#8217;t be.</p></div>
-      <div class="qcell"><h3 class="q">Who answers for quality?</h3><p class="small">One company sources, formulates, manufactures, tests and ships &#8212; so accountability never fragments across vendors. We prove quality with paper, not promises: the certificate of analysis exists for every batch, on file.</p></div>
+    <div class="quad rv">
+      <div class="qd"><span class="n">170+</span><b>One roof, one accountability</b><p class="small">Formulation, manufacturing, testing and ingredient sourcing on a single 170+ acre site.</p></div>
+      <div class="qd"><span class="n">2 days</span><b>Our own accredited lab</b><p class="small">Cur&#237; is an ISO/IEC 17025 accredited laboratory on the same campus. When your name is on something ingestible, quality data comes from inside the building rather than a queue at a third-party lab &#8212; a two-day answer instead of a two-week one, and the difference that matters when something needs checking before a shipment moves.</p></div>
+      <div class="qd"><span class="n">100M+</span><b>Capacity you will not outgrow</b><p class="small">More than 100 million capsules per day. A line that begins as an internal pilot can go to retail without changing manufacturers, re-qualifying a facility or reformulating.</p></div>
+      <div class="qd"><span class="n">In-house</span><b>Ingredients handled upstream</b><p class="small">F.A.M.E. Ingredients means sourcing is not a separate negotiation with a separate counterparty. Female-owned and US-manufactured.</p></div>
     </div>
   </div>
 </section>
 
-<!-- STATEMENT BAND -->
+<!-- CAMPUS BAND -->
 <section class="epband">
   <img src="../img/band-botanicals.jpg" alt="" loading="lazy">
   <div class="wrap bwrap">
     <div class="bgrid">
-      <div><span class="lab">The platform behind it</span><h2 class="h2">One campus makes this simple.</h2></div>
-      <p>Sourcing, formulation, manufacturing, testing, packing and shipping happen in one place. For a benefits team that means one contract and one accountable partner &#8212; not a vendor chain.</p>
+      <div><span class="lab">The platform behind it</span><h2 class="h2">Made on one campus, tested on the same one.</h2></div>
+      <p>Sourcing, formulation, manufacturing, testing, packing and shipping happen in one place. One contract and one accountable partner &#8212; not a vendor chain.</p>
     </div>
   </div>
 </section>
 
-<!-- 06 THE PARTNER -->
-<section class="sec alt" id="partner" data-p="06">
+<!-- 08 DISCRETION -->
+<section class="field" id="discretion">
+  <div class="wrap stack">
+    <span class="lab">08 &#183; Your name is the only one on it</span>
+    <h2 class="h2">The brand is yours. <em class="acc">We stay behind the label.</em></h2>
+    <p class="body">You own the formulation relationship, the brand and the customer. Your packaging carries your name alone, and your program stays private until you choose to talk about it. For an organization putting its name on an ingestible product for the first time, that discretion is part of what you are buying.</p>
+  </div>
+</section>
+
+<!-- 09 HOW IT STARTS -->
+<section class="sec" id="start" data-p="09">
   <div class="wrap stack">
     <div class="sec-head rv">
-      <div><span class="lab">06 &#183; The partner</span><h2 class="h2">One company, <em class="acc">formula to front door</em>.</h2></div>
-      <p class="body">F.A.M.E. Health Labs is 100% women owned and made in the USA. Independent verification is in-house: our ISO/IEC 17025 accredited lab tests every batch before anything reaches an employee.</p>
+      <div><span class="lab">09 &#183; How it starts</span><h2 class="h2">Four steps to <em class="acc">a product in hand</em>.</h2></div>
+      <p class="body">No platform migration, no open enrollment window. A line for your own people can start next quarter.</p>
     </div>
-    <div class="statstrip s4 rv">
-      <div class="st"><div class="big num" style="font-weight:400">800+</div><div class="cap">Ready Formulations</div><div class="sub">Stock formulas, ready to brand</div></div>
-      <div class="st"><div class="big num" style="font-weight:400">65+</div><div class="cap">Health Categories</div><div class="sub">From sleep to sports to prenatal</div></div>
-      <div class="st"><div class="big num" style="font-weight:400">100+</div><div class="cap">Brand Partners</div><div class="sub">Selling through F.A.M.E. formulas worldwide</div></div>
-      <div class="st"><div class="big" style="font-weight:400">100%</div><div class="cap">Women Owned</div><div class="sub">Made in USA &#183; approximately 75% female managed</div></div>
-    </div>
-    <div class="certrow rv">
-      <img src="../img/cert-fda.png" alt="FDA-registered facility">
-      <img src="../img/cert-gmp.png" alt="cGMP certified">
-      <img src="../img/cert-nsf.png" alt="NSF certified">
-      <img src="../img/cert-sqf.png" alt="SQF certified">
-      <img src="../img/cert-iso.png" alt="ISO accredited">
-      <img src="../img/cert-usa.png" alt="Made in USA">
-      <span class="cr-t">Also Halal and Kosher certified, and MOSA Certified Organic. A certificate of analysis ships with every batch.</span>
-    </div>
-    <div class="stcell rv">
-      <span class="lab">The standard</span>
-      <p class="stmt" style="max-width:26ch">We prove quality with <em class="acc">paper, not promises</em>.</p>
+    <div class="steps4 rv">
+      <div class="s4"><span class="sn">01</span><b>Scoping call</b><p class="small">Category, population, volume, timeline.</p></div>
+      <div class="s4"><span class="sn">02</span><b>Formulation</b><p class="small">Our scientific team, your brief.</p></div>
+      <div class="s4"><span class="sn">03</span><b>Pilot run</b><p class="small">From 1,000 units custom, or 500 stock.</p></div>
+      <div class="s4"><span class="sn">04</span><b>Scale or extend</b><p class="small">Wider internal rollout, or take it to market.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 07 HOW IT STARTS: phase table -->
-<section class="sec" id="start" data-p="07">
+<!-- CLOSE -->
+<section class="close" id="close">
   <div class="wrap stack">
-    <div class="sec-head rv">
-      <div><span class="lab">07 &#183; How it starts</span><h2 class="h2">Pilot small. Prove it. <em class="acc">Roll it out.</em></h2></div>
-      <p class="body">No platform migration, no open enrollment window. A supplement benefit can start with one team next quarter.</p>
-    </div>
-    <div class="phwrap rv">
-      <table class="phase">
-        <thead><tr><th>Phase</th><th>Scope</th><th>Pilot</th><th>Roll out</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Scale</th><td class="dur">One call</td><td class="dur">One team or office</td><td class="dur">Company-wide</td></tr>
-          <tr><th scope="row">What we are solving for</th><td><i>Size the range, headcount and monthly budget per employee.</i></td><td><i>Branded kits in real hands. What people actually pick refines the range.</i></td><td><i>Monthly home delivery across every region you operate in, under one contract.</i></td></tr>
-          <tr class="gate"><th scope="row">What unlocks the next phase</th><td>A proposed range and a per-employee cost you can react to.</td><td>Participation and re-order data from the pilot group, in aggregate.</td><td>An ongoing program with one accountable partner.</td></tr>
-          <tr><th scope="row">Who is involved</th><td>Your benefits lead &#183; F.A.M.E. partnerships</td><td>Your pilot team &#183; F.A.M.E. account team</td><td>Your people &#183; one partner</td></tr>
-        </tbody>
-      </table>
-    </div>
     <div class="stcell rv">
-      <span class="lab">Founding partners</span>
-      <p class="stmt" style="max-width:34ch;font-size:clamp(20px,2.2vw,32px)">This program is being built <em class="acc">with</em> its first partners &#8212; the range, the kit and the reporting shaped around your workforce, not sold off a shelf.</p>
+      <span class="lab">Close</span>
+      <p class="stmt" style="max-width:22ch">The product is yours. <em class="acc">The platform is ready.</em></p>
     </div>
-    <a class="ctapanel rv" href="mailto:partnerships@famehealthlabs.com?subject=Supplement%20benefit%20scoping%20call&body=Headcount%3A%0AWhat%20our%20people%20care%20about%3A%0A">
+    <div class="contactrow rv">
+      <div><b>Dr Chioma Ikonte, PhD</b><br><a href="mailto:chioma@famehealthlabs.com">chioma@famehealthlabs.com</a></div>
+      <div><b>Holly Ash</b>, Founder &amp; CEO<br><a href="mailto:holly@famehealthlabs.com">holly@famehealthlabs.com</a></div>
+      <div><b>F.A.M.E. Health Labs</b><br>Cedartown, Georgia<br><a href="https://www.famehealthlabs.com" target="_blank" rel="noopener">www.famehealthlabs.com</a></div>
+    </div>
+    <a class="ctapanel rv" href="mailto:partnerships@famehealthlabs.com?subject=Scoping%20call%20%E2%80%94%20our%20own%20supplement%20line&body=Category%3A%0APopulation%3A%0AVolume%3A%0ATimeline%3A%0A">
       <span>
-        <span class="ct-k">The ask is 30 minutes</span>
-        <span class="ct-h">Book a scoping call.</span>
-        <span class="ct-s">Email your headcount and what your people care about. Within a week you have a proposed range, a per-employee cost and a pilot plan to react to.</span>
+        <span class="ct-k">Step one is a scoping call</span>
+        <span class="ct-h">Category, population, volume, timeline.</span>
+        <span class="ct-s">Send those four lines. You get back a proposed format, a per-unit cost and a pilot plan to react to.</span>
       </span>
       <span class="ct-go">partnerships@famehealthlabs.com &#8594;</span>
     </a>
-    <p class="footnote">F.A.M.E. Health Labs &#183; Cedartown, GA &#183; www.famehealthlabs.com</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <span class="lab">Sources</span>
+    <ol>
+      <li>Council for Responsible Nutrition, 2026 Consumer Survey on Dietary Supplements (20th annual, conducted by Ipsos), via Nutritional Outlook, July 2026 &#8212; <a href="https://www.nutritionaloutlook.com/view/latest-consumer-survey-crn-shows-highest-overall-supplement-usage-date" target="_blank" rel="noopener">nutritionaloutlook.com</a></li>
+      <li>Grand View Research, U.S. Dietary Supplements Market Size, Share &amp; Trends Analysis Report, 2026&#8211;2033 &#8212; <a href="https://www.grandviewresearch.com/industry-analysis/us-dietary-supplements-market-report" target="_blank" rel="noopener">grandviewresearch.com</a></li>
+      <li>Compt, 2026 Annual Lifestyle Benefits Benchmark Report &#8212; <a href="https://compt.io/blog/the-employers-guide-to-employee-wellness-benefits/" target="_blank" rel="noopener">compt.io</a>; Compt, Wellness Stipend Examples 2026 &#8212; <a href="https://compt.io/blog/example-ways-to-use-wellness-stipends/" target="_blank" rel="noopener">compt.io</a>; Wellable, Best Corporate Wellness Programs, June 2026 &#8212; <a href="https://www.wellable.co/blog/best-corporate-wellness-programs/" target="_blank" rel="noopener">wellable.co</a></li>
+      <li>Dietary Supplements Access Act: Nutritional Outlook &#8212; <a href="https://www.nutritionaloutlook.com/view/congress-introduces-bill--supplements-under-hsa-fsa-spending-rules" target="_blank" rel="noopener">nutritionaloutlook.com</a>; NutraIngredients-USA, May 2026 &#8212; <a href="https://www.nutraingredients.com/Article/2026/05/20/dietary-supplements-access-act-introduced-in-senate/" target="_blank" rel="noopener">nutraingredients.com</a>; Office of Rep. Darin LaHood, May 2026 &#8212; <a href="https://lahood.house.gov/2026/5/lahood-gottheimer-tenney-boyle-reintroduce-legislation-to-cover-dietary-supplements-under-flex-health-spending-accounts" target="_blank" rel="noopener">lahood.house.gov</a></li>
+    </ol>
   </div>
 </section>
 
