@@ -824,7 +824,7 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 .stpage{position:relative;overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:#101315;min-height:clamp(460px,62vw,760px);display:flex;}
 .stpage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 @media(max-width:820px){.stpage img{transform:none;}}
-.stpage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,13,15,.42) 0%,rgba(12,13,15,.16) 45%,rgba(12,13,15,.55) 100%);}
+.stpage::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,13,15,.55) 0%,rgba(12,13,15,.18) 45%,rgba(12,13,15,.12) 60%,rgba(12,13,15,.6) 100%);}
 .stpage .sg{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-rows:1fr auto;padding-top:clamp(40px,6vw,96px);padding-bottom:clamp(40px,6vw,96px);}
 .stpage .h2{grid-column:1;grid-row:1;color:#fff;font-size:clamp(34px,4.8vw,70px);line-height:1.02;max-width:12ch;text-shadow:0 1px 3px rgba(0,0,0,.5),0 2px 28px rgba(0,0,0,.4);margin:0;}
 .stpage p{grid-column:2;grid-row:2;justify-self:end;color:rgba(255,255,255,.94);font-size:clamp(15px,1.35vw,20px);line-height:1.5;max-width:36ch;margin:0;text-shadow:0 1px 2px rgba(0,0,0,.55);}
@@ -833,6 +833,21 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 .stpage.lt .h2{color:#111819;text-shadow:none;}
 .stpage.lt p{color:#111819;text-shadow:none;grid-column:1;grid-row:2;justify-self:start;max-width:34ch;}
 @media(max-width:820px){.stpage.lt::after{background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.2) 40%,rgba(255,255,255,.7));}}
+
+/* retailer wall: ruled logo grid */
+.wall{border:1px solid var(--rule);background:var(--paper);}
+.wall .wh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid var(--rule);}
+.wall .wh > div{padding:clamp(18px,2.2vw,32px);min-width:0;}
+.wall .wh > div:first-child{border-right:1px solid var(--rule-soft);}
+.wall .wg{display:grid;grid-template-columns:repeat(6,1fr);}
+.wall .wg div{display:flex;align-items:center;justify-content:center;padding:clamp(18px,2.2vw,32px) clamp(12px,1.4vw,20px);border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);min-height:clamp(84px,8vw,120px);}
+.wall .wg div:nth-child(6n){border-right:0;}
+.wall .wg div:nth-last-child(-n+6){border-bottom:0;}
+.wall .wg img{max-height:clamp(24px,2.4vw,36px);max-width:78%;width:auto;height:auto;}
+.wall .wn{padding:12px clamp(18px,2.2vw,32px);font-size:12.5px;color:var(--muted);border-top:1px solid var(--rule);}
+@media(max-width:900px){.wall .wg{grid-template-columns:repeat(3,1fr);}.wall .wg div:nth-child(6n){border-right:1px solid var(--rule-soft);}.wall .wg div:nth-child(3n){border-right:0;}.wall .wg div:nth-last-child(-n+6){border-bottom:1px solid var(--rule-soft);}.wall .wg div:nth-last-child(-n+3){border-bottom:0;}}
+@media(max-width:820px){.wall .wh{grid-template-columns:1fr;}.wall .wh > div:first-child{border-right:0;border-bottom:1px solid var(--rule-soft);}}
+@media(max-width:480px){.wall .wg{grid-template-columns:repeat(2,1fr);}.wall .wg div:nth-child(3n){border-right:1px solid var(--rule-soft);}.wall .wg div:nth-child(2n){border-right:0;}.wall .wg div:nth-last-child(-n+3){border-bottom:1px solid var(--rule-soft);}.wall .wg div:nth-last-child(-n+2){border-bottom:0;}}
 </style>
 </head>
 <body>
@@ -1252,9 +1267,16 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 
 <section class="sec" id="shelves" style="padding-top:0">
   <div class="wrap stack">
-    <div class="shelves rv">
-      <span class="sh-t">Lines made on this campus sit on the shelves of national mass, drug, grocery and specialty retailers. Channels, not clients &#8212; client names stay private.</span>
-      <img src="../img/rt-walmart.png" alt="Walmart"><img src="../img/rt-target.png" alt="Target"><img src="../img/rt-costco.png" alt="Costco"><img src="../img/rt-amazon.png" alt="Amazon"><img src="../img/rt-wholefoods.png" alt="Whole Foods"><img src="../img/rt-cvs.png" alt="CVS"><img src="../img/rt-walgreens.png" alt="Walgreens"><img src="../img/rt-gnc.png" alt="GNC"><img src="../img/rt-iherb.png" alt="iHerb"><img src="../img/rt-publix.png" alt="Publix"><img src="../img/rt-heb.png" alt="H-E-B"><img src="../img/rt-hyvee.png" alt="Hy-Vee">
+    <div class="wall rv">
+      <div class="wh">
+        <div><span class="lab">Where the lines go</span><p class="stmt" style="margin-top:.4em;font-size:clamp(22px,2.6vw,36px)">On the shelves of every national channel.</p></div>
+        <div><p class="small" style="max-width:52ch">Lines made on this campus sit in national mass, drug, grocery and specialty retail. A line that starts with your employees goes to market on the same equipment that already supplies these shelves.</p></div>
+      </div>
+      <div class="wg">
+        <div><img src="../img/rt-walmart.png" alt="Walmart"></div><div><img src="../img/rt-target.png" alt="Target"></div><div><img src="../img/rt-costco.png" alt="Costco"></div><div><img src="../img/rt-amazon.png" alt="Amazon"></div><div><img src="../img/rt-wholefoods.png" alt="Whole Foods"></div><div><img src="../img/rt-cvs.png" alt="CVS"></div>
+        <div><img src="../img/rt-walgreens.png" alt="Walgreens"></div><div><img src="../img/rt-gnc.png" alt="GNC"></div><div><img src="../img/rt-iherb.png" alt="iHerb"></div><div><img src="../img/rt-publix.png" alt="Publix"></div><div><img src="../img/rt-heb.png" alt="H-E-B"></div><div><img src="../img/rt-hyvee.png" alt="Hy-Vee"></div>
+      </div>
+      <div class="wn">Channels, not clients. Client names stay private under mutual NDA.</div>
     </div>
   </div>
 </section>
@@ -1398,10 +1420,10 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
 
 
 
-<section class="stpage lt" aria-label="Closing statement">
-  <img src="../img/ep-close.jpg?v=1" alt="" loading="lazy" style="object-position:center 50%">
+<section class="stpage" aria-label="Closing statement">
+  <img src="../img/ep-close2.jpg?v=1" alt="" loading="lazy" style="object-position:center 40%">
   <div class="wrap sg">
-    <h2 class="h2" style="max-width:11ch">The product is yours. The platform is ready.</h2>
+    <h2 class="h2" style="max-width:10ch">The product is yours. The platform is ready.</h2>
     <p>Three in four adults already buy supplements, and your wellness budget is already paying for them. Build the line for your employees first, on one campus, then take it to market from the same lines &#8212; or run it in every office and stop there. Either way, the name on it is yours.</p>
   </div>
 </section>
