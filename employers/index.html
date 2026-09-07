@@ -9,6 +9,8 @@
 <meta property="og:description" content="The case for adding a supplement benefit to your package — curated from 800+ ready formulas, branded for your organization, delivered to your people.">
 <meta property="og:image" content="https://fame-platform-deck.vercel.app/img/og.jpg">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="icon" href="../img/mark.png">
 <style>
 :root{
@@ -381,8 +383,7 @@ em.acc{font-style:italic;color:var(--teal-deep);}
 
 /* full-bleed statement cover (their statement page) */
 .stcover{position:relative;overflow:hidden;border-bottom:1px solid var(--rule);background:#101315;min-height:clamp(440px,60vw,720px);display:flex;align-items:stretch;}
-.stcover img{position:absolute;top:0;bottom:0;left:8%;width:120%;height:100%;object-fit:cover;}
-@media(max-width:820px){.stcover img{left:0;width:100%;}}
+.stcover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .stcover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,13,15,.62) 0%,rgba(12,13,15,.3) 50%,rgba(12,13,15,.08) 100%);}
 .stcover .scw{position:relative;z-index:1;width:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(16px,2vw,26px);padding:clamp(48px,7vw,110px) 0;}
 .stcover .h1{color:#fff;font-size:clamp(36px,5.2vw,76px);line-height:1.02;max-width:14ch;text-shadow:0 1px 3px rgba(0,0,0,.5),0 2px 28px rgba(0,0,0,.4);margin:0;}
@@ -462,6 +463,46 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
 
 /* statement blocks with italic emphasis */
 .stcell{border:1px solid var(--rule);background:var(--aqua-2);padding:clamp(24px,3vw,48px);display:flex;flex-direction:column;gap:12px;}
+
+/* ===== scale & air: their type sizes, their labels, their rules ===== */
+body{font-family:"Instrument Sans","Helvetica Neue",Helvetica,"Segoe UI",Arial,sans-serif;font-size:16px;}
+.body{font-size:clamp(16px,1.25vw,19px);line-height:1.5;}
+.small{font-size:clamp(14px,1.05vw,15.5px);line-height:1.5;}
+.lab{font-size:12.5px;letter-spacing:.06em;color:var(--teal-deep);}
+.h2{font-size:clamp(32px,4vw,58px);line-height:1.04;}
+.stmt{font-size:clamp(30px,3.6vw,54px);}
+.stcover .h1{font-size:clamp(40px,6vw,88px);max-width:12ch;}
+.stcover p{font-size:clamp(16px,1.45vw,21px);}
+.sec{padding:clamp(56px,7vw,110px) 0;}
+.sec-head{border-bottom:1px solid var(--rule);padding-bottom:clamp(22px,2.6vw,36px);align-items:end;}
+.sec .wrap{position:relative;}
+.sec[data-p]::after{content:attr(data-p);position:absolute;right:var(--gut,24px);bottom:clamp(14px,1.8vw,26px);font-size:12px;color:var(--muted);letter-spacing:.06em;}
+table.cmp td.us,table.cmp td.them{font-size:clamp(18px,2vw,27px);}
+table.cmp td.k{font-size:13.5px;color:var(--teal-deep);}
+table.cmp thead th{font-size:13px;}
+.bignum{font-size:clamp(48px,6vw,92px);}
+.tile{min-height:clamp(300px,30vw,460px);}
+.tile .tt b{font-size:clamp(22px,2.3vw,32px);}
+.tile .tt i{font-size:clamp(14.5px,1.25vw,17px);max-width:34ch;}
+.ncells .nc b{font-size:clamp(18px,1.6vw,22px);}
+.ncells .nc i{font-size:clamp(14px,1.1vw,16px);}
+.ncells .nc{gap:12px;padding:clamp(24px,2.8vw,40px) clamp(20px,2.2vw,32px);}
+.chip{font-size:12px;padding:3px 10px;align-self:flex-start;}
+.venn .vt{font-size:21px;} .venn .vi{font-size:14px;} .venn .notes{font-size:14px;} .venn .notes b{font-size:13px;}
+.venn .chipT{font-size:12px;}
+.qa .q{font-size:clamp(18px,1.6vw,23px);}
+.qa .qcell{gap:12px;padding:clamp(26px,3vw,44px) clamp(20px,2.4vw,36px);}
+.statstrip .big{font-size:clamp(34px,3.6vw,56px);} .statstrip .cap{font-size:12.5px;} .statstrip .sub{font-size:12px;}
+table.phase th,table.phase td{font-size:14.5px;line-height:1.5;}
+table.phase thead th{font-size:clamp(20px,2.2vw,30px);}
+table.phase td.dur{font-size:clamp(16px,1.6vw,21px);}
+.certrow .cr-t{font-size:13px;}
+.ctapanel .ct-h{font-size:clamp(24px,2.8vw,40px);font-weight:400;letter-spacing:-.022em;}
+.ctapanel .ct-s{font-size:clamp(14.5px,1.15vw,17px);}
+.epband .h2{max-width:16ch;}
+.epband p{font-size:clamp(16px,1.35vw,20px);max-width:46ch;}
+.epband .bwrap{padding:clamp(80px,11vw,170px) 0;}
+.epmeta{font-size:12.5px;}
 </style>
 </head>
 <body>
@@ -493,7 +534,7 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
 
 <!-- COVER: statement page -->
 <section class="stcover">
-  <img src="../img/cv-starterkit.jpg" alt="An open kit box of unbranded supplement stick packs" style="object-position:74% 50%">
+  <img src="../img/ep-cover.jpg" alt="A woman takes a supplement with a glass of water at a kitchen counter in the morning" style="object-position:62% 40%">
   <div class="wrap scw">
     <div>
       <span class="lab">For benefits &amp; people teams</span>
@@ -504,7 +545,7 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
 </section>
 
 <!-- 01 WHY: statement + the table is the chart -->
-<section class="sec" id="case">
+<section class="sec" id="case" data-p="01">
   <div class="wrap stack">
     <div class="sd rv">
       <div class="sdl">
@@ -533,7 +574,7 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
 </section>
 
 <!-- 02 THE PROGRAM: photo quadrant -->
-<section class="sec alt" id="program">
+<section class="sec alt" id="program" data-p="02">
   <div class="wrap stack">
     <div class="sec-head rv">
       <div><span class="lab">02 &#183; The program</span><h2 class="h2">Pick a range. Put your name on it. <em class="acc">We handle the rest.</em></h2></div>
@@ -542,25 +583,27 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
     <div class="tiles rv">
       <div class="tile"><img src="../img/sd-bottles-color.jpg?v=3" alt="" loading="lazy"><div class="tt"><b>A curated range</b><i>(800+ ready formulations across 65+ health categories)</i></div></div>
       <div class="tile"><img src="../img/cv-cartons.jpg?v=2" alt="" loading="lazy"><div class="tt"><b>Your brand on the pack</b><i>(labels, cartons and kits designed in-house around your identity)</i></div></div>
-      <div class="tile"><img src="../img/sd-sticks.jpg?v=3" alt="" loading="lazy"><div class="tt"><b>Formats people keep up with</b><i>(capsules, gummies, powders and stick packs &#8212; the ones that fit a morning)</i></div></div>
-      <div class="tile"><img src="../img/cu-refill.jpg" alt="" loading="lazy"><div class="tt"><b>Delivered monthly</b><i>(kitted where it is made, shipped to every employee&#8217;s door)</i></div></div>
+      <div class="tile"><img src="../img/ep-hands.jpg" alt="" loading="lazy" style="object-position:center 65%"><div class="tt"><b>Formats people keep up with</b><i>(capsules, gummies, powders and stick packs &#8212; the ones that fit a morning)</i></div></div>
+      <div class="tile"><img src="../img/ep-office.jpg" alt="" loading="lazy" style="object-position:60% 40%"><div class="tt"><b>Delivered monthly</b><i>(kitted where it is made, shipped to every employee&#8217;s door)</i></div></div>
     </div>
   </div>
 </section>
 
-<!-- STATEMENT BAND -->
+
+
+<!-- STATEMENT PAGE: the person -->
 <section class="epband">
-  <img src="../img/band-botanicals.jpg" alt="" loading="lazy">
+  <img src="../img/ep-family.jpg" alt="" loading="lazy" style="object-position:center 38%">
   <div class="wrap bwrap">
     <div class="bgrid">
-      <div><span class="lab">The platform behind it</span><h2 class="h2">One campus makes this simple.</h2></div>
-      <p>Sourcing, formulation, manufacturing, testing, packing and shipping happen in one place. For a benefits team that means one contract and one accountable partner &#8212; not a vendor chain.</p>
+      <div><span class="lab">Personal by design</span><h2 class="h2">Each person picks what fits their life.</h2></div>
+      <p>Sleep for the new parent. Energy for the early shift. Joint support for the weekend runner. One benefit, as many versions as you have people &#8212; and the employer never sees who chose what.</p>
     </div>
   </div>
 </section>
 
 <!-- 03 NEED STATES: numbered cells -->
-<section class="sec" id="range">
+<section class="sec" id="range" data-p="03">
   <div class="wrap stack">
     <div class="sec-head rv">
       <div><span class="lab">03 &#183; What employees choose from</span><h2 class="h2">Six need states cover <em class="acc">most of a workforce</em>.</h2></div>
@@ -579,7 +622,7 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
 </section>
 
 <!-- 04 THREE PILLARS: venn -->
-<section class="sec alt" id="pillars">
+<section class="sec alt" id="pillars" data-p="04">
   <div class="wrap stack">
     <div class="venn rv">
       <div class="vl">
@@ -621,7 +664,7 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
 </section>
 
 <!-- 05 FOR YOUR COUNSEL -->
-<section class="sec" id="trust">
+<section class="sec" id="trust" data-p="05">
   <div class="wrap stack">
     <div class="sec-head rv">
       <div><span class="lab">05 &#183; For your counsel</span><h2 class="h2">The questions legal will ask, <em class="acc">answered before the first call</em>.</h2></div>
@@ -636,8 +679,19 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
   </div>
 </section>
 
+<!-- STATEMENT BAND -->
+<section class="epband">
+  <img src="../img/band-botanicals.jpg" alt="" loading="lazy">
+  <div class="wrap bwrap">
+    <div class="bgrid">
+      <div><span class="lab">The platform behind it</span><h2 class="h2">One campus makes this simple.</h2></div>
+      <p>Sourcing, formulation, manufacturing, testing, packing and shipping happen in one place. For a benefits team that means one contract and one accountable partner &#8212; not a vendor chain.</p>
+    </div>
+  </div>
+</section>
+
 <!-- 06 THE PARTNER -->
-<section class="sec alt" id="partner">
+<section class="sec alt" id="partner" data-p="06">
   <div class="wrap stack">
     <div class="sec-head rv">
       <div><span class="lab">06 &#183; The partner</span><h2 class="h2">One company, <em class="acc">formula to front door</em>.</h2></div>
@@ -666,7 +720,7 @@ table.phase tr.gate i{color:rgba(255,255,255,.85);}
 </section>
 
 <!-- 07 HOW IT STARTS: phase table -->
-<section class="sec" id="start">
+<section class="sec" id="start" data-p="07">
   <div class="wrap stack">
     <div class="sec-head rv">
       <div><span class="lab">07 &#183; How it starts</span><h2 class="h2">Pilot small. Prove it. <em class="acc">Roll it out.</em></h2></div>
