@@ -682,7 +682,20 @@ table.prec thead th{font-size:12.5px;letter-spacing:.06em;color:var(--teal-deep)
 table.prec td.b{font-weight:600;color:var(--ink);}
 table.prec td.y{color:var(--teal-deep);font-variant-numeric:tabular-nums;white-space:nowrap;width:9%;}
 .precwrap{border:1px solid var(--rule);overflow-x:auto;background:var(--paper);}
-@media(max-width:820px){table.prec{min-width:640px;}}
+@media(max-width:820px){table.prec{min-width:640px;}
+table.prec tbody tr{transition:background .15s;}
+table.prec tbody tr:hover,table.prec tbody tr.on{background:#eefafb;}
+table.prec a{color:var(--teal-deep);text-decoration:underline;text-decoration-color:rgba(18,124,136,.35);text-underline-offset:3px;}
+table.prec a:hover{text-decoration-color:currentColor;}
+table.prec a::after{content:"\2197";font-size:.72em;margin-left:.18em;vertical-align:.1em;}
+svg.mx a{cursor:pointer;}
+svg.mx a .chip,svg.mx .chip{transition:stroke .15s,fill .15s;}
+svg.mx a:hover .chip{stroke:var(--cyan);fill:#eefafb;}
+svg.mx a:hover .cht,svg.mx text a:hover tspan{fill:var(--teal-deep);text-decoration:underline;}
+svg.mx g.co{transition:opacity .2s;}
+svg.mx g.co.dim{opacity:.22;}
+svg.mx g.co.hl .chip{stroke:var(--cyan);stroke-width:2;fill:#eefafb;}
+svg.mx g.co{cursor:default;}}
 
 /* ===== door selector: buttons select, one readout explains ===== */
 .doors{border:1px solid var(--rule);background:var(--paper);}
@@ -1056,13 +1069,13 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
         <table class="prec">
           <thead><tr><th>Enterprise</th><th>Route</th><th>The move</th><th>Where it stands</th></tr></thead>
           <tbody>
-            <tr><td class="b">Costco</td><td>Built a label</td><td>Kirkland Signature vitamins among the first Kirkland products, 1995</td><td>The label sells about $86 billion a year across categories</td></tr>
-            <tr><td class="b">Amazon</td><td>Built a label</td><td>Amazon Elements supplements, launched to Prime members, 2017</td><td>Dozens of vitamins and supplements under the house brand</td></tr>
-            <tr><td class="b">Walmart</td><td>Built a label</td><td>Spring Valley and Equate vitamins under house brands</td><td>House-brand vitamins under two labels</td></tr>
-            <tr><td class="b">Unilever</td><td>Bought in</td><td>Olly, 2019; Liquid I.V. and SmartyPants, 2020; Onnit, 2021</td><td>A functional-nutrition portfolio built in three years</td></tr>
-            <tr><td class="b">Church &amp; Dwight</td><td>Bought in</td><td>vitafusion and L&#8217;il Critters gummies, $650 million, 2012</td><td>The number one adult and kids&#8217; gummy brands</td></tr>
-            <tr><td class="b">Procter &amp; Gamble</td><td>Bought in</td><td>New Chapter, 2012 &#8212; its first step into supplements</td><td>Still a P&amp;G subsidiary</td></tr>
-<tr><td class="b">Under Armour</td><td>Licensed the name</td><td>Sports supplements under license since the mid-2000s (Inner Armour, est. 2005); a UA-branded range sells in European sports retail today</td><td>The license changed hands in 2021. The name is on the pack; a licensee makes and sells the product</td></tr>
+            <tr data-co="costco"><td class="b">Costco</td><td>Built a label</td><td><a href="https://www.costco.com/kirkland-signature.html" target="_blank" rel="noopener">Kirkland Signature</a> vitamins among the first Kirkland products, 1995</td><td>The label sells about $86 billion a year across categories</td></tr>
+            <tr data-co="amazon"><td class="b">Amazon</td><td>Built a label</td><td><a href="https://www.amazon.com/s?k=amazon+elements+supplements" target="_blank" rel="noopener">Amazon Elements</a> supplements, launched to Prime members, 2017</td><td>Dozens of vitamins and supplements under the house brand</td></tr>
+            <tr data-co="walmart"><td class="b">Walmart</td><td>Built a label</td><td><a href="https://www.walmart.com/search?q=spring+valley+vitamins" target="_blank" rel="noopener">Spring Valley</a> and <a href="https://www.walmart.com/search?q=equate+vitamins" target="_blank" rel="noopener">Equate</a> vitamins under house brands</td><td>House-brand vitamins under two labels</td></tr>
+            <tr data-co="unilever"><td class="b">Unilever</td><td>Bought in</td><td><a href="https://www.olly.com" target="_blank" rel="noopener">Olly</a>, 2019; <a href="https://www.liquid-iv.com" target="_blank" rel="noopener">Liquid I.V.</a> and <a href="https://www.smartypantsvitamins.com" target="_blank" rel="noopener">SmartyPants</a>, 2020; <a href="https://www.onnit.com" target="_blank" rel="noopener">Onnit</a>, 2021</td><td>A functional-nutrition portfolio built in three years</td></tr>
+            <tr data-co="cd"><td class="b">Church &amp; Dwight</td><td>Bought in</td><td><a href="https://vitafusion.com" target="_blank" rel="noopener">vitafusion</a> and <a href="https://lilcritters.com" target="_blank" rel="noopener">L&#8217;il Critters</a> gummies, $650 million, 2012</td><td>The number one adult and kids&#8217; gummy brands</td></tr>
+            <tr data-co="pg"><td class="b">Procter &amp; Gamble</td><td>Bought in</td><td><a href="https://newchapter.com" target="_blank" rel="noopener">New Chapter</a>, 2012 &#8212; its first step into supplements</td><td>Still a P&amp;G subsidiary</td></tr>
+<tr data-co="ua"><td class="b">Under Armour</td><td>Licensed the name</td><td>Sports supplements under license since the mid-2000s (<a href="https://innerarmour.com" target="_blank" rel="noopener">Inner Armour</a>, est. 2005); a <a href="https://gymbeam.com/sports-nutrition/under-armour" target="_blank" rel="noopener">UA-branded range</a> sells in European sports retail today</td><td>The license changed hands in 2021. The name is on the pack; a licensee makes and sells the product</td></tr>
           </tbody>
         </table>
         </div>
@@ -1089,20 +1102,20 @@ table.vs td small{display:block;font-size:12.5px;color:var(--muted);margin-top:6
           <text class="wsn" x="1046" y="128" text-anchor="end">built on one campus and taken to market from it.</text>
           <rect class="chip" x="730" y="300" width="152" height="28" rx="6"/><text class="cht" x="806" y="319" text-anchor="middle">Your name here</text>
           <text class="note" x="60" y="110">Empty by nature: a brand you buy already has customers,</text><text class="note" x="60" y="130">so it never starts with employees.</text>
-          <text class="wm" x="90" y="470" font-size="40">Unilever</text><circle cx="286" cy="446" r="8" fill="var(--cyan)"/>
-          <rect class="chip" x="90" y="486" width="300" height="28" rx="6"/><text class="cht" x="240" y="505" text-anchor="middle">Olly &#183; Liquid I.V. &#183; SmartyPants &#183; Onnit</text>
-          <text class="wm" x="90" y="590" font-size="26">Church &amp; Dwight</text><circle cx="312" cy="570" r="8" fill="var(--deep)"/>
-          <rect class="chip" x="90" y="604" width="190" height="28" rx="6"/><text class="cht" x="185" y="623" text-anchor="middle">vitafusion &#183; L&#8217;il Critters</text>
-          <text class="wm" x="340" y="680" font-size="34">P&amp;G</text><circle cx="420" cy="658" r="8" fill="var(--cyan)"/>
-          <rect class="chip" x="340" y="694" width="120" height="28" rx="6"/><text class="cht" x="400" y="713" text-anchor="middle">New Chapter</text>
-          <rect x="446" y="556" width="208" height="38" fill="#fff"/><text class="wm" x="550" y="584" font-size="24" text-anchor="middle">Under Armour</text><circle cx="646" cy="566" r="7" fill="none" stroke="var(--grey)" stroke-width="2"/>
-          <rect class="chip" x="440" y="600" width="220" height="28" rx="6"/><text class="cht" x="550" y="619" text-anchor="middle">Inner Armour &#183; licensed</text>
-          <image href="../img/rt-costco.png" x="600" y="420" width="190" height="60" preserveAspectRatio="xMinYMid meet"/>
-          <rect class="chip" x="600" y="490" width="150" height="28" rx="6"/><text class="cht" x="675" y="509" text-anchor="middle">Kirkland Signature</text>
-          <image href="../img/rt-amazon.png" x="840" y="430" width="190" height="60" preserveAspectRatio="xMinYMid meet"/>
-          <rect class="chip" x="840" y="500" width="150" height="28" rx="6"/><text class="cht" x="915" y="519" text-anchor="middle">Amazon Elements</text>
-          <image href="../img/rt-walmart.png" x="680" y="580" width="220" height="60" preserveAspectRatio="xMinYMid meet"/>
-          <rect class="chip" x="680" y="650" width="180" height="28" rx="6"/><text class="cht" x="770" y="669" text-anchor="middle">Spring Valley &#183; Equate</text>
+          <g class="co" data-co="unilever"><text class="wm" x="90" y="470" font-size="40">Unilever</text><circle cx="286" cy="446" r="8" fill="var(--cyan)"/>
+          <rect class="chip" x="90" y="486" width="300" height="28" rx="6"/><text class="cht" x="240" y="505" text-anchor="middle"><a href="https://www.olly.com" target="_blank" rel="noopener"><tspan>Olly</tspan></a> &#183; <a href="https://www.liquid-iv.com" target="_blank" rel="noopener"><tspan>Liquid I.V.</tspan></a> &#183; <a href="https://www.smartypantsvitamins.com" target="_blank" rel="noopener"><tspan>SmartyPants</tspan></a> &#183; <a href="https://www.onnit.com" target="_blank" rel="noopener"><tspan>Onnit</tspan></a></text></g>
+          <g class="co" data-co="cd"><text class="wm" x="90" y="590" font-size="26">Church &amp; Dwight</text><circle cx="312" cy="570" r="8" fill="var(--deep)"/>
+          <rect class="chip" x="90" y="604" width="190" height="28" rx="6"/><text class="cht" x="185" y="623" text-anchor="middle"><a href="https://vitafusion.com" target="_blank" rel="noopener"><tspan>vitafusion</tspan></a> &#183; <a href="https://lilcritters.com" target="_blank" rel="noopener"><tspan>L&#8217;il Critters</tspan></a></text></g>
+          <g class="co" data-co="pg"><text class="wm" x="340" y="680" font-size="34">P&amp;G</text><circle cx="420" cy="658" r="8" fill="var(--cyan)"/>
+          <a href="https://newchapter.com" target="_blank" rel="noopener"><rect class="chip" x="340" y="694" width="120" height="28" rx="6"/><text class="cht" x="400" y="713" text-anchor="middle">New Chapter</text></a></g>
+          <g class="co" data-co="ua"><rect x="446" y="556" width="208" height="38" fill="#fff"/><text class="wm" x="550" y="584" font-size="24" text-anchor="middle">Under Armour</text><circle cx="646" cy="566" r="7" fill="none" stroke="var(--grey)" stroke-width="2"/>
+          <rect class="chip" x="440" y="600" width="220" height="28" rx="6"/><text class="cht" x="550" y="619" text-anchor="middle"><a href="https://innerarmour.com" target="_blank" rel="noopener"><tspan>Inner Armour</tspan></a> &#183; <a href="https://gymbeam.com/sports-nutrition/under-armour" target="_blank" rel="noopener"><tspan>licensed</tspan></a></text></g>
+          <g class="co" data-co="costco"><image href="../img/rt-costco.png" x="600" y="420" width="190" height="60" preserveAspectRatio="xMinYMid meet"/>
+          <a href="https://www.costco.com/kirkland-signature.html" target="_blank" rel="noopener"><rect class="chip" x="600" y="490" width="150" height="28" rx="6"/><text class="cht" x="675" y="509" text-anchor="middle">Kirkland Signature</text></a></g>
+          <g class="co" data-co="amazon"><image href="../img/rt-amazon.png" x="840" y="430" width="190" height="60" preserveAspectRatio="xMinYMid meet"/>
+          <a href="https://www.amazon.com/s?k=amazon+elements+supplements" target="_blank" rel="noopener"><rect class="chip" x="840" y="500" width="150" height="28" rx="6"/><text class="cht" x="915" y="519" text-anchor="middle">Amazon Elements</text></a></g>
+          <g class="co" data-co="walmart"><image href="../img/rt-walmart.png" x="680" y="580" width="220" height="60" preserveAspectRatio="xMinYMid meet"/>
+          <rect class="chip" x="680" y="650" width="180" height="28" rx="6"/><text class="cht" x="770" y="669" text-anchor="middle"><a href="https://www.walmart.com/search?q=spring+valley+vitamins" target="_blank" rel="noopener"><tspan>Spring Valley</tspan></a> &#183; <a href="https://www.walmart.com/search?q=equate+vitamins" target="_blank" rel="noopener"><tspan>Equate</tspan></a></text></g>
         </svg>
       </div>
     </div>
@@ -1564,5 +1577,9 @@ function toggleTheme(){
   window.addEventListener('resize',update); update();
 })();
 </script>
+<script>(function(){var rows=document.querySelectorAll('table.prec tbody tr[data-co]');var gs=document.querySelectorAll('svg.mx g.co');if(!rows.length||!gs.length)return;var pinned=null;function set(co){gs.forEach(function(g){var m=g.getAttribute('data-co')===co;g.classList.toggle('hl',!!co&&m);g.classList.toggle('dim',!!co&&!m);});rows.forEach(function(r){r.classList.toggle('on',!!co&&r.getAttribute('data-co')===co);});}
+rows.forEach(function(r){var co=r.getAttribute('data-co');r.addEventListener('mouseenter',function(){set(co);});r.addEventListener('mouseleave',function(){set(pinned);});r.addEventListener('click',function(e){if(e.target.closest('a'))return;pinned=(pinned===co)?null:co;set(pinned);});});
+gs.forEach(function(g){var co=g.getAttribute('data-co');g.addEventListener('mouseenter',function(){set(co);});g.addEventListener('mouseleave',function(){set(pinned);});});
+document.addEventListener('click',function(e){if(pinned&&!e.target.closest('table.prec')&&!e.target.closest('svg.mx')){pinned=null;set(null);}});})();</script>
 </body>
 </html>
