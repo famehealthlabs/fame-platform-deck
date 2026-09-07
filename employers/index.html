@@ -362,6 +362,65 @@ table.cmp td b{color:var(--ink);font-weight:700;}
 
 /* CTA overflow + hero shadow (kept) */
 @media(max-width:760px){.ctapanel .ct-go{white-space:normal;overflow-wrap:anywhere;}}
+
+/* Squared Circles motif: quarter-circle mosaic over the cover photo */
+.epc-r .mosaic{position:absolute;inset:0;width:100%;height:100%;display:block;}
+.mosaic .pp{fill:var(--paper);}
+.mosaic .ink{fill:var(--ink);}
+.mosaic .gridl{fill:none;stroke:var(--rule);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.9;}
+
+/* ruled meta row (the deck's header strip) */
+.epmeta{display:grid;grid-template-columns:auto 1fr auto 1fr auto 1fr;border-bottom:1px solid var(--rule);font-size:11.5px;letter-spacing:.02em;}
+.epmeta span{padding:11px 16px;border-right:1px solid var(--rule-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+.epmeta span:last-child{border-right:0;}
+.epmeta .k{font-weight:700;} .epmeta .v{color:var(--muted);}
+.epmeta span:first-child{padding-left:0;}
+@media(max-width:760px){.epmeta{grid-template-columns:auto 1fr;}.epmeta span:nth-child(n+3){display:none;}}
+
+/* program tiles: name + italic descriptor set on the photograph */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);}
+.tile{position:relative;overflow:hidden;border-right:1px solid var(--rule);min-height:clamp(280px,26vw,400px);background:var(--panel);}
+.tile:last-child{border-right:0;}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1);}
+.tile:hover img{transform:scale(1.035);}
+.tile::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(12,13,15,.5) 0%,rgba(12,13,15,.32) 45%,rgba(12,13,15,.14) 100%);}
+.tile .tt{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(18px,2.4vw,34px);color:#fff;gap:8px;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 24px rgba(0,0,0,.35);}
+.tile .tt b{font-size:clamp(18px,1.9vw,26px);letter-spacing:-.018em;line-height:1.1;}
+.tile .tt i{font-size:clamp(13.5px,1.15vw,16px);line-height:1.45;max-width:30ch;color:rgba(255,255,255,.94);}
+@media(max-width:820px){.tiles{grid-template-columns:1fr;}.tile{border-right:0;border-bottom:1px solid var(--rule);min-height:64vw;}.tile:last-child{border-bottom:0;}}
+
+/* band: statement left, body bottom-right (the deck's statement page) */
+.epband .bgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,64px);align-items:end;}
+.epband .bgrid p{margin:0;justify-self:end;}
+@media(max-width:820px){.epband .bgrid{grid-template-columns:1fr;}.epband .bgrid p{justify-self:start;}}
+
+/* founding partners on the arc-grid ground */
+.founding{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--rule);background:var(--aqua-2);overflow:hidden;}
+.founding .ft{padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;gap:10px;justify-content:center;}
+.founding .ft q{font-size:clamp(17px,1.7vw,24px);line-height:1.3;letter-spacing:-.016em;font-style:italic;quotes:"\201C" "\201D";}
+.founding .fa{position:relative;border-left:1px solid var(--rule);min-height:200px;}
+.founding .fa svg{position:absolute;inset:0;width:100%;height:100%;}
+.founding .fa .l{fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke;opacity:.85;}
+.founding .fa .a{fill:none;stroke:var(--ink);stroke-width:1.2;vector-effect:non-scaling-stroke;}
+.founding .fa .d{fill:var(--teal-deep);}
+@media(max-width:820px){.founding{grid-template-columns:1fr;}.founding .fa{border-left:0;border-top:1px solid var(--rule);min-height:150px;}}
+
+/* reveal choreography (motion-gated) */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.85,.3,1);}
+.rv.in{opacity:1;transform:none;}
+.why.rv.in .wcell,.ns.rv.in .ncell{animation:none;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+
+/* counsel Q&A: squares carry the answers */
+.qa{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);background:var(--paper);}
+.qa .qcell{padding:clamp(22px,2.6vw,38px) clamp(18px,2.2vw,32px);border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:10px;min-width:0;}
+.qa .qcell:nth-child(2n){border-right:0;}
+.qa .qcell:nth-last-child(-n+2){border-bottom:0;}
+.qa .qcell:nth-child(1),.qa .qcell:nth-child(4){background:var(--aqua-2);}
+.qa .q{font-size:clamp(15.5px,1.4vw,19px);letter-spacing:-.014em;font-weight:700;margin:0;}
+.qa .q::before{content:"Q\00a0\00b7\00a0";color:var(--teal-deep);font-weight:700;}
+.qa p{margin:0;}
+@media(max-width:820px){.qa{grid-template-columns:1fr;}.qa .qcell{border-right:0!important;}.qa .qcell:nth-last-child(-n+2){border-bottom:1px solid var(--rule-soft);}.qa .qcell:last-child{border-bottom:0;}}
 </style>
 </head>
 <body>
@@ -375,15 +434,25 @@ table.cmp td b{color:var(--ink);font-weight:700;}
   </div>
 </header>
 
+<nav class="toc" aria-label="Contents"><div class="cells" id="toccells">
+  <a href="#case"><span style="color:var(--teal-deep);margin-right:.5em">01</span>Why This Benefit</a>
+  <a href="#program"><span style="color:var(--teal-deep);margin-right:.5em">02</span>The Program</a>
+  <a href="#range"><span style="color:var(--teal-deep);margin-right:.5em">03</span>Need States</a>
+  <a href="#trust"><span style="color:var(--teal-deep);margin-right:.5em">04</span>For Your Counsel</a>
+  <a href="#partner"><span style="color:var(--teal-deep);margin-right:.5em">05</span>The Partner</a>
+  <a href="#start"><span style="color:var(--teal-deep);margin-right:.5em">06</span>How It Starts</a>
+</div></nav>
+
 <!-- COVER: type cell + photo cell -->
 <section class="epcover">
   <div class="epwrap">
+    <div class="epmeta"><span class="k">F.A.M.E. Health</span><span class="v">Workforce Wellness</span><span class="k">Format</span><span class="v">One-pager for benefits &amp; people teams</span><span class="k">Date</span><span class="v">2026</span></div>
     <div class="epc">
       <div class="epc-l">
         <span class="lab">For benefits &amp; people teams</span>
         <h1 class="h1" style="margin:0">Supplements as an employee benefit.</h1>
         <p class="body" style="max-width:50ch">A wellness benefit your people use every morning &#8212; chosen for their own goals, carrying your name, delivered to their door.</p>
-        <div class="ringrow">
+        <div class="ringrow rv">
           <svg class="ring" width="92" height="92" viewBox="0 0 92 92" role="img" aria-label="Three of four U.S. adults take dietary supplements">
             <circle class="track" cx="46" cy="46" r="38" fill="none" stroke-width="7"/>
             <circle class="arc" cx="46" cy="46" r="38" fill="none" stroke-width="7" stroke-linecap="butt"
@@ -393,7 +462,7 @@ table.cmp td b{color:var(--ink);font-weight:700;}
           <div class="rr-t"><b>Three in four U.S. adults already take dietary supplements.</b><span>CRN annual consumer survey. You are not creating a behavior &#8212; you are funding one.</span></div>
         </div>
       </div>
-      <div class="epc-r"><img src="../img/cv-starterkit.jpg" alt="An open kit box of unbranded supplement stick packs" style="object-position:center 40%"></div>
+      <div class="epc-r"><img src="../img/cv-starterkit.jpg" alt="An open kit box of unbranded supplement stick packs" style="object-position:center 50%"><svg class="mosaic" viewBox="0 0 560 630" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="0" y="0" width="70" height="70" class="pp"/><rect x="70" y="0" width="70" height="70" class="pp"/><path class="ink" d="M140 70L70 70A70 70 0 0 1 140 0Z"/><rect x="140" y="0" width="70" height="70" class="pp"/><path class="pp" fill-rule="evenodd" d="M210 0h70v70h-70z M210 70L210 0A70 70 0 0 1 280 70Z"/><rect x="350" y="0" width="70" height="70" class="pp"/><rect x="420" y="0" width="70" height="70" class="pp"/><path class="ink" d="M420 70L420 0A70 70 0 0 1 490 70Z"/><rect x="490" y="0" width="70" height="70" class="pp"/><rect x="0" y="70" width="70" height="70" class="pp"/><path class="ink" d="M70 70L70 140A70 70 0 0 1 0 70Z"/><rect x="70" y="70" width="70" height="70" class="pp"/><path class="pp" fill-rule="evenodd" d="M140 70h70v70h-70z M210 140L140 140A70 70 0 0 1 210 70Z"/><path class="pp" fill-rule="evenodd" d="M350 70h70v70h-70z M350 140L350 70A70 70 0 0 1 420 140Z"/><rect x="420" y="70" width="70" height="70" class="pp"/><rect x="490" y="70" width="70" height="70" class="pp"/><path class="ink" d="M490 70L560 70A70 70 0 0 1 490 140Z"/><rect x="0" y="140" width="70" height="70" class="pp"/><path class="pp" fill-rule="evenodd" d="M70 140h70v70h-70z M140 210L70 210A70 70 0 0 1 140 140Z"/><path class="pp" fill-rule="evenodd" d="M420 140h70v70h-70z M420 210L420 140A70 70 0 0 1 490 210Z"/><rect x="490" y="140" width="70" height="70" class="pp"/><path class="pp" fill-rule="evenodd" d="M0 210h70v70h-70z M70 280L0 280A70 70 0 0 1 70 210Z"/><path class="pp" fill-rule="evenodd" d="M490 210h70v70h-70z M490 280L490 210A70 70 0 0 1 560 280Z"/><path class="pp" fill-rule="evenodd" d="M0 350h70v70h-70z M70 350L70 420A70 70 0 0 1 0 350Z"/><path class="pp" fill-rule="evenodd" d="M490 350h70v70h-70z M490 350L560 350A70 70 0 0 1 490 420Z"/><rect x="0" y="420" width="70" height="70" class="pp"/><path class="pp" fill-rule="evenodd" d="M70 420h70v70h-70z M140 420L140 490A70 70 0 0 1 70 420Z"/><path class="pp" fill-rule="evenodd" d="M420 420h70v70h-70z M420 420L490 420A70 70 0 0 1 420 490Z"/><rect x="490" y="420" width="70" height="70" class="pp"/><rect x="0" y="490" width="70" height="70" class="pp"/><path class="ink" d="M70 560L0 560A70 70 0 0 1 70 490Z"/><rect x="70" y="490" width="70" height="70" class="pp"/><path class="pp" fill-rule="evenodd" d="M140 490h70v70h-70z M210 490L210 560A70 70 0 0 1 140 490Z"/><path class="pp" fill-rule="evenodd" d="M350 490h70v70h-70z M350 490L420 490A70 70 0 0 1 350 560Z"/><rect x="420" y="490" width="70" height="70" class="pp"/><rect x="490" y="490" width="70" height="70" class="pp"/><path class="ink" d="M490 560L490 490A70 70 0 0 1 560 560Z"/><rect x="0" y="560" width="70" height="70" class="pp"/><rect x="70" y="560" width="70" height="70" class="pp"/><path class="ink" d="M140 560L140 630A70 70 0 0 1 70 560Z"/><rect x="140" y="560" width="70" height="70" class="pp"/><path class="pp" fill-rule="evenodd" d="M210 560h70v70h-70z M280 560L280 630A70 70 0 0 1 210 560Z"/><rect x="350" y="560" width="70" height="70" class="pp"/><rect x="420" y="560" width="70" height="70" class="pp"/><path class="ink" d="M490 560L490 630A70 70 0 0 1 420 560Z"/><rect x="490" y="560" width="70" height="70" class="pp"/><path class="gridl" d="M0 0V630M70 0V630M140 0V630M210 0V630M280 0V630M350 0V630M420 0V630M490 0V630M560 0V630M0 0H560M0 70H560M0 140H560M0 210H560M0 280H560M0 350H560M0 420H560M0 490H560M0 560H560M0 630H560"/></svg></div>
     </div>
   </div>
 </section>
@@ -405,7 +474,7 @@ table.cmp td b{color:var(--ink);font-weight:700;}
       <div><span class="lab">01 &#183; Why this benefit</span><h2 class="h2">Most benefits are felt once a year. This one is felt every morning.</h2></div>
       <p class="body">Insurance and retirement matter when something happens. A supplement benefit lands at home, sits on the kitchen counter and gets used daily &#8212; a constant, visible sign that the company invests in its people.</p>
     </div>
-    <div class="why">
+    <div class="why rv">
       <div class="wcell">
         <svg class="gl36" viewBox="0 0 36 36" aria-hidden="true"><circle class="o" cx="18" cy="18" r="16"/><path class="i" d="M12 20.5a6.4 6.4 0 0 0 11.4-2.6M24 15.5A6.4 6.4 0 0 0 12.6 18.1"/><path class="i" d="M24 12.2v3.3h-3.3M12 23.8v-3.3h3.3"/></svg>
         <h3>Already a habit</h3>
@@ -432,19 +501,10 @@ table.cmp td b{color:var(--ink);font-weight:700;}
       <div><span class="lab">02 &#183; The program</span><h2 class="h2">Pick a range. Put your name on it. We handle the rest.</h2></div>
       <p class="body">One partner covers the whole program &#8212; formulas, branding, packing and delivery &#8212; from a single FDA-registered campus in Cedartown, Georgia.</p>
     </div>
-    <div class="imgcards">
-      <div class="icard">
-        <img src="../img/sd-bottles-color.jpg?v=3" alt="A family of unbranded supplement bottles" loading="lazy">
-        <div class="cap"><b>A curated range</b><p class="small">Choose from 800+ ready formulations across 65+ health categories &#8212; validated products your people can start using now.</p></div>
-      </div>
-      <div class="icard">
-        <img src="../img/cv-cartons.jpg?v=2" alt="A branded packaging family of cartons, bottles, jar and stick packs" loading="lazy">
-        <div class="cap"><b>Your brand on the pack</b><p class="small">Labels, cartons and kits designed in-house around your identity &#8212; on the counter, in the gym bag, on the desk.</p></div>
-      </div>
-      <div class="icard">
-        <img src="../img/cu-refill.jpg" alt="A keeper jar with its refill pouch" loading="lazy">
-        <div class="cap"><b>Delivered monthly</b><p class="small">Kitted on the same campus that makes the product, shipped to each employee&#8217;s home &#8212; keeper packs first, low-waste refills after.</p></div>
-      </div>
+    <div class="tiles rv">
+      <div class="tile"><img src="../img/sd-bottles-color.jpg?v=3" alt="" loading="lazy"><div class="tt"><b>A curated range</b><i>800+ ready formulations across 65+ health categories &#8212; validated products, chosen rather than built.</i></div></div>
+      <div class="tile"><img src="../img/cv-cartons.jpg?v=2" alt="" loading="lazy"><div class="tt"><b>Your brand on the pack</b><i>Labels, cartons and kits designed in-house around your identity.</i></div></div>
+      <div class="tile"><img src="../img/cu-refill.jpg" alt="" loading="lazy"><div class="tt"><b>Delivered monthly</b><i>Kitted where it is made and shipped to every employee&#8217;s door &#8212; keeper packs first, refills after.</i></div></div>
     </div>
   </div>
 </section>
@@ -453,9 +513,10 @@ table.cmp td b{color:var(--ink);font-weight:700;}
 <section class="epband">
   <img src="../img/band-botanicals.jpg" alt="" loading="lazy">
   <div class="wrap bwrap">
-    <span class="lab">The platform behind it</span>
-    <h2 class="h2">One campus makes this simple.</h2>
-    <p>Sourcing, formulation, manufacturing, testing, packing and shipping happen in one place. For a benefits team that means one contract and one accountable partner &#8212; not a vendor chain.</p>
+    <div class="bgrid">
+      <div><span class="lab">The platform behind it</span><h2 class="h2">One campus makes this simple.</h2></div>
+      <p>Sourcing, formulation, manufacturing, testing, packing and shipping happen in one place. For a benefits team that means one contract and one accountable partner &#8212; not a vendor chain.</p>
+    </div>
   </div>
 </section>
 
@@ -466,7 +527,7 @@ table.cmp td b{color:var(--ink);font-weight:700;}
       <div><span class="lab">03 &#183; What employees choose from</span><h2 class="h2">Six need states cover most of a workforce.</h2></div>
       <p class="body">Every formula is manufactured to cGMP standards and tested by an ISO/IEC 17025 accredited lab on our own campus, with a certificate of analysis on every batch.</p>
     </div>
-    <div class="ns">
+    <div class="ns rv">
       <div class="ncell">
         <svg class="gl36" viewBox="0 0 36 36" aria-hidden="true"><circle class="o" cx="18" cy="18" r="16"/><circle class="i" cx="18" cy="18" r="4.4"/><path class="i" d="M18 9.5v2.4M18 24.1v2.4M9.5 18h2.4M24.1 18h2.4M12 12l1.7 1.7M22.3 22.3 24 24M24 12l-1.7 1.7M13.7 22.3 12 24"/></svg>
         <h3>Everyday foundation</h3><p class="small">Complete daily multivitamins and minerals &#8212; the default pick, one per person per day.</p>
@@ -496,20 +557,36 @@ table.cmp td b{color:var(--ink);font-weight:700;}
   </div>
 </section>
 
-<!-- 04 THE PARTNER -->
-<section class="sec" id="partner">
+<!-- 04 FOR YOUR COUNSEL -->
+<section class="sec" id="trust">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">04 &#183; For your counsel</span><h2 class="h2">The questions legal will ask, answered before the first call.</h2></div>
+      <p class="body">A supplement benefit gets reviewed by lawyers before it gets loved by employees. The program is designed for that review.</p>
+    </div>
+    <div class="qa rv">
+      <div class="qcell"><h3 class="q">Is this safe to offer?</h3><p class="small">Everything is a dietary supplement under DSHEA &#8212; structure/function products, never treatments. Manufactured in an FDA-registered cGMP facility, and every batch is tested by an ISO/IEC 17025 accredited lab with a certificate of analysis before release. Participation is opt-in, always.</p></div>
+      <div class="qcell"><h3 class="q">What about medications and pregnancy?</h3><p class="small">Labels carry the standard advisories, including consulting a healthcare professional &#8212; and nothing in the program is positioned as treatment or a substitute for care. Employees choose products the way they do at retail today, with better-verified quality behind them.</p></div>
+      <div class="qcell"><h3 class="q">Who sees what employees choose?</h3><p class="small">Employees select and receive their products directly with F.A.M.E. The employer sees participation and spend in aggregate &#8212; never an individual&#8217;s selections. A colleague&#8217;s prenatal pick is not information their employer should ever hold, so the program is built so it can&#8217;t be.</p></div>
+      <div class="qcell"><h3 class="q">Who answers for quality?</h3><p class="small">One company sources, formulates, manufactures, tests and ships &#8212; so accountability never fragments across vendors. We prove quality with paper, not promises: the certificate of analysis exists for every batch, on file.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 THE PARTNER -->
+<section class="sec alt" id="partner">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">04 &#183; The partner</span><h2 class="h2">Quality you can hand to legal.</h2></div>
+      <div><span class="lab">05 &#183; The partner</span><h2 class="h2">One company, formula to front door.</h2></div>
       <p class="body">F.A.M.E. Health Labs is 100% women owned and made in the USA. Independent verification is in-house: our ISO/IEC 17025 accredited lab tests every batch before anything reaches an employee.</p>
     </div>
-    <div class="statstrip s4">
+    <div class="statstrip s4 rv">
       <div class="st"><div class="big num">800+</div><div class="cap">Ready Formulations</div><div class="sub">Stock formulas, ready to brand</div></div>
       <div class="st"><div class="big num">65+</div><div class="cap">Health Categories</div><div class="sub">From sleep to sports to prenatal</div></div>
       <div class="st"><div class="big num">100+</div><div class="cap">Brand Partners</div><div class="sub">Selling through F.A.M.E. formulas worldwide</div></div>
       <div class="st"><div class="big">100%</div><div class="cap">Women Owned</div><div class="sub">Made in USA &#183; approximately 75% female managed</div></div>
     </div>
-    <div class="certrow">
+    <div class="certrow rv">
       <img src="../img/cert-fda.png" alt="FDA-registered facility">
       <img src="../img/cert-gmp.png" alt="cGMP certified">
       <img src="../img/cert-nsf.png" alt="NSF certified">
@@ -518,30 +595,37 @@ table.cmp td b{color:var(--ink);font-weight:700;}
       <img src="../img/cert-usa.png" alt="Made in USA">
       <span class="cr-t">Also Halal and Kosher certified, and MOSA Certified Organic. A certificate of analysis ships with every batch.</span>
     </div>
-    <div class="argue">
+    <div class="argue rv">
       <span class="lab">The standard</span>
       <q>We prove quality with paper, not promises.</q>
     </div>
   </div>
 </section>
 
-<!-- 05 HOW IT STARTS -->
-<section class="sec alt" id="start">
+<!-- 06 HOW IT STARTS -->
+<section class="sec" id="start">
   <div class="wrap stack">
     <div class="sec-head">
-      <div><span class="lab">05 &#183; How it starts</span><h2 class="h2">Pilot small. Prove it. Roll it out.</h2></div>
+      <div><span class="lab">06 &#183; How it starts</span><h2 class="h2">Pilot small. Prove it. Roll it out.</h2></div>
       <p class="body">No platform migration, no open enrollment window. A supplement benefit can start with one team next quarter.</p>
     </div>
-    <div class="steps">
+    <div class="steps rv">
       <div class="step"><span class="sn">01</span><h3 class="h3">Scope</h3><p class="small">One call to size the range, headcount and monthly budget per employee.</p></div>
       <div class="step"><span class="sn">02</span><h3 class="h3">Pilot</h3><p class="small">Branded kits for one team or office. What people actually pick refines the range.</p></div>
       <div class="step"><span class="sn">03</span><h3 class="h3">Roll out</h3><p class="small">Company-wide enrollment with monthly home delivery, run by one accountable partner.</p></div>
     </div>
-    <a class="ctapanel" href="mailto:partnerships@famehealthlabs.com?subject=Supplement%20benefit%20program">
+    <div class="founding rv">
+      <div class="ft">
+        <span class="lab">Founding partners</span>
+        <q>This program is being built with its first partners &#8212; the range, the kit and the reporting shaped around your workforce, not sold off a shelf.</q>
+      </div>
+      <div class="fa"><svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path class="l" d="M100 0V300M200 0V300M300 0V300M400 0V300M500 0V300M0 100H600M0 200H600"/><path class="a" d="M0 100A100 100 0 0 1 100 0M100 300A100 100 0 0 1 200 200M200 200A100 100 0 0 0 300 300M300 0A100 100 0 0 1 400 100M400 100A100 100 0 0 0 500 0M500 200A100 100 0 0 1 600 300M600 100A100 100 0 0 0 500 0"/><path class="d" d="M400 200L500 200A100 100 0 0 1 400 300Z"/></svg></div>
+    </div>
+    <a class="ctapanel rv" href="mailto:partnerships@famehealthlabs.com?subject=Supplement%20benefit%20scoping%20call&body=Headcount%3A%0AWhat%20our%20people%20care%20about%3A%0A">
       <span>
-        <span class="ct-k">Start the conversation</span>
-        <span class="ct-h">Bring wellness into your benefits package.</span>
-        <span class="ct-s">Tell us your headcount and what your people care about. We will come back with a range, a per-employee cost and a pilot plan.</span>
+        <span class="ct-k">The ask is 30 minutes</span>
+        <span class="ct-h">Book a scoping call.</span>
+        <span class="ct-s">Email your headcount and what your people care about. Within a week you have a proposed range, a per-employee cost and a pilot plan to react to.</span>
       </span>
       <span class="ct-go">partnerships@famehealthlabs.com &#8594;</span>
     </a>
@@ -557,6 +641,36 @@ function toggleTheme(){
   try{localStorage.setItem('fameDeck',next);}catch(e){}
 }
 (function(){ try{var s=localStorage.getItem('fameDeck'); if(s) document.documentElement.setAttribute('data-deck',s);}catch(e){} })();
+
+/* reveal on scroll */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(e){e.classList.add('in');}); return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){ io.observe(e); });
+  setTimeout(function(){ els.forEach(function(e){ if(e.getBoundingClientRect().top<window.innerHeight) e.classList.add('in'); }); },900);
+})();
+
+/* rail scrollspy */
+(function(){
+  var cells=document.getElementById('toccells'); if(!cells) return;
+  var links=[].slice.call(cells.querySelectorAll('a'));
+  var pairs=links.map(function(a){var el=document.querySelector(a.getAttribute('href'));return el?{a:a,el:el}:null;}).filter(Boolean);
+  var cur=-2,last=0;
+  function update(){
+    last=Date.now();
+    var best=-1;
+    for(var i=0;i<pairs.length;i++){ if(pairs[i].el.getBoundingClientRect().top<=126) best=i; else break; }
+    if(best===cur) return; cur=best;
+    pairs.forEach(function(p,i){p.a.classList.toggle('on',i===best);});
+  }
+  window.addEventListener('scroll',function(){ if(Date.now()-last>60) update(); },{passive:true});
+  window.addEventListener('resize',update); update();
+})();
 </script>
 </body>
 </html>
