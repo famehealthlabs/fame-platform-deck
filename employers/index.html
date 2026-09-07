@@ -608,6 +608,69 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
 .contactrow div:last-child{border-right:0;}
 .contactrow a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);display:inline-block;padding:12px 0;margin:-9px 0;}
 @media(max-width:700px){.contactrow{grid-template-columns:1fr;}.contactrow div{border-right:0;border-bottom:1px solid var(--rule-soft);}.contactrow div:last-child{border-bottom:0;}}
+
+/* ===== image-led pages (their pp.16, 21, 27, 33, dividers) ===== */
+/* divider: solid field, one word, ruled cells, no arcs */
+.divider{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.divider .dg{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;min-height:clamp(260px,34vw,460px);}
+.divider .dg > div{border-right:1px solid rgba(0,0,0,.28);border-bottom:1px solid rgba(0,0,0,.28);}
+.divider .dg > div:nth-child(3n){border-right:0;}
+.divider .dg > div:nth-last-child(-n+3){border-bottom:0;}
+.divider .dw{padding:clamp(28px,3.6vw,56px) clamp(22px,2.8vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:16px;}
+.divider .dw{min-width:0;}
+.divider .dw .w{font-size:clamp(34px,7vw,110px);line-height:.95;letter-spacing:-.035em;font-weight:400;overflow-wrap:anywhere;}
+.divider .dw .d{font-size:clamp(14px,1.2vw,17px);max-width:40ch;line-height:1.5;}
+.divider.lt{background:var(--cyan-lt);color:#0B2B2F;} .divider.lt .dg > div{border-color:rgba(11,43,47,.28);}
+.divider.dk{background:var(--deep);color:#EAF3F2;} .divider.dk .dg > div{border-color:rgba(234,243,242,.22);}
+.divider .pn{align-self:flex-end;font-size:12px;letter-spacing:.06em;opacity:.7;}
+@media(max-width:700px){.divider .dg{grid-template-columns:1fr 1fr;}.divider .dg > div:nth-child(3n){border-right:1px solid rgba(0,0,0,.28);}.divider .dg > div:nth-child(2n){border-right:0!important;}.divider .dg > div:nth-last-child(-n+3){border-bottom:1px solid rgba(0,0,0,.28);}.divider .dg > div:nth-last-child(-n+2){border-bottom:0!important;}}
+/* two-portrait split with name + italic descriptor on the image */
+.split{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);}
+.split .sp{position:relative;min-height:clamp(320px,38vw,560px);overflow:hidden;border-right:1px solid var(--rule);background:#101315;}
+.split .sp:last-child{border-right:0;}
+.split .sp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.split .sp::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center 60%,rgba(12,13,15,.5) 0%,rgba(12,13,15,.3) 45%,rgba(12,13,15,.12) 100%);}
+.split .sp .st{position:absolute;left:0;right:0;bottom:clamp(24px,3vw,48px);padding:0 clamp(18px,2.4vw,36px);text-align:center;color:#fff;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 24px rgba(0,0,0,.45);}
+.split .sp .st b{display:block;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.02em;font-weight:600;}
+.split .sp .st i{display:block;font-size:clamp(14px,1.2vw,17px);line-height:1.5;margin-top:.5em;max-width:40ch;margin-left:auto;margin-right:auto;color:rgba(255,255,255,.92);}
+.splitlab{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--rule);border-bottom:0;}
+.splitlab .lab{padding:12px clamp(18px,2.4vw,36px);border-right:1px solid var(--rule-soft);}
+.splitlab .lab:last-child{border-right:0;}
+@media(max-width:700px){.split,.splitlab{grid-template-columns:1fr;}.split .sp{border-right:0;border-bottom:1px solid var(--rule);}.split .sp:last-child{border-bottom:0;}.splitlab .lab:first-child{border-right:0;border-bottom:1px solid var(--rule-soft);}}
+/* mixed-crop collage */
+.collage{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(140px,15vw,230px);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.collage figure{margin:0;overflow:hidden;position:relative;background:var(--paper);}
+.collage img{width:100%;height:100%;object-fit:cover;display:block;}
+.collage .a{grid-column:span 2;grid-row:span 2;} .collage .b{grid-row:span 2;}
+@media(max-width:700px){.collage{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,36vw,220px);}.collage .a{grid-column:span 2;grid-row:span 1;}.collage .b{grid-row:span 1;}}
+/* photo cards: name on the image, bullets beneath */
+.pcards{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);background:var(--paper);}
+.pc{border-right:1px solid var(--rule-soft);display:flex;flex-direction:column;min-width:0;}
+.pc:last-child{border-right:0;}
+.pc .pi{position:relative;aspect-ratio:1/1;overflow:hidden;background:#101315;}
+.pc .pi img{width:100%;height:100%;object-fit:cover;display:block;}
+.pc .pi::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(12,13,15,.38) 0%,rgba(12,13,15,.18) 55%,rgba(12,13,15,.08) 100%);}
+.pc .pi b{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;color:#fff;font-size:clamp(18px,1.7vw,24px);letter-spacing:-.016em;font-weight:600;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 22px rgba(0,0,0,.45);padding:0 12px;}
+.pc ul{margin:0;padding:clamp(16px,1.8vw,24px) clamp(16px,1.8vw,24px) clamp(16px,1.8vw,24px) calc(clamp(16px,1.8vw,24px) + 1.1em);font-size:clamp(13.5px,1.05vw,15px);line-height:1.5;color:var(--muted);border-top:1px solid var(--rule-soft);}
+.pc li{margin-bottom:6px;} .pc li b{color:var(--ink);font-weight:600;}
+@media(max-width:900px){.pcards{grid-template-columns:1fr 1fr;}.pc{border-bottom:1px solid var(--rule-soft);}.pc:nth-child(2n){border-right:0;}.pc:nth-last-child(-n+2){border-bottom:0;}}
+@media(max-width:460px){.pcards{grid-template-columns:1fr;}.pc{border-right:0;}.pc:last-child{border-bottom:0;}}
+/* black vision page: centred portrait, statement left, column right */
+.vision{background:#0A0B0C;color:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden;}
+.vision .vg{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:clamp(18px,2.6vw,44px);align-items:center;min-height:clamp(480px,58vw,760px);}
+.vision .vp{position:relative;height:100%;min-height:clamp(320px,44vw,640px);}
+.vision .vp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+.vision .vs{padding:clamp(28px,4vw,64px) 0;}
+.vision .vs .h2{color:#fff;font-size:clamp(30px,3.6vw,54px);max-width:12ch;}
+.vision .vc{padding:clamp(28px,4vw,64px) 0;}
+.vision .vc .lab{color:#8FE6EF;display:block;margin-bottom:1em;}
+.vision .vc p{font-size:clamp(15px,1.25vw,18px);line-height:1.55;color:rgba(255,255,255,.86);margin:0 0 1.1em;}
+.vision .vc b{color:#fff;font-weight:600;} .vision .vc i{color:#8FE6EF;font-family:"EB Garamond",Georgia,serif;font-size:1.06em;}
+@media(max-width:900px){.vision .vg{grid-template-columns:1fr;}.vision .vp{min-height:60vw;order:-1;}.vision .vs .h2{max-width:none;}.vision .vs,.vision .vc{padding:clamp(20px,3vw,40px) 0;}}
+/* closing image page: black, one centred object */
+.closing{background:#0A0B0C;border-top:1px solid var(--rule);padding:clamp(48px,6vw,96px) 0;}
+.closing .cf{max-width:min(720px,80vw);margin:0 auto;aspect-ratio:3/2;overflow:hidden;}
+.closing .cf img{width:100%;height:100%;object-fit:cover;display:block;}
 </style>
 </head>
 <body>
@@ -648,6 +711,16 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <h1 class="h1">Your own supplement line, <em class="acc">made on one campus</em>.</h1>
     </div>
     <p>Formulation, manufacturing and testing for companies building their own supplement brand &#8212; starting with their own people.</p>
+  </div>
+</section>
+
+<section class="divider lt" aria-label="The opportunity">
+  <div class="wrap">
+    <div class="dg">
+      <div class="dw"><div class="w">The opportunity</div><div class="d">The category, the market, and the budget your organization is already spending on it.</div></div>
+      <div></div><div></div>
+      <div></div><div></div><div class="dw" style="justify-content:flex-end"><span class="pn">Part one</span></div>
+    </div>
   </div>
 </section>
 
@@ -763,6 +836,23 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   </div>
 </section>
 
+<!-- TWO WAYS IT GROWS: split page -->
+<section class="sec" id="grows">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">Two ways it grows</span><h2 class="h2">Start with your people. <em class="acc">Then decide.</em></h2></div>
+      <p class="body">The pilot answers the questions a launch to strangers never can. What happens next is your call, on the same lines, with the same partner.</p>
+    </div>
+    <div class="rv">
+      <div class="splitlab"><span class="lab">Path one &#183; Wider internal rollout</span><span class="lab">Path two &#183; Take it to market</span></div>
+      <div class="split">
+        <div class="sp"><img src="../img/ep-team.jpg" alt="" loading="lazy"><div class="st"><b>Every office, every region</b><i>(the same kits, monthly, to every employee &#8212; one contract, one accountable partner)</i></div></div>
+        <div class="sp"><img src="../img/cv-cartons.jpg?v=2" alt="" loading="lazy" style="object-position:center 55%"><div class="st"><b>Retail-ready, under your name</b><i>(no change of manufacturer, no re-qualifying a facility, no reformulating)</i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STATEMENT PAGE -->
 <section class="epband">
   <img src="../img/ep-family.jpg" alt="" loading="lazy" style="object-position:center 38%">
@@ -770,6 +860,16 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
     <div class="bgrid">
       <div><span class="lab">The first audience</span><h2 class="h2">The only audience that tells you the truth.</h2></div>
       <p>Your people will say what they think of the flavor, the format and whether the pack is still on the counter in week six. That is the data a launch to strangers never gives you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="divider dk" aria-label="The platform">
+  <div class="wrap">
+    <div class="dg">
+      <div class="dw"><div class="w">The platform</div><div class="d">What we make, where we make it, and whose name goes on it.</div></div>
+      <div></div><div></div>
+      <div></div><div></div><div class="dw" style="justify-content:flex-end"><span class="pn">Part two</span></div>
     </div>
   </div>
 </section>
@@ -786,6 +886,16 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <div class="fmt"><div class="fi"><img src="../img/sd-sachets.jpg?v=3" alt="" loading="lazy"></div><div class="ft"><b>Daily packs</b><i>AM and PM single-serve formats built around a defined population rather than a catalog SKU with a logo applied.</i></div></div>
       <div class="fmt"><div class="fi"><img src="../img/sd-bottles-color.jpg?v=3" alt="" loading="lazy"></div><div class="ft"><b>Capsules, gummies, powders</b><i>Across 800+ proven formulations to build from.</i></div></div>
       <div class="fmt"><div class="fi"><img src="../img/sd-liquids.jpg?v=3" alt="" loading="lazy"></div><div class="ft"><b>Functional drinks</b><i>Liquids and ready-to-mix, on the same campus, under the same quality system.</i></div></div>
+    </div>
+    <div class="collage rv">
+      <figure class="a"><img src="../img/sd-sticks.jpg?v=3" alt="" loading="lazy"></figure>
+      <figure><img src="../img/capsules-scatter.jpg" alt="" loading="lazy"></figure>
+      <figure class="b"><img src="../img/sd-liquids.jpg?v=3" alt="" loading="lazy"></figure>
+      <figure><img src="../img/hand-capsules.jpg" alt="" loading="lazy"></figure>
+      <figure><img src="../img/cu-refill.jpg" alt="" loading="lazy"></figure>
+      <figure><img src="../img/sd-jars.jpg?v=3" alt="" loading="lazy"></figure>
+      <figure><img src="../img/cv-jarsystem.jpg?v=2" alt="" loading="lazy"></figure>
+      <figure><img src="../img/sd-sachets.jpg?v=3" alt="" loading="lazy"></figure>
     </div>
     <div class="statstrip s4 rv">
       <div class="st"><div class="big num" style="font-weight:400">800+</div><div class="cap">Proven Formulations</div><div class="sub">To build from</div></div>
@@ -812,6 +922,21 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   </div>
 </section>
 
+<section class="sec alt" id="floor">
+  <div class="wrap stack">
+    <div class="sec-head rv">
+      <div><span class="lab">On the floor</span><h2 class="h2">Made and tested <em class="acc">in the same building</em>.</h2></div>
+      <p class="body">Four rooms on one campus. The product moves between them without leaving our accountability.</p>
+    </div>
+    <div class="pcards rv">
+      <div class="pc"><div class="pi"><img src="../img/fac-bottling.jpg" alt="" loading="lazy"><b>Filling &amp; bottling</b></div><ul><li><b>100K+</b> bottles a day</li><li>Capsules, tablets and powders filled on the same floor they are made</li></ul></div>
+      <div class="pc"><div class="pi"><img src="../img/fac-tablets.jpg" alt="" loading="lazy"><b>Tablets &amp; capsules</b></div><ul><li><b>100M+</b> capsules a day</li><li>Capacity a pilot will never outgrow</li></ul></div>
+      <div class="pc"><div class="pi"><img src="../img/curi-tubes.jpg" alt="" loading="lazy"><b>Cur&#237; testing</b></div><ul><li><b>ISO/IEC 17025</b> accredited</li><li>Identity, purity and potency on every batch</li></ul></div>
+      <div class="pc"><div class="pi"><img src="../img/curi-petri.jpg" alt="" loading="lazy"><b>Microbiology</b></div><ul><li><b>In house</b>, on campus</li><li>A two-day answer, not a two-week queue</li></ul></div>
+    </div>
+  </div>
+</section>
+
 <!-- CAMPUS BAND -->
 <section class="epband">
   <img src="../img/band-botanicals.jpg" alt="" loading="lazy">
@@ -832,6 +957,16 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
   </div>
 </section>
 
+<section class="divider lt" aria-label="Getting started">
+  <div class="wrap">
+    <div class="dg">
+      <div class="dw"><div class="w">Getting started</div><div class="d">Four steps, one scoping call, a product in hand.</div></div>
+      <div></div><div></div>
+      <div></div><div></div><div class="dw" style="justify-content:flex-end"><span class="pn">Part three</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- 09 HOW IT STARTS -->
 <section class="sec" id="start" data-p="09">
   <div class="wrap stack">
@@ -844,6 +979,22 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <div class="s4"><span class="sn">02</span><b>Formulation</b><p class="small">Our scientific team, your brief.</p></div>
       <div class="s4"><span class="sn">03</span><b>Pilot run</b><p class="small">From 1,000 units custom, or 500 stock.</p></div>
       <div class="s4"><span class="sn">04</span><b>Scale or extend</b><p class="small">Wider internal rollout, or take it to market.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION PAGE -->
+<section class="vision" id="vision">
+  <div class="wrap">
+    <div class="vg">
+      <div class="vs"><span class="lab" style="color:#8FE6EF;display:block;margin-bottom:.9em">Where this goes</span><h2 class="h2">A line that starts inside can end <em class="acc" style="color:#8FE6EF">on the shelf</em>.</h2></div>
+      <div class="vp"><img src="../img/ep-vision.jpg" alt="" loading="lazy"></div>
+      <div class="vc">
+        <span class="lab">The arc</span>
+        <p><b>Quarter one</b> is a pilot for one team &#8212; real consumption data, real feedback on flavor and format.</p>
+        <p><b>Year one</b>, most companies that do this <i>stop calling it a benefit</i>. It becomes a product with a name their people already recognize.</p>
+        <p><b>After that</b>, the same line can go to retail without changing manufacturers, re-qualifying a facility or reformulating &#8212; the campus that made the pilot makes the launch.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -869,6 +1020,10 @@ table.kv td.src{color:var(--muted);font-size:12.5px;}
       <span class="ct-go">partnerships@famehealthlabs.com &#8594;</span>
     </a>
   </div>
+</section>
+
+<section class="closing" aria-hidden="true">
+  <div class="cf"><img src="../img/ep-capsules.jpg" alt="" loading="lazy"></div>
 </section>
 
 <section class="sources">
