@@ -109,12 +109,16 @@ a{color:inherit;} :focus-visible{outline:2px solid var(--teal);outline-offset:3p
 .certsec{border-bottom:1px solid var(--rule);background:var(--paper);padding:clamp(26px,3vw,46px) 0;}
 .certhead{display:flex;align-items:center;gap:.9em;margin-bottom:clamp(16px,1.8vw,26px);}
 .certhead .bar{height:1px;flex:1;background:var(--rule-soft);}
-.certs{display:grid;grid-template-columns:repeat(9,1fr);border:1px solid var(--rule);background:var(--paper);}
+.certs{display:grid;grid-template-columns:repeat(10,1fr);border:1px solid var(--rule);background:var(--paper);}
 .certs .c{border-right:1px solid var(--rule-soft);padding:clamp(16px,1.8vw,24px) 12px;display:flex;align-items:center;justify-content:center;min-width:0;}
 .certs .c:last-child{border-right:0;}
 .certs img{max-width:100%;max-height:46px;width:auto;height:auto;display:block;}
+.certs .txt{flex-direction:column;gap:1px;text-align:center;line-height:1.05;color:#005898;}
+.certs .txt b{font-size:16px;font-weight:800;}
+.certs .txt i{font-style:normal;font-size:11px;font-weight:600;line-height:1.1;}
+.certs .txt small{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#5B6B70;margin-top:3px;}
 :root[data-deck="dark"] .certs .c{background:#fff;}
-@media(max-width:1000px){.certs{grid-template-columns:repeat(3,1fr);}.certs .c{border-bottom:1px solid var(--rule-soft);}.certs .c:nth-child(3n){border-right:0;}.certs .c:nth-last-child(-n+3){border-bottom:0;}}
+@media(max-width:1000px){.certs{grid-template-columns:repeat(2,1fr);}.certs .c{border-bottom:1px solid var(--rule-soft);}.certs .c:nth-child(3n){border-right:0;}.certs .c:nth-last-child(-n+3){border-bottom:0;}}
 
 
 /* ---------- section frame ---------- */
@@ -763,7 +767,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
   <div class="c"><img src="img/cert-iso.png" alt="ISO 17025"></div>
   <div class="c"><img src="img/cert-healthcanada.png" alt="Health Canada"></div>
   <div class="c"><img src="img/cert-halal.png" alt="Halal certified"></div>
-  <div class="c"><img src="img/cert-kosher.png" alt="Kosher certified"></div>
+  <div class="c"><img src="img/cert-kosher.png" alt="Kosher certified"></div>   <div class="c txt" role="img" aria-label="NSF Certified for Sport, available for product lines"><b>NSF</b><i>Certified<br>for Sport</i><small>Product lines</small></div>
     </div>
   </div>
 </section>
@@ -1106,7 +1110,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
       <div class="pillar tint">
         <div class="pn num">03</div>
         <h3 class="h3">Retail Ready.<br>Globally Compliant.</h3>
-        <span class="pill">FDA registered &#183; cGMP &#183; NSF &#183; SQF &#183; MOSA &#183; Health Canada</span>
+        <span class="pill">FDA registered &#183; cGMP &#183; NSF &#183; SQF &#183; MOSA &#183; Health Canada &#183; NSF Certified for Sport</span>
         <p class="body">Access to a certification stack that opens doors across regulated global markets. Halal and Kosher certified production, with additional certifications in progress.</p>
         <p class="body"><b>Positions your brand for long-term contracts across North America and key global markets.</b></p>
       </div>
