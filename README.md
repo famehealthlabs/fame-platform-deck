@@ -37,14 +37,19 @@ page at all: it computes rather than claims.
 - **Launch math** — sliders for run size, retail price and sell-through resolve
   into real ship dates, an 8-12 week head start and the revenue window inside it.
   Arithmetic on the buyer's own numbers, not a forecast.
-- **The live catalog** — the 851-SKU Webflow export, aggregated client-side into
-  31 categories with format mix and sample SKUs. The market-category grid in
-  chapter 05 deep-links into it. This is the "700+" claim made inspectable.
+- **The live catalog** — the famehealthlabs.com catalog index (464 SKUs, September
+  2026, after the gummy stock formulas were removed), aggregated into 45
+  categories with format mix and sample SKUs. The market-category grid in
+  chapter 05 deep-links into it. This is the "450+" claim made inspectable.
 - **Path finder** — four questions resolve Stock vs Stock+ with the reasoning
   shown, then compose a `mailto:` to Holly carrying the numbers, the category
   and the answers. Nothing sends until the reader presses send.
 
-Regenerate the embedded catalog after a Webflow re-export:
+Regenerate the embedded catalog after a Webflow re-export. Note: since
+2026-09-29 the embedded data is built from the live site's catalog index
+(`fame-catalog-index-v4.json`, 464 items), not from the August CSV below. The
+CSV still holds the removed gummy SKUs, so running the script on it would bring
+them back.
 
 ```bash
 python3 tools/aggregate_catalog.py ../Claude/data/fame-stock-catalog.csv
