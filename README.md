@@ -40,7 +40,7 @@ page at all: it computes rather than claims.
 - **The live catalog** — the famehealthlabs.com catalog index (464 SKUs, September
   2026, after the gummy stock formulas were removed), aggregated into 45
   categories with format mix and sample SKUs. The market-category grid in
-  chapter 05 deep-links into it. This is the "450+" claim made inspectable.
+  chapter 05 deep-links into it. This is the "400+" claim made inspectable.
 - **Path finder** — four questions resolve Stock vs Stock+ with the reasoning
   shown, then compose a `mailto:` to Holly carrying the numbers, the category
   and the answers. Nothing sends until the reader presses send.
