@@ -262,14 +262,14 @@ body.anim .oring{animation:oringspin 80s linear infinite;}
 .eco-tabs button[aria-selected="true"]{background:var(--teal-band);color:#fff;}
 
 /* ---------- flow ---------- */
-.flowgrid{display:grid;grid-template-columns:repeat(9,1fr);border:1px solid var(--rule);position:relative;}
+.flowgrid{display:grid;grid-template-columns:repeat(8,1fr);border:1px solid var(--rule);position:relative;}
 .flowgrid::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--teal-band);}
 .fstep{padding:clamp(16px,1.8vw,24px) 8px clamp(14px,1.6vw,20px);border-right:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center;transition:background .18s;min-width:0;}
 .fstep:last-child{border-right:0;} .fstep:hover{background:var(--aqua-2);}
 .fstep .fn{font-size:10px;font-weight:700;color:var(--teal-deep);font-variant-numeric:tabular-nums;letter-spacing:.08em;}
 .fstep .ft{font-size:13px;line-height:1.2;font-weight:700;letter-spacing:-.01em;}
-@media(max-width:1080px){.flowgrid{grid-template-columns:repeat(3,1fr);}.fstep{border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);}.fstep:nth-child(3n){border-right:0;}.fstep:nth-last-child(-n+3){border-bottom:0;}}
-@media(max-width:520px){.flowgrid{grid-template-columns:repeat(2,1fr);}.fstep:nth-child(3n){border-right:1px solid var(--rule-soft);}.fstep:nth-child(2n){border-right:0;}}
+@media(max-width:1080px){.flowgrid{grid-template-columns:repeat(4,1fr);}.fstep{border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);}.fstep:nth-child(4n){border-right:0;}.fstep:nth-last-child(-n+4){border-bottom:0;}}
+@media(max-width:520px){.flowgrid{grid-template-columns:repeat(2,1fr);}.fstep:nth-child(2n+1){border-right:1px solid var(--rule-soft);}.fstep:nth-child(2n){border-right:0;}.fstep:nth-last-child(-n+4){border-bottom:1px solid var(--rule-soft);}.fstep:nth-last-child(-n+2){border-bottom:0;}}
 
 /* ---------- stat strip ---------- */
 .statstrip{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--rule);}
@@ -861,8 +861,8 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
               <rect x="467.5" y="34" width="196.75" height="62"/><rect x="701.25" y="34" width="196.75" height="62"/>
             </g>
             <g class="fx-t" text-anchor="middle">
-              <text x="98.4" y="70">Source</text><text x="332.1" y="70">Blend</text><text x="565.9" y="70">Manufacture &amp; pack</text>
-              <text x="799.6" y="70">Test</text>
+              <text x="98.4" y="70">Sourcing</text><text x="332.1" y="70">Formulation</text><text x="565.9" y="70">Testing</text>
+              <text x="799.6" y="70">Manufacturing and packing</text>
             </g>
             <g id="gaps"></g>
             <text x="0" y="212" class="fx-s">The F.A.M.E. platform: one company</text>
@@ -871,8 +871,8 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
               <path d="M224.5 230V292"/><path d="M449 230V292"/><path d="M673.5 230V292"/>
             </g>
             <g class="fx-t" text-anchor="middle">
-              <text x="112.25" y="266">Source</text><text x="336.75" y="266">Blend</text><text x="561.25" y="266">Manufacture &amp; pack</text>
-              <text x="785.75" y="266">Test</text>
+              <text x="112.25" y="266">Sourcing</text><text x="336.75" y="266">Formulation</text><text x="561.25" y="266">Testing</text>
+              <text x="785.75" y="266">Manufacturing and packing</text>
             </g>
             <text x="449" y="320" text-anchor="middle" class="fx-s" style="fill:var(--teal-deep)">Zero handoffs &#183; one owner &#183; one system of record</text>
           </svg>
@@ -1047,7 +1047,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
     </div>
 
     <div>
-      <span class="lab">One platform, nine steps</span>
+      <span class="lab">One platform, eight steps</span>
       <div class="flowgrid" style="margin-top:14px">
         <div class="fstep"><span class="fn num">01</span><span class="ft">Raw Ingredients</span></div>
         <div class="fstep"><span class="fn num">02</span><span class="ft">Formulation</span></div>
@@ -1056,8 +1056,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
         <div class="fstep"><span class="fn num">05</span><span class="ft">Testing</span></div>
         <div class="fstep"><span class="fn num">06</span><span class="ft">Labeling</span></div>
         <div class="fstep"><span class="fn num">07</span><span class="ft">Packaging</span></div>
-        <div class="fstep"><span class="fn num">08</span><span class="ft">Warehousing</span></div>
-        <div class="fstep"><span class="fn num">09</span><span class="ft">Shipping</span></div>
+        <div class="fstep"><span class="fn num">08</span><span class="ft">Kitting</span></div>
       </div>
     </div>
 
@@ -1103,7 +1102,7 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
         <div class="pn num">02</div>
         <h3 class="h3">One Platform.<br>Complete Visibility.</h3>
         <span class="pill grey">One partner. Zero gaps.</span>
-        <p class="body">Raw ingredients, formulation, manufacturing, quality control, testing, labeling, packaging, warehousing and shipping.</p>
+        <p class="body">Raw ingredients, formulation, manufacturing, quality control, testing, labeling, packaging and kitting.</p>
         <p class="body"><b>An integrated model that keeps execution, speed and visibility in your control.</b></p>
       </div>
       <div class="pillar tint">
@@ -2061,9 +2060,9 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 (function(){
   /* build the three handoff gaps in figure 01 */
   var GAPS=[
-    {x:196.75,t:'The recipe gets re-read',d:'Often the company blending your formula is not the company that bought the ingredients. Anything lost between the two shows up later, in a batch that has already been made.'},
-    {x:430.5,t:'Waiting for the factory queue',d:'Your blend waits for a production slot set by the manufacturer\u2019s calendar, not your retail date. Most of the twelve weeks is spent here, waiting.'},
-    {x:664.25,t:'Samples travel to an outside lab',d:'Finished product is boxed, shipped to a third-party lab, and waits its turn. Nobody counts those days, because nobody owns them. If a result comes back wrong, the work goes back to whichever supplier gets blamed, and the wait starts again.'}
+    {x:196.75,t:'The recipe gets re-read',d:'Often the company formulating your product is not the company that bought the ingredients. Anything lost between the two shows up later, in a batch that has already been made.'},
+    {x:430.5,t:'Samples travel to an outside lab',d:'Samples are boxed, shipped to a third-party lab, and wait their turn. Nobody counts those days, because nobody owns them. If a result comes back wrong, the formula goes back to the formulator and the wait starts again.'},
+    {x:664.25,t:'Waiting for the factory queue',d:'Once the formula passes, it waits for a production slot set by the manufacturer\u2019s calendar, not your retail date. Most of the twelve weeks is spent here, waiting.'}
   ];
   var g=document.getElementById('gaps');
   if(g){
