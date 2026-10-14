@@ -849,31 +849,30 @@ html.tswap,html.tswap *{transition:background-color .4s ease,color .4s ease,bord
     <figure class="dfig rv" id="fig-chain" style="margin:0">
       <div class="fig-head">
         <div><span class="lab">Figure 01</span><h3 class="h3">8&#8211;12 wasted weeks vs 4 weeks</h3></div>
-        <p class="body">The five steps are the same either way. What changes is who owns the space between them. Every gap below is a company boundary, and every boundary is where time and accountability leak out.</p>
+        <p class="body">The four steps are the same either way. What changes is who owns the space between them. Every gap below is a company boundary, and every boundary is where time and accountability leak out.</p>
         <span class="fig-hint">Select a gap</span>
       </div>
       <div class="fig-body">
         <div class="fig-plot">
-          <svg viewBox="0 0 900 330" role="img" aria-label="A fragmented chain of five vendors with four handoff gaps, compared with one continuous platform">
-            <text x="0" y="16" class="fx-s">Fragmented chain: five companies</text>
+          <svg viewBox="0 0 900 330" role="img" aria-label="A fragmented chain of four vendors with three handoff gaps, compared with one continuous platform">
+            <text x="0" y="16" class="fx-s">Fragmented chain: four companies</text>
             <g stroke="var(--warn)" stroke-width="1.4" fill="none">
-              <rect x="0" y="34" width="150" height="62"/><rect x="187" y="34" width="150" height="62"/>
-              <rect x="374" y="34" width="150" height="62"/><rect x="561" y="34" width="150" height="62"/>
-              <rect x="748" y="34" width="150" height="62"/>
+              <rect x="0" y="34" width="196.75" height="62"/><rect x="233.75" y="34" width="196.75" height="62"/>
+              <rect x="467.5" y="34" width="196.75" height="62"/><rect x="701.25" y="34" width="196.75" height="62"/>
             </g>
             <g class="fx-t" text-anchor="middle">
-              <text x="75" y="70">Source</text><text x="262" y="70">Blend</text><text x="449" y="70">Manufacture</text>
-              <text x="636" y="70">Test</text><text x="823" y="70">Ship</text>
+              <text x="98.4" y="70">Source</text><text x="332.1" y="70">Blend</text><text x="565.9" y="70">Manufacture &amp; pack</text>
+              <text x="799.6" y="70">Test</text>
             </g>
             <g id="gaps"></g>
             <text x="0" y="212" class="fx-s">The F.A.M.E. platform: one company</text>
             <rect x="0" y="230" width="898" height="62" fill="var(--aqua)" stroke="var(--teal-deep)" stroke-width="1.5"/>
             <g stroke="var(--teal-deep)" stroke-width="1" opacity=".4">
-              <path d="M179.6 230V292"/><path d="M359.2 230V292"/><path d="M538.8 230V292"/><path d="M718.4 230V292"/>
+              <path d="M224.5 230V292"/><path d="M449 230V292"/><path d="M673.5 230V292"/>
             </g>
             <g class="fx-t" text-anchor="middle">
-              <text x="89.8" y="266">Source</text><text x="269.4" y="266">Blend</text><text x="449" y="266">Manufacture</text>
-              <text x="628.6" y="266">Test</text><text x="808.2" y="266">Ship</text>
+              <text x="112.25" y="266">Source</text><text x="336.75" y="266">Blend</text><text x="561.25" y="266">Manufacture &amp; pack</text>
+              <text x="785.75" y="266">Test</text>
             </g>
             <text x="449" y="320" text-anchor="middle" class="fx-s" style="fill:var(--teal-deep)">Zero handoffs &#183; one owner &#183; one system of record</text>
           </svg>
@@ -2060,12 +2059,11 @@ window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
 /* ---------- interactive figures: hit regions, gaps, lead-time toggle ---------- */
 (function(){
-  /* build the four handoff gaps in figure 01 */
+  /* build the three handoff gaps in figure 01 */
   var GAPS=[
-    {x:150,t:'The recipe gets re-read',d:'Often the company blending your formula is not the company that bought the ingredients. Anything lost between the two shows up later, in a batch that has already been made.'},
-    {x:337,t:'Waiting for the factory queue',d:'Your blend waits for a production slot set by the manufacturer\u2019s calendar, not your retail date. Most of the twelve weeks is spent here, waiting.'},
-    {x:524,t:'Samples travel to an outside lab',d:'Finished product is boxed, shipped to a third-party lab, and waits its turn. Nobody counts those days, because nobody owns them.'},
-    {x:711,t:'One failed test starts it again',d:'If a result comes back wrong, the work goes back to whichever supplier gets blamed. With five companies involved, no one can simply fix it and carry on.'}
+    {x:196.75,t:'The recipe gets re-read',d:'Often the company blending your formula is not the company that bought the ingredients. Anything lost between the two shows up later, in a batch that has already been made.'},
+    {x:430.5,t:'Waiting for the factory queue',d:'Your blend waits for a production slot set by the manufacturer\u2019s calendar, not your retail date. Most of the twelve weeks is spent here, waiting.'},
+    {x:664.25,t:'Samples travel to an outside lab',d:'Finished product is boxed, shipped to a third-party lab, and waits its turn. Nobody counts those days, because nobody owns them. If a result comes back wrong, the work goes back to whichever supplier gets blamed, and the wait starts again.'}
   ];
   var g=document.getElementById('gaps');
   if(g){
