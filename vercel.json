@@ -26,19 +26,34 @@
   ],
   "redirects": [
     {
+      "source": "/enterprise",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/enterprise/",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/enterprise/(.*)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/employers",
-      "destination": "/enterprise/",
-      "permanent": true
+      "destination": "/",
+      "permanent": false
     },
     {
       "source": "/employers/",
-      "destination": "/enterprise/",
-      "permanent": true
+      "destination": "/",
+      "permanent": false
     },
     {
       "source": "/employers/(.*)",
-      "destination": "/enterprise/$1",
-      "permanent": true
+      "destination": "/",
+      "permanent": false
     }
   ]
 }
